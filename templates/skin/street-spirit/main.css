@@ -1,0 +1,76 @@
+body {
+	font: 13px/18px 'Helvetica Neue', Arial, Sans-Serif;
+	color: #000;
+	background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 { font: normal 18px 'Helvetica Neue', arial, sans-serif; line-height: 1.3em; margin-bottom: 0.3em; color: #000; }
+h2 { font-size: 22px; margin-bottom: 20px; }
+h2 span { color: #359e07; }
+h3 { font-size: 18px; }
+
+a { color: #0073a5; }
+a:hover{ color:#1cacea; border-color:#1cacea !important;}
+#content .content a:visited{ color:#324a65; }
+#content .content a:active{background:#e6f8ff;}
+
+#sidebar .block a:active{background:#e6f8ff;}
+.topic .info li.username a:active{background:#e6f8ff;}
+#nav-inner .profile .username:active{background:#e6f8ff;}
+.user-profile-table a:active{background:#e6f8ff;}
+
+.block .cloud li a:active{background:#e6f8ff;}
+.topic-name-href:active{background:#e6f8ff;}
+.comment .info li.username a:active{background:#e6f8ff;}
+.table.table-people tr td:first-child a:active{background:#e6f8ff;}
+
+#footer a:active{background:#e6f8ff;}
+
+a.dashed { text-decoration: none; border-bottom: 1px dashed #70AAE0; }
+
+p { margin-bottom: 18px; }
+
+
+/*#content-inner h2{font-family: 'helvetica neue', arial, sans-serif; font-size:38px; line-height:35px; font-weight:bold; margin-bottom: 20px;}*/
+h1.page-title{font-family: 'helvetica neue', arial, sans-serif; font-size:38px; line-height:35px; font-weight:bold; margin-bottom: 20px;}
+h2.stream-header{font-family: 'helvetica neue', arial, sans-serif; font-size:38px; line-height:35px; font-weight:bold; margin-bottom: 20px;}
+h1.page-title span{vertical-align:top; position:relative; color: #359e07;}
+h1.page-title .sup{font-size:20px; top:-10px;}
+h1.page-title .search-request{font-size:38px; vertical-align:top; position:relative; top:0; color: #7f7f7f;}
+
+.country-banner {
+display:block;
+width:100%; height:70px; 
+border:solid 1px #CCCCCC;
+text-align:center;
+background-image:url('../../../../uploads/banner-bg.png');
+background-repeat:no-repeat;
+background-position:right bottom;
+text-align:center;
+text-decoration:none; 
+border-radius: 6px;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+-o-border-radius: 6px;
+color:#FFF;
+}
+
+.share-line { float: right; width: 400px; }
+.facebook-cont { width: 140px; }
+.mrt_small2 {
+    margin-right: 5px !important;
+}
+.fl {
+    float: left;
+}
+.share-line-twitter {
+    width: 110px;
+}
+
+img.hl { border: none; }
+img.hl:hover { 
+filter:alpha(opacity=80); /* IE 5.5+*/
+-moz-opacity: 0.8; /* Mozilla 1.6 и ниже */
+-khtml-opacity: 0.8; /* Konqueror 3.1, Safari 1.1 */
+opacity: 0.8; /* CSS3 - Mozilla 1.7b +, Firefox 0.9 +, Safari 1.2+, Opera 9 */
+}

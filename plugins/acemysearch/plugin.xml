@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>
+        <lang name="default">aceMySearch</lang>
+    </name>
+    <author>
+        <lang name="default">Vadim Shemarov (aka aVadim)</lang>
+    </author>
+    <homepage></homepage>
+    <version>1.5.121</version>
+    <requires>
+        <livestreet>0.5.1</livestreet>
+        <plugins>
+            <plugin name="aceAdminPanel" version="1.5.213" condition="ge">aceadminpanel</plugin>
+        </plugins>
+    </requires>
+    <description>
+        <lang name="default">Simple Search via MySQL (without Sphinx) for LiveStreet/ACE</lang>
+        <lang name="russian">Простой поиск по сайту средствами MySQL (без Sphinx'а) для LiveStreet/ACE</lang>
+    </description>
+</plugin>

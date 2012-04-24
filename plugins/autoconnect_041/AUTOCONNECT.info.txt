@@ -1,0 +1,14 @@
+Blog Autoconnect plugin
+Activation: 
+1) copy folder "autoconnect" from archive to /plugins dir 
+2) login as admin and open http://site.com/admin/plugins 
+3) press "Activate" to Blogs Autoconnect Plugin 
+
+
+Author: Vladimir Yuriev (eXtravert)
+
+Author profile: http://livestreet.ru/profile/eXtravert/
+
+LiveStreet Version: 0.4.0
+
+Donate: Webmoney R850284582398 Z403736936162

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>
+		<lang name="default">AutoCut</lang>
+		<lang name="russian">AutoCut</lang>
+	</name>
+	<author>
+		<lang name="default">Vladimir Linkevich</lang>
+		<lang name="russian">Владимир Линкевич</lang>
+	</author>
+	<homepage>http://pokupalka.com.ua</homepage>
+	<version>0.0.3</version>
+	<requires>
+		<livestreet>0.4.2</livestreet>
+		<plugins>
+		</plugins>
+	</requires>
+	<description>
+		<lang name="default">Adds cut automatically after selected count of symbols.</lang>
+		<lang name="russian">Вставляет кат в текст после заданного количества символов, если кат не установлен пользователем раньше.</lang>
+	</description>
+</plugin>
