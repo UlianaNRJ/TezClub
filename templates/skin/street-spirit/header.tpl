@@ -11,16 +11,24 @@
 	
     <link href="http://stg.odnoklassniki.ru/share/odkl_share.css" rel="stylesheet">
 
-	<meta property="og:title" content="{$sHtmlTitle}"/>
-	{*<meta property="og:type" content="article"/>*}
-	<meta property="og:type" content="blog"/>
-	<meta property="og:url" content="{cfg name='path.root.web'}"/>
+	
+	{if $oTopic && !$bTopicList}
+		<meta property="og:title" content="{$oTopic->getTitle()|escape:'html'}"/>
+		<meta property="og:url" content="{$oTopic->getUrl()}"/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:description" content="{$oTopic->getTitle()|escape:'html'}"/>
+	{else}
+		<meta property="og:title" content="{$sHtmlTitle}"/>
+		<meta property="og:url" content="{cfg name='path.root.web'}"/>
+		<meta property="og:type" content="blog"/>
+		<meta property="og:description" content="{$sHtmlDescription}"/>
+	{/if}
 
 	{*<meta property="og:image" content=""/>*}
 
 	<meta property="og:site_name" content="{$sHtmlTitle}"/>
 	{*<meta property="fb:admins" content="USER_ID"/>*}
-	<meta property="og:description" content="{$sHtmlDescription}"/>
+
 
 
 	{$aHtmlHeadFiles.css}
