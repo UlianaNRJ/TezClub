@@ -1,0 +1,115 @@
+button::-moz-focus-inner,
+input::-moz-focus-inner,
+input::-moz-focus-outer{
+	border: 0;
+	padding: 0;
+	outline: none;
+}
+
+input:-webkit-autofill {
+	background-color: #fff !important;
+}
+
+input:focus,
+input:hover,
+input:active,
+textarea,
+select,
+button,
+a {
+	outline: none;
+}
+
+
+/***********************/
+
+form {
+	overflow: auto;
+}
+
+	input,
+	/*select,*/
+	textarea {
+		margin-bottom: 0.5em;
+	}
+
+	input[readonly],
+	input[disabled]{
+		background-color: buttonface !important;
+	}
+
+	select {
+		width: 200px;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="file"],
+	input[type="password"]{
+		width: 200px;
+	}
+
+	input[type="submit"]{
+		float: right;
+	}
+
+	input[type="submit"],
+	input[type="button"]{
+		cursor: pointer;
+	}
+
+	input[type="image"]{
+		border: none;
+		margin: 0 auto;
+		display: block;
+	}
+
+	textarea {
+		width: 400px;
+		height: 100px;
+		display: block;
+	}
+
+	input[type=checkbox],
+	input[type=radio] {
+		padding: 0;
+		margin-right: 5px;
+		margin-top: 8px;
+	}
+		input[type=checkbox] + label {
+			margin-top: 1px;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			color: #000;
+			font-weight: normal;
+			line-height: 20px;
+		}
+		input[type=checkbox]:checked + label {
+
+		}
+		input[type=checkbox][disabled] + label {
+			color: #000;
+			cursor: default;
+		}
+
+		input[type=radio] + label {
+			margin-top: 1px;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			color: #000;
+			font-weight: normal;
+			line-height: 20px;
+		}
+		input[type=radio]:checked + label {
+
+		}
+
+label {
+	cursor: pointer;
+}
+
+
+.overflow {
+	max-height: 200px;
+	margin-bottom: 10px;
+}

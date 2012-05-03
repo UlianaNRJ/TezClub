@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %}Page Title{% endblock %}
+
+{% block content %}
+<div class="caption">
+    <span class="name">Прокуратура проверяет законность...</span>
+    <a class="all" href="#">Все обзоры</a>
+
+</div>
+<div class="text">
+    <div class="options">
+        <h3>Сортировать обзоры </h3>
+        <select>
+            <option>Последние</option>
+        </select>
+        <select>
+            <option>По отелям</option>
+        </select>
+        <select>
+            <option>По блоггерам</option>
+        </select>
+    </div>
+    <div class="list short hotels">
+        {% include 'list_short_hotel.twig' %}
+    </div>
+
+    
+    <div class="">
+        Страница
+        <ul class="c ib pagging">
+            <li class="ib">1</li>
+            <li class="ib"><a href="#">2</a></li>
+            <li class="ib"><a href="#">3</a></li>
+            <li class="ib"><a href="#">4</a></li>
+            <li class="ib"><a href="#">5</a></li>
+            <li class="ib"><a href="#">6</a></li>
+            <li class="ib"><a href="#">7</a></li>
+            <li class="ib"><a href="#">→</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

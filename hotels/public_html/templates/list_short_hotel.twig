@@ -1,0 +1,32 @@
+{% for topic in topics %}
+<div class="entry">
+    <h1>{{ topic.title }}</h1>
+    <div class="meta">
+        <img src="/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
+        автор <a href="/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,
+        отель <a href="/hotel/{{ topic.hotel_id }}">{{ topic.hotel }}</a>,
+        оператор <a href="#">Василий иванович</a>
+        <span class="date">{{ topic.timestamp|date('jS F Y, H:i') }}</span>
+    </div>
+    <div class="description">
+        <p>{{ topic.summary|raw }}</p>
+        <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
+    </div>
+    <div class="poll">
+        <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals }}</span> (голосов {{ topic.count_voises }})</div>
+        <div class="ib">Проголосовать:</div>
+        <div class="ib vote">
+            <div class="progress"></div>
+        </div>
+    </div>
+    
+    {% if topic.tags != '' %}
+    <ul class="c tags">
+        {% for tag in topic.tags %}
+        <li class="ib ui-corner-all"><a href="#">{{ tag }} &bull;</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+</div>
+{% endfor %}

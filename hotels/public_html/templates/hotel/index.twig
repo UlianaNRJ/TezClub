@@ -1,0 +1,40 @@
+{% extends 'admin.twig' %}
+
+{% block page_title %}Hotel Administration{% endblock %}
+
+{% block content %}	
+	<h1>Hotel Administration <a href="/admin/hotel/add" class="btn btn-success">Add hotel</a></h1>
+
+	{% if hotels %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date</th>
+					<th>Active</th>
+					<th colspan="2">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+				{% for hotel in hotels %}
+					<tr>
+						<td>{{ hotel.name }}</td>
+						<td>{{ hotel.timestamp|date('jS F Y H:i:s') }}</td>
+						<td>
+							{% if hotel.active == 1 %}
+                                <i class="icon-eye-open"></i>
+                            {% else %}
+                                <i class="icon-eye-close"></i>
+                            {% endif %}
+                        </td>
+						<td><a href="/admin/hotel/edit/{{ hotel.id }}">Edit</a></td>
+						<td><a href="/admin/hotel/delete/{{ hotel.id }}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>There are currently no hotels.</p>
+	{% endif %}
+{% endblock %}

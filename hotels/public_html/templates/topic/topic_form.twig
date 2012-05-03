@@ -1,0 +1,84 @@
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() {
+            //nicEditors.allTextAreas();
+            new nicEditor({fullPanel : true}).panelInstance('summary');
+            new nicEditor({fullPanel : true}).panelInstance('content');
+        });
+
+  //]]>
+  </script>
+<h1>{{ action_name }} topic</h1>
+<form action="{{ action_url }}" method="post" class="form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="title">Title</label>
+            <div class="controls">
+              <input type="text" name="title" value="{{ topic.title|default('') }}" id="title" style="width:500px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="blogger">Blogger</label>
+            <div class="controls">
+              <select  id="blogger" name="blogger">
+                {% for blogger in bloggers %}
+                    <option {% if blogger.id == topic.bl_id %}selected{% endif %} value="{{blogger.id}}">{{blogger.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="hotel">Hotel</label>
+            <div class="controls">
+              <select  id="hotel" name="hotel">
+                {% for hotel in hotels %}
+                    <option {% if hotel.id == topic.hotel_id %}selected{% endif %} value="{{hotel.id}}">{{hotel.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="summary">Summary</label>
+            <div class="controls">
+              <textarea name="summary" id="summary" style="width:510px; height:150px;">{{ topic.summary|default('') }}</textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="content">Content</label>
+            <div class="controls">
+              <textarea name="content" id="content" style="width:510px; height:150px;">{{ topic.content|default('') }}</textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="timestamp">Date</label>
+            <div class="controls">
+              <input type="text" name="timestamp" value="{{ topic.timestamp|default("now"|date("Y-m-d H:i:s")) }}" id="timestamp" style="width:500px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="tags">Tags</label>
+            <div class="controls">
+              <input type="text" name="tags" value="{{ topic.tags|default('') }}" id="tags" style="width:500px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="active">Active</label>
+            <div class="controls">
+                <input type="checkbox" name="active" value="1" {% if topic.active == 1 %} checked {% endif %}>
+            </div>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">{{ action_name }} hotel</button>
+            <button class="btn">Cancel</button>
+        </div>
+    </fieldset>
+</form>

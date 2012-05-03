@@ -1,0 +1,17 @@
+<form action="{{ action_url }}" method="post">
+    <h1>{{ action_name }} hotel type</h1>
+    
+    <p>
+        <label for="title">Name: </label>
+        <input type="text" name="name" value="{{ hoteltype.name|default('') }}" id="name" style="width:500px;"/>
+    </p>
+
+    <p>
+        <label for="title">Active: </label>
+        <input type="checkbox" name="active" value="1" {% if hoteltype.active == 1 %} checked {% endif %}>
+    </p>
+
+    <p>
+        <input type="submit" class="btn" value="{{ action_name }} hotel type" />
+    </p>
+</form>

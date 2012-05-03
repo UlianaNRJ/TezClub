@@ -1,0 +1,116 @@
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() {
+            new nicEditor({fullPanel : true}).panelInstance('description');
+        });
+
+  //]]>
+  </script>
+
+<h1>{{ action_name }} hotel</h1>
+
+<form action="{{ action_url }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <fieldset>
+    <div class="control-group">
+        <label class="control-label" for="name">Name</label>
+        <div class="controls">
+            <input type="text" name="name" value="{{ hotel.name|default('') }}" id="name" style="width:500px;"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="multiSelect">Type</label>
+        <div class="controls">
+          <select multiple="multiple" id="multiSelect" name="hoteltype[]">
+            {% for hoteltype in hoteltypes %}
+                <option {% if hoteltype.check == 1 %}selected{% endif %} value="{{hoteltype.id}}">{{hoteltype.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="city">City</label>
+        <div class="controls">
+          <select  id="city" name="city">
+            <option value="0">...</option>
+            {% for city in cities %}
+                <option {% if city.id == hotel.cc_id %}selected{% endif %} 
+                    value="{{city.id}}">{{city.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="description">Description</label>
+        <div class="controls">
+            <textarea name="description" id="description" style="width:500px; height:50px;">{{ hotel.description|default('') }}</textarea>
+        </div>
+    </div>
+
+        <div class="control-group">
+            <label class="control-label" for="fbgroup">Группа в FB</label>
+            <div class="controls">
+              <input type="text" name="fbgroup" value="{{ hotel.soc_links.fbgroup|default('') }}" id="tags" style="width:500px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="vkgroup">Вконтакте</label>
+            <div class="controls">
+              <input type="text" name="vkgroup" value="{{ hotel.soc_links.vkgroup|default('') }}" id="tags" style="width:500px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="site">Сайт</label>
+            <div class="controls">
+              <input type="text" name="site" value="{{ hotel.soc_links.site|default('') }}" id="tags" style="width:500px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="tzturpage">Страница отеля на Тез Тур</label>
+            <div class="controls">
+              <input type="text" name="tzturpage" value="{{ hotel.soc_links.tzturpage|default('') }}" id="tags" style="width:500px;"/>
+            </div>
+        </div>
+    
+    {% if hotel.image !='' %}
+    <div class="control-group">
+        <div class="controls">
+            <img src="{{ server_name }}{{hotel.image}}" />
+        </div>
+    </div>
+    {% endif %}
+
+	<div class="control-group">
+        <label class="control-label" for="image">Logo</label>
+        <div class="controls">
+            <input class="input-file" id="image" type="file" name="image">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="active">Active</label>
+        <div class="controls">
+            <input type="checkbox" name="active" value="1" {% if hotelcity.active == 1 %} checked {% endif %}>
+        </div>
+    </div>
+
+{#
+    <div class="control-group">
+        <label class="control-label" for="timestamp">Date</label>
+        <div class="controls">
+          <input type="text" name="timestamp" value="{{ hotel.timestamp|default('') }}" id="tags" style="width:500px;"/>
+        </div>
+    </div>
+#}
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ action_name }} hotel</button>
+        <button class="btn">Cancel</button>
+    </div>
+    </fieldset>
+</form>

@@ -1,0 +1,53 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %} {{ hotel.name }} {% endblock %}
+
+{% block content %}
+<div class="caption">
+    <select class="dropdown">
+        <option>{{ hotel.name }}</option>
+    </select>
+    <span class="name">{{ hotel.name }}</span>
+    <a class="all" href="/hotels">все отели</a>
+
+</div>
+<div class="text">
+    <div class="actions">
+        <div class="name">
+            Отель: <strong>{{ hotel.name }}</strong>
+            <a class="button green corners" href="{{ hotel.soc_links.site }}">Заказать тур в оттеле</a>
+        </div>
+        <ul class="social">
+            <li class="ib vk"><a href="{{ hotel.soc_links.vkgroup }}">Отель в Вконтакте</a></li>
+            <li class="ib fb"><a href="{{ hotel.soc_links.fbgroup }}">Отель в Facebook</a></li>
+            <li class="ib"><a href="{{ hotel.soc_links.tzturpage }}">Отель на сайте tez tour</a></li>
+        </ul>
+    </div>
+    <div class="options">
+        <h3>Сортировать обзоры про отель</h3>
+        <select>
+            <option>Последние</option>
+        </select>
+    </div>
+    <div class="list short hotels">
+        {% include 'list_short_hotel.twig' %}
+    </div>
+    <div class="">
+        Страница
+        <ul class="c ib pagging">
+            <li class="ib">1</li>
+            <li class="ib"><a href="#">2</a></li>
+            <li class="ib"><a href="#">3</a></li>
+            <li class="ib"><a href="#">4</a></li>
+            <li class="ib"><a href="#">5</a></li>
+            <li class="ib"><a href="#">6</a></li>
+            <li class="ib"><a href="#">7</a></li>
+            <li class="ib"><a href="#">→</a></li>
+        </ul>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

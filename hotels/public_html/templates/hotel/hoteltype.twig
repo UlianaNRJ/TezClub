@@ -1,0 +1,41 @@
+{% extends 'admin.twig' %}
+
+{% block page_title %}Hotel Types Administration{% endblock %}
+
+{% block content %} 
+    <h1>Hotel Types Administration <a href="/admin/hoteltype/add" class="btn btn-success">Add hotel types</a></h1>
+
+    {% if hoteltypes %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th colspan="3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                {% for hoteltype in hoteltypes %}
+                    <tr>
+                        <td>{{ hoteltype.id }}</td>
+                        <td>{{ hoteltype.name }}</td>
+                        <td>
+                            <a href="/admin/hoteltype/chactive/{{ hoteltype.id }}">
+                                {% if hoteltype.active == 1 %}
+                                    <i class="icon-eye-open"></i>
+                                {% else %}
+                                    <i class="icon-eye-close"></i>
+                                {% endif %}
+                            </a>
+                        </td>
+                        <td><a href="/admin/hoteltype/edit/{{ hoteltype.id }}">Edit</a></td>
+                        <td><a href="/admin/hoteltype/delete/{{ hoteltype.id }}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>There are currently no hoteltypes.</p>
+    {% endif %}
+{% endblock %}

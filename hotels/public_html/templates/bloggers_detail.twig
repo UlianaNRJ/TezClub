@@ -1,0 +1,110 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %}Bloggers Title{% endblock %}
+
+{% block content %}
+<div class="caption">
+    <select class="dropdown">
+        <option value="0">Выбрать блогера</option>
+        {% for blogger in bloggers %}
+        <option value="{{ blogger.id }}">{{ blogger.name }}</option>
+        {% endfor %}
+    </select>
+    <span class="name">{{ blogger.name }}</span>
+    <a class="all" href="/bloggers">все блогеры</a>
+</div>
+<div class="text">
+    <div class="c info">
+        <div class="ib avatar">
+            {% if blogger.image %}
+                <img src="/{{ blogger.image }}.225" height="225" width="225" alt="avatar" />
+            {% else %}
+                <img src="/img/avatar.png" height="225" width="225" alt="avatar" />
+            {% endif %}
+            <div class="poll">
+                <div class="statistic">Балы <span class="score">{{ blogger.bals|default(0) }}</span> (голосов {{ blogger.count_voises|default(0) }})</div>
+                <div class="ib">Проголосовать:</div>
+                <div class="ib vote">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ib data">
+            <h2>{{ blogger.login }}</h2>
+            <div class="name">{{ blogger.name }}</div>
+            <h3>Личное</h3>
+            <dl>
+                <dt>Пол:</dt>
+                <dd>{% if blogger.sex == 1 %}
+                        мужской
+                    {% elseif blogger.sex == 2 %}
+                        женский
+                    {% else %}
+                        -
+                    {% endif %}
+                </dd>
+                <dt>Дата рождения:</dt>
+                <dd>{{ blogger.bd_date|default("-") }}</dd>
+                <dt>Местоположение:</dt>
+                <dd>{{ blogger.bd_plase|default("-") }}</dd>
+            </dl>
+            <h3>О себе:</h3>
+            <div>{{ blogger.about|default("-")|raw }}</div>
+            <h3>Связаться:</h3>
+            <ul class="c social">
+                {% if blogger.soc_links.vk !='' %}
+                <li class="ib vk"><a href="{{ blogger.soc_links.vk }}">Вконтакте</a></li>
+                {% endif %}
+                {% if blogger.soc_links.lj !='' %}
+                <li class="ib lj"><a href="{{ blogger.soc_links.lj }}">Livejournal</a></li>
+                {% endif %}
+                {% if blogger.soc_links.tw !='' %}
+                <li class="ib tw"><a href="{{ blogger.soc_links.tw }}">Twitter</a></li>
+                {% endif %}
+                {% if blogger.soc_links.fb !='' %}
+                <li class="ib fb"><a href="{{ blogger.soc_links.fb }}">Facebook</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="ib hotel">
+            <h3>Отели {{ blogger.name }}</h3>
+            <ul class="grid">
+                {% for hotel in hotels %}
+                <li class="c">
+                    <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
+                    <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
+                    <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="options">
+        <select>
+            <option>Последние</option>
+        </select>
+        <select>
+            <option>Любой оттель</option>
+        </select>
+    </div>
+    <div class="list short hotels">
+        {% include 'list_short_hotel.twig' %}
+    </div>
+    <div class="">
+        Страница
+        <ul class="c ib pagging">
+            <li class="ib">1</li>
+            <li class="ib"><a href="#">2</a></li>
+            <li class="ib"><a href="#">3</a></li>
+            <li class="ib"><a href="#">4</a></li>
+            <li class="ib"><a href="#">5</a></li>
+            <li class="ib"><a href="#">6</a></li>
+            <li class="ib"><a href="#">7</a></li>
+            <li class="ib"><a href="#">→</a></li>
+        </ul>
+    </div>
+
+
+</div>
+
+{% endblock %}

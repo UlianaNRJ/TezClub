@@ -1,0 +1,19 @@
+<h1>{{ action_name }} hotel city</h1>
+<form action="{{ action_url }}" method="post" class="form-horizontal">
+    <fieldset>
+    <p>
+        <label for="title">Name: </label>
+        <input type="text" name="name" value="{{ hotelcity.name|default('') }}" id="name" style="width:500px;"/>
+    </p>
+
+    <p>
+        <label for="title">Active: </label>
+        <input type="checkbox" name="active" value="1" {% if hotelcity.active == 1 %} checked {% endif %}>
+    </p>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ action_name }} hotel</button>
+        <button class="btn">Cancel</button>
+    </div>
+    </fieldset>
+</form>

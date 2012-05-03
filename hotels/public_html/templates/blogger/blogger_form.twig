@@ -1,0 +1,121 @@
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() {
+            new nicEditor({fullPanel : true}).panelInstance('about');
+        });
+
+  //]]>
+  </script>
+
+<h1>{{ action_name }} blogger</h1>
+
+<form action="{{ action_url }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <fieldset>
+
+    <div class="control-group">
+        <label class="control-label" for="login">Login</label>
+        <div class="controls">
+            <input type="text" name="login" value="{{ blogger.login|default('') }}" 
+                   id="login" style="width:500px;"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="name">Name</label>
+        <div class="controls">
+            <input type="text" name="name" value="{{ blogger.name|default('') }}" id="name" style="width:500px;"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="sex">Sex</label>
+        <div class="controls">
+            <label class="radio">
+                <input type="radio" name="sex" id="sex_m" value="1" {% if blogger.sex == 1 %}checked{% endif %}>
+                Man
+            </label>
+            <label class="radio">
+                <input type="radio" name="sex" id="sex_w" value="2" {% if blogger.sex == 2 %}checked{% endif %}>
+                Woman
+            </label>
+        </div>
+    </div>
+
+   <div class="control-group">
+        <label class="control-label" for="date_bd">Date BD</label>
+        <div class="controls">
+            <input type="text" name="date_bd" value="{{ blogger.date_bd|default('') }}" id="date_bd" style="width:500px;"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="place_bd">Place bd</label>
+        <div class="controls">
+            <input type="text" name="place_bd" value="{{ blogger.place_bd|default('') }}" id="place_bd" style="width:500px;"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="about">About</label>
+        <div class="controls">
+            <textarea name="about" id="about" style="width:510px; height:50px;">{{ blogger.about|default('') }}</textarea>
+        </div>
+    </div>
+
+        <div class="control-group">
+            <label class="control-label" for="fbgroup">FB</label>
+            <div class="controls">
+              <input type="text" name="fb" value="{{ blogger.soc_links.fb|default('') }}" id="fb" style="width:500px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="vkgroup">VK</label>
+            <div class="controls">
+              <input type="text" name="vk" value="{{ blogger.soc_links.vk|default('') }}" id="vk" style="width:500px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="site">ЖЖ</label>
+            <div class="controls">
+              <input type="text" name="lj" value="{{ blogger.soc_links.lj|default('') }}" id="lj" style="width:500px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="tzturpage">Twitter</label>
+            <div class="controls">
+              <input type="text" name="tw" value="{{ blogger.soc_links.tw|default('') }}" id="tw" style="width:500px;"/>
+            </div>
+        </div>
+    
+    {% if blogger.image !='' %}
+    <div class="control-group">
+        <div class="controls">
+            <img src="{{ server_name }}{{ blogger.image }}.225" />
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="control-group">
+        <label class="control-label" for="image">Avtar</label>
+        <div class="controls">
+            <input class="input-file" id="image" type="file" name="image">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="active">Active</label>
+        <div class="controls">
+            <input type="checkbox" name="active" value="1" {% if blogger.active == 1 %} checked {% endif %}>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ action_name }} blogger</button>
+        <button class="btn">Cancel</button>
+    </div>
+    </fieldset>
+</form>

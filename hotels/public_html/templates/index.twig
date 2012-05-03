@@ -1,0 +1,81 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %}Page Title{% endblock %}
+
+{% block content %} 
+<div class="caption">
+    <a class="all" href="#">level3_1</a>
+    <a class="all" href="#">level3_2</a>
+</div>
+<div class="text">
+
+<div class="headline corners">
+    <h1>AceCheckBrowser — новая версия для особо продвинутых</h1>
+    <div class="overlap">
+        <p>Самые свежие правдивые обзоры лучших отелей Турции! 15 блоггеровсо своими операторами расскажут и покажут Вам все преимущества и недостаткилучших отелей. Читай, комментируй и голосуй за понравившихся авторов, ктонаписал лучший отзыв? Кому ты поверишь без возражений?</p>
+        <a href="#">Читать дальше →</a>
+    </div>
+    <img src="img/headline.png" class="corners" width="946" height="300" alt=""/>
+</div>
+
+<h1 style="margin: 25px 0 10px 50px;">Блоггеры проекта</h1>
+<div class="c faces">
+    <div class="ib arrow left"></div>
+    <ul class="c ib">
+        {% for blogger in bloggers %}
+        <li class="ib corners">
+            {% if blogger.image != '' %}
+            <img src="{{ blogger.image }}.100" height="100" width="100" alt=""/>
+            {% else %}
+            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+            {% endif %}
+            <div class="login">{{ blogger.login }}</div>
+            <div class="name">{{ blogger.name }}</div>
+            <div class="statistic">Рейтинг <span class="score">{{ blogger.count_bals }}</span></div>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="ib arrow right"></div>
+
+
+</div>
+
+<div class="c">
+    <div class="ib places">
+        <h1 style="margin: 20px 0 10px;">Отели</h1>
+        <ul class="grid">
+            {% for hotel in hotels %}
+            <li class="c">
+                {% if hotel.image != '' %}
+                <img class="ib" src="{{ hotel.image }}" width="25" height="25" alt=""/>
+                {% else %}
+                <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
+                {% endif %}
+                <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
+                <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a href="/hotels" class="button grey corners" style="float: right;">Все отели</a>
+    </div>
+    <div class="ib popular">
+        <h1 style="margin: 20px 0 10px;">Популярные обзоры</h1>
+        <ul class="c">
+            {% for topic in topics %}
+            <li class="ib corners">
+                <img src="{{ topic.image }}" width="145" height="102" alt=""/>
+                <p>{{ topic.title }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+            {% for topic in topics %}
+            <p {% if loop.index > 1 %}class="hide"{% endif %}>{{ topic.summary|striptags }}<br>
+            комментариев {{ topic.count_comments }}</p>
+            {% endfor %}
+        <a href="/blog" class="button grey corners" style="float: right;">Все обзоры</a>
+    </div>
+</div>
+
+</div>
+{% endblock %}

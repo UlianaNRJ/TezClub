@@ -1,0 +1,40 @@
+{% extends 'admin.twig' %}
+
+{% block page_title %}Blogger Administration{% endblock %}
+
+{% block content %}	
+	<h1>Blogger Administration <a href="/admin/blogger/add" class="btn btn-success">Add Blogger</a></h1>
+
+	{% if bloggers %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Login</th>
+					<th>Name</th>
+					<th>Active</th>
+					<th colspan="2">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+				{% for blogger in bloggers %}
+					<tr>
+						<td>{{ blogger.login }}</td>
+						<td>{{ blogger.name }}</td>
+						<td>
+							{% if blogger.active == 1 %}
+                                <i class="icon-eye-open"></i>
+                            {% else %}
+                                <i class="icon-eye-close"></i>
+                            {% endif %}
+                        </td>
+						<td><a href="/admin/blogger/edit/{{ blogger.id }}">Edit</a></td>
+						<td><a href="/admin/blogger/delete/{{ blogger.id }}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>There are currently no bloggers.</p>
+	{% endif %}
+{% endblock %}
