@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/css/smoothness/jquery-ui.css"/>
 
+    <link href="/img/favicon.gif" rel="shortcut icon" />
+
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/jquery-ui.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
@@ -14,11 +16,28 @@
 
 <header>
     <div class="wrapper">
-        <div class="user-menu">
-            <a class="button green corners" href="http://tezclub.local/login">войти</a>
-            <span>или</span>
-            <a class="button grey corners" href="http://tezclub.local/registration">зарегистрироваться</a>
-        </div>
+        {% if userCurrent %}
+            <div class="profile">
+                <a href="http://tezclub.local/profile/Arkadiy/"><img class="avatar" alt="Arkadiy" src="http://tezclub.com.ua/uploads/images/00/00/06/2012/02/17/avatar_48x48.jpg?185031"></a>
+                <ul>
+                    <li>
+                        <a class="username" href="http://tezclub.local/profile/Arkadiy/"> Arkadiy Maslov </a>
+                        <a class="message" id="new_messages" href="http://tezclub.local/talk/"></a>
+                        <a class="author" href="http://tezclub.local/settings/profile/">Настройки</a>
+                        <a class="author" href="http://tezclub.local/login/exit/?security_ls_key=259c40c6ebe8bb1e718d0bc661fb4a3e">Выход</a>
+                        <br>
+                        <span class="user-rating">Рейтинг <strong>4.27</strong></span>
+                    </li>
+                </ul>
+            </div>
+        {% else %}
+            <div class="user-menu">
+                <a class="button green corners" href="http://tezclub.local/login">войти</a>
+                <span>или</span>
+                <a class="button grey corners" href="http://tezclub.local/registration">зарегистрироваться</a>
+            </div>
+        {% endif %}
+
         <figure>
             <a href="#">
                 <img class="ib" src="/img/logo.png" width="225" height="30" alt="logo"/>
