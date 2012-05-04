@@ -92,24 +92,24 @@
 <footer>
     <div class="c wrapper">
         <div class="ib profile">
-            <h3>Кутеев Слава</h3>
-            <a href="#">Написать</a>
-            <a href="#">Почтовый ящик</a>
-            <a href="#">Настройки профиля</a>
-            <a href="#">Выйти</a>
+            {% if userCurrent %}
+                <h3>Кутеев Слава</h3>
+                <a href="http://tezclub.com.ua/topic/add/">Написать</a>
+                <a href="http://tezclub.com.ua/talk/">Почтовый ящик</a>
+                <a href="http://tezclub.com.ua/settings/profile/">Настройки профиля</a>
+                <a href="http://tezclub.com.ua/logout">Выйти</a>
+            {% else %}
+                <a href="http://tezclub.com.ua/login">Войти</a>
+                <a href="http://tezclub.com.ua/registration">Зарегистрироваться</a>
+            {% endif %}
         </div>
         <div class="ib sections">
             <h3>Разделы</h3>
-            <a href="#">Блоги</a>
-            <a href="#">Люди</a>
-            <a href="#">О проекте</a>
-            <a href="#">Модули</a>
+            <a href="http://tezclub.com.ua/blogs/">Обсуждения</a>
+            <a href="http://tezclub.com.ua/people/">Люди</a>
+            <a href="http://tezclub.com.ua/stream/">Активность</a>
         </div>
         <div class="ib information">
-            <h3>Информация</h3>
-            <a href="#">Реклама на сайте</a>
-            <a href="#">Обратная связь</a>
-            <a href="#">Загрузить LiveStreet</a>
         </div>
         <div class="ib copy">
             © Tez Tour, 2011-2012 <br />
