@@ -5,6 +5,7 @@ $app->get('/', $authCheck, function() use ($app) {
     $bloggers = Model::factory('SprBlogger')
                     ->order_by_desc('timestamp')
                     ->find_many();
+
     $hotels = Model::factory('SprHotel')
                     ->order_by_desc('count_topic')
                     ->limit(8)
@@ -71,9 +72,25 @@ $app->get('/bloggers/(:id)', function($id) use ($app) {
 
 // Blog Homepage.
 $app->get('/blog', function() use ($app) {
+
     $topics = Model::factory('SprTopic')
                     ->order_by_desc('timestamp')
                     ->find_many();
+
+    foreach ($topics as $key => $value) {
+        
+        $bloger = Model::factory('SprBlogger') ->find_one($value->bl_id);
+        $value->set('author', $bloger->name);
+
+        $hotel = Model::factory('SprHotel') ->find_one($value->hotel_id);
+        $value->set('hotel', $hotel->name);
+
+        $value->tags = explode(',', $value->tags);
+
+        $value->timestamp = rdate('d M Y, H:i', strtotime($value->timestamp));
+
+    }
+
     return $app->render('blog_home.twig', array('topics' => $topics,
                                                 'currentpage' => 'blog'));
 });
@@ -131,6 +148,8 @@ $app->get('/hotel/(:id)', function($id) use ($app) {
         $value->set('hotel', $hotel->name);
 
         $value->tags = explode(',', $value->tags);
+
+        $value->timestamp = rdate('d M Y, H:i', strtotime($value->timestamp));
 
     }
 
