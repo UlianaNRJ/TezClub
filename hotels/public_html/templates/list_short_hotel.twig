@@ -1,6 +1,6 @@
 {% for topic in topics %}
 <div class="entry">
-    <h1>{{ topic.title }}</h1>
+    <h1><a href="/blog/view/{{ topic.id }}">{{ topic.title }}</a></h1>
     <div class="meta">
         <img src="/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
         автор <a href="/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,

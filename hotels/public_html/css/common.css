@@ -95,6 +95,10 @@ a:hover {
 	text-decoration: underline;
 }
 
+h1 a, h2 a {
+	color: inherit;
+}
+
 img {
 	display: block;
 	-ms-interpolation-mode: bicubic;
