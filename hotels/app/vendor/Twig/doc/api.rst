@@ -26,7 +26,7 @@ looks roughly like this::
 
     $loader = new Twig_Loader_Filesystem('/path/to/templates');
     $twig = new Twig_Environment($loader, array(
-      'cache' => '/path/to/compilation_cache',
+        'cache' => '/path/to/compilation_cache',
     ));
 
 This will create a template environment with the default settings and a loader
@@ -55,6 +55,12 @@ To render the template with some variables, call the ``render()`` method::
 .. note::
 
     The ``display()`` method is a shortcut to output the template directly.
+
+You can also load and render the template in one fell swoop::
+
+    echo $twig->render('index.html', array('the' => 'variables', 'go' => 'here'));
+
+.. _environment_options:
 
 Environment Options
 -------------------
@@ -296,7 +302,7 @@ The ``core`` extension defines all the core features of Twig:
   * ``odd``
   * ``defined``
   * ``sameas``
-  * ``none``
+  * ``null``
   * ``divisibleby``
   * ``constant``
   * ``empty``
@@ -325,9 +331,9 @@ You can also change the escaping mode locally by using the ``autoescape`` tag:
 .. code-block:: jinja
 
     {% autoescape true %}
-      {% var %}
-      {% var|raw %}     {# var won't be escaped #}
-      {% var|escape %}   {# var won't be doubled-escaped #}
+      {{ var }}
+      {{ var|raw }}      {# var won't be escaped #}
+      {{ var|escape }}   {# var won't be double-escaped #}
     {% endautoescape %}
 
 .. warning::

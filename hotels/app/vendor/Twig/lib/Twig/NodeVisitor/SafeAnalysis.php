@@ -14,6 +14,7 @@ class Twig_NodeVisitor_SafeAnalysis implements Twig_NodeVisitorInterface
                 }
             }
         }
+
         return null;
     }
 
@@ -24,6 +25,7 @@ class Twig_NodeVisitor_SafeAnalysis implements Twig_NodeVisitorInterface
             foreach($this->data[$hash] as &$bucket) {
                 if ($bucket['key'] === $node) {
                     $bucket['value'] = $safe;
+
                     return;
                 }
             }
@@ -59,17 +61,27 @@ class Twig_NodeVisitor_SafeAnalysis implements Twig_NodeVisitorInterface
             $name = $node->getNode('filter')->getAttribute('value');
             $args = $node->getNode('arguments');
             if (false !== $filter = $env->getFilter($name)) {
-                $this->setSafe($node, $filter->getSafe($args));
+                $safe = $filter->getSafe($args);
+                if (null === $safe) {
+                    $safe = $this->intersectSafe($this->getSafe($node->getNode('node')), $filter->getPreservesSafety());
+                }
+                $this->setSafe($node, $safe);
             } else {
                 $this->setSafe($node, array());
             }
         } elseif ($node instanceof Twig_Node_Expression_Function) {
             // function expression is safe when the function is safe
-            $name = $node->getNode('name')->getAttribute('name');
+            $name = $node->getAttribute('name');
             $args = $node->getNode('arguments');
             $function = $env->getFunction($name);
             if (false !== $function) {
                 $this->setSafe($node, $function->getSafe($args));
+            } else {
+                $this->setSafe($node, array());
+            }
+        } elseif ($node instanceof Twig_Node_Expression_MethodCall) {
+            if ($node->getAttribute('safe')) {
+                $this->setSafe($node, array('all'));
             } else {
                 $this->setSafe($node, array());
             }

@@ -69,10 +69,18 @@ class Twig_Tests_Node_ModuleTest extends Twig_Tests_Node_TestCase
 /* foo.twig */
 class __TwigTemplate_be925a7b06dda0dfdbd18a1509f7eb34 extends Twig_Template
 {
+    public function __construct(Twig_Environment \$env)
+    {
+        parent::__construct(\$env);
+
+        \$this->parent = false;
+
+        \$this->blocks = array(
+        );
+    }
+
     protected function doDisplay(array \$context, array \$blocks = array())
     {
-        \$context = array_merge(\$this->env->getGlobals(), \$context);
-
         echo "foo";
     }
 
@@ -81,9 +89,9 @@ class __TwigTemplate_be925a7b06dda0dfdbd18a1509f7eb34 extends Twig_Template
         return "foo.twig";
     }
 
-    public function isTraitable()
+    public function getDebugInfo()
     {
-        return false;
+        return array ();
     }
 }
 EOF
@@ -91,7 +99,7 @@ EOF
 
         $import = new Twig_Node_Import(new Twig_Node_Expression_Constant('foo.twig', 0), new Twig_Node_Expression_AssignName('macro', 0), 0);
 
-        $body = new Twig_Node(array($import, new Twig_Node_Text('foo', 0)));
+        $body = new Twig_Node(array($import));
         $extends = new Twig_Node_Expression_Constant('layout.twig', 0);
 
         $node = new Twig_Node_Module($body, $extends, $blocks, $macros, $traits, $filename);
@@ -101,23 +109,25 @@ EOF
 /* foo.twig */
 class __TwigTemplate_be925a7b06dda0dfdbd18a1509f7eb34 extends Twig_Template
 {
-    protected \$parent;
-
-    public function getParent(array \$context)
+    public function __construct(Twig_Environment \$env)
     {
-        if (null === \$this->parent) {
-            \$this->parent = \$this->env->loadTemplate("layout.twig");
-        }
+        parent::__construct(\$env);
 
-        return \$this->parent;
+        \$this->parent = \$this->env->loadTemplate("layout.twig");
+
+        \$this->blocks = array(
+        );
+    }
+
+    protected function doGetParent(array \$context)
+    {
+        return "layout.twig";
     }
 
     protected function doDisplay(array \$context, array \$blocks = array())
     {
-        \$context = array_merge(\$this->env->getGlobals(), \$context);
-
-        \$context['macro'] = \$this->env->loadTemplate("foo.twig");
-        \$this->getParent(\$context)->display(\$context, array_merge(\$this->blocks, \$blocks));
+        \$context["macro"] = \$this->env->loadTemplate("foo.twig");
+        \$this->parent->display(\$context, array_merge(\$this->blocks, \$blocks));
     }
 
     public function getTemplateName()
@@ -129,11 +139,16 @@ class __TwigTemplate_be925a7b06dda0dfdbd18a1509f7eb34 extends Twig_Template
     {
         return false;
     }
+
+    public function getDebugInfo()
+    {
+        return array ();
+    }
 }
 EOF
         , $twig);
 
-        $body = new Twig_Node_Text('foo', 0);
+        $body = new Twig_Node();
         $extends = new Twig_Node_Expression_Conditional(
                         new Twig_Node_Expression_Constant(true, 0),
                         new Twig_Node_Expression_Constant('foo', 0),
@@ -148,24 +163,13 @@ EOF
 /* foo.twig */
 class __TwigTemplate_be925a7b06dda0dfdbd18a1509f7eb34 extends Twig_Template
 {
-    protected \$parent;
-
-    public function getParent(array \$context)
+    protected function doGetParent(array \$context)
     {
-        if (null === \$this->parent) {
-            \$this->parent = ((true) ? ("foo") : ("foo"));
-            if (!\$this->parent instanceof Twig_Template) {
-                \$this->parent = \$this->env->loadTemplate(\$this->parent);
-            }
-        }
-
-        return \$this->parent;
+        return \$this->env->resolveTemplate(((true) ? ("foo") : ("foo")));
     }
 
     protected function doDisplay(array \$context, array \$blocks = array())
     {
-        \$context = array_merge(\$this->env->getGlobals(), \$context);
-
         \$this->getParent(\$context)->display(\$context, array_merge(\$this->blocks, \$blocks));
     }
 
@@ -177,6 +181,11 @@ class __TwigTemplate_be925a7b06dda0dfdbd18a1509f7eb34 extends Twig_Template
     public function isTraitable()
     {
         return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array ();
     }
 }
 EOF
