@@ -210,6 +210,7 @@
 	.places ul li .name{
 		width: 270px;
 	}
+
 .popular {
 	margin-left: 45px;
 	width: 522px;
@@ -222,28 +223,35 @@
 			margin-left: 10px;
 			border: 1px solid #ccc;
 			width: 145px;
-			height: 180px;
 			position: relative;
-		}
-		.popular li.active{
-			border: 1px solid #1e83b0;
-		}
-		.popular li.active:after{
-			-moz-transform: rotate(135deg);
-			background: none repeat scroll 0 0 #FFFFFF;
-			border-right: 1px solid #1E83B0;
-			border-top: 1px solid #1E83B0;
-			content: "";
-			display: block;
-			height: 20px;
-			left: 20px;
-			position: absolute;
-			top: 190px;
-			width: 20px;
 		}
 		.popular li:first-child{
 			margin-left: 0;
 		}
+
+		.popular li.active {
+			border: 1px solid #0073A5;
+		}
+
+		.popular li.active p:before,
+		.popular li.active p:after {
+		    content: "";
+		    position: absolute;
+		    z-index: 1000;
+		    bottom: -15px;
+		    left: 20%;
+		    margin-left: -16px;
+		    border-top: 15px solid #fff;
+		    border-left: 15px solid transparent;
+		    border-right: 15px solid transparent;
+		    border-bottom: 0;
+		}
+		 
+		.popular li.active p:before {
+		    border-top-color: #0073A5;
+		    bottom: -16px;
+		}
+
 
 .actions {
 	margin-bottom: 15px;
