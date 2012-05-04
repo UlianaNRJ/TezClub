@@ -70,22 +70,19 @@ form {
 		display: block;
 	}
 
-	input[type=checkbox],
-	input[type=radio] {
-		padding: 0;
-		margin-right: 5px;
-		margin-top: 8px;
+	input[type=checkbox]{
+		display: none;
 	}
 		input[type=checkbox] + label {
-			margin-top: 1px;
-			padding-top: 3px;
-			padding-bottom: 3px;
-			color: #000;
-			font-weight: normal;
+			background: url("../img/checkbox.png") no-repeat scroll 0 0 transparent;
+			display: inline-block;
+			height: 20px;
 			line-height: 20px;
+			margin-bottom: 5px;
+			padding-left: 25px;
 		}
 		input[type=checkbox]:checked + label {
-
+			background: url("../img/checkbox-checked.png") no-repeat scroll 0 0 transparent;
 		}
 		input[type=checkbox][disabled] + label {
 			color: #000;
