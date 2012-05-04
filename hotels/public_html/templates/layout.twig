@@ -10,26 +10,44 @@
 
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/jquery-ui.js"></script>
+
+    {% block page_head %} {% endblock %}
+    
     <script type="text/javascript" src="/js/script.js"></script>
+
 </head>
 <body>
 
 <header>
     <div class="wrapper">
         {% if userCurrent %}
+        <div class="nav-inner">
             <div class="profile">
-                <a href="http://tezclub.local/profile/Arkadiy/"><img class="avatar" alt="Arkadiy" src="http://tezclub.com.ua/uploads/images/00/00/06/2012/02/17/avatar_48x48.jpg?185031"></a>
+                <a href="http://tezclub.local/profile/{{ userCurrent.login }}/">
+                    <img class="avatar" alt="{{ userCurrent.login }}" 
+                        src="{{ userCurrent.user_profile_avatar}}">
+                </a>
                 <ul>
                     <li>
-                        <a class="username" href="http://tezclub.local/profile/Arkadiy/"> Arkadiy Maslov </a>
+                        <a class="username" href="http://tezclub.local/profile/{{ userCurrent.login }}/"> 
+                            {% if userCurrent.user_profile_name != '' %}
+                                {{ userCurrent.user_profile_name }}
+                            {% else %}
+                                {{ userCurrent.login }}
+                            {% endif %}
+                        </a>
+                        {% if iUserCurrentCountTalkNew %}
+                            <a href="http://tezclub.local/talk/" class="new-message" id="new_messages" title="новые сообщения"><span class="message"></span>Новых сообщений: {{ iUserCurrentCountTalkNew }}</a>
+                        {% endif %}
                         <a class="message" id="new_messages" href="http://tezclub.local/talk/"></a>
                         <a class="author" href="http://tezclub.local/settings/profile/">Настройки</a>
                         <a class="author" href="http://tezclub.local/login/exit/?security_ls_key=259c40c6ebe8bb1e718d0bc661fb4a3e">Выход</a>
                         <br>
-                        <span class="user-rating">Рейтинг <strong>4.27</strong></span>
+                        <span class="user-rating">Рейтинг <strong>{{ userCurrent.user_rating|number_format(2) }}</strong></span>
                     </li>
                 </ul>
             </div>
+        </div>
         {% else %}
             <div class="user-menu">
                 <a class="button green corners" href="http://tezclub.local/login">войти</a>
@@ -93,7 +111,12 @@
     <div class="c wrapper">
         <div class="ib profile">
             {% if userCurrent %}
-                <h3>Кутеев Слава</h3>
+                <h3>{% if userCurrent.user_profile_name != '' %}
+                        {{ userCurrent.user_profile_name }}
+                    {% else %}
+                        {{ userCurrent.login }}
+                    {% endif %}
+                </h3>
                 <a href="http://tezclub.com.ua/topic/add/">Написать</a>
                 <a href="http://tezclub.com.ua/talk/">Почтовый ящик</a>
                 <a href="http://tezclub.com.ua/settings/profile/">Настройки профиля</a>

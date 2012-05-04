@@ -14,10 +14,11 @@
         <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
     </div>
     <div class="poll">
-        <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals }}</span> (голосов {{ topic.count_voises }})</div>
-        <div class="ib">Проголосовать:</div>
-        <div class="ib vote">
-            <div class="progress"></div>
+        <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals }}</span> </div>
+        <div class="rating ib vote">
+            &nbsp; &nbsp; &nbsp;<input type="hidden" name="val" value="{{ topic.count_bals }}"/>
+            &nbsp; &nbsp; &nbsp;<input type="hidden" name="votes" value="{{ topic.count_voises }}"/>
+            &nbsp; &nbsp; &nbsp;<input type="hidden" name="topic-id" value="{{ topic.id }}"/>
         </div>
     </div>
     

@@ -2,6 +2,11 @@
 
 {% block page_title %}{{ topic.title }}{% endblock %}
 
+{% block page_head %}
+<script type="text/javascript" src="/js/jquery.rating-2.0.js"></script>
+<link href="/css/jquery.rating.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
 {% block content %}
 <div class="caption">
     <span class="name">{{ topic.title }}</span>
@@ -32,10 +37,11 @@
         {{ topic.content|raw }}
 
         <div class="poll">
-            <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals }}</span> (голосов {{ topic.count_voises }})</div>
-            <div class="ib">Проголосовать:</div>
-            <div class="ib vote">
-                <div class="progress"></div>
+            <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals }}</span> </div>
+            <div id="rating"  class="ib vote">
+                &nbsp; &nbsp; &nbsp;<input type="hidden" name="val" value="{{ topic.count_bals }}"/>
+                &nbsp; &nbsp; &nbsp;<input type="hidden" name="votes" value="{{ topic.count_voises }}"/>
+                &nbsp; &nbsp; &nbsp;<input type="hidden" name="topic-id" value="{{ topic.id }}"/>
             </div>
         </div>
         

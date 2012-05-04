@@ -164,3 +164,40 @@ $app->get('/hotel/(:id)', function($id) use ($app) {
 $app->get('/about', function() use ($app) {
     return $app->render('about.twig', array('currentpage' => 'page'));
 });
+
+// голосовалка
+
+
+// Admin Add - POST.
+$app->post('/topic/vote', $authCheck, function() use ($app) {
+    // находим топик за который голосовали
+    $id = $app->request()->post('topic-id');
+    $topic = Model::factory('SprTopic')->find_one($id);
+    if (! $topic instanceof SprTopic) {
+        $app->notFound();
+    }   
+    $use_cookie = true; //защита от накруток
+    $expires = 3600*24*31; //время жизни кук в секундах (сейчас установлено 31 день) 
+    $cookie_name = 'page_'.$id;
+
+    if($use_cookie && isset($_COOKIE[$cookie_name]))
+    {
+        
+        $data['status'] = 'ERR';
+        $data['msg'] = 'Вы уже голосовали за эту заметку';
+    } else{
+        $topic->count_bals = ($topic->count_bals*$topic->count_voises + floatval($app->request()->post('score')))/($topic->count_voises + 1);
+        $topic->count_voises    = $topic->count_voises + 1;
+        $topic->save();
+
+        $data['status'] = 'OK';
+        $data['msg'] = 'Спасибо. Ваш голос учтен.';
+        if($use_cookie)
+        {
+            setcookie($cookie_name,$id,time() + $expires);
+        }
+        
+    }
+
+    echo json_encode($data);
+});

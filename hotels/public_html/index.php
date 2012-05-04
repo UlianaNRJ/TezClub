@@ -22,6 +22,33 @@ $authCheck = function() use ($app) {
 	}
 };
 
+// проверяем автологин пользователя
+if ( isset($_COOKIE['key']) && $_COOKIE['key'] != ''){
+	// получаем пользователя
+	$result = ORM::for_table('tc_session')
+				->where('session_key', $_COOKIE['key'])
+				->find_one();
+
+	if ( $result ) {
+		$user = ORM::for_table('tc_user')
+				->where('user_id', $result->user_id)
+				->find_one();
+		// подменяем аватарку
+		$user->user_profile_avatar = str_replace('100x100', '48x48', $user->user_profile_avatar);
+	}
+
+
+	$app->view()->setData( 'userCurrent', $user );
+
+	// количество новых сообщений 
+	$iUserCurrentCountTalkNew = ORM::for_table('tc_talk_user')
+				->where('user_id', $user->user_id)
+				->where('date_last', NULL)
+				->where('talk_user_active', 1)
+				->count();
+	$app->view()->setData( 'iUserCurrentCountTalkNew', $iUserCurrentCountTalkNew);
+}
+
 // frontend
 require '../app/routes/main.php';
 // backend

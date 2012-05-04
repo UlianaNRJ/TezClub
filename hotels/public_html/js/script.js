@@ -1,4 +1,4 @@
-(function(){
+/*(function(){
 
 	"use strict";
 
@@ -72,7 +72,7 @@ jQuery.ajaxSetup({
 	}
 });
 
-jQuery.noConflict();
+jQuery.noConflict();*/
 jQuery(document).ready(function($){
 
 	"use strict";
@@ -103,4 +103,13 @@ jQuery(document).ready(function($){
 		$("> p", ".popular").hide().eq($(this).index()).show();
 	})
 
-});
+	// rating 
+   $('.rating').rating({
+        fx: 'float',
+        stars: 5,
+        image: '/img/stars.png',
+        loader: '/img/ajax-loader.gif',
+        url: '/topic/vote',
+        /*readOnly: true*/
+   });
+})

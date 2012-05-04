@@ -11,7 +11,53 @@ header {
 		float: right;
 		line-height: 60px;
 	}
-
+	header .nav-inner {
+		float:right;
+		width: 26%;
+		align:right;
+	}
+		.nav-inner .profile{
+			width:27%;
+			margin:0 2% 0 0;
+			 /*float:right;*/
+			font-size:13px;
+			line-height:20px;
+		}
+		.nav-inner .profile .avatar{float:left; margin:0 10px 0 0;}
+		.nav-inner .profile .username{ text-decoration:none;}
+		.nav-inner .profile .author{color:#4d4d4d; font-size:11px;}
+		.nav-inner .profile .message{
+			display:inline-block;
+			width:16px;
+			height:12px;
+			background:url(../img/message-icons.png) 0 0 no-repeat;
+			vertical-align:middle;
+			margin:0 5px;
+		}
+		*+ html .nav-inner .profile .message{ display:inline; zoom:1; }
+		.new-message{
+			position:absolute;
+			width:auto;
+			height:25px;
+			line-height:25px;
+			text-decoration:none;
+			top:60px;
+			left:71%;
+			color:#000;
+			background:#fff8ce;
+			padding:0 8px;
+			border:1px solid #d6d6d6;
+			border-radius: 0 0 3px 3px;
+		}
+		.new-message .message{
+			margin-left:0px !important;
+			position:relative;
+			top:-2px;
+			background-position:0 -12px !important;
+		}
+		.nav-inner .profile li{ margin:3px 0 0 0; white-space: nowrap; }
+		.nav-inner .profile .user-rating{ color:#4d4d4d; }
+		.profile .user-rating strong{ color:#000; }
 
 	.main-menu {
 		background: url("../img/background-menu.png") transparent center top scroll repeat-x;
