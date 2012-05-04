@@ -94,4 +94,8 @@ jQuery(document).ready(function($){
 		return this.hostname && this.hostname !== location.hostname;
 	}).attr({target:"blank"});
 
+	$("a","li.active").click(function(){
+		return false;
+	});
+
 });
