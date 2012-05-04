@@ -27,7 +27,12 @@ header {
 					line-height: 39px;
 					color: #ffffff;
 					font-weight: bold;
-					text-decoration: underline;
+					text-shadow: 3px 3px 3px #000000;
+					text-decoration: none;
+				}
+				.main-menu li a:hover,
+				.main-menu li a.active {
+					border-bottom: 1px solid #fff;
 				}
 	.search {
 		float: right;
