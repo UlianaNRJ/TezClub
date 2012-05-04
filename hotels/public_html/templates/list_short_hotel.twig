@@ -7,6 +7,7 @@
         отель <a href="/hotel/{{ topic.hotel_id }}">{{ topic.hotel }}</a>,
         оператор <a href="#">Василий иванович</a>
         <span class="date">{{ topic.timestamp }}</span>
+        <span class="comments">{{ topic.count_comments }}</span>
     </div>
     <div class="description">
         <p>{{ topic.summary|raw }}</p>

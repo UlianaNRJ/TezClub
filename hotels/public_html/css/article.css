@@ -94,24 +94,30 @@
 	.list.wide {
 
 	}
-	.list.hotel .entry {
+	/*.list.hotel*/ .entry {
 		box-shadow: 0 5px 5px -5px #CCCCCC inset;
 		margin-bottom: 15px;
 		padding-bottom: 35px;
 		padding-top: 10px;
 	}
-		.list.hotel .entry .meta {
+		/*.list.hotel*/ .entry .meta {
 			line-height: 25px;
 			margin-bottom: 1em;
 			margin-top: -2em;
 		}
-			.list.hotel .entry .meta .date {
-				float: right;
+			/*.list.hotel*/ .entry .meta .date {
+				margin: 0 0 0 15px;
 			}
-		.list.hotel .entry .description {
+			/*.list.hotel*/ .entry .description {
 		    	font-size: 15px;
 				margin: 15px 0;
 			}
+			/*.list.hotel */.entry .meta .comments {
+				margin: 0 0 0 10px;
+				padding-left: 20px;
+				background: url("../img/comments.png") transparent 0 0 scroll no-repeat;
+			}
+
 	.list.hotel .info {
 		width: 470px;
 	}
