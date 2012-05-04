@@ -1,12 +1,13 @@
 <?php
 // index page
 $app->get('/', $authCheck, function() use ($app) {
+
     $bloggers = Model::factory('SprBlogger')
                     ->order_by_desc('timestamp')
                     ->find_many();
     $hotels = Model::factory('SprHotel')
                     ->order_by_desc('count_topic')
-                    ->limit(10)
+                    ->limit(8)
                     ->find_many();
 
     $topics = Model::factory('SprTopic')
