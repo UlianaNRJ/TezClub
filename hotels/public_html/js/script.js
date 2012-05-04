@@ -98,4 +98,9 @@ jQuery(document).ready(function($){
 		return false;
 	});
 
+	$("li", ".popular").click(function(){
+		$(this).addClass("active").siblings().removeClass("active");
+		$("> p", ".popular").hide().eq($(this).index()).show();
+	})
+
 });

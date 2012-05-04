@@ -62,14 +62,16 @@
         <h1 style="margin: 20px 0 10px;">Популярные обзоры</h1>
         <ul class="c">
             {% for topic in topics %}
-            <li class="ib corners">
+            <li class="ib corners {% if loop.index == 1 %}active{% endif %}">
                 <img src="{{ topic.image }}" width="145" height="102" alt=""/>
                 <p>{{ topic.title }}</p>
             </li>
             {% endfor %}
         </ul>
             {% for topic in topics %}
-            <p {% if loop.index > 1 %}class="hide"{% endif %}>{{ topic.summary|striptags }}<br>
+            <p {% if loop.index > 1 %}class="hide"{% endif %}>
+	        23 апреля 2012, 19:57<br/>
+	        {{ topic.summary|striptags }}<br>
             комментариев {{ topic.count_comments }}</p>
             {% endfor %}
         <a href="/blog" class="button grey corners" style="float: right;">Все обзоры</a>
