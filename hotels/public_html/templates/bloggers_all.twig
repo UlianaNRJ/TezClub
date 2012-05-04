@@ -16,12 +16,12 @@
         {% for blogger in bloggers %}
         <div class="c ib info">
             <div class="ib avatar">
-	            <a href="#">
+	            <a href="/bloggers/{{ blogger.id }}">
 		            <img src="{% if blogger.image %}{{ blogger.image }}.100{% else %}/img/avatar-100.png{% endif %}" height="100" width="100" alt="avatar" />
 	            </a>
             </div>
             <div class="ib data">
-                <h2><a href="#">{{ blogger.login }}</a></h2>
+                <h2><a href="/bloggers/{{ blogger.id }}">{{ blogger.login }}</a></h2>
                 <div class="name">{{ blogger.name }}</div>
                 <div class="poll">
                     <div class="statistic">Обзоров <span class="score">{{ blogger.count_topic }}</span></div>
