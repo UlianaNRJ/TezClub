@@ -23,14 +23,39 @@
             <div class="ib data">
                 <h2><a href="/bloggers/{{ blogger.id }}">{{ blogger.login }}</a></h2>
                 <div class="name">{{ blogger.name }}</div>
-                <div class="poll">
-                    <div class="statistic">Обзоров <span class="score">{{ blogger.count_topic }}</span></div>
-                    <div class="statistic">Балы <span class="score">{{ blogger.count_bals }}</span>
-                        <div class="ib vote">
-                            <div class="progress"></div>
+
+                <div class="poll" id="rating{{ blogger.id }}">
+                    <div class="statistic clear">Обзоров <span class="score-topics">{{ blogger.count_topic }}</span></div>
+                    <div class="statistic clear">Балы <span class="score">{{ blogger.count_bals|number_format(2) }}</span> </div><div class="vote-result"></div><br><br><br>
+
+                    <div  class="rating ib vote">
+                        <div class="vote-wrap blogger">
+                            <div class="vote-hover" >
+                                <div class="vote-block">
+                                    <div class="vote-stars"></div>
+                                    <div class="vote-active"></div>
+                                </div>
+                            </div>
+                            <div class="vote-success"></div>
                         </div>
+                        &nbsp; &nbsp; &nbsp;<input type="hidden" name="val" value="{{ blogger.count_bals }}"/>
+                        &nbsp; &nbsp; &nbsp;<input type="hidden" name="votes" value="{{ blogger.count_voises }}"/>
+                        &nbsp; &nbsp; &nbsp;<input type="hidden" name="blogger-id" value="{{ blogger.id }}"/>
                     </div>
+                    <script  type="text/javascript">
+                    jQuery(document).ready(function($){
+                       $('#rating{{ blogger.id }}').rating({
+                            fx: 'float',
+                            stars: 5,
+                            image: '/img/stars.png',
+                            loader: '/img/ajax-loader.gif',
+                            url: '/blogger/vote',
+                            //readOnly: true
+                       });
+                     });
+                    </script>
                 </div>
+
                 <a href="/bloggers/{{ blogger.id }}" class="button grey corners">Подробнее</a>
             </div>
         </div>

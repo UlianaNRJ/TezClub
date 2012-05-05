@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `spr_topic` (
   `bl_id` int(10) unsigned NOT NULL,
   `hotel_id` int(10) unsigned NOT NULL,
   `count_comments` int(10) DEFAULT '0',
-  `count_bals` int(10) DEFAULT '0',
+  `count_bals` float NOT NULL,
   `count_voises` int(10) DEFAULT '0',
   `tags` TEXT DEFAULT '',
   `image` varchar(255) NOT NULL,  

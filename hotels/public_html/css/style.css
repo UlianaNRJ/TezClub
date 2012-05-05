@@ -6,3 +6,15 @@
 @import "footer.css";
 @import "tabs.css";
 @import "article.css";
+
+.clear {
+    clear: both;
+}
+
+.clearleft {
+    clear: left;
+}
+
+.clearright {
+    clear: right;
+}

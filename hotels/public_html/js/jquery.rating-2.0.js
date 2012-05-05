@@ -28,14 +28,12 @@
         this.width = 0;
         this.height = 0;
         this._data = {};
-        
+
         var self = this;
         
         this.el.find(':hidden').each(function(){
-            
             var $this = $(this);
             self._data[$this.attr('name')] = $this.val();
-            
         });
         
         this._data.val = parseFloat(this._data.val) || 0;
@@ -47,17 +45,18 @@
         
         this.old = this._data.val;
 
-		this.vote_wrap = $('<div class="vote-wrap"></div>');
-		this.vote_block = $('<div class="vote-block"></div>');
-        this.vote_hover_text = $('<div class="vote-hover-text">Проголосовать:</div>');
-        this.vote_hover = $('<div class="vote-hover"></div>');
-		this.vote_stars = $('<div class="vote-stars"></div>');
-		this.vote_active = $('<div class="vote-active"></div>');
-		this.vote_result = $('<div class="vote-result"></div>');
-		this.vote_success = $('<div class="vote-success"></div>');
+        this.vote_wrap = this.el.find('div.vote-wrap');
+        this.vote_block = this.el.find('div.vote-block');
+        this.vote_hover = this.el.find('div.vote-hover');
+        this.vote_stars = this.el.find('div.vote-stars');
+        this.vote_active = this.el.find('div.vote-active');
+        this.vote_result = this.el.find('div.vote-result');
+        this.vote_result_scope = this.el.find('span.score');
+        this.vote_success = this.el.find('div.vote-success');
+
         this.loader = $('<img src="'+this.options.loader+'" alt="load...">');
 
-        this.el.html(this.loader);
+        this.vote_success.html(this.loader);
 
         //Загружаем изображение звезд и высчитываем ширину и высоту одной звезды
         var img = new Image();
@@ -74,7 +73,7 @@
 	var $r = $.rating;
 
 	$r.fn = $r.prototype = {
-		rating: '2.0'
+		rating: '2.1'
     };
 	
 	$r.fn.extend = $r.extend = $.extend;
@@ -167,35 +166,29 @@
     		});
     	},
         setvoters: function(){
-            this.vote_result.html(this.declOfNum(this._data.votes));  
+            this.vote_result.html('(' + this.declOfNum(this._data.votes) + ')');  
+            this.vote_result_scope.html(this._data.val);  
         },
     	render: function(){
-    		
-    		this.el.html(this.vote_wrap.append(
-                this.vote_hover_text,
-				this.vote_hover.css({
-				    padding:'0 4px',
-                    height:this.height,
-                    width:this.width*this.options.stars
-                }),
-				this.vote_result.text(this.declOfNum(this._data.votes)),
-				this.vote_success
-    		));
 
-    		
-            this.vote_block.append(
-				this.vote_stars.css({
-				    height:this.height,
-                    width:this.width*this.options.stars,
-                    background:"url('"+this.options.image+"') left top"
-                }),
-				this.vote_active.css({
-				    height:this.height,
-                    width:this._data.val*this.width,
-                    background:"url('"+this.options.image+"') left bottom"
-                })
-            ).appendTo(this.vote_hover);
-    		
+			this.vote_hover.css({
+			    padding:'0 4px',
+                height:this.height,
+                width:this.width*this.options.stars
+            });
+			this.vote_result.text('(' + this.declOfNum(this._data.votes) + ')');
+			this.vote_stars.css({
+			    height:this.height,
+                width:this.width*this.options.stars,
+                background:"url('"+this.options.image+"') left top"
+            });
+			this.vote_active.css({
+			    height:this.height,
+                width:this._data.val*this.width,
+                background:"url('"+this.options.image+"') left bottom"
+            });
+            this.vote_success.html('');
+
     	},
     	send: function(score){
     		
@@ -211,13 +204,12 @@
                 dataType: 'json',
     			success: function(data){
 		            if(data.status == 'OK') {
-		               
 		              self.set();
 		            }  
                     else{
                         self._data.votes--;
                         self.reset();
-                    }      
+                    }
                     
                     self.setvoters();
                        

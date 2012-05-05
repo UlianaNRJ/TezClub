@@ -2,11 +2,6 @@
 
 {% block page_title %}{{ topic.title }}{% endblock %}
 
-{% block page_head %}
-<script type="text/javascript" src="/js/jquery.rating-2.0.js"></script>
-<link href="/css/jquery.rating.css" rel="stylesheet" type="text/css" />
-{% endblock %}
-
 {% block content %}
 <div class="caption">
     <span class="name">{{ topic.title }}</span>
@@ -36,14 +31,38 @@
         
         {{ topic.content|raw }}
 
-        <div class="poll">
-            <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals }}</span> </div>
-            <div id="rating"  class="ib vote">
+        <div class="poll" id="rating{{ topic.id }}">
+            <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals|number_format(2) }}</span></div> <div class="vote-result"></div>
+
+            <div  class="rating ib vote">
+                <div class="vote-wrap">
+                    <div class="vote-hover-text">Проголосовать:</div>
+                    <div class="vote-hover" >
+                        <div class="vote-block">
+                            <div class="vote-stars"></div>
+                            <div class="vote-active"></div>
+                        </div>
+                    </div>
+                    <div class="vote-success"></div>
+                </div>
                 &nbsp; &nbsp; &nbsp;<input type="hidden" name="val" value="{{ topic.count_bals }}"/>
                 &nbsp; &nbsp; &nbsp;<input type="hidden" name="votes" value="{{ topic.count_voises }}"/>
                 &nbsp; &nbsp; &nbsp;<input type="hidden" name="topic-id" value="{{ topic.id }}"/>
             </div>
+            <script  type="text/javascript">
+            jQuery(document).ready(function($){
+               $('#rating{{ topic.id }}').rating({
+                    fx: 'float',
+                    stars: 5,
+                    image: '/img/stars.png',
+                    loader: '/img/ajax-loader.gif',
+                    url: '/topic/vote',
+                    //readOnly: true
+               });
+             });
+            </script>
         </div>
+
         
         <ul class="c tags">
             {% for tag in topic.tags %}

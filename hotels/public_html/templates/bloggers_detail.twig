@@ -21,13 +21,38 @@
             {% else %}
                 <img src="/img/avatar.png" height="225" width="225" alt="avatar" />
             {% endif %}
-            <div class="poll">
-                <div class="statistic">Балы <span class="score">{{ blogger.bals|default(0) }}</span> (голосов {{ blogger.count_voises|default(0) }})</div>
-                <div class="ib">Проголосовать:</div>
-                <div class="ib vote">
-                    <div class="progress"></div>
+
+        <div class="poll" id="rating{{ blogger.id }}">
+            <div class="statistic">Балы <span class="score">{{ blogger.count_bals|number_format(2) }}</span> </div><div class="vote-result"></div>
+
+            <div  class="rating ib vote">
+                <div class="vote-wrap blogger">
+                    <div class="vote-hover-text">Проголосовать:</div>
+                    <div class="vote-hover" >
+                        <div class="vote-block">
+                            <div class="vote-stars"></div>
+                            <div class="vote-active"></div>
+                        </div>
+                    </div>
+                    <div class="vote-success"></div>
                 </div>
+                &nbsp; &nbsp; &nbsp;<input type="hidden" name="val" value="{{ blogger.count_bals }}"/>
+                &nbsp; &nbsp; &nbsp;<input type="hidden" name="votes" value="{{ blogger.count_voises }}"/>
+                &nbsp; &nbsp; &nbsp;<input type="hidden" name="blogger-id" value="{{ blogger.id }}"/>
             </div>
+            <script  type="text/javascript">
+            jQuery(document).ready(function($){
+               $('#rating{{ blogger.id }}').rating({
+                    fx: 'float',
+                    stars: 5,
+                    image: '/img/stars.png',
+                    loader: '/img/ajax-loader.gif',
+                    url: '/blogger/vote',
+                    //readOnly: true
+               });
+             });
+            </script>
+        </div>
         </div>
         <div class="ib data">
             <h2>{{ blogger.login }}</h2>

@@ -224,7 +224,7 @@
 	.popular ul{
 
 	}
-		.popular li{
+		.popular li {
 			padding: 10px;
 			margin-left: 10px;
 			border: 1px solid #ccc;
@@ -239,6 +239,10 @@
 			border: 1px solid #0073A5;
 		}
 
+		.popular li p{
+			height: 22px;
+			overflow: hidden;
+		}
 		.popular li.active p:before,
 		.popular li.active p:after {
 		    content: "";
@@ -284,10 +288,12 @@
 	.poll .statistic {
 		margin-bottom: 5px;
 		font-size: 15px;
+		float: left;
 	}
 		.poll .statistic .score {
-				font-size: 15px !important;
+			font-size: 15px !important;
 		}
+		
 	.poll .vote {
 		height: 22px;
 	}
@@ -302,7 +308,7 @@
 	margin-bottom: 10px;
 }
 
-.score {
+.score, .score-topics {
 	background-color: #359e07;
 	color: #fff;
 	font-size: 14px;

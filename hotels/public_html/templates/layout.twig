@@ -12,7 +12,10 @@
     <script type="text/javascript" src="/js/jquery-ui.js"></script>
 
     {% block page_head %} {% endblock %}
-    
+
+    <script type="text/javascript" src="/js/jquery.rating-2.0.js"></script>
+    <link href="/css/jquery.rating.css" rel="stylesheet" type="text/css" />
+
     <script type="text/javascript" src="/js/script.js"></script>
 
 </head>
@@ -23,13 +26,13 @@
         {% if userCurrent %}
         <div class="nav-inner">
             <div class="profile">
-                <a href="http://tezclub.local/profile/{{ userCurrent.login }}/">
+                <a href="http://tezclub.com.ua/profile/{{ userCurrent.login }}/">
                     <img class="avatar" alt="{{ userCurrent.login }}" 
                         src="{{ userCurrent.user_profile_avatar}}">
                 </a>
                 <ul>
                     <li>
-                        <a class="username" href="http://tezclub.local/profile/{{ userCurrent.login }}/"> 
+                        <a class="username" href="http://tezclub.com.ua/profile/{{ userCurrent.login }}/"> 
                             {% if userCurrent.user_profile_name != '' %}
                                 {{ userCurrent.user_profile_name }}
                             {% else %}
@@ -37,11 +40,11 @@
                             {% endif %}
                         </a>
                         {% if iUserCurrentCountTalkNew %}
-                            <a href="http://tezclub.local/talk/" class="new-message" id="new_messages" title="новые сообщения"><span class="message"></span>Новых сообщений: {{ iUserCurrentCountTalkNew }}</a>
+                            <a href="http://tezclub.com.ua/talk/" class="new-message" id="new_messages" title="новые сообщения"><span class="message"></span>Новых сообщений: {{ iUserCurrentCountTalkNew }}</a>
                         {% endif %}
-                        <a class="message" id="new_messages" href="http://tezclub.local/talk/"></a>
-                        <a class="author" href="http://tezclub.local/settings/profile/">Настройки</a>
-                        <a class="author" href="http://tezclub.local/login/exit/?security_ls_key=259c40c6ebe8bb1e718d0bc661fb4a3e">Выход</a>
+                        <a class="message" id="new_messages" href="http://tezclub.com.ua/talk/"></a>
+                        <a class="author" href="http://tezclub.com.ua/settings/profile/">Настройки</a>
+                        <a class="author" href="http://tezclub.com.ua/login/exit/?security_ls_key=259c40c6ebe8bb1e718d0bc661fb4a3e">Выход</a>
                         <br>
                         <span class="user-rating">Рейтинг <strong>{{ userCurrent.user_rating|number_format(2) }}</strong></span>
                     </li>
@@ -50,9 +53,9 @@
         </div>
         {% else %}
             <div class="user-menu">
-                <a class="button green corners" href="http://tezclub.local/login">войти</a>
+                <a class="button green corners" href="http://tezclub.com.ua/login">войти</a>
                 <span>или</span>
-                <a class="button grey corners" href="http://tezclub.local/registration">зарегистрироваться</a>
+                <a class="button grey corners" href="http://tezclub.com.ua/registration">зарегистрироваться</a>
             </div>
         {% endif %}
 
