@@ -331,7 +331,9 @@ ul.grid {
 	ul.grid .name {
 		font-size: 15px;
 		margin: 0 5px;
-		width: 118px;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 165px;
 	}
 	ul.grid .count {
 		width: 75px;
