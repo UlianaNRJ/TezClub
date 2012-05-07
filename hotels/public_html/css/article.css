@@ -230,6 +230,7 @@
 			border: 1px solid #ccc;
 			width: 145px;
 			position: relative;
+			margin-bottom: 10px;
 		}
 		.popular li:first-child{
 			margin-left: 0;
@@ -241,6 +242,7 @@
 
 		.popular li p{
 			height: 22px;
+			overflow: hidden;
 		}
 		.popular li.active p:before,
 		.popular li.active p:after {

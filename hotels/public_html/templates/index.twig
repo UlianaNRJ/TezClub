@@ -69,10 +69,15 @@
             {% endfor %}
         </ul>
             {% for topic in topics %}
-            <p {% if loop.index > 1 %}class="hide"{% endif %}>{{ topic.summary|striptags }}<br>
-            комментариев {{ topic.count_comments }}</p>
+            <p {% if loop.index > 1 %}class="hide"{% endif %}>
+	        23 апреля 2012, 19:57 <br/>
+	        {{ topic.summary|striptags }}<br/>
+
+	        <a href="#">Читать дальше →</a>
+	        <span class="ib count" style="float: right;">комментариев <span class="score">{{ topic.count_comments }}</span></span>
+	        </p>
             {% endfor %}
-        <a href="/blog" class="button grey corners" style="float: right;">Все обзоры</a>
+        <a href="/blog" class="button grey corners" style="float: right;clear: both;">Все обзоры</a>
     </div>
 </div>
 
