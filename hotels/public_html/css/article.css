@@ -81,8 +81,8 @@
 		}
 
 	.find {
-		width: 450px;
-		margin-left: 20px;
+		width: 410px;
+		margin-left: 50px;
 	}
 
 	.list {
@@ -241,7 +241,6 @@
 
 		.popular li p{
 			height: 22px;
-			overflow: hidden;
 		}
 		.popular li.active p:before,
 		.popular li.active p:after {
