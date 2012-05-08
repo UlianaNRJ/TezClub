@@ -314,7 +314,22 @@
 		height: 22px;
 	}
 
+.description {
+	margin-bottom: 10px;
+}
+.description .date{
 
+}
+.description .longtext{
+	font-size: 15px;
+}
+.description a{
+	font-size: 15px;
+}
+
+.hide {
+	display:none;
+}
 
 .right {
 	float: right;

@@ -82,10 +82,6 @@ p {
 	margin: 1em 0;
 }
 
-p.hide {
-	display:none;
-}
-
 a {
 	color: #0073a5;
 	outline: none;
