@@ -69,13 +69,12 @@
             {% endfor %}
         </ul>
             {% for topic in topics %}
-            <p {% if loop.index > 1 %}class="hide"{% endif %}>
-	        23 апреля 2012, 19:57 <br/>
-	        {{ topic.summary|striptags }}<br/>
-
-	        <a href="#">Читать дальше →</a>
-	        <span class="ib count" style="float: right;">комментариев <span class="score">{{ topic.count_comments }}</span></span>
-	        </p>
+		    <div class="description {% if loop.index > 1 %}hide{% endif %}">
+			    <div class="date">23 апреля 2012, 19:57 </div>
+			    <div class="longtext">{{ topic.summary|striptags }}</div>
+			    <a href="#">Читать дальше →</a>
+			    <span class="ib count" style="float: right;">комментариев <span class="score">{{ topic.count_comments }}</span></span>
+		    </div>
             {% endfor %}
         <a href="/blog" class="button grey corners" style="float: right;clear: both;">Все обзоры</a>
     </div>

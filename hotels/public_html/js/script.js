@@ -29,7 +29,7 @@ jQuery(document).ready(function($){
 
 	$("li", ".popular").click(function(){
 		$(this).addClass("active").siblings().removeClass("active");
-		$("> p", ".popular").hide().eq($(this).index()).show();
+		$("> .description", ".popular").hide().eq($(this).index()).show();
 	})
 
 });
