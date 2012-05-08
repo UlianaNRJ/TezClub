@@ -7,13 +7,13 @@
     <select class="dropdown">
         <option>{{ hotel.name }}</option>
     </select>
-
+	<a class="all" href="/hotels">все отели</a>
 </div>
 <div class="text">
     <div class="actions">
         <div class="name">
             Отель: <strong>{{ hotel.name }}</strong>
-            <a class="button green corners" href="{{ hotel.soc_links.site }}">Заказать тур в оттеле</a>
+            <a class="button green corners" href="{{ hotel.soc_links.site }}">Заказать тур в отеле</a>
         </div>
         <ul class="social">
             <li class="ib vk"><a href="{{ hotel.soc_links.vkgroup }}">Отель в Вконтакте</a></li>
