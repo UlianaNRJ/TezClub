@@ -39,10 +39,10 @@ $app->get('/bloggers', function() use ($app) {
 });
 
 // 
-$app->get('/bloggers/(:id)', 'show_blogger');
-$app->post('/bloggers/(:id)', 'show_blogger');
+$app->get('/bloggers/:id(/:page)', 'show_blogger');
+$app->post('/bloggers/:id(/:page)', 'show_blogger');
 
-function show_blogger($id) {
+function show_blogger($id, $page = 1) {
     $app = Slim::getInstance();
     
     $blogger = Model::factory('SprBlogger')->find_one($id);
@@ -56,13 +56,34 @@ function show_blogger($id) {
                     ->find_many();
 
     $sortby = $app->request()->post('sortby');
+
+    $onpage = 15;
+    $page = (int) $page;
+    //собираем кол-во страниц, для пагинации
+    $pages = $blogger->topics()->count();
+    $pages = ceil($pages / $onpage);
+    $arrpage =  array();
+    for ($i=0; $i < $pages; $i++) {
+        $arrpage[$i]['id'] = $i+1;
+        $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
+    }
+
+    $page = ($page > $pages) ? $pages  : (
+                                            ($page < 0) ? 1 : $page
+                                          );
+    $offset = $onpage * ($page-1) + $page-1;
+
+    // ------------------- end  pagination 
+
     if ($sortby == "ASC") {
         $topics = $blogger->topics()
                 ->order_by_asc('timestamp')
+                ->limit($onpage)->offset($offset)
                 ->find_many();
     } else {
         $topics = $blogger->topics()
                 ->order_by_desc('timestamp')
+                ->limit($onpage)->offset($offset)
                 ->find_many();
     }
 
@@ -86,14 +107,16 @@ function show_blogger($id) {
                                                       'sortby' => $sortby,
                                                       'topics' => $topics,
                                                       'hotels' => $hotels,
+                                                      'pagination' =>$arrpage,
+                                                      'current' => $page,
                                                       'currentpage' => 'bloggers'));
 };
 
 // Blog Homepage.
-$app->get('/blog', 'all_blogs');
-$app->post('/blog', 'all_blogs');
+$app->get('/blog(/:page)', 'all_blogs');
+$app->post('/blog(/:page)', 'all_blogs');
 
-function all_blogs () {
+function all_blogs($page = 1) {
     $app = Slim::getInstance();
 
     $bloggers = Model::factory('SprBlogger')
@@ -105,29 +128,95 @@ function all_blogs () {
                     ->find_many();
 
     $sortby = $app->request()->post('sortby');
+
+
+    $onpage = 15;
+    $page = (int) $page;
+    //собираем кол-во страниц, для пагинации
+    $pages = Model::factory('SprTopic')->order_by_asc('timestamp')->count();
+    $pages = ceil($pages / $onpage);
+    $arrpage =  array();
+    for ($i=0; $i < $pages; $i++) {
+        $arrpage[$i]['id'] = $i+1;
+        $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
+    }
+
+    $page = ($page > $pages) ? $pages  : (
+                                            ($page < 0) ? 1 : $page
+                                          );
+    $offset = $onpage * ($page-1) + $page-1;
+
+    // ------------------- end  pagination 
+
     if ($sortby == "ASC") {
         $topics = Model::factory('SprTopic')
                 ->order_by_asc('timestamp')
+                ->limit($onpage)->offset($offset)
                 ->find_many();
     } else {
         $topics = Model::factory('SprTopic')
                 ->order_by_desc('timestamp')
+                ->limit($onpage)->offset($offset)
                 ->find_many();
     }
 
     $sortbyhotels = $app->request()->post('sortbyhotels');
     if ($sortbyhotels != "") {
+        //собираем кол-во страниц, для пагинации
+        $pages = Model::factory('SprTopic')
+                ->order_by_asc('timestamp')
+                ->where('hotel_id', $sortbyhotels)
+                ->count();
+
+        $pages = ceil($pages / $onpage);
+        $arrpage =  array();
+        for ($i=0; $i < $pages; $i++) {
+            $arrpage[$i]['id'] = $i+1;
+            $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
+        }
+
+        $page = ($page > $pages) ? $pages  : (
+                                                ($page < 0) ? 1 : $page
+                                              );
+        $offset = $onpage * ($page-1) + $page-1;
+
+        // ------------------- end  pagination 
+
         $topics = Model::factory('SprTopic')
                 ->order_by_asc('timestamp')
                 ->where('hotel_id', $sortbyhotels)
+                ->limit($onpage)->offset($offset)
                 ->find_many();
         $sortby ='';
     }
     $sortbybloggers = $app->request()->post('sortbybloggers');
     if ($sortbybloggers != "") {
+        
+        //собираем кол-во страниц, для пагинации
+        $pages = Model::factory('SprTopic')
+                ->order_by_asc('timestamp')
+                ->where('bl_id', $sortbybloggers)
+                ->count();
+                
+        $pages = ceil($pages / $onpage);
+        $arrpage =  array();
+        for ($i=0; $i < $pages; $i++) {
+            $arrpage[$i]['id'] = $i+1;
+            $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
+        }
+
+        $page = ($page > $pages) ? $pages  : (
+                                                ($page < 0) ? 1 : $page
+                                              );
+        $offset = $onpage * ($page-1) + $page-1;
+
+        // ------------------- end  pagination 
+
+
         $topics = Model::factory('SprTopic')
                 ->order_by_asc('timestamp')
                 ->where('bl_id', $sortbybloggers)
+                ->limit($onpage)->offset($offset)
                 ->find_many();
         $sortby ='';
         $sortbyhotels='';
@@ -153,6 +242,8 @@ function all_blogs () {
                                                 'sortby' => $sortby,
                                                 'sortbyhotels' => $sortbyhotels,
                                                 'sortbybloggers' => $sortbybloggers,
+                                                'pagination' =>$arrpage,
+                                                'current' => $page,
                                                 'currentpage' => 'blog')
                         );
 };
@@ -203,10 +294,10 @@ $app->get('/hotels', function() use ($app) {
                                                   'currentpage' => 'hotels'));
 });
 
-$app->get('/hotel/(:id)', 'show_hotel') ;
-$app->post('/hotel/(:id)', 'show_hotel') ;
+$app->get('/hotel/:id(/:page)', 'show_hotel') ;
+$app->post('/hotel/:id(/:page)', 'show_hotel') ;
 
-function show_hotel($id) {
+function show_hotel($id, $page=1) {
     $app = Slim::getInstance();
     $hotel = Model::factory('SprHotel')->find_one($id);
     if (! $hotel instanceof SprHotel) {
@@ -214,12 +305,30 @@ function show_hotel($id) {
     }
 
     $sortby = $app->request()->post('sortby');
-    if ($sortby == "ASC") {
-        $topics = $hotel->topics()->order_by_asc('id')->find_many();
-    } else {
-        $topics = $hotel->topics()->order_by_desc('id')->find_many();
+    // ------------------- pagination 
+    $onpage = 15;
+    $page = (int) $page;
+    //собираем кол-во страниц, для пагинации
+    $pages = $hotel->topics()->count();
+    $pages = ceil($pages / $onpage);
+    $arrpage =  array();
+    for ($i=0; $i < $pages; $i++) {
+        $arrpage[$i]['id'] = $i+1;
+        $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
     }
-    
+
+    $page = ($page > $pages) ? $pages  : (
+                                            ($page < 0) ? 1 : $page
+                                          );
+    $offset = $onpage * ($page-1) + $page-1;
+
+    // ------------------- end  pagination 
+    if ($sortby == "ASC") {
+        $topics = $hotel->topics()->order_by_asc('id')->limit($onpage)->offset($offset)->find_many();
+    } else {
+        $topics = $hotel->topics()->order_by_desc('id')->limit($onpage)->offset($offset)->find_many();
+    }
+
 
     foreach ($topics as $key => $value) {
         
@@ -240,6 +349,8 @@ function show_hotel($id) {
     return $app->render('hotels_detail.twig', array('hotel' => $hotel,
                                                     'topics' => $topics,
                                                     'sortby' =>$sortby,
+                                                    'pagination' =>$arrpage,
+                                                    'current' => $page,
                                                     'currentpage' => 'hotels'
                                                     )
                         );
