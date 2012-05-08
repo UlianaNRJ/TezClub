@@ -6,7 +6,10 @@ jQuery(document).ready(function($){
 	// decorate all dropdown menus
 	$("select").each(function(){
 		$(this).selectmenu({
-			//dropdown: false
+			style: "dropdown", 
+			change: function () { 
+			$("form").submit(); 
+			}
 		})
 		.selectmenu("widget") // returns only first menuWidget thats why i use each
 		.addClass("right")
