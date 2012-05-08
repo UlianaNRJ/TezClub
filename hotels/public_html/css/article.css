@@ -182,17 +182,31 @@
 	height: 99px;
 	width: 22px;
 	margin: 44px 0;
+
 }
 	.faces .arrow.left{
 		background-position: -22px 0;
+			float: left;
+
 	}
 	.faces .arrow.right{
 		background-position: 0 0;
+			float: right;
 	}
-.faces ul{
+
+
+
+.faces .scrollable {
+	position:relative;
+	overflow:hidden;
 	width: 870px;
+	height: 100%;
 }
-	.faces ul li{
+
+	.faces .anyClass {
+		width: 870px;
+	}
+	.faces .corners {
 		border: 1px solid #CCCCCC;
 	    box-shadow: 0 0 5px 0 #CCCCCC;
 	    height: 180px;
@@ -201,11 +215,11 @@
 	    text-align: center;
 	    width: 100px;
 	}
-	.faces ul li .login{
+	.faces .corners .login{
 		font-size: 15px;
 		color: #000;
 	}
-	.faces ul li .name{
+	.faces .corners .name{
 		font-size: 15px;
 		color: #666666;
 		margin-bottom: 5px;
@@ -250,9 +264,9 @@
 		    content: "";
 		    position: absolute;
 		    z-index: 1000;
-		    bottom: -15px;
+		    bottom: -14px;
 		    left: 20%;
-		    margin-left: -16px;
+		    margin-left: -15px;
 		    border-top: 15px solid #fff;
 		    border-left: 15px solid transparent;
 		    border-right: 15px solid transparent;
@@ -261,7 +275,7 @@
 		 
 		.popular li.active p:before {
 		    border-top-color: #0073A5;
-		    bottom: -16px;
+		    bottom: -15px;
 		}
 
 

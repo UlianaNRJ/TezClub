@@ -2,6 +2,19 @@
 
 {% block page_title %} Bloggers In Hotels {% endblock %}
 
+{% block page_head %}
+<script type="text/javascript" src="/js/jscroll.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".anyClass").jCarouselLite({
+        btnNext: ".faces .arrow.right",
+        btnPrev: ".faces .arrow.left",
+        visible: 5
+    });
+});
+</script>
+{% endblock %}
+
 {% block content %} 
 <div class="caption">
 
@@ -20,6 +33,7 @@
 <h1 style="margin: 25px 0 10px 50px;">Блоггеры проекта</h1>
 <div class="c faces">
     <div class="ib arrow left"></div>
+    <div class="ib anyClass">
     <ul class="c ib">
         {% for blogger in bloggers %}
         <li class="ib corners">
@@ -34,9 +48,8 @@
         </li>
         {% endfor %}
     </ul>
+    </div>
     <div class="ib arrow right"></div>
-
-
 </div>
 
 <div class="c">
@@ -46,9 +59,9 @@
             {% for hotel in hotels %}
             <li class="c">
                 {% if hotel.image != '' %}
-                <img class="ib" src="{{ hotel.image }}" width="25" height="25" alt=""/>
+                    <img class="ib" src="{{ hotel.image }}" width="25" height="25" alt=""/>
                 {% else %}
-                <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
+                    <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
                 {% endif %}
                 <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
                 <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
@@ -70,10 +83,10 @@
         </ul>
             {% for topic in topics %}
             <p {% if loop.index > 1 %}class="hide"{% endif %}>
-	        23 апреля 2012, 19:57 <br/>
+	        <span class="idate">{{ topic.timestamp }}</span><br/>
 	        {{ topic.summary|striptags }}<br/>
 
-	        <a href="#">Читать дальше →</a>
+	        <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
 	        <span class="ib count" style="float: right;">комментариев <span class="score">{{ topic.count_comments }}</span></span>
 	        </p>
             {% endfor %}

@@ -8,13 +8,17 @@ $app->get('/', $authCheck, function() use ($app) {
 
     $hotels = Model::factory('SprHotel')
                     ->order_by_desc('count_topic')
-                    ->limit(8)
+                    ->limit(7)
                     ->find_many();
 
     $topics = Model::factory('SprTopic')
                     ->order_by_desc('count_bals')
                     ->limit(3)
                     ->find_many();
+
+    foreach ($topics as $key => $value) {
+        $value->timestamp = rdate('d M Y, H:i', strtotime($value->timestamp));
+    }
 
     return $app->render('index.twig', array('topics' => $topics,
                                             'hotels' => $hotels,
@@ -61,7 +65,7 @@ function show_blogger($id) {
                 ->order_by_desc('timestamp')
                 ->find_many();
     }
-    
+
     foreach ($topics as $key => $value) {
         
         $bloger = Model::factory('SprBlogger') ->find_one($value->bl_id);
