@@ -9,8 +9,8 @@
 <div class="text">
 
 
-    <div class="list wide hotel">
-        <div class="ib info">
+    <div class="list hotel">
+        <div class="ib column info">
             {% for city in hotelcitys %}
             <h1> {{ city.name }}</h1>
             <h3>Отель</h3>
@@ -25,7 +25,7 @@
             </ul>
             {% endfor %}
         </div>
-        <div class="ib find">
+        <div class="ib column info">
             <h1>Подобрать отель</h1>
             <input id="checkbox_1" type="checkbox" name="" class="" />
             <label for="checkbox_1">Молодежный отдых</label><br/>
@@ -38,6 +38,20 @@
 
             <input id="checkbox_4" type="checkbox" name="" class="" />
             <label for="checkbox_4">Спокойный отдых</label><br/>
+
+	        {% for city in hotelcitys %}
+	        <h1> {{ city.name }}</h1>
+	        <h3>Отель</h3>
+	        <ul class="grid">
+		        {% for hotel in city.hotels %}
+		        <li class="c">
+			        <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
+			        <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
+			        <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
+		        </li>
+		        {% endfor %}
+	        </ul>
+	        {% endfor %}
         </div>
     </div>
 

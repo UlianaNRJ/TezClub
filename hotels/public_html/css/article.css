@@ -80,11 +80,6 @@
 			width: 275px;
 		}
 
-	.find {
-		width: 410px;
-		margin-left: 50px;
-	}
-
 	.list {
 
 	}
@@ -119,29 +114,35 @@
 			}
 
 	.list.hotel .info {
-		width: 470px;
+		width: 460px;
 	}
 		.list.hotel .info ul.grid {
 			margin-bottom: 1em;
 		}
 			.list.hotel .info ul.grid .name {
-				width: 360px;
+				width: 350px;
 			}
 		.list.hotel .info h1 {
 			margin-bottom: 0;
 		}
 
 	.list.blogger .info {
-		width: 470px;
+		width: 460px;
 	}
 		.list.blogger .info .avatar {
 			width: 100px;
 		}
 		.list.blogger .info .data {
 			margin: 0 20px;
-			width: 330px;
+			width: 320px;
 		}
 
+.column {
+	width: 460px;
+}
+	.column + .column {
+		margin-left: 20px;
+	}
 
 .headline {
 	position: relative;
