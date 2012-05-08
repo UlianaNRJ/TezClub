@@ -4,12 +4,17 @@ header {
 	margin-bottom: -80px;
 }
 	header figure img {
-		 padding: 15px 0;
+		padding: 15px 0;
 		margin-left: -4px;
 	}
+
+	header figure .logohref {
+		padding-left: 30px;
+	}
+
 	header .user-menu {
 		float: right;
-		line-height: 60px;
+		line-height: 59px;
 	}
 	header .nav-inner {
 		float:right;
@@ -100,7 +105,7 @@ header {
 .button{
 	color: #ffffff;
 	font-weight: bold;
-	padding: 3px 10px;
+	padding: 2px 8px;
 }
 
 .corners {
@@ -108,6 +113,18 @@ header {
 	-webkit-border-radius: 10px;
 	-khtml-border-radius: 10px;
 	border-radius: 10px;
+}
+
+.white {
+  -webkit-border-radius: 12px;
+          border-radius: 12px;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+  color: #4498bd;
+  border: 1px solid #CCCCCC;
+  background-color: #fff;
+  font-size: 13px;
+  font-weight: normal;
+
 }
 
 .green {

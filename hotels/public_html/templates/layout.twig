@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block page_title %} {% endblock %}</title>
+    <title>{% block page_title %}  Bloggers In Hotels  {% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/css/smoothness/jquery-ui.css"/>
@@ -11,7 +11,7 @@
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/jquery-ui.js"></script>
 
-    {% block page_head %} {% endblock %}
+    {% block page_head %}{% endblock %}
 
     <script type="text/javascript" src="/js/jquery.rating-2.0.js"></script>
     <link href="/css/jquery.rating.css" rel="stylesheet" type="text/css" />
@@ -53,15 +53,18 @@
         </div>
         {% else %}
             <div class="user-menu">
-                <a class="button green corners" href="http://tezclub.com.ua/login">войти</a>
+                <a class="button white corners" href="http://tezclub.com.ua/login">войти</a>
                 <span>или</span>
-                <a class="button grey corners" href="http://tezclub.com.ua/registration">зарегистрироваться</a>
+                <a class="button white corners" href="http://tezclub.com.ua/registration">зарегистрироваться</a>
             </div>
         {% endif %}
 
         <figure>
-            <a href="#">
+            <a href="http://tezclub.com.ua/">
                 <img class="ib" src="/img/logo.png" width="225" height="30" alt="logo"/>
+            </a>
+            <a href="/" class="logohref">
+                <img class="ib" src="/img/bloggers_in_hotels.png" width="114" height="30" alt="bloggers_in_hotels"/>
             </a>
         </figure>
     </div>
@@ -73,15 +76,17 @@
                 <img src="/img/search.png" class="" width="12" height="10" alt=""/>
             </div>
             <ul class="c">
-                <li class="ib"><a href="#">Главное</a></li>
-                <li class="ib"><a href="#">Спецпроект</a></li>
-                <li class="ib"><a href="#">Обсуждения</a></li>
-                <li class="ib"><a href="#">Советы</a></li>
-                <li class="ib"><a href="#">Мой тур</a></li>
-                <li class="ib"><a href="#">Люди</a></li>
+                <li  class="ib"><a href="http://tezclub.com.ua">Главное</a></li>
+                <li  class="ib"><a href="http://tezclub.com.ua/blogs/">Обсуждения</a></li>
+                <li  class="ib"><a href="http://tezclub.com.ua/tag/Советы/">Советы</a></li>
+                <li  class="ib"><a href="http://tour.tezclub.com.ua/">Мой тур</a></li>
+                <li  class="ib"><a href="http://tezclub.com.ua/people/">Люди</a></li>
+                <li class="ib"><a href="http://tezclub.com.ua/page/about/">О Tez Club</a></li>
             </ul>
         </div>
     </div>
+
+</div>
 </header>
 
 <article>

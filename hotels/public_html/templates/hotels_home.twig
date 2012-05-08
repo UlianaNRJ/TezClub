@@ -8,21 +8,22 @@
 </div>
 <div class="text">
 
-
     <div class="list hotel">
         <div class="ib column info">
             {% for city in hotelcitys %}
-            <h1> {{ city.name }}</h1>
-            <h3>Отель</h3>
-            <ul class="grid">
-                {% for hotel in city.hotels %}
-                <li class="c">
-                    <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
-                    <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
-                    <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
-                </li>
-                {% endfor %}
-            </ul>
+                {% if loop.index is not odd %}
+                <h1> {{ city.name }}</h1>
+                <h3>Отель</h3>
+                <ul class="grid">
+                    {% for hotel in city.hotels %}
+                    <li class="c">
+                        <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
+                        <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
+                        <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
             {% endfor %}
         </div>
         <div class="ib column info">
@@ -40,17 +41,19 @@
             <label for="checkbox_4">Спокойный отдых</label><br/>
 
 	        {% for city in hotelcitys %}
-	        <h1> {{ city.name }}</h1>
-	        <h3>Отель</h3>
-	        <ul class="grid">
-		        {% for hotel in city.hotels %}
-		        <li class="c">
-			        <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
-			        <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
-			        <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
-		        </li>
-		        {% endfor %}
-	        </ul>
+                {% if loop.index is odd %}
+    	        <h1> {{ city.name }}</h1>
+    	        <h3>Отель</h3>
+    	        <ul class="grid">
+    		        {% for hotel in city.hotels %}
+    		        <li class="c">
+    			        <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
+    			        <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
+    			        <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
+    		        </li>
+    		        {% endfor %}
+    	        </ul>
+                {% endif %}
 	        {% endfor %}
         </div>
     </div>
