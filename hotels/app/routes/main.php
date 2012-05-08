@@ -197,7 +197,7 @@ function all_blogs($page = 1) {
                 ->order_by_asc('timestamp')
                 ->where('bl_id', $sortbybloggers)
                 ->count();
-                
+
         $pages = ceil($pages / $onpage);
         $arrpage =  array();
         for ($i=0; $i < $pages; $i++) {
@@ -383,7 +383,7 @@ $app->post('/topic/vote', function() use ($app) {
         $data['msg'] = 'Вы уже голосовали за эту заметку';
     } else{
         $topic->count_bals = ($topic->count_bals*$topic->count_voises + floatval($app->request()->post('score')))/($topic->count_voises + 1);
-        $topic->count_voises    = $topic->count_voises + 1;
+        $topic->count_voises = $topic->count_voises + 1;
         $topic->save();
 
         $data['status'] = 'OK';
@@ -391,6 +391,14 @@ $app->post('/topic/vote', function() use ($app) {
         if($use_cookie)
         {
             setcookie($cookie_name,$id,time() + $expires);
+        }
+
+        // добавляем блогеру написавшему этот пост рейтинг:
+        $blogger = Model::factory('SprBlogger')->find_one($topic->bl_id);
+        if ( $blogger instanceof SprBlogger) {
+            $blogger->count_bals = ($blogger->count_bals*$blogger->count_voises + floatval($app->request()->post('score')))/($blogger->count_voises + 1);
+            $blogger->count_voises = $blogger->count_voises + 1;
+            $blogger->save();
         }
         
     }
