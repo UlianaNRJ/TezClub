@@ -48,6 +48,10 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
     $topic->summary   =  strip_tags($app->request()->post('summary'), '<p><a><div><br><img><iframe>');
     $topic->content   =  strip_tags($app->request()->post('content'), '<p><a><div><br><img><iframe>');
     
+    // выюираем первую картинку для вывода
+    preg_match("#<img.*?src=['\"]([^\"']+\.jpg)['\"].*?/?>#i", $topic->content, $image);
+    $topic->image = $image[1];
+
     $topic->timestamp = ($app->request()->post('timestamp')) ? $app->request()->post('timestamp') : date('Y-m-d H:i:s');
 
     $topic->tags   = $app->request()->post('tags');
@@ -121,6 +125,10 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
     $topic->summary   =  strip_tags($app->request()->post('summary'), '<p><a><div><br><img><iframe>');
     $topic->content   =  strip_tags($app->request()->post('content'), '<p><a><div><br><img><iframe>');
     
+    // выюираем первую картинку для вывода
+    preg_match("#<img.*?src=['\"]([^\"']+\.jpg)['\"].*?/?>#i", $topic->content, $image);
+    $topic->image = $image[1];
+
     $topic->timestamp = ($app->request()->post('timestamp')) ? $app->request()->post('timestamp') : date('Y-m-d H:i:s');
 
     $topic->tags      = $app->request()->post('tags');
