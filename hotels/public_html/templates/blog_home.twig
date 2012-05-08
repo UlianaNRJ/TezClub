@@ -8,16 +8,7 @@
 </div>
 <div class="text">
     <div class="options">
-        <h3>Сортировать обзоры </h3>
-        <select>
-            <option>Последние</option>
-        </select>
-        <select>
-            <option>По отелям</option>
-        </select>
-        <select>
-            <option>По блоггерам</option>
-        </select>
+        {% include 'list_options.twig' %}
     </div>
     <div class="list short hotels">
         {% include 'list_short_hotel.twig' %}

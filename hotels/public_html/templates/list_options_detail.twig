@@ -1,0 +1,38 @@
+{% if currentpage == 'hotels'%}
+<h3>Сортировать обзоры про отель</h3>
+<form method="post" action="/hotel/{{ hotel.id }}">
+    <select name="sortby"> 
+        <option value="DESC">Последние</option> 
+        <option value="ASC" {% if sortby == "ASC" %} selected {% endif %}>Первые</option> 
+    </select>
+</form>
+{% elseif currentpage == 'blog' %}
+<h3>Выбрать другой отзыв</h3>
+<form method="post" action="/blog">
+     <select name="sortbyhotels">
+        <option value="">По отелям</option>
+        {% for hotel in hotels %}
+        <option value="{{ hotel.id }}" {% if sortbyhotels == hotel.id %} selected {% endif %}>{{ hotel.name }}</option>
+        {% endfor %}
+    </select>
+    <select name="sortbybloggers">
+        <option value="">По блоггерам</option>
+        {% for blogger in bloggers %}
+        <option value="{{ blogger.id }}" {% if sortbybloggers == blogger.id %} selected {% endif %}>{{ blogger.name }}</option>
+        {% endfor %}
+    </select>
+</form>
+{% elseif currentpage == 'bloggers' %}
+<form method="post" action="/bloggers/{{ blogger.id }}">
+    <select name="sortby"> 
+        <option value="DESC">Последние</option> 
+        <option value="ASC" {% if sortby == "ASC" %} selected {% endif %}>Первые</option> 
+    </select>
+     <select name="sortbyhotels">
+        <option value="">По отелям</option>
+        {% for hotel in hotels %}
+        <option value="{{ hotel.id }}" {% if sortbyhotels == hotel.id %} selected {% endif %}>{{ hotel.name }}</option>
+        {% endfor %}
+    </select>
+</form>
+{% endif %}

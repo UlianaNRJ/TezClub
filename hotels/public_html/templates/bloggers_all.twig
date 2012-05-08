@@ -4,12 +4,14 @@
 
 {% block content %} 
 <div class="caption">
+    
     <select class="dropdown">
         <option value="0">Выбрать блогера</option>
         {% for blogger in bloggers %}
         <option value="{{ blogger.id }}">{{ blogger.name }}</option>
         {% endfor %}
     </select>
+    
 </div>
 <div class="text">
     <div class="c list wide blogger">
