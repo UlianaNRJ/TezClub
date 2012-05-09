@@ -50,7 +50,10 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
     
     // выюираем первую картинку для вывода
     preg_match("#<img.*?src=['\"]([^\"']+\.jpg)['\"].*?/?>#i", $topic->content, $image);
-    $topic->image = $image[1];
+    if ( isset($image) && isset($image[1]) )
+    { 
+        $topic->image = $image[1];
+    }
 
     $topic->timestamp = ($app->request()->post('timestamp')) ? $app->request()->post('timestamp') : date('Y-m-d H:i:s');
 
@@ -127,7 +130,10 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
     
     // выюираем первую картинку для вывода
     preg_match("#<img.*?src=['\"]([^\"']+\.jpg)['\"].*?/?>#i", $topic->content, $image);
-    $topic->image = $image[1];
+    if ( isset($image) && isset($image[1]) )
+    { 
+        $topic->image = $image[1];
+    }
 
     $topic->timestamp = ($app->request()->post('timestamp')) ? $app->request()->post('timestamp') : date('Y-m-d H:i:s');
 
