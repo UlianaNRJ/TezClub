@@ -17,6 +17,7 @@ $app->get('/admin/blogger/add', $authCheck, function() use ($app) {
 
 // Admin Add - POST.
 $app->post('/admin/blogger/add', $authCheck, function() use ($app) {
+    $blogger            = Model::factory('SprBlogger')->create();
     // ловим картинку
     if ( isset($_FILES["image"]) && $_FILES["image"]["tmp_name"] != '' ) {
 
@@ -44,7 +45,6 @@ $app->post('/admin/blogger/add', $authCheck, function() use ($app) {
         $hotel->image = $img;
     }
 
-    $blogger            = Model::factory('SprBlogger')->create();
     $blogger->login     = $app->request()->post('login');
     $blogger->name      = $app->request()->post('name');
 

@@ -31,8 +31,10 @@ $app->get('/admin/hotel/add', $authCheck, function() use ($app) {
 
 // Admin Add - POST.
 $app->post('/admin/hotel/add', $authCheck, function() use ($app) {
-    // ловим картинку
     
+    $hotel              = Model::factory('SprHotel')->create();
+
+    // ловим картинку
     if ( isset($_FILES["image"]) && $_FILES["image"]["tmp_name"] != '' ) {
 
         $_FILES["image"]["tmp_name"];
@@ -43,18 +45,17 @@ $app->post('/admin/hotel/add', $authCheck, function() use ($app) {
         $image = new SimpleImage();
         // делаем превью
         $image->load($img);
-        $image->resizeToWidth(150);
-        $image->save($img);
+        $image->resizeToWidth(25);
+        $image->save($img.'.25');
 
         // делаем превью
         $image->load($img);
-        $image->resizeToWidth(25);
-        $image->save($img.'.25');
+        $image->resizeToWidth(150);
+        $image->save($img);
 
         $hotel->image = $img;
     }
 
-    $hotel              = Model::factory('SprHotel')->create();
     $hotel->name        = $app->request()->post('name');
     $hotel->cc_id       = $app->request()->post('city');
     $hotel->description = $app->request()->post('description');
