@@ -89,10 +89,11 @@ CREATE TABLE IF NOT EXISTS `spr_topic` (
 
 CREATE TABLE IF NOT EXISTS `spr_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `topic_id` int(10) unsigned NOT NULL,
   `text` TEXT DEFAULT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `user_key` int(10) unsigned NOT NULL,
   `active` tinyint(1) DEFAULT '0',
-  `timestamp` timestamp NULL DEFAULT NULL,
+  `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

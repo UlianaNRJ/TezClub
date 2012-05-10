@@ -68,9 +68,6 @@ function show_blogger($id, $page = 1) {
         $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
     }
 
-    $page = ($page > $pages) ? $pages  : (
-                                            ($page < 0) ? 1 : $page
-                                          );
     $offset = $onpage * ($page-1) + $page-1;
 
     // ------------------- end  pagination 
@@ -141,9 +138,6 @@ function all_blogs($page = 1) {
         $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
     }
 
-    $page = ($page > $pages) ? $pages  : (
-                                            ($page < 0) ? 1 : $page
-                                          );
     $offset = $onpage * ($page-1) + $page-1;
 
     // ------------------- end  pagination 
@@ -175,9 +169,6 @@ function all_blogs($page = 1) {
             $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
         }
 
-        $page = ($page > $pages) ? $pages  : (
-                                                ($page < 0) ? 1 : $page
-                                              );
         $offset = $onpage * ($page-1) + $page-1;
 
         // ------------------- end  pagination 
@@ -205,9 +196,6 @@ function all_blogs($page = 1) {
             $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
         }
 
-        $page = ($page > $pages) ? $pages  : (
-                                                ($page < 0) ? 1 : $page
-                                              );
         $offset = $onpage * ($page-1) + $page-1;
 
         // ------------------- end  pagination 
@@ -271,6 +259,14 @@ $app->get('/blog/view/(:id)', function($id) use ($app) {
 
     $topic->tags = explode(',', $topic->tags);
 
+    $topic->comments = $topic->comments()->find_many();
+
+    foreach ($topic->comments as $key => $value) {
+        $user = Model::factory('TcUser')->where('user_id', $value->user_id)->find_one();
+        $user->user_profile_avatar = str_replace('100x100', '24x24', $user->user_profile_avatar);
+        $value->set('user', $user);
+        $value->timestamp = rdate('d M Y, H:i', strtotime($value->timestamp));
+    }
 
     return $app->render('blog_detail.twig', array('topic' => $topic,
                                                   'hotels' => $hotels,
@@ -297,7 +293,7 @@ $app->get('/hotels', function() use ($app) {
 $app->get('/hotel/:id(/:page)', 'show_hotel') ;
 $app->post('/hotel/:id(/:page)', 'show_hotel') ;
 
-function show_hotel($id, $page=1) {
+function show_hotel($id, $page = 1) {
     $app = Slim::getInstance();
     $hotel = Model::factory('SprHotel')->find_one($id);
     if (! $hotel instanceof SprHotel) {
@@ -317,9 +313,6 @@ function show_hotel($id, $page=1) {
         $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
     }
 
-    $page = ($page > $pages) ? $pages  : (
-                                            ($page < 0) ? 1 : $page
-                                          );
     $offset = $onpage * ($page-1) + $page-1;
 
     // ------------------- end  pagination 
@@ -332,10 +325,10 @@ function show_hotel($id, $page=1) {
 
     foreach ($topics as $key => $value) {
         
-        $bloger = Model::factory('SprBlogger') ->find_one($value->bl_id);
+        $bloger = Model::factory('SprBlogger')->find_one($value->bl_id);
         $value->set('author', $bloger->name);
 
-        $hotel = Model::factory('SprHotel') ->find_one($value->hotel_id);
+        $hotel = Model::factory('SprHotel')->find_one($value->hotel_id);
         $value->set('hotel', $hotel->name);
 
         $value->tags = explode(',', $value->tags);
@@ -438,4 +431,48 @@ $app->post('/blogger/vote', function() use ($app) {
     }
 
     echo json_encode($data);
+});
+
+
+// добавление комментария в топик
+
+$app->post('/topic/comment', function() use ($app) {
+    // находим топик за который голосовали
+    $topic_id = $app->request()->post('topic-id');
+    $topic = Model::factory('SprTopic')->find_one($topic_id);
+    if (! $topic instanceof SprTopic) {
+        echo '{"status":0,"errors":"Нет такого топика"}';
+    }
+
+    $user_id = $app->request()->post('user-id');
+    $user = Model::factory('TcUser')->where('user_id', $user_id)->find_one();
+    if (! $user instanceof TcUser) {
+        echo '{"status":0,"errors":"Нет такого пользователя"}';
+    }
+    // подменяем аватарку
+    $user->user_profile_avatar = str_replace('100x100', '24x24', $user->user_profile_avatar);
+
+    $topic->count_comments = $topic->count_comments + 1;
+    $topic->save();
+
+    // добавляем блогеру написавшему этот пост рейтинг:
+    $comment = Model::factory('SprComment')->create();
+    $comment->topic_id = $topic_id;
+    $comment->user_id = $user_id;
+    $comment->text = $app->request()->post('comment_text');
+    $comment->save();
+
+    $html = '<div class="comment-wrapper" >
+                    <div class="comment" >
+                        <ul class="info">
+                            <li class="com_avatar">
+                                <a href="http://tezclub.local/profile/"'.$user->user_login.'"/"><img alt="avatar" src="'.$user->user_profile_avatar.'"></a>
+                            </li>
+                            <li class="username"><a href="http://tezclub.local/profile/'.$user->user_login.'/">'.$user->user_login.'</a></li>
+                            <li class="date">'.rdate('d M Y, H:i', time()).'</li>
+                        </ul>
+                        <div class="content" >'.$comment->text.'</div>
+                    </div>
+                </div>';
+    echo json_encode(array('status'=>1,'html'=>$html));
 });

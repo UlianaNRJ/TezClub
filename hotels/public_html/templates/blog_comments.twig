@@ -1,0 +1,47 @@
+
+<div id="comments" class="comments">
+    {% for comment in topic.comments %}
+    <div class="comment-wrapper" id="comment_wrapper_{{ comment.id }}">
+        <div class="comment" id="comment_id_{{ comment.id }}">
+            <a name="comment{{ comment.id }}"></a>
+            <div class="folding" style="display: none;"></div>
+            <ul class="info">
+                <li class="com_avatar">
+                    <a href="http://tezclub.local/profile/{{ comment.user.user_login }}/"><img alt="avatar" src="{{ comment.user.user_profile_avatar }}"></a>
+                </li>
+                <li class="username"><a href="http://tezclub.local/profile/{{ comment.user.user_login }}/">{{ comment.user.user_login }}</a></li>
+                <li class="date">{{ comment.timestamp }}</li>
+            </ul>
+            <div class="content" id="comment_content_id_{{ comment.id }}">{{ comment.text }}</div>
+            {# TODO: возможность ответов на комментарии
+            <div class="relpay-link-wrap"><a class="reply-link" onclick="ls.comments.toggleCommentForm(1271); return false;" href="#">Ответить</a></div>
+            #}
+            <div style="display: none;" id="comment_preview_{{ comment.id }}" class="comment-preview"></div>
+            <div style="display: none;" id="reply_{{ comment.id }}" class="reply"></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% if userCurrent %}
+<div id="addCommentContainer" class="reply-area">
+    <h4 id="add_comment_root" class="reply-header"><a onclick="return false;" href="#">Прокомментировать</a></h4>
+    <form id="addCommentForm" method="post" action="">
+        <div>
+            <textarea name="comment_text" id="comment_text"></textarea>
+            
+            <input type="hidden" name="user-id" value="{{ userCurrent.user_id }}">
+            <input type="hidden" name="topic-id" value="{{ topic.id }}">
+            <input type="hidden" value="105" name="cmt_target_id">
+            <div class="button-line">
+                <span>
+                    <input type="submit" type="button" value="Отправить" class="button gray">
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
+{% else %}
+    Только зарегистрированные и авторизованные пользователи могут оставлять комментарии.
+{% endif %}

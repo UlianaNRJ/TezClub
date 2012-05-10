@@ -3,8 +3,9 @@
 {% block page_title %}{{ topic.title }}{% endblock %}
 
 {% block page_head %}
-<script type="text/javascript" src="/js/fotorama.js"></script>
-<link href="/css/fotorama.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/fotorama.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/fotorama.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/comments.css" >
 {% endblock %}
 
 {% block content %}
@@ -68,6 +69,8 @@
             {% endfor %}
         </ul>
     </div>
+
+        {% include 'blog_comments.twig' %}
 </div>
 
 </div>

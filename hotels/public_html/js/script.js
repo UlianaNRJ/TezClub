@@ -32,4 +32,32 @@ $(document).ready(function(){
 		$("> .description", ".popular").hide().eq($(this).index()).show();
 	})
 
+	/* comments */
+	var working = false;
+	$('#addCommentForm').submit(function(e){
+
+ 		e.preventDefault();
+		if(working) return false;
+		
+		working = true;
+		$('#submit').val('Working..');
+		$('span.error').remove();
+		
+		$.post('/topic/comment',$(this).serialize(),function(msg){
+			working = false;
+			$('#submit').val('Отправить');
+			
+			if(msg.status){
+				$(msg.html).hide().insertBefore('#addCommentContainer').slideDown();
+				$('#comment_text').val('');
+			}
+			else {
+				$.each(msg.errors,function(k,v){
+					$('#addCommentContainer h4').append('<span class="error">'+v+'</span>');
+				});
+			}
+		},'json');
+
+	});
+	
 });
