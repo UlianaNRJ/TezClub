@@ -213,16 +213,23 @@
 	    text-align: center;
 	    width: 100px;
 	}
-	.faces .corners .login{
+	.faces .corners .login {
 		font-size: 15px;
 		color: #000;
 	}
+		.faces .corners .login a {
+			color: #000;
+		}
+
 	.faces .corners .name{
 		font-size: 15px;
 		color: #666666;
 		margin-bottom: 5px;
 	}
-
+		.faces .corners .name a{
+			color: #666666;
+		}
+		
 .places {
 	width: 380px;
 }

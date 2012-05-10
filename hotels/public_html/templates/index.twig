@@ -37,13 +37,15 @@ $(document).ready(function(){
     <ul class="c ib">
         {% for blogger in bloggers %}
         <li class="ib corners">
-            {% if blogger.image != '' %}
-            <img src="{{ blogger.image }}.100" height="100" width="100" alt=""/>
-            {% else %}
-            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-            {% endif %}
-            <div class="login">{{ blogger.login }}</div>
-            <div class="name">{{ blogger.name }}</div>
+            <a href="/bloggers/{{ blogger.id }}">
+                {% if blogger.image != '' %}
+                <img src="{{ blogger.image }}.100" height="100" width="100" alt=""/>
+                {% else %}
+                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                {% endif %}
+            </a>
+            <div class="login"><a href="/bloggers/{{ blogger.id }}">{{ blogger.login }}</a></div>
+            <div class="name"><a href="/bloggers/{{ blogger.id }}">{{ blogger.name }}</a></div>
             <div class="statistic">Рейтинг <span class="score">{{ blogger.count_bals }}</span></div>
         </li>
         {% endfor %}
