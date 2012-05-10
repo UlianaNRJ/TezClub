@@ -423,4 +423,16 @@ ul.pagging {
 		}
 
 
-
+.shaded {
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 0 5px 0 #CCCCCC;
+    display: table-cell;
+    height: 60px;
+    margin: 0 16px 10px;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    width: 100px;
+    background: url("../img/arrow_34.png") transparent right bottom scroll no-repeat;
+}
