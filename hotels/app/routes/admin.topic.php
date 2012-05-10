@@ -42,6 +42,7 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
     $topic            = Model::factory('SprTopic')->create();
     $topic->title     = $app->request()->post('title');
     $topic->bl_id     = $app->request()->post('blogger');
+    $topic->operator     = $app->request()->post('operator');
     $topic->hotel_id    = $app->request()->post('hotel');
 
 
@@ -119,6 +120,7 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
 
     $topic->title     = $app->request()->post('title');
     $topic->bl_id     = $app->request()->post('blogger');
+    $topic->operator     = $app->request()->post('operator');
     // старый номер отеля
     $oldhotel = $topic->hotel_id;
 
