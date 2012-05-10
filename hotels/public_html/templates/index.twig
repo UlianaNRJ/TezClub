@@ -84,7 +84,7 @@ $(document).ready(function(){
             {% for topic in topics %}
 		    <div class="description {% if loop.index > 1 %}hide{% endif %}">
 			    <div class="date">{{ topic.timestamp }}</div>
-			    <div class="longtext">{{ topic.summary|striptags }}</div>
+			    <div class="longtext">{{ topic.summary|raw }}</div>
 			    <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
 			    <span class="ib count" style="float: right;">комментариев <span class="score">{{ topic.count_comments }}</span></span>
 		    </div>

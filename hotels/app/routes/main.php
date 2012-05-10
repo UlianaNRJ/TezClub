@@ -17,6 +17,7 @@ $app->get('/', $authCheck, function() use ($app) {
                     ->find_many();
 
     foreach ($topics as $key => $value) {
+        $value->summary = strip_tags($value->summary, '<br><br/>');
         $value->timestamp = rdate('d M Y, H:i', strtotime($value->timestamp));
     }
 
