@@ -20,21 +20,6 @@
 
     <div class="list hotel">
         <div class="info">
-            <div class="ib item">
-                <h1>Подобрать отель</h1>
-                <input id="checkbox_1" type="checkbox" name="" class="" />
-                <label for="checkbox_1">Молодежный отдых</label><br/>
-
-                <input id="checkbox_2" type="checkbox" name="" class="" />
-                <label for="checkbox_2">Роскошный отдых</label><br/>
-
-                <input id="checkbox_3" type="checkbox" name="" class="" />
-                <label for="checkbox_3">Активный отдых</label><br/>
-
-                <input id="checkbox_4" type="checkbox" name="" class="" />
-                <label for="checkbox_4">Спокойный отдых</label><br/>
-            </div>
-
 
             {% for city in hotelcitys %}
             <div class="ib item">
@@ -49,7 +34,24 @@
                     </li>
                     {% endfor %}
                 </ul>
+
                 </div>
+                {% if loop.index == 1 %} 
+                <div class="ib item">
+                    <h1>Подобрать отель</h1>
+                    <input id="checkbox_1" type="checkbox" name="" class="" />
+                    <label for="checkbox_1">Молодежный отдых</label><br/>
+
+                    <input id="checkbox_2" type="checkbox" name="" class="" />
+                    <label for="checkbox_2">Роскошный отдых</label><br/>
+
+                    <input id="checkbox_3" type="checkbox" name="" class="" />
+                    <label for="checkbox_3">Активный отдых</label><br/>
+
+                    <input id="checkbox_4" type="checkbox" name="" class="" />
+                    <label for="checkbox_4">Спокойный отдых</label><br/>
+                </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
