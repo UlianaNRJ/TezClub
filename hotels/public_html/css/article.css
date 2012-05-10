@@ -114,7 +114,7 @@
 			}
 
 	.list.hotel .info {
-		width: 460px;
+        position: relative;
 	}
 		.list.hotel .info ul.grid {
 			margin-bottom: 1em;
@@ -137,12 +137,10 @@
 			width: 320px;
 		}
 
-.column {
+.item {
 	width: 460px;
 }
-	.column + .column {
-		margin-left: 20px;
-	}
+
 
 .headline {
 	position: relative;
@@ -435,4 +433,6 @@ ul.pagging {
     vertical-align: middle;
     width: 100px;
     background: url("../img/arrow_34.png") transparent right bottom scroll no-repeat;
+    color: #0073a5;
+    font-size: 15px;
 }
