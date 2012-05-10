@@ -2,7 +2,11 @@
 <div class="entry">
     <h1><a href="/blog/view/{{ topic.id }}">{{ topic.title }}</a></h1>
     <div class="meta">
-        <img src="/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
+        {% if topic.author_ava %}
+            <img src="{{ topic.author_ava }}.25" class="ib" width="25" height="25" alt=""/>
+        {% else %}
+            <img src="/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
+        {% endif %}
         автор <a href="/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,
         отель <a href="/hotel/{{ topic.hotel_id }}">{{ topic.hotel }}</a>,
         оператор <a href="#">Василий иванович</a>

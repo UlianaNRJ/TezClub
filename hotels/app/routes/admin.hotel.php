@@ -46,6 +46,11 @@ $app->post('/admin/hotel/add', $authCheck, function() use ($app) {
         $image->resizeToWidth(150);
         $image->save($img);
 
+        // делаем превью
+        $image->load($img);
+        $image->resizeToWidth(25);
+        $image->save($img.'.25');
+
         $hotel->image = $img;
     }
 
@@ -143,6 +148,11 @@ $app->post('/admin/hotel/edit/(:id)', $authCheck, function($id) use ($app) {
         $image->load($img);
         $image->resizeToWidth(150);
         $image->save($img);
+
+        // делаем превью
+        $image->load($img);
+        $image->resizeToWidth(25);
+        $image->save($img.'.25');
 
         $hotel->image = $img;
     }

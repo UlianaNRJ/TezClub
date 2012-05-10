@@ -20,7 +20,11 @@
     <div class="entry">
         <h1>{{ topic.title }}</h1>
         <div class="meta">
-            <img src="/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
+            {% if topic.author_ava %}
+                <img src="/{{ topic.author_ava }}.25" width="25" alt="avatar"  class="ib"/>
+            {% else %}
+                <img src="/img/avatar-25.png"  width="25" alt="avatar" class="ib"/>
+            {% endif %}
             автор <a href="#">{{ topic.author }}</a>,
             отель <a href="#">{{ topic.hotel }}</a>,
             оператор <a href="#">Василий иванович</a>

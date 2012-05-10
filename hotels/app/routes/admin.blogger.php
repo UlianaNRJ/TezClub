@@ -106,6 +106,11 @@ $app->post('/admin/blogger/edit/(:id)', $authCheck, function($id) use ($app) {
         $image = new SimpleImage();
         // делаем превью
         $image->load($img);
+        $image->resizeToWidth(25);
+        $image->save($img.'.25');
+
+        // делаем превью
+        $image->load($img);
         $image->resizeToWidth(100);
         $image->save($img.'.100');
 

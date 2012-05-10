@@ -59,9 +59,9 @@ $(document).ready(function(){
             {% for hotel in hotels %}
             <li class="c">
                 {% if hotel.image != '' %}
-                    <img class="ib" src="{{ hotel.image }}" width="25" height="25" alt=""/>
+                    <img class="ib" src="{{ hotel.image }}.25" width="25" alt=""/>
                 {% else %}
-                    <img class="ib" src="/img/avatar-25.png" width="25" height="25" alt=""/>
+                    <img class="ib" src="/img/hotel-25.png" width="25" alt=""/>
                 {% endif %}
                 <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
                 <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>

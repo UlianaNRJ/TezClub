@@ -88,6 +88,7 @@ function show_blogger($id, $page = 1) {
         
         $bloger = Model::factory('SprBlogger') ->find_one($value->bl_id);
         $value->set('author', $bloger->name);
+        $value->set('author_ava', $bloger->image);
 
         $hotel = Model::factory('SprHotel') ->find_one($value->hotel_id);
         $value->set('hotel', $hotel->name);
@@ -214,6 +215,7 @@ function all_blogs($page = 1) {
         
         $bloger = Model::factory('SprBlogger') ->find_one($value->bl_id);
         $value->set('author', $bloger->name);
+        $value->set('author_ava', $bloger->image);
 
         $hotel = Model::factory('SprHotel') ->find_one($value->hotel_id);
         $value->set('hotel', $hotel->name);
@@ -327,6 +329,7 @@ function show_hotel($id, $page = 1) {
         
         $bloger = Model::factory('SprBlogger')->find_one($value->bl_id);
         $value->set('author', $bloger->name);
+        $value->set('author_ava', $bloger->image);
 
         $hotel = Model::factory('SprHotel')->find_one($value->hotel_id);
         $value->set('hotel', $hotel->name);
