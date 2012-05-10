@@ -85,6 +85,38 @@ function show_blogger($id, $page = 1) {
                 ->find_many();
     }
 
+    $sortbyhotels = $app->request()->post('sortbyhotels');
+    if ($sortbyhotels != "") {
+        //собираем кол-во страниц, для пагинации
+        $pages = $blogger->topics()
+                ->order_by_asc('timestamp')
+                ->where('hotel_id', $sortbyhotels)
+                ->count();
+
+        $pages = ceil($pages / $onpage);
+        $arrpage =  array();
+        for ($i=0; $i < $pages; $i++) {
+            $arrpage[$i]['id'] = $i+1;
+            $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
+        }
+
+        $offset = $onpage * ($page-1) + $page-1;
+
+        // ------------------- end  pagination 
+
+        $topics = $blogger->topics()
+                ->order_by_asc('timestamp')
+                ->where('hotel_id', $sortbyhotels)
+                ->limit($onpage)->offset($offset)
+                ->find_many();
+        $sortby ='';
+    }
+
+    $sortbybloggers = $app->request()->post('sortbybloggers');
+    if ($sortbybloggers != "") {
+        return $app->redirect('/bloggers/'.$sortbybloggers);
+    } 
+
     foreach ($topics as $key => $value) {
         
         $bloger = Model::factory('SprBlogger') ->find_one($value->bl_id);

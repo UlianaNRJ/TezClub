@@ -4,12 +4,14 @@
 
 {% block content %}
 <div class="caption">
-    <select class="dropdown">
-        <option value="0">Выбрать блогера</option>
-        {% for blogger in bloggers %}
-        <option value="{{ blogger.id }}">{{ blogger.name }}</option>
-        {% endfor %}
-    </select>
+    <form method="post" action="/bloggers/{{ blogger.id }}" class="bloggers_form" name="caption_form">
+        <select name="sortbybloggers">
+            <option value="">По блоггерам</option>
+            {% for blogger in bloggers %}
+            <option value="{{ blogger.id }}" {% if sortbybloggers == blogger.id %} selected {% endif %}>{{ blogger.name }}</option>
+            {% endfor %}
+        </select>
+    </form>
     <span class="name">{{ blogger.name }}</span>
     <a class="all" href="/bloggers">все блогеры</a>
 </div>
@@ -97,9 +99,9 @@
                 {% for hotel in hotels %}
                 <li class="c">
                     {% if hotel.image %}
-                        <img src="/{{ hotel.image }}.25" width="25" alt="avatar" />
+                        <img src="/{{ hotel.image }}.25" width="25" alt="avatar" class="ib"/>
                     {% else %}
-                        <img src="/img/hotel-25.png" width="25" alt="avatar" />
+                        <img src="/img/hotel-25.png" width="25" alt="avatar" class="ib"/>
                     {% endif %}
                     <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
                     <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
@@ -109,7 +111,9 @@
         </div>
     </div>
     <div class="options">
-        {% include 'list_options_detail.twig' %}
+        {% if topics %}
+            {% include 'list_options_detail.twig' %}
+        {% endif %}
     </div>
     <div class="list short hotels">
         {% include 'list_short_hotel.twig' %}

@@ -8,7 +8,8 @@ $(document).ready(function(){
 		$(this).selectmenu({
 			style: "dropdown", 
 			change: function () { 
-			$("form").submit(); 
+				// submit to parent form for selector
+				$(this).parent().submit();
 			}
 		})
 		.selectmenu("widget") // returns only first menuWidget thats why i use each
