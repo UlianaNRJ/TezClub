@@ -3,15 +3,18 @@
 $app->get('/', $authCheck, function() use ($app) {
 
     $bloggers = Model::factory('SprBlogger')
+                    ->where('active', 1)
                     ->order_by_desc('timestamp')
                     ->find_many();
 
     $hotels = Model::factory('SprHotel')
+                    ->where('active', 1)
                     ->order_by_desc('count_topic')
                     ->limit(7)
                     ->find_many();
 
     $topics = Model::factory('SprTopic')
+                    ->where('active', 1)
                     ->order_by_desc('count_bals')
                     ->limit(3)
                     ->find_many();
@@ -32,6 +35,7 @@ $app->get('/', $authCheck, function() use ($app) {
 // 
 $app->get('/bloggers', function() use ($app) {
     $bloggers = Model::factory('SprBlogger')
+                    ->where('active', 1)
                     ->order_by_desc('timestamp')
                     ->find_many();
     return $app->render('bloggers_all.twig', array('bloggers' => $bloggers,
@@ -46,13 +50,14 @@ $app->post('/bloggers/:id(/:page)', 'show_blogger');
 function show_blogger($id, $page = 1) {
     $app = Slim::getInstance();
     
-    $blogger = Model::factory('SprBlogger')->find_one($id);
+    $blogger = Model::factory('SprBlogger')->where('active', 1)->find_one($id);
     if (! $blogger instanceof SprBlogger) {
         $app->notFound();
     }
     $blogger->soc_links = json_decode($blogger->soc_links);
 
     $bloggers = Model::factory('SprBlogger')
+                    ->where('active', 1)
                     ->order_by_desc('timestamp')
                     ->find_many();
 
@@ -119,11 +124,11 @@ function show_blogger($id, $page = 1) {
 
     foreach ($topics as $key => $value) {
         
-        $bloger = Model::factory('SprBlogger') ->find_one($value->bl_id);
+        $bloger = Model::factory('SprBlogger')->where('active', 1)->find_one($value->bl_id);
         $value->set('author', $bloger->name);
         $value->set('author_ava', $bloger->image);
 
-        $hotel = Model::factory('SprHotel') ->find_one($value->hotel_id);
+        $hotel = Model::factory('SprHotel')->where('active', 1)->find_one($value->hotel_id);
         $value->set('hotel', $hotel->name);
 
         $value->tags = explode(',', $value->tags);
@@ -151,10 +156,12 @@ function all_blogs($page = 1) {
     $app = Slim::getInstance();
 
     $bloggers = Model::factory('SprBlogger')
+                    ->where('active', 1)
                     ->order_by_desc('timestamp')
                     ->find_many();
 
     $hotels = Model::factory('SprHotel')
+                    ->where('active', 1)
                     ->order_by_desc('count_topic')
                     ->find_many();
 
@@ -164,7 +171,7 @@ function all_blogs($page = 1) {
     $onpage = 15;
     $page = (int) $page;
     //собираем кол-во страниц, для пагинации
-    $pages = Model::factory('SprTopic')->order_by_asc('timestamp')->count();
+    $pages = Model::factory('SprTopic')->where('active', 1)->order_by_asc('timestamp')->count();
     $pages = ceil($pages / $onpage);
     $arrpage =  array();
     for ($i=0; $i < $pages; $i++) {
@@ -178,11 +185,13 @@ function all_blogs($page = 1) {
 
     if ($sortby == "ASC") {
         $topics = Model::factory('SprTopic')
+                ->where('active', 1)
                 ->order_by_asc('timestamp')
                 ->limit($onpage)->offset($offset)
                 ->find_many();
     } else {
         $topics = Model::factory('SprTopic')
+                ->where('active', 1)
                 ->order_by_desc('timestamp')
                 ->limit($onpage)->offset($offset)
                 ->find_many();
@@ -192,6 +201,7 @@ function all_blogs($page = 1) {
     if ($sortbyhotels != "") {
         //собираем кол-во страниц, для пагинации
         $pages = Model::factory('SprTopic')
+                ->where('active', 1)
                 ->order_by_asc('timestamp')
                 ->where('hotel_id', $sortbyhotels)
                 ->count();
@@ -208,6 +218,7 @@ function all_blogs($page = 1) {
         // ------------------- end  pagination 
 
         $topics = Model::factory('SprTopic')
+                ->where('active', 1)
                 ->order_by_asc('timestamp')
                 ->where('hotel_id', $sortbyhotels)
                 ->limit($onpage)->offset($offset)
@@ -219,6 +230,7 @@ function all_blogs($page = 1) {
         
         //собираем кол-во страниц, для пагинации
         $pages = Model::factory('SprTopic')
+                ->where('active', 1)
                 ->order_by_asc('timestamp')
                 ->where('bl_id', $sortbybloggers)
                 ->count();
@@ -236,6 +248,7 @@ function all_blogs($page = 1) {
 
 
         $topics = Model::factory('SprTopic')
+                ->where('active', 1)
                 ->order_by_asc('timestamp')
                 ->where('bl_id', $sortbybloggers)
                 ->limit($onpage)->offset($offset)
@@ -246,11 +259,11 @@ function all_blogs($page = 1) {
 
     foreach ($topics as $key => $value) {
         
-        $bloger = Model::factory('SprBlogger') ->find_one($value->bl_id);
+        $bloger = Model::factory('SprBlogger')->where('active', 1)->find_one($value->bl_id);
         $value->set('author', $bloger->name);
         $value->set('author_ava', $bloger->image);
 
-        $hotel = Model::factory('SprHotel') ->find_one($value->hotel_id);
+        $hotel = Model::factory('SprHotel')->where('active', 1)->find_one($value->hotel_id);
         $value->set('hotel', $hotel->name);
 
         $value->tags = explode(',', $value->tags);
@@ -273,23 +286,25 @@ function all_blogs($page = 1) {
 
 // Blog View.
 $app->get('/blog/view/(:id)', function($id) use ($app) {
-    $topic = Model::factory('SprTopic')->find_one($id);
+    $topic = Model::factory('SprTopic')->where('active', 1)->find_one($id);
     if (! $topic instanceof SprTopic) {
         $app->notFound();
     }
 
     $bloggers = Model::factory('SprBlogger')
+                    ->where('active', 1)
                     ->order_by_desc('timestamp')
                     ->find_many();
 
     $hotels = Model::factory('SprHotel')
+                    ->where('active', 1)
                     ->order_by_desc('count_topic')
                     ->find_many();
 
-    $bloger = Model::factory('SprBlogger') ->find_one($topic->bl_id);
+    $bloger = Model::factory('SprBlogger')->where('active', 1)->find_one($topic->bl_id);
     $topic->set('author', $bloger->name);
 
-    $hotel = Model::factory('SprHotel') ->find_one($topic->hotel_id);
+    $hotel = Model::factory('SprHotel')->where('active', 1)->find_one($topic->hotel_id);
     $topic->set('hotel', $hotel->name);
 
     $topic->tags = explode(',', $topic->tags);
@@ -314,6 +329,7 @@ $app->get('/blog/view/(:id)', function($id) use ($app) {
 // 
 $app->get('/hotels', function() use ($app) {
     $hotelcitys = Model::factory('SprCitycountry')
+                    ->where('active', 1)
                     ->order_by_desc('active')
                     ->find_many();
 
@@ -330,7 +346,7 @@ $app->post('/hotel/:id(/:page)', 'show_hotel') ;
 
 function show_hotel($id, $page = 1) {
     $app = Slim::getInstance();
-    $hotel = Model::factory('SprHotel')->find_one($id);
+    $hotel = Model::factory('SprHotel')->where('active', 1)->find_one($id);
     if (! $hotel instanceof SprHotel) {
         $app->notFound();
     }
@@ -360,11 +376,11 @@ function show_hotel($id, $page = 1) {
 
     foreach ($topics as $key => $value) {
         
-        $bloger = Model::factory('SprBlogger')->find_one($value->bl_id);
+        $bloger = Model::factory('SprBlogger')->where('active', 1)->find_one($value->bl_id);
         $value->set('author', $bloger->name);
         $value->set('author_ava', $bloger->image);
 
-        $hotel = Model::factory('SprHotel')->find_one($value->hotel_id);
+        $hotel = Model::factory('SprHotel')->where('active', 1)->find_one($value->hotel_id);
         $value->set('hotel', $hotel->name);
 
         $value->tags = explode(',', $value->tags);
@@ -397,7 +413,7 @@ $app->get('/about', function() use ($app) {
 $app->post('/topic/vote', function() use ($app) {
     // находим топик за который голосовали
     $id = $app->request()->post('topic-id');
-    $topic = Model::factory('SprTopic')->find_one($id);
+    $topic = Model::factory('SprTopic')->where('active', 1)->find_one($id);
     if (! $topic instanceof SprTopic) {
         $app->notFound();
     }   
@@ -423,7 +439,7 @@ $app->post('/topic/vote', function() use ($app) {
         }
 
         // добавляем блогеру написавшему этот пост рейтинг:
-        $blogger = Model::factory('SprBlogger')->find_one($topic->bl_id);
+        $blogger = Model::factory('SprBlogger')->where('active', 1)->find_one($topic->bl_id);
         if ( $blogger instanceof SprBlogger) {
             $blogger->count_bals = ($blogger->count_bals*$blogger->count_voises + floatval($app->request()->post('score')))/($blogger->count_voises + 1);
             $blogger->count_voises = $blogger->count_voises + 1;
@@ -440,7 +456,7 @@ $app->post('/topic/vote', function() use ($app) {
 $app->post('/blogger/vote', function() use ($app) {
     // находим топик за который голосовали
     $id = $app->request()->post('blogger-id');
-    $blogger = Model::factory('SprBlogger')->find_one($id);
+    $blogger = Model::factory('SprBlogger')->where('active', 1)->find_one($id);
     if (! $blogger instanceof SprBlogger) {
         $app->notFound();
     }   
@@ -475,7 +491,7 @@ $app->post('/blogger/vote', function() use ($app) {
 $app->post('/topic/comment', function() use ($app) {
     // находим топик за который голосовали
     $topic_id = $app->request()->post('topic-id');
-    $topic = Model::factory('SprTopic')->find_one($topic_id);
+    $topic = Model::factory('SprTopic')->where('active', 1)->find_one($topic_id);
     if (! $topic instanceof SprTopic) {
         echo '{"status":0,"errors":"Нет такого топика"}';
     }
