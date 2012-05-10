@@ -15,7 +15,7 @@
         <div class="control-group">
             <label class="control-label" for="title">Title</label>
             <div class="controls">
-              <input type="text" name="title" value="{{ topic.title|default('') }}" id="title" style="width:500px;"/>
+              <input type="text" name="title" value="{{ topic.title|default('') }}" id="title" style="width:700px;"/>
             </div>
         </div>
 
@@ -44,28 +44,28 @@
         <div class="control-group">
             <label class="control-label" for="summary">Summary</label>
             <div class="controls">
-              <textarea name="summary" id="summary" style="width:510px; height:150px;">{{ topic.summary|default('') }}</textarea>
+              <textarea name="summary" id="summary" style="width:710px; height:150px;">{{ topic.summary|default('') }}</textarea>
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="content">Content</label>
             <div class="controls">
-              <textarea name="content" id="content" style="width:510px; height:150px;">{{ topic.content|default('') }}</textarea>
+              <textarea name="content" id="content" style="width:710px; height:150px;">{{ topic.content|default('') }}</textarea>
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="timestamp">Date</label>
             <div class="controls">
-              <input type="text" name="timestamp" value="{{ topic.timestamp|default("now"|date("Y-m-d H:i:s")) }}" id="timestamp" style="width:500px;"/>
+              <input type="text" name="timestamp" value="{{ topic.timestamp|default("now"|date("Y-m-d H:i:s")) }}" id="timestamp" style="width:700px;"/>
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="tags">Tags</label>
             <div class="controls">
-              <input type="text" name="tags" value="{{ topic.tags|default('') }}" id="tags" style="width:500px;"/>
+              <input type="text" name="tags" value="{{ topic.tags|default('') }}" id="tags" style="width:700px;"/>
             </div>
         </div>
 

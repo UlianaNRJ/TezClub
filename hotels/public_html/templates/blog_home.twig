@@ -8,7 +8,9 @@
 </div>
 <div class="text">
     <div class="options">
-        {% include 'list_options.twig' %}
+        {% if topics %}
+            {% include 'list_options.twig' %}
+        {% endif %}
     </div>
     <div class="list short hotels">
         {% include 'list_short_hotel.twig' %}

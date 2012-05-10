@@ -23,7 +23,9 @@
         </ul>
     </div>
     <div class="options">
-        {% include 'list_options_detail.twig' %}
+        {% if topics %}
+            {% include 'list_options_detail.twig' %}
+        {% endif %}
     </div>
     <div class="list short hotels">
         {% include 'list_short_hotel.twig' %}

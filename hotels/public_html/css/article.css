@@ -20,6 +20,10 @@
 			margin-left: 20px;
 		}
 
+		.caption .bloggers_form {
+			float: right;
+		}
+
 	.text {
 		padding: 15px 10px;
 		border-top: 1px solid #cccccc;

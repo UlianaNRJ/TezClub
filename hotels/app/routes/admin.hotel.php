@@ -77,9 +77,13 @@ $app->post('/admin/hotel/add', $authCheck, function() use ($app) {
     $hotel->save();
     // id после вставки становиться ИД обьекта
     $hotel_id = $hotel->id;
-
+    $hoteltype = $app->request()->post('hoteltype');
+    // еси вдруг не выбрали 
+    if ( !isset($hoteltype) ) {
+        $hoteltype = array(0 => '1');
+    }
     // сохраняем связанную таблицу
-    foreach ($app->request()->post('hoteltype') as $key => $value) {
+    foreach ($hoteltype as $key => $value) {
         $HotelHoteltype = Model::factory('SprHotelHoteltype')->create();
         $HotelHoteltype->htype_id = $value;
         $HotelHoteltype->hotel_id = $hotel_id;
