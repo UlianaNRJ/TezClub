@@ -117,7 +117,7 @@
 
                 self.vote_active.css({
     				'width':width,
-    				'background-position':'left center'
+    				'background-position':'left bottom'
     			});
                 
                 self.vote_success.html('Ваша оценка: '+score);
