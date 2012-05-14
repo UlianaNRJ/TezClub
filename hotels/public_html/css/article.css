@@ -90,6 +90,9 @@
 	.list.short {
 		width: 670px;
 	}
+	.list.about {
+		font-size: 16px;
+	}
 	.list.wide {
 
 	}
