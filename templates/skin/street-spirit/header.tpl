@@ -33,7 +33,8 @@
 
 	{$aHtmlHeadFiles.css}
 
-	<!---<link href="{cfg name='path.static.skin'}/images/favicon.ico" rel="shortcut icon" />-->
+	<link href="{cfg name='path.static.skin'}/images/favicon.gif" rel="shortcut icon" />
+
 
         <!--[if gte IE 7]>
         <link rel="stylesheet" type="text/css" href="{cfg name='path.static.skin'}/css/ie8-and-up.css" />
