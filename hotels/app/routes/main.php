@@ -428,14 +428,14 @@ $app->post('/topic/vote', function() use ($app) {
     {
         
         $data['status'] = 'ERR';
-        $data['msg'] = 'Вы уже голосовали за эту заметку';
+        $data['msg'] = 'Вы уже голосовали.';
     } else{
         $topic->count_bals = ($topic->count_bals*$topic->count_voises + floatval($app->request()->post('score')))/($topic->count_voises + 1);
         $topic->count_voises = $topic->count_voises + 1;
         $topic->save();
 
         $data['status'] = 'OK';
-        $data['msg'] = 'Спасибо. Ваш голос учтен.';
+        $data['msg'] = 'Ваш голос учтен.';
         if($use_cookie)
         {
             setcookie($cookie_name,$id,time() + $expires);
@@ -481,14 +481,14 @@ $app->post('/blogger/vote', function() use ($app) {
     if($use_cookie && isset($_COOKIE[$cookie_name]) OR $votes > 0)
     {
         $data['status'] = 'ERR';
-        $data['msg'] = 'Вы уже голосовали за этого блоггера';
+        $data['msg'] = 'Вы уже голосовали.';
     } else{
         $blogger->count_bals = ($blogger->count_bals*$blogger->count_voises + floatval($app->request()->post('score')))/($blogger->count_voises + 1);
         $blogger->count_voises = $blogger->count_voises + 1;
         $blogger->save();
 
         $data['status'] = 'OK';
-        $data['msg'] = 'Спасибо. Ваш голос учтен.';
+        $data['msg'] = 'Ваш голос учтен.';
         if($use_cookie)
         {
             setcookie($cookie_name,$id,time() + $expires);
