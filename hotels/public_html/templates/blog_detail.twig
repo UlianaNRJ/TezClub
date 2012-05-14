@@ -60,7 +60,7 @@
                     image: '/img/stars.png',
                     loader: '/img/ajax-loader.gif',
                     url: '/topic/vote',
-                    //readOnly: true
+                    {% if not userCurrent %},readOnly: true{% endif %}
                });
              });
             </script>

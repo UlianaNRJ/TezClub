@@ -30,25 +30,20 @@
                     <img class="avatar" alt="{{ userCurrent.login }}" 
                         src="{{ userCurrent.user_profile_avatar}}">
                 </a>
-                <ul>
-                    <li>
-                        <a class="username" href="http://tezclub.com.ua/profile/{{ userCurrent.login }}/"> 
+                <a class="username" href="http://tezclub.com.ua/profile/{{ userCurrent.user_login }}/"> 
                             {% if userCurrent.user_profile_name != '' %}
                                 {{ userCurrent.user_profile_name }}
                             {% else %}
-                                {{ userCurrent.login }}
+                                {{ userCurrent.user_login }}
                             {% endif %}
                         </a>
-                        {% if iUserCurrentCountTalkNew %}
-                            <a href="http://tezclub.com.ua/talk/" class="new-message" id="new_messages" title="новые сообщения"><span class="message"></span>Новых сообщений: {{ iUserCurrentCountTalkNew }}</a>
-                        {% endif %}
-                        <a class="message" id="new_messages" href="http://tezclub.com.ua/talk/"></a>
-                        <a class="author" href="http://tezclub.com.ua/settings/profile/">Настройки</a>
-                        <a class="author" href="http://tezclub.com.ua/login/exit/?security_ls_key={{security_ls_key}}">Выход</a>
-                        <br>
-                        <span class="user-rating">Рейтинг <strong>{{ userCurrent.user_rating|number_format(2) }}</strong></span>
-                    </li>
-                </ul>
+                <a class="message" id="new_messages" href="http://tezclub.com.ua/talk/"></a>
+                {% if iUserCurrentCountTalkNew %}
+                    <a href="http://tezclub.com.ua/talk/" class="new-message" id="new_messages" title="новые сообщения"><span class="message"></span>Новых сообщений: {{ iUserCurrentCountTalkNew }}</a>
+                {% endif %}
+                <br>
+                <span class="user-conf"><a class="author" href="http://tezclub.com.ua/settings/profile/">Настройки</a> | <a class="author" href="http://tezclub.com.ua/login/exit/?security_ls_key={{security_ls_key}}">Выход</a></span>
+                <span class="user-rating">Рейтинг <strong>{{ userCurrent.user_rating|number_format(2) }}</strong></span>
             </div>
         </div>
         {% else %}
@@ -63,9 +58,7 @@
             <a href="http://tezclub.com.ua/">
                 <img class="ib" src="/img/logo.png" width="225" height="30" alt="logo"/>
             </a>
-            <a href="/" class="logohref">
-                <img class="ib" src="/img/bloggers_in_hotels.png" width="114" height="30" alt="bloggers_in_hotels"/>
-            </a>
+            <a class="logohref button blue corners ib" href="/">Bloggers in hotels</a>
         </figure>
     </div>
     <div class="main-menu">

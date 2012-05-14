@@ -416,12 +416,15 @@ $app->post('/topic/vote', function() use ($app) {
     $topic = Model::factory('SprTopic')->where('active', 1)->find_one($id);
     if (! $topic instanceof SprTopic) {
         $app->notFound();
-    }   
+    }
+
+    $votes = Model::factory('SprVotes')->where('topic_id', $id)->count();
+
     $use_cookie = true; //защита от накруток
     $expires = 3600*24*31; //время жизни кук в секундах (сейчас установлено 31 день) 
     $cookie_name = 'page_'.$id;
 
-    if($use_cookie && isset($_COOKIE[$cookie_name]))
+    if($use_cookie && isset($_COOKIE[$cookie_name]) OR $votes > 0)
     {
         
         $data['status'] = 'ERR';
@@ -437,6 +440,14 @@ $app->post('/topic/vote', function() use ($app) {
         {
             setcookie($cookie_name,$id,time() + $expires);
         }
+        $user = $app->view()->getData('userCurrent');
+        // Сохраняем что пользователь проголосовал
+        $usevotes = Model::factory('SprVotes')->create();
+        $usevotes->topic_id = $id;
+        $usevotes->vote = $app->request()->post('score');
+        $usevotes->user_id = $user->user_id;
+        $usevotes->save();
+
 
         // добавляем блогеру написавшему этот пост рейтинг:
         $blogger = Model::factory('SprBlogger')->where('active', 1)->find_one($topic->bl_id);
@@ -459,12 +470,15 @@ $app->post('/blogger/vote', function() use ($app) {
     $blogger = Model::factory('SprBlogger')->where('active', 1)->find_one($id);
     if (! $blogger instanceof SprBlogger) {
         $app->notFound();
-    }   
+    }
+
+    $votes = Model::factory('SprVotes')->where('blogger_id', $id)->count();
+
     $use_cookie = true; //защита от накруток
     $expires = 3600*24*31; //время жизни кук в секундах (сейчас установлено 31 день) 
     $cookie_name = 'blogger_'.$id;
 
-    if($use_cookie && isset($_COOKIE[$cookie_name]))
+    if($use_cookie && isset($_COOKIE[$cookie_name]) OR $votes > 0)
     {
         $data['status'] = 'ERR';
         $data['msg'] = 'Вы уже голосовали за этого блоггера';
@@ -479,6 +493,13 @@ $app->post('/blogger/vote', function() use ($app) {
         {
             setcookie($cookie_name,$id,time() + $expires);
         }
+        $user = $app->view()->getData('userCurrent');
+        // Сохраняем что пользователь проголосовал
+        $usevotes = Model::factory('SprVotes')->create();
+        $usevotes->blogger_id = $id;
+        $usevotes->vote = $app->request()->post('score');
+        $usevotes->user_id = $user->user_id;
+        $usevotes->save();
         
     }
 

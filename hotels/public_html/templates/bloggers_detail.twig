@@ -50,7 +50,7 @@
                     image: '/img/stars.png',
                     loader: '/img/ajax-loader.gif',
                     url: '/blogger/vote',
-                    //readOnly: true
+                    {% if not userCurrent %},readOnly: true{% endif %}
                });
              });
             </script>

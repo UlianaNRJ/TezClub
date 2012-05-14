@@ -13,3 +13,9 @@ class TcTalkUser extends Model
 {
 
 }
+// голоса
+class SprVotes extends Model
+{
+
+}
+
