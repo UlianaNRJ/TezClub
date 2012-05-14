@@ -1,7 +1,6 @@
 {assign var="noSidebar" value=true}
 {include file='header.light.tpl'}
 
-
 <div class="center">
 	{if $bLoginError}
 		<p class="system-messages-error">{$aLang.user_login_bad}</p>
@@ -20,7 +19,7 @@
 		</p>
 		<p><a href="{router page='registration'}">{$aLang.user_registration}</a><br />
 		<a href="{router page='login'}reminder/">{$aLang.user_password_reminder}</a></p>
-
+		<input type='hidden' name="sBackUrl" value="{$sBackUrl}">
 		{hook run='form_login_end'}
 	</form>
 
