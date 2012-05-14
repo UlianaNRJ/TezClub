@@ -5,7 +5,7 @@ div.vote-wrap {
 
 div.vote-wrap.blogger{
     overflow: hidden;
-    width: 350px;
+    width: 390px;
 }
 
 div.vote-block {
@@ -37,7 +37,7 @@ div.vote-active {
 
 div.vote-success {
     float: left;
-    margin-left: 15px;
+    /*margin-left: 15px;*/
 }
 
 div.vote-result {

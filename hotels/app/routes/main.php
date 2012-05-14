@@ -467,7 +467,7 @@ $app->post('/blogger/vote', function() use ($app) {
     if($use_cookie && isset($_COOKIE[$cookie_name]))
     {
         $data['status'] = 'ERR';
-        $data['msg'] = 'Вы уже голосовали за этого блогера';
+        $data['msg'] = 'Вы уже голосовали за этого блоггера';
     } else{
         $blogger->count_bals = ($blogger->count_bals*$blogger->count_voises + floatval($app->request()->post('score')))/($blogger->count_voises + 1);
         $blogger->count_voises = $blogger->count_voises + 1;
