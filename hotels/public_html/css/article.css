@@ -252,9 +252,10 @@
 .popular {
 	margin-left: 45px;
 	width: 522px;
+	position: relative;
 }
 	.popular ul{
-		margin-bottom: 15px;
+		margin-bottom: 9px;
 	}
 		.popular li {
 			padding: 10px;
@@ -293,6 +294,12 @@
 		.popular li.active p:before {
 		    border-top-color: #0073A5;
 		    bottom: -15px;
+		}
+
+		.popular .allblogs {
+			right:0 ;
+			bottom: 0;
+			position: absolute;
 		}
 
 
@@ -339,7 +346,20 @@
 }
 .description .longtext{
 	font-size: 15px;
+    height: 76px;
+    margin: 16px 0;
+    overflow: hidden;
+    position: relative;
+    width: 522px;
 }
+.description .longtext .count {
+	background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 0;
+    padding: 0 0 0 15px;
+    position: absolute;
+    right: 0;
+}
+
 .description a{
 	font-size: 15px;
 }

@@ -90,12 +90,12 @@ $(document).ready(function(){
             {% for topic in topics %}
 		    <div class="description {% if loop.index > 1 %}hide{% endif %}">
 			    <div class="date">{{ topic.timestamp }}</div>
-			    <div class="longtext">{{ topic.summary|raw }}</div>
+			    <div class="longtext">{{ topic.summary|raw }} <span class="ib count" >комментариев <span class="score">{{ topic.count_comments }}</span></span>
+                </div>
 			    <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
-			    <span class="ib count" style="float: right;">комментариев <span class="score">{{ topic.count_comments }}</span></span>
 		    </div>
             {% endfor %}
-        <a href="/blog" class="button grey corners" style="float: right;clear: both;">Все обзоры</a>
+        <a href="/blog" class="button grey corners allblogs">Все обзоры</a>
     </div>
 </div>
 
