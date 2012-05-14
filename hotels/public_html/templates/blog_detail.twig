@@ -27,7 +27,7 @@
             {% endif %}
             автор <a href="#">{{ topic.author }}</a>,
             отель <a href="#">{{ topic.hotel }}</a>,
-            оператор <a href="#">Василий иванович</a>
+            оператор <a href="{{ topic.operatorlink }}">{{ topic.operator }}</a>
             <span class="date">{{ topic.timestamp|date('jS F Y, H:i') }}</span>
         </div>
         <a class="ib button green corners" href="#">Заказать тур в оттеле</a><br/><br/>

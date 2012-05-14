@@ -38,6 +38,13 @@
         </div>
 
         <div class="control-group">
+            <label class="control-label" for="title">Operator link</label>
+            <div class="controls">
+              <input type="text" name="operatorlink" value="{{ topic.operatorlink|default('') }}" id="operatorlink" style="width:700px;"/>
+            </div>
+        </div>
+
+        <div class="control-group">
             <label class="control-label" for="hotel">Hotel</label>
             <div class="controls">
               <select  id="hotel" name="hotel">
