@@ -76,6 +76,7 @@ CREATE TABLE IF NOT EXISTS `spr_topic` (
   `text` TEXT DEFAULT NULL,
   `bl_id` int(10) unsigned NOT NULL,
   `operator` varchar(255) NOT NULL,  
+  `operatorlink` varchar(512) NOT NULL,  
   `hotel_id` int(10) unsigned NOT NULL,
   `count_comments` int(10) DEFAULT '0',
   `count_bals` float NOT NULL,
