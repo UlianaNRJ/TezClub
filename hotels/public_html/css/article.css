@@ -131,6 +131,17 @@
 		.list.hotel .info ul.grid {
 			margin-bottom: 1em;
 		}
+
+			.list.hotel .info ul.grid .deactive{
+				background-color: #DDD;
+			}
+
+				.list.hotel .info ul.grid .deactive a{
+					text-decoration: none;
+					color: #000;
+					cursor: wait;
+				}
+
 			.list.hotel .info ul.grid .name {
 				width: 350px;
 			}

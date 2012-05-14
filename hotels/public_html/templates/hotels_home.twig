@@ -10,6 +10,18 @@
             container: $('.info'),
             offset: 20
         });
+
+        $(":checkbox").click(function(){
+            var allbox = $("input:checked").map(function() {
+                return $(this).val();
+                }).get();
+            $(".grid li").removeClass("deactive");
+            for ( keyVar in allbox ) {
+                $(".grid li." + allbox[keyVar] ).addClass('deactive');
+            }
+            
+        });
+
     });
 
 </script>
@@ -27,7 +39,8 @@
                 <h3>Отель</h3>
                 <ul class="grid">
                     {% for hotel in city.hotels %}
-                    <li class="c">
+                    <li class="c {% for htype in hotel.htypes %} ht{{ htype.id }}{% endfor %}">
+
                         {% if hotel.image %}
                             <img src="/{{ hotel.image }}.25"  width="25" alt="avatar" class="ib"/>
                         {% else %}
@@ -43,17 +56,10 @@
                 {% if loop.index == 1 %} 
                 <div class="ib item">
                     <h1>Подобрать отель</h1>
-                    <input id="checkbox_1" type="checkbox" name="" class="" />
-                    <label for="checkbox_1">Молодежный отдых</label><br/>
-
-                    <input id="checkbox_2" type="checkbox" name="" class="" />
-                    <label for="checkbox_2">Роскошный отдых</label><br/>
-
-                    <input id="checkbox_3" type="checkbox" name="" class="" />
-                    <label for="checkbox_3">Активный отдых</label><br/>
-
-                    <input id="checkbox_4" type="checkbox" name="" class="" />
-                    <label for="checkbox_4">Спокойный отдых</label><br/>
+                    {% for htypes in hoteltypes %}
+                    <input id="checkbox_{{ htypes.id }}" type="checkbox" name="ht{{ htypes.id }}" class="" value="ht{{ htypes.id }}"/>
+                    <label for="checkbox_{{ htypes.id }}">{{ htypes.name }}</label><br/>
+                    {% endfor %}
                 </div>
                 {% endif %}
             {% endfor %}
