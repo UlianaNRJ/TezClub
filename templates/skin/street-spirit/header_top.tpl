@@ -2,36 +2,28 @@
     <div class="logo-line-inside" style="float:left; width: 40%;">
         <a href="{cfg name='path.root.web'}" class="logo">Tez<span>Club</span><font color="lightgrey">International</font></a>
     </div>
-	<div class="nav-inner" style="float:right;width: 26%;align:right; padding: 15px 2% 0 0;">
+	<div class="nav-inner">
         {if $oUserCurrent}
             <div class="profile">
                 <a href="{$oUserCurrent->getUserWebPath()}"><img src="{$oUserCurrent->getProfileAvatarPath(48)}" alt="{$oUserCurrent->getLogin()}" class="avatar" /></a>
-                <ul>
-                    <!--<li>
-
-                        (<a href="{router page='login'}exit/?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="logout">{$aLang.exit}</a>)
-                    </li>-->
-                    <li>
-                        <a href="{$oUserCurrent->getUserWebPath()}" class="username">
-                            {if $oUserCurrent->getProfileName()}
-                                {$oUserCurrent->getProfileName()}
-                            {else}
-                                {$oUserCurrent->getLogin()}
-                            {/if}
-                        </a>
-                        {if $iUserCurrentCountTalkNew}
-                            <a href="{router page='talk'}" class="new-message" id="new_messages" title="{$aLang.user_privat_messages_new}"><span class="message"></span>Новых сообщений: {$iUserCurrentCountTalkNew}</a>
+               <a href="{$oUserCurrent->getUserWebPath()}" class="username">
+                        {if $oUserCurrent->getProfileName()}
+                            {$oUserCurrent->getProfileName()}
+                        {else}
+                            {$oUserCurrent->getLogin()}
                         {/if}
-                            <a href="{router page='talk'}" id="new_messages" class="message"></a>
+                    </a>
+                <a href="{router page='talk'}" id="new_messages" class="message"></a>
+                    {if $iUserCurrentCountTalkNew}
+                        <a href="{router page='talk'}" class="new-message" id="new_messages" title="{$aLang.user_privat_messages_new}"><span class="message"></span>Новых сообщений: {$iUserCurrentCountTalkNew}</a>
+                    {/if}
+                    <br/>
+                    <span class="user-conf">
+                    <a href="{router page='settings'}profile/" class="author">{$aLang.user_settings}</a> | <a href="{router page='login'}exit/?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="author" >{$aLang.exit}</a></span>
 
-                        <a href="{router page='settings'}profile/" class="author">{$aLang.user_settings}</a>
-                        <a href="{router page='login'}exit/?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="author" >{$aLang.exit}</a>
-                        <br/>
-                        <span class="user-rating">{$aLang.user_rating} <strong>{$oUserCurrent->getRating()}</strong></span>
-                    </li>
+                    <span class="user-rating">{$aLang.user_rating} <strong>{$oUserCurrent->getRating()}</strong></span>
 
-                    {hook run='userbar_item'}
-                </ul>
+                {hook run='userbar_item'}
             </div>
         {else}
             <div class="auth">
