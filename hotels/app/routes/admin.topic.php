@@ -84,6 +84,11 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
     $hotel = Model::factory('SprHotel')->find_one($app->request()->post('hotel'));
     $hotel->count_topic = $hotel->count_topic + 1;
     $hotel->save();
+
+    // +1 Статья о отеле блогеру
+    $blogger = Model::factory('SprBlogger')->find_one($app->request()->post('blogger'));
+    $blogger->count_topic = $blogger->count_topic + 1;
+    $blogger->save();
     
     $app->redirect('/admin/topic');
 });
@@ -199,8 +204,19 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
 $app->get('/admin/topic/delete/(:id)', $authCheck, function($id) use ($app) {
     $topic = Model::factory('SprTopic')->find_one($id);
     if ($topic instanceof SprTopic) {
+        // -1 Статья о отеле блогеру
+        $blogger = Model::factory('SprBlogger')->find_one($topic->bl_id);
+        $blogger->count_topic = $blogger->count_topic - 1;
+        $blogger->save();
+
+        // -1 Статья о отеле блогеру
+        $hotel = Model::factory('SprHotel')->find_one($topic->hotel_id);
+        $hotel->count_topic = $hotel->count_topic - 1;
+        $hotel->save();
+
         $topic->delete();
     }
+
     
     $app->redirect('/admin/topic');
 });

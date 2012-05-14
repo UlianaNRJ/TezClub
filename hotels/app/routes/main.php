@@ -123,7 +123,6 @@ function show_blogger($id, $page = 1) {
     } 
 
     foreach ($topics as $key => $value) {
-        
         $bloger = Model::factory('SprBlogger')->where('active', 1)->find_one($value->bl_id);
         $value->set('author', $bloger->name);
         $value->set('author_ava', $bloger->image);
@@ -132,7 +131,6 @@ function show_blogger($id, $page = 1) {
         $value->set('hotel', $hotel->name);
 
         $value->tags = explode(',', $value->tags);
-
     }
 
 
