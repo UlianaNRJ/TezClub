@@ -9,7 +9,7 @@
         {% endif %}
         автор <a href="/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,
         отель <a href="/hotel/{{ topic.hotel_id }}">{{ topic.hotel }}</a>,
-        оператор <a href="#">{{ topic.operator }}</a>
+        оператор <a href="{{ topic.operatorlink }}">{{ topic.operator }}</a>
         <span class="date">{{ topic.timestamp }}</span>
         <span class="comments">{{ topic.count_comments }}</span>
     </div>

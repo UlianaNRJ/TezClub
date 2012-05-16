@@ -98,6 +98,8 @@ function show_blogger($id, $page = 1) {
         $value->set('hotel', $hotel->name);
 
         $value->tags = explode(',', $value->tags);
+
+        $value->timestamp = rdate('d M Y, H:i', strtotime($value->timestamp));
     }
 
 

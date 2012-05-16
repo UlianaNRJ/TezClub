@@ -6,6 +6,19 @@
     <script type="text/javascript" src="/js/fotorama.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="/css/fotorama.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/comments.css" >
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            // настройка Плагина Фоторамки
+            $('.fotorama').fotorama({
+                backgroundColor: '#fff',
+                thumbsBackgroundColor: '#fff',
+                thumbSize: 64,
+                thumbBorderColor: 'yellow',
+                thumbBorderWidth: 6,
+            });
+            $('.fotorama').trigger('rescale', [670, 500]);
+        });
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -25,10 +38,11 @@
             {% else %}
                 <img src="/img/avatar-25.png"  width="25" alt="avatar" class="ib"/>
             {% endif %}
-            автор <a href="#">{{ topic.author }}</a>,
-            отель <a href="#">{{ topic.hotel }}</a>,
+            автор <a href="/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,
+            отель <a href="/hotel/{{ topic.hotel_id }}">{{ topic.hotel }}</a>,
             оператор <a href="{{ topic.operatorlink }}">{{ topic.operator }}</a>
-            <span class="date">{{ topic.timestamp|date('jS F Y, H:i') }}</span>
+            <span class="date">{{ topic.timestamp }}</span>
+            <span class="comments">{{ topic.count_comments }}</span>
         </div>
         <a class="ib button green corners" href="#">Заказать тур в оттеле</a><br/><br/>
         
@@ -59,7 +73,7 @@
                     stars: 5,
                     image: '/img/stars.png',
                     loader: '/img/ajax-loader.gif',
-                    url: '/topic/vote',
+                    url: '/topic/vote'
                     {% if not userCurrent %},readOnly: true{% endif %}
                });
              });

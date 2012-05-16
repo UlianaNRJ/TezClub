@@ -154,9 +154,12 @@ $app->get('/blog/view/(:id)', function($id) use ($app) {
 
     $bloger = Model::factory('SprBlogger')->where('active', 1)->find_one($topic->bl_id);
     $topic->set('author', $bloger->name);
+    $topic->set('author_ava', '/'.$bloger->image);
 
     $hotel = Model::factory('SprHotel')->where('active', 1)->find_one($topic->hotel_id);
     $topic->set('hotel', $hotel->name);
+
+    $topic->timestamp = rdate('d M Y, H:i', strtotime($topic->timestamp));
 
     $topic->tags = explode(',', $topic->tags);
 
