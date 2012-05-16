@@ -14,16 +14,16 @@
         $(":checkbox").click(function(){
             var allbox = $("input:checked").map(function() {
                 return $(this).val();
-                }).get();
+            }).get();
+
             $(".grid li").removeClass("deactive");
             for ( keyVar in allbox ) {
-                $(".grid li." + allbox[keyVar] ).addClass('deactive');
+                $(".grid li:not(." + allbox[keyVar] + ")" ).addClass('deactive');
             }
             
         });
 
     });
-
 </script>
 <div class="caption">
 
