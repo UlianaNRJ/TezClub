@@ -8,11 +8,11 @@ class WWDB {
         $this->DBCONNECT =  new PDO('mysql:host=localhost;dbname='.$dbname.';charset=UTF8',
         							$dbuser,
         							$dbpassword
-        							/*, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")*/
+        							, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
         							/*, array(PDO::ATTR_PERSISTENT => true)*/);
          //uncomment MYSQL_ATTR_INIT_COMMAND to set defalt names in utf8
          //uncomment ATTR_PERSISTENT to lower number of connections
-        $this->DBCONNECT->query("SET NAMES utf8");
+
     }
 
 	// execute query and returns result
