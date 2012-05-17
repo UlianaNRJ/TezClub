@@ -19,6 +19,8 @@ require 'config/config.db.php';
 require 'lib/simpleimage.php';
 // More Functions
 require 'lib/functions.php';
+// Registration Functions
+require 'lib/RegFuncs.class.php';
 
 
 // Configuration
