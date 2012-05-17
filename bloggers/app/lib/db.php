@@ -12,6 +12,7 @@ class WWDB {
         							/*, array(PDO::ATTR_PERSISTENT => true)*/);
          //uncomment MYSQL_ATTR_INIT_COMMAND to set defalt names in utf8
          //uncomment ATTR_PERSISTENT to lower number of connections
+        $this->DBCONNECT->query("SET NAMES utf8");
     }
 
 	// execute query and returns result
