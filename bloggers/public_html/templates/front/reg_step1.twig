@@ -1,0 +1,72 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %} REG PAGE TITLE {% endblock %}
+
+{% block page_head %} {% endblock %}
+
+{% block article_class %}step1{% endblock %}
+
+{% block caption %} <a class="all" href="#">...</a> {% endblock %}
+
+{% block content %} 
+    			<div class="headline corners">
+
+					<ul class="c steps horizontal">
+						<li class="ib active"><a><span class="ib">1</span>Зарегистрируйся</a></li>
+						<li class="ib"><a href="?step=2"><span class="ib">2</span>Раскажи про себя</a></li>
+						<li class="ib"><a href="?step=3"><span class="ib">3</span>Выигрывай призы</a></li>
+					</ul>
+
+					<div class="login_with">
+						<div>Войти через:</div>
+						<ul class="social">
+							<li class="ib vk"><a href="#">Вконтакте</a></li>
+							<li class="ib tw"><a href="#">Twitter</a></li>
+							<li class="ib fb"><a href="#">Facebook</a></li>
+						</ul>
+					</div>
+
+					<h1>Регистрация</h1>
+					<p>уже зарегистрированнны? тогда <a href="#">войдите</a></p>
+
+					{% if errorMsg %}
+					<div style="color:red">
+						{% for error in errorMsg %}
+					        {{ error }}<br>
+					    {% endfor %}
+					</div>
+					{% endif %}
+
+					<form action="" method="post" name="RegistrationForm" enctype="multipart/form-data">
+						<input type="hidden" name="step" value="1">
+
+						<label for="login">Логин/NickName</label>
+						<input id="login" type="text" name="login" value="{{login}}"/>
+
+						<label for="email">E-mail</label>
+						<input id="email" type="text" name="email" value="{{email}}"/>
+
+						<label for="password">Пароль</label>
+						<input id="password" type="password" name="password" value="{{password}}"/>
+						<span class="note">пароль должен содержать не менее 6 сти символов</span>
+
+						<label for="repeat">Повторите пароль</label>
+						<input id="repeat" type="password" name="repeat" value="{{password}}"/>
+
+						{% if not captcha_success %}
+						<label for="captcha">Введите цифры и буквы</label>
+						<section class="c">
+							<img class="ib" src="captcha.php" onclick="this.src='captcha.php?n='+Math.random();" alt=""/>
+							<span class="ib" style="line-height: 27px; padding: 0 5px;">&rarr;</span>
+							<input class="ib" id="captcha" type="text" name="captcha" style="width: 100px;"/>
+						</section>
+						{% endif %}
+
+						<br/><br/>
+
+						<input class="button blue corners" type="submit" value="Дальше"/>
+
+						<br/><br/><br/><br/>
+					</form>
+				</div>
+{% endblock %}

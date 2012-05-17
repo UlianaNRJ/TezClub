@@ -45,7 +45,7 @@ jQuery.expr[':']['nth-of-type'] = function(elem, i, match) {
 
 jQuery(document)
 	.ajaxStart(function(){
-		$(this).css({cursor:"wait"});
+		jQuery(this).css({cursor:"wait"});
 	})
 	.ajaxError(function(event, XMLHttpRequest, ajaxOptions, thrownError){
 		console.log(L.context.base_url_secure + ajaxOptions.url.substring(1) + "?" + (ajaxOptions.data || ""));
@@ -55,7 +55,7 @@ jQuery(document)
 		console.log(L.context.base_url_secure + ajaxOptions.url.substring(1) + "?" + (ajaxOptions.data || ""));
 	})
 	.ajaxStop(function(){
-		$(this).css({cursor:"auto"});
+		jQuery(this).css({cursor:"auto"});
 	});
 
 jQuery.ajaxSetup({
@@ -89,9 +89,37 @@ jQuery(document).ready(function($){
 		.addClass("overflow");
 	});
 
+	$("select#country").selectmenu({
+		change:function() {
+			$.ajax({
+				type: "get",
+			  	url: '',
+			  	data: {country:$(this).val()},
+			  	dataType: "text",
+			  	success: function(data) {
+			  		data = "<option value=''>Город</option>" + data;
+			  		$("select#city").html(data);
+			  		$("select#city").selectmenu("refresh");
+			  	},
+			  	error: function(jqXHR, textStatus, errorThrown) {
+			    	alert("error: "+errorThrown);
+			  	}
+			});
+		}
+	});
+
 	// open all external links in new window
 	$("a").filter(function() {
 		return this.hostname && this.hostname !== location.hostname;
 	}).attr({target:"blank"});
+
+	$("a","li.active").click(function(){
+		return false;
+	});
+
+	$("li", ".popular").click(function(){
+		$(this).addClass("active").siblings().removeClass("active");
+		$("> .description", ".popular").hide().eq($(this).index()).show();
+	}).eq(0).trigger("click");
 
 });

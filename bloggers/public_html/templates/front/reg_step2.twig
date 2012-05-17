@@ -1,0 +1,106 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %} REG PAGE TITLE {% endblock %}
+
+{% block page_head %} {% endblock %}
+
+{% block article_class %}step2{% endblock %}
+
+{% block caption %} <a class="all" href="#">...</a> {% endblock %}
+
+{% block content %} 
+    			<div class="headline corners">
+
+					<ul class="c steps horizontal">
+						<li class="ib "><a href="?step=1"><span class="ib">1</span>Зарегистрируйся</a></li>
+						<li class="ib active"><a><span class="ib">2</span>Раскажи про себя</a></li>
+						<li class="ib"><a href="?step=3"><span class="ib">3</span>Выигрывай призы</a></li>
+					</ul>
+
+					<h1>Раскажи про себя</h1>
+					<p>уже зарегистрированнны? тогда <a href="#">войдите</a></p>
+
+					{% if errorMsg %}
+					<div style="color:red">
+						{% for error in errorMsg %}
+					        {{ error }}<br>
+					    {% endfor %}
+					</div>
+					{% endif %}
+
+					<form action="" method="post" name="RegistrationForm" enctype="multipart/form-data">
+						<input type="hidden" name="step" value="2">
+
+						<label for="first_name">Имя*</label>
+						<input id="first_name" type="text" name="first_name" value="{{first_name}}"/>
+
+						<label for="last_name">Фамилия</label>
+						<input id="last_name" type="text" name="last_name" value="{{last_name}}"/>
+
+						<label for="avatar">Аватар*</label>
+						<input id="avatar" type="file" name="avatar"/>
+
+						<label for="sex">Пол*</label>
+						<select id="sex" name="sex">
+							<option value="other" {% if sex == "other" %}selected{% endif %}>не скажу</option>
+							<option value="man" {% if sex == "man" %}selected{% endif %}>мужской</option>
+							<option value="woman" {% if sex == "woman" %}selected{% endif %}>женский</option>
+						</select>
+
+						<label>Дата рождения*</label>
+						<select id="birthdate_day" style="width: 70px;" name="birthdate_day">
+							<option value="">день</option>
+							{% for i in range(1, 31) %}
+							    <option value="{{i}}" {% if i == birthdate_day %}selected{% endif %}>{{i}}</option>
+							{% endfor %}
+						</select>
+						<select id="birthdate_month" style="width: 70px;" name="birthdate_month">
+							<option value="">месяц</option>
+							{% for i in range(1, 12) %}
+							    <option value="{{i}}" {% if i == birthdate_month %}selected{% endif %}>{{i}}</option>
+							{% endfor %}
+						</select>
+						<select id="birthdate_year" style="width: 150px;" name="birthdate_year">
+							<option value="">год</option>
+							{% for i in range(1940, 2012) %}
+							    <option value="{{i}}" {% if i == birthdate_year %}selected{% endif %}>{{i}}</option>
+							{% endfor %}
+						</select>
+
+						<label>Местопложение*</label>
+						<select id="country" style="width: 150px;" name="country">
+							<option value="">Страна</option>
+							{% for item in base_countries %}
+					        	<option value="{{item.country_name}}" {% if item.country_name == country %}selected{% endif %}>{{item.country_name}}</option>
+					    	{% endfor %}
+						</select>
+						<select id="city" style="width: 150px;" name="city">
+							<option value="">Город</option>
+							{% for item in base_cities %}
+					        	<option value="{{item.city_name}}" {% if item.city_name == city %}selected{% endif %}>{{item.city_name}}</option>
+					    	{% endfor %}
+						</select>
+
+
+						<label>Мои блоги:*</label>
+						<section class="blogs">
+							<label for="livejournal"><span class="ib"></span>Livejournal </label>
+							<input class="ib" id="livejournal" type="text" name="blog_lj" value="{{blog_lj}}"/>
+							<label for="blogger"><span class="ib"></span>Blogger </label>
+							<input class="ib" id="blogger" type="text" name="blog_blogger" value="{{blog_blogger}}"/>
+							<label for="other">Другой блог</label>
+							<input class="ib" id="other" type="text" name="blog_other" value="{{blog_other}}"/>
+						</section>
+
+						<label>О себе:*</label>
+						<textarea name="about">{{about}}</textarea>
+						<span class="note">пароль должен содержать не менее 6 сти символов</span>
+
+						<br/><br/>
+
+						<input class="button blue corners" type="submit" value="Дальше"/>
+
+						<br/><br/><br/><br/>
+					</form>
+				</div>
+{% endblock %}
