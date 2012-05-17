@@ -10,6 +10,10 @@ if ( isset($_COOKIE['key']) && $_COOKIE['key'] != ''){
                                       WHERE user_id = '" . $session->user_id . "'");
         $user->user_profile_avatar = str_replace('100x100', '48x48', $user->user_profile_avatar);
     }
+    // session_security_key
+    if (isset($_COOKIE['tezclub'])) {
+        $app->view()->setData('security_ls_key', md5($_COOKIE['tezclub'].'livestreet_security_key'));
+    }
     $app->view()->setData( 'userCurrent', $user );
 }
 
