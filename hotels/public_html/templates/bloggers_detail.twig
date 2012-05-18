@@ -4,16 +4,6 @@
 
 {% block content %}
 <div class="caption">
-    <form method="post" action="/bloggers/{{ blogger.id }}" class="bloggers_form" name="caption_form">
-        <select name="sortbybloggers">
-            <option value="">По блоггерам</option>
-            {% for blogger in bloggers %}
-            <option value="{{ blogger.id }}" {% if sortbybloggers == blogger.id %} selected {% endif %}>{{ blogger.name }}</option>
-            {% endfor %}
-        </select>
-    </form>
-    <span class="name">{{ blogger.name }}</span>
-    <a class="all" href="/bloggers">все блогеры</a>
 </div>
 <div class="text">
     <div class="c info">
