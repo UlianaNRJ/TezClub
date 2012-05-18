@@ -292,8 +292,11 @@
 		}
 
 		.popular li p{
-			height: 22px;
-			overflow: hidden;
+			/*height: 22px;*/
+			height: 3em;
+		    line-height: 1em;
+		    margin: 0.8em 0;
+		    overflow: hidden;
 		}
 		.popular li.active p:before,
 		.popular li.active p:after {
