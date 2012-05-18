@@ -1,62 +1,71 @@
-{% for topic in topics %}
-<div class="entry">
-    <h1><a href="/blog/view/{{ topic.id }}">{{ topic.title }}</a></h1>
-    <div class="meta">
-        {% if topic.author_ava %}
-            <img src="{{ topic.author_ava }}.25" class="ib" width="25" height="25" alt=""/>
-        {% else %}
-            <img src="/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
-        {% endif %}
-        автор <a href="/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,
-        отель <a href="/hotel/{{ topic.hotel_id }}">{{ topic.hotel }}</a>,
-        оператор <a href="{{ topic.operatorlink }}">{{ topic.operator }}</a>
-        <span class="date">{{ topic.timestamp }}</span>
-        <span class="comments">{{ topic.count_comments }}</span>
-    </div>
-    <div class="description">
-        <p>{{ topic.summary|raw }}</p>
-        <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
-    </div>
-    <div class="poll" id="rating{{ topic.id }}">
-            <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals|number_format(2) }}</span></div> <div class="vote-result"></div>
-
-            <div  class="rating ib vote">
-                <div class="vote-wrap">
-                    <div class="vote-hover-text">Проголосовать:</div>
-                    <div class="vote-hover" >
-                        <div class="vote-block">
-                            <div class="vote-stars"></div>
-                            <div class="vote-active"></div>
-                        </div>
-                    </div>
-                    <div class="vote-success"></div>
-                </div>
-                &nbsp; &nbsp; &nbsp;<input type="hidden" name="val" value="{{ topic.count_bals }}"/>
-                &nbsp; &nbsp; &nbsp;<input type="hidden" name="votes" value="{{ topic.count_voises }}"/>
-                &nbsp; &nbsp; &nbsp;<input type="hidden" name="topic-id" value="{{ topic.id }}"/>
-            </div>
-
-            <script  type="text/javascript">
-            jQuery(document).ready(function($){
-               $('#rating{{ topic.id }}').rating({
-                    fx: 'float',
-                    stars: 5,
-                    image: '/img/stars.png',
-                    loader: '/img/ajax-loader.gif',
-                    url: '/topic/vote',
-                    {% if not userCurrent %},readOnly: true{% endif %}
-               });
-             });
-            </script>
+{% if topics %}
+    {% for topic in topics %}
+    <div class="entry">
+        <h1><a href="/blog/view/{{ topic.id }}">{{ topic.title }}</a></h1>
+        <div class="meta">
+            {% if topic.author_ava %}
+                <img src="/{{ topic.author_ava }}.25" class="ib" width="25" height="25" alt=""/>
+            {% else %}
+                <img src="/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
+            {% endif %}
+            автор <a href="/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,
+            отель <a href="/hotel/{{ topic.hotel_id }}">{{ topic.hotel }}</a>,
+            оператор <a href="{{ topic.operatorlink }}">{{ topic.operator }}</a>
+            <span class="date">{{ topic.timestamp }}</span>
+            <span class="comments">{{ topic.count_comments }}</span>
         </div>
-    
-    {% if topic.tags != '' %}
-    <ul class="c tags">
-        {% for tag in topic.tags %}
-        <li class="ib ui-corner-all"><a href="#">{{ tag }} &bull;</a></li>
-        {% endfor %}
-    </ul>
+        <div class="description">
+            <p>{{ topic.summary|raw }}</p>
+            <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
+        </div>
+        <div class="poll" id="rating{{ topic.id }}">
+                <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals|number_format(2) }}</span></div> <div class="vote-result"></div>
+
+                <div  class="rating ib vote">
+                    <div class="vote-wrap">
+                        <div class="vote-hover-text">Проголосовать:</div>
+                        <div class="vote-hover" >
+                            <div class="vote-block">
+                                <div class="vote-stars"></div>
+                                <div class="vote-active"></div>
+                            </div>
+                        </div>
+                        <div class="vote-success"></div>
+                    </div>
+                    &nbsp; &nbsp; &nbsp;<input type="hidden" name="val" value="{{ topic.count_bals }}"/>
+                    &nbsp; &nbsp; &nbsp;<input type="hidden" name="votes" value="{{ topic.count_voises }}"/>
+                    &nbsp; &nbsp; &nbsp;<input type="hidden" name="topic-id" value="{{ topic.id }}"/>
+                </div>
+
+                <script  type="text/javascript">
+                jQuery(document).ready(function($){
+                   $('#rating{{ topic.id }}').rating({
+                        fx: 'float',
+                        stars: 5,
+                        image: '/img/stars.png',
+                        loader: '/img/ajax-loader.gif',
+                        url: '/topic/vote'
+                        {% if not userCurrent %},readOnly: true{% endif %}
+                   });
+                 });
+                </script>
+            </div>
+        
+        {% if topic.tags != '' %}
+        <ul class="c tags">
+            {% for tag in topic.tags %}
+            <li class="ib ui-corner-all"><a href="#">{{ tag }} &bull;</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+    </div>
+    {% endfor %}
+
+{% else %}
+    {% if hotel %}
+        Обзоры по данному отелю ожидайте в ближайшее время
+    {% else %}
+        Совсем скоро тут будут мои обзоры ,а пока Вы можете почитать посты других <a href="http://hotels.tezclub.com.ua/blog">блоггеров</a>
     {% endif %}
-    
-</div>
-{% endfor %}
+{% endif %}

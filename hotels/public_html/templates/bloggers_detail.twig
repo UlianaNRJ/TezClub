@@ -119,17 +119,21 @@
         {% include 'list_short_hotel.twig' %}
     </div>
     <div class="pagination">
-        Страница
-        <ul class="c ib pagging">
-        {% for page in pagination %}
-            {% if page.current == current %}
-                <li class="ib active">{{page.id}}</li>
-            {% else %}
-                <li class="ib"><a href="/hotel/{{ hotel.id }}/{{page.id}}">{{page.id}}</a></li>
-            {% endif %}
-        {% endfor %}
-        </ul>
+        {% if topics %}
+            Страница
+            <ul class="c ib pagging">
+            {% for page in pagination %}
+                {% if page.current == current %}
+                    <li class="ib active">{{page.id}}</li>
+                {% else %}
+                    <li class="ib"><a href="/hotel/{{ hotel.id }}/{{page.id}}">{{page.id}}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endif %}
     </div>
+
+
 
 
 </div>

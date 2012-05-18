@@ -34,9 +34,9 @@
         <h1>{{ topic.title }}</h1>
         <div class="meta">
             {% if topic.author_ava %}
-                <img src="/{{ topic.author_ava }}.25" width="25" alt="avatar"  class="ib"/>
+                <img src="{{ topic.author_ava }}.25" class="ib" width="25" height="25" alt=""/>
             {% else %}
-                <img src="/img/avatar-25.png"  width="25" alt="avatar" class="ib"/>
+                <img src="/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
             {% endif %}
             автор <a href="/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,
             отель <a href="/hotel/{{ topic.hotel_id }}">{{ topic.hotel }}</a>,

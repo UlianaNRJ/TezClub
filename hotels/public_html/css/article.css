@@ -139,12 +139,19 @@
 				.list.hotel .info ul.grid .deactive a{
 					text-decoration: none;
 					color: #000;
-					cursor: wait;
+					cursor: url('/img/error.ico'), default;
 				}
 
 			.list.hotel .info ul.grid .name {
 				width: 350px;
+				overflow: none;
 			}
+
+			.list.hotel .info ul.grid .name {
+				width: 350px;
+			}
+			
+
 		.list.hotel .info h1 {
 			margin-bottom: 0;
 		}
@@ -409,7 +416,7 @@ ul.grid {
 	ul.grid .name {
 		font-size: 15px;
 		margin: 0 5px;
-		overflow: hidden;
+		/*overflow: hidden;*/
 		white-space: nowrap;
 		width: 165px;
 	}
@@ -485,4 +492,38 @@ ul.pagging {
     background: url("../img/arrow_34.png") transparent right bottom scroll no-repeat;
     color: #0073a5;
     font-size: 15px;
+}
+
+
+
+/* tooltip */
+.tooltip {
+	position: relative;
+}
+.tooltip span {
+	margin-left: -999em;
+	position: absolute;
+}
+.tooltip:hover span {
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+	font-family: Calibri, Tahoma, Geneva, sans-serif;
+	position: absolute; left: 1em; top: 2em; z-index: 99;
+	margin-left: 0;/* width: 250px;*/
+}
+
+.deactive .tooltip:hover span  {
+	padding: 0.2em 0.4em;
+	background: #FFCCAA;
+	border: 1px solid #FF3334;
+}
+
+.borderup {
+	border-radius: 5px 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #efefef;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+	padding: 0.2em 0.4em;
+	width: 450px;
 }

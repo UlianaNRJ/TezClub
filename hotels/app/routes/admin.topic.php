@@ -194,6 +194,18 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
             $hotelblold->delete();
         }
 
+    }else{
+        $hotel = Model::factory('SprHotel')->find_one($app->request()->post('hotel'));
+        if ($topic->active == 1) {
+            // +1 Статья о новом отеле
+            $hotel->count_topic = $hotel->count_topic + 1;
+        } else {
+            // -1 Статья о старом отеле отеле
+            if ($hotel->count_topic > 0 ){
+                $hotel->count_topic = $hotel->count_topic - 1;
+            }
+        }
+        $hotel->save();
     }
     
     

@@ -13,13 +13,13 @@
     <div class="actions">
         <div class="name">
             Отель: <strong>{{ hotel.name }}</strong>
-            <a class="button green corners" href="{{ hotel.soc_links.site }}">Заказать тур в отеле</a>
+            <a class="button green corners" href="{{ hotel.soc_links.tzturpage }}">Заказать тур в отеле</a>
         </div>
         <ul class="social">
             <li class="ib vk"><a href="{{ hotel.soc_links.vkgroup }}">Отель в Вконтакте</a></li>
             <li class="ib fb"><a href="{{ hotel.soc_links.fbgroup }}">Отель в Facebook</a></li>
             <li class="ib"><a href="{{ hotel.soc_links.site }}">Сайт</a></li>
-            <li class="ib"><a href="{{ hotel.soc_links.tzturpage }}">Отель на Tez Tour</a></li>
+            {#<li class="ib"><a href="{{ hotel.soc_links.tzturpage }}">Отель на Tez Tour</a></li>#}
         </ul>
     </div>
     <div class="options">
@@ -31,16 +31,18 @@
         {% include 'list_short_hotel.twig' %}
     </div>
     <div class="pagination">
-        Страница
-        <ul class="c ib pagging">
-        {% for page in pagination %}
-            {% if page.current == current %}
-                <li class="ib active">{{page.id}}</li>
-            {% else %}
-                <li class="ib"><a href="/hotel/{{ hotel.id }}/{{page.id}}">{{page.id}}</a></li>
-            {% endif %}
-        {% endfor %}
-        </ul>
+        {% if topics %}
+            Страница
+            <ul class="c ib pagging">
+            {% for page in pagination %}
+                {% if page.current == current %}
+                    <li class="ib active">{{page.id}}</li>
+                {% else %}
+                    <li class="ib"><a href="/hotel/{{ hotel.id }}/{{page.id}}">{{page.id}}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 </div>
 
