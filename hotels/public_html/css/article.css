@@ -528,7 +528,7 @@ ul.pagging {
 
 .infomess {
 	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
-	background-color: #0091D9;
+	border: 1px solid #0091D9;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 	padding: 0.4em 0.8em;
 	left: -250px;
