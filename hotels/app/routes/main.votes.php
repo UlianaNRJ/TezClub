@@ -28,7 +28,7 @@ $app->post('/topic/vote', function() use ($app) {
         $topic->save();
 
         $data['status'] = 'OK';
-        $data['msg'] = 'Ваш голос учтен.';
+        $data['msg'] = 'Спасибо, Ваш голос учтен';
         if($use_cookie)
         {
             setcookie($cookie_name,$id,time() + $expires);
@@ -81,7 +81,7 @@ $app->post('/blogger/vote', function() use ($app) {
         $blogger->save();
 
         $data['status'] = 'OK';
-        $data['msg'] = 'Ваш голос учтен.';
+        $data['msg'] = 'Спасибо, Ваш голос учтен';
         if($use_cookie)
         {
             setcookie($cookie_name,$id,time() + $expires);

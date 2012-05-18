@@ -190,7 +190,7 @@
             
 
             if(this.options.readOnly) {
-                this.vote_success.html('Авторизуйтесь.');
+                this.vote_success.html('Для того, чтоб голосовать, Вам необходимо авторизироваться.');
             } else {
                 this.vote_success.html('');
             }
