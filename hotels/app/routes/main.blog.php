@@ -19,7 +19,7 @@ function all_blogs($page = 1) {
     $sortby = $app->request()->post('sortby');
 
 
-    $onpage = 15;
+    $onpage = 5;
     $page = (int) $page;
     //собираем кол-во страниц, для пагинации
     $pages = Model::factory('SprTopic')->where('active', 1)->order_by_asc('timestamp')->count();

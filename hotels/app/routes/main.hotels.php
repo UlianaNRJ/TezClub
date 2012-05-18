@@ -39,7 +39,7 @@ function show_hotel($id, $page = 1) {
 
     $sortby = $app->request()->post('sortby');
     // ------------------- pagination 
-    $onpage = 15;
+    $onpage = 5;
     $page = (int) $page;
     //собираем кол-во страниц, для пагинации
     $pages = $hotel->topics()->count();

@@ -30,7 +30,7 @@ function show_blogger($id, $page = 1) {
 
     $sortby = $app->request()->post('sortby');
 
-    $onpage = 15;
+    $onpage = 5;
     $page = (int) $page;
     //собираем кол-во страниц, для пагинации
     $pages = $blogger->topics()->count();
@@ -95,7 +95,9 @@ function show_blogger($id, $page = 1) {
         $value->set('author_ava', $bloger->image);
 
         $hotel = Model::factory('SprHotel')->where('active', 1)->find_one($value->hotel_id);
-        $value->set('hotel', $hotel->name);
+        if ($hotel){
+            $value->set('hotel', $hotel->name);
+        }
 
         $value->tags = explode(',', $value->tags);
 
