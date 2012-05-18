@@ -519,11 +519,20 @@ ul.pagging {
 }
 
 .borderup {
-	border-radius: 5px 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 	background-color: #efefef;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 	padding: 0.2em 0.4em;
 	width: 450px;
+}
+
+.infomess {
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	background-color: #0091D9;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+	padding: 0.4em 0.8em;
+	left: -250px;
+	margin-left: 50%;
+	min-width: 500px;
+	position: absolute;
 }
