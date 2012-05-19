@@ -54,6 +54,10 @@
 			margin: 0 30px;
 		}
 			.info .data h2 {
+				margin-bottom: 10px;
+				font-weight: normal;
+			}
+			.blogger .info .data h2 {
 				margin-bottom: 0;
 			}
 			.info .data h3 {
