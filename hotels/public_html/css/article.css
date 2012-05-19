@@ -398,8 +398,9 @@
 }
 
 .score, .score-topics {
-	background-color: #359e07;
-	color: #fff;
+	/*background-color: #359e07;
+	color: #fff;*/
+	font-weight: bold;
 	font-size: 14px;
 	padding: 1px 5px;
 }

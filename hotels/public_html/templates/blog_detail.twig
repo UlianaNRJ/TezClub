@@ -43,12 +43,14 @@
             <span class="date">{{ topic.timestamp }}</span>
             <span class="comments">{{ topic.count_comments }}</span>
         </div>
-        <a class="ib button green corners" href="#">Заказать тур в оттеле</a><br/><br/>
         
         {{ topic.content|raw }}
 
+		<br/>
+		<a class="ib button green corners" href="#">Заказать тур в отеле</a>
+
         <div class="poll" id="rating{{ topic.id }}">
-            <div class="statistic">Рейтинг статьи <span class="score">{{ topic.count_bals|number_format(2) }}</span></div> <div class="vote-result"></div>
+            <div class="statistic">Рейтинг статьи: <span class="score">{{ topic.count_bals|number_format(2) }}</span></div> <div class="vote-result"></div>
 
             <div  class="rating ib vote">
                 <div class="vote-wrap">
