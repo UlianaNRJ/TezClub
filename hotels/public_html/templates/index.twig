@@ -83,7 +83,7 @@ $(document).ready(function(){
             {% for topic in topics %}
             <li class="ib corners {% if loop.index == 1 %} active {% endif %}">
                 <img src="{{ topic.image }}" width="145" height="102" alt=""/>
-                <p><b>{{ topic.title }}</b></p>
+                <p><a href="/blog/view/{{ topic.id }}"><b>{{ topic.title }}</b></a></p>
             </li>
             {% endfor %}
         </ul>
