@@ -262,15 +262,24 @@
 		
 .places {
 	width: 380px;
+	position: relative;
+	height: 415px;
 }
 	.places ul li .name{
 		width: 270px;
+	}
+
+	.places .allhotels {
+		position: absolute;
+		right:0;
+		bottom:0;
 	}
 
 .popular {
 	margin-left: 45px;
 	width: 522px;
 	position: relative;
+	height: 415px;
 }
 	.popular ul{
 		margin-bottom: 9px;
@@ -366,8 +375,8 @@
 
 }
 .description .longtext {
-	font-size: 15px;
-    height: 5em;
+	/*font-size: 15px;*/
+    height: 7em;
     margin: 1em 0;
     overflow: hidden;
     position: relative;
