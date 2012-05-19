@@ -3,10 +3,11 @@
 	margin-top: -11px;
 	padding-bottom: 10px;
 	position: relative;
+	min-height: 400px;
 }
 
 	.caption {
-		height: 30px;
+		/*height: 30px;*/
 		line-height: 30px;
 		padding: 5px 15px;
 	}
@@ -121,7 +122,7 @@
 			}
 			/*.list.hotel*/ .entry .description {
 		    	font-size: 15px;
-				margin: 15px 0;
+				margin: 15px 0 18px 0;
 			}
 			/*.list.hotel */.entry .meta .comments {
 				margin: 0 0 0 10px;
@@ -380,20 +381,22 @@
     position: relative;
     width: 100%;
 }
-	.share-line div {
+	.share-line .share-line-tw,
+	.share-line .share-line-od,
+	.share-line .share-line-vk,
+	.share-line .share-line-fb {
 		float: left;
+		margin-left:20px;
+		width:120px;
 	}
 	.share-line .share-line-tw {
-		width:120px;
+		width:110px;
 	}
 	.share-line .share-line-od {
-		width:120px;
 	}
 	.share-line .share-line-vk {
-		width:120px;
 	}
 	.share-line .share-line-fb {
-		width:120px;
 	}
 
 .description {
@@ -511,6 +514,7 @@ ul.tags {
 
 ul.pagging {
 	white-space: nowrap;
+	margin-top: -3px;
 }
 	ul.pagging li {
 		height: 22px;
