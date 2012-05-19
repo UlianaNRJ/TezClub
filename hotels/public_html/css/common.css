@@ -89,11 +89,13 @@ a {
 	text-decoration: none;
 }
 a:hover {
-	text-decoration: underline;
+	color: #1CACEA;
+	text-decoration: none;
 }
 
 h1 a, h2 a {
-	color: inherit;
+	color: #425662;
+	text-decoration: none;
 }
 
 img {
