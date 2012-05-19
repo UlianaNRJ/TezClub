@@ -45,6 +45,10 @@ class ActionLogin extends Action {
 		/**
 		 * Если нажали кнопку "Войти"
 		 */
+		if (isset($_SERVER['HTTP_REFERER'])) {
+			$this->Viewer_Assign('sBackUrl',$_SERVER['HTTP_REFERER']);
+		}
+
 		if (isPost('submit_login') and is_string(getRequest('login')) and is_string(getRequest('password'))) {
 			/**
 			 * Проверяем есть ли такой юзер по логину
@@ -63,7 +67,14 @@ class ActionLogin extends Action {
 					 * Перенаправляем на страницу с которой произошла авторизация
 					 */
 					if (isset($_SERVER['HTTP_REFERER'])) {
-						$sBackUrl=$_SERVER['HTTP_REFERER'];
+						if ($_SERVER['HTTP_REFERER'] != getRequest('sBackUrl') && trim(getRequest('sBackUrl')))
+						{
+							$sBackUrl= getRequest('sBackUrl');
+						}
+						else 
+						{
+							$sBackUrl= $_SERVER['HTTP_REFERER'];
+						}
 						if (strpos($sBackUrl,Router::GetPath('login'))===false) {
 							Router::Location($sBackUrl);
 						}

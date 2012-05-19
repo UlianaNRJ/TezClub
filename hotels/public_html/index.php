@@ -35,7 +35,11 @@ if ( isset($_COOKIE['key']) && $_COOKIE['key'] != ''){
 		$user->user_profile_avatar = str_replace('100x100', '48x48', $user->user_profile_avatar);
 	}
 
-	$app->view()->setData( 'userCurrent', $user );
+	$app->view()->setData('userCurrent', $user );
+	// session_security_key
+	if (isset($_COOKIE['tezclub'])) {
+		$app->view()->setData('security_ls_key', md5($_COOKIE['tezclub'].'livestreet_security_key'));
+	}
 
 	// количество новых сообщений 
 	$iUserCurrentCountTalkNew = Model::factory('TcTalkUser')

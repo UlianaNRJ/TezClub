@@ -1,26 +1,29 @@
 <div id="sidebar">
-	{assign var="cblink" value="http://teztour.ru"}
-	{assign var="cbtext" value="Tez Tour"}
+	{assign var="cblink" value="http://teztour.ua"}
+	{assign var="cbtext" value="Tez Tour  в Украине"}
 	
 	{if $oUserCurrent}
-	
-	{if $oUserCurrent->getProfileCountry()=="Украина"}
-	{assign var="cblink" value="http://teztour.ua"}
-	{assign var="cbtext" value="Tez Tour в Украине"}
-	{/if}	
-	{if $oUserCurrent->getProfileCountry()=="Латвия"}
-	{assign var="cblink" value="http://teztour.lv"}
-	{assign var="cbtext" value="Tez Tour в Латвии"}
-	{/if}
-	{if $oUserCurrent->getProfileCountry()=="Latvija"}
-	{assign var="cblink" value="http://teztour.lv"}
-	{assign var="cbtext" value="Tez Tour в Латвии"}
-	{/if}
-	{if $oUserCurrent->getProfileCountry()=="Белоруссия"}
-	{assign var="cblink" value="http://teztour.by/"}
-	{assign var="cbtext" value="Tez Tour в Белорусии"}
-	{/if}
-	
+
+		{if $oUserCurrent->getProfileCountry()=="Россия"}
+			{assign var="cblink" value="http://teztour.ru"}
+			{assign var="cbtext" value="Tez Tour"}
+		{/if}	
+		{if $oUserCurrent->getProfileCountry()=="Украина"}
+			{assign var="cblink" value="http://teztour.ua"}
+			{assign var="cbtext" value="Tez Tour в Украине"}
+		{/if}	
+		{if $oUserCurrent->getProfileCountry()=="Латвия"}
+			{assign var="cblink" value="http://teztour.lv"}
+			{assign var="cbtext" value="Tez Tour в Латвии"}
+		{/if}
+		{if $oUserCurrent->getProfileCountry()=="Latvija"}
+			{assign var="cblink" value="http://teztour.lv"}
+			{assign var="cbtext" value="Tez Tour в Латвии"}
+		{/if}
+		{if $oUserCurrent->getProfileCountry()=="Белоруссия"}
+			{assign var="cblink" value="http://teztour.by"}
+			{assign var="cbtext" value="Tez Tour в Белорусии"}
+		{/if}
 	{/if}
 	
 	

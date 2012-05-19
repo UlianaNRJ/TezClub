@@ -187,7 +187,14 @@
                 width:this._data.val*this.width,
                 background:"url('"+this.options.image+"') left bottom"
             });
-            this.vote_success.html('');
+            
+
+            if(this.options.readOnly) {
+                this.vote_success.html('Для того, чтоб голосовать, Вам необходимо авторизироваться.');
+            } else {
+                this.vote_success.html('');
+            }
+
 
     	},
     	send: function(score){

@@ -43,6 +43,7 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
     $topic->title     = $app->request()->post('title');
     $topic->bl_id     = $app->request()->post('blogger');
     $topic->operator     = $app->request()->post('operator');
+    $topic->operatorlink     = $app->request()->post('operatorlink');
     $topic->hotel_id    = $app->request()->post('hotel');
 
 
@@ -83,6 +84,11 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
     $hotel = Model::factory('SprHotel')->find_one($app->request()->post('hotel'));
     $hotel->count_topic = $hotel->count_topic + 1;
     $hotel->save();
+
+    // +1 Статья о отеле блогеру
+    $blogger = Model::factory('SprBlogger')->find_one($app->request()->post('blogger'));
+    $blogger->count_topic = $blogger->count_topic + 1;
+    $blogger->save();
     
     $app->redirect('/admin/topic');
 });
@@ -121,6 +127,7 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
     $topic->title     = $app->request()->post('title');
     $topic->bl_id     = $app->request()->post('blogger');
     $topic->operator     = $app->request()->post('operator');
+    $topic->operatorlink     = $app->request()->post('operatorlink');
     // старый номер отеля
     $oldhotel = $topic->hotel_id;
 
@@ -187,6 +194,18 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
             $hotelblold->delete();
         }
 
+    }else{
+        $hotel = Model::factory('SprHotel')->find_one($app->request()->post('hotel'));
+        if ($topic->active == 1) {
+            // +1 Статья о новом отеле
+            $hotel->count_topic = $hotel->count_topic + 1;
+        } else {
+            // -1 Статья о старом отеле отеле
+            if ($hotel->count_topic > 0 ){
+                $hotel->count_topic = $hotel->count_topic - 1;
+            }
+        }
+        $hotel->save();
     }
     
     
@@ -197,8 +216,19 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
 $app->get('/admin/topic/delete/(:id)', $authCheck, function($id) use ($app) {
     $topic = Model::factory('SprTopic')->find_one($id);
     if ($topic instanceof SprTopic) {
+        // -1 Статья о отеле блогеру
+        $blogger = Model::factory('SprBlogger')->find_one($topic->bl_id);
+        $blogger->count_topic = $blogger->count_topic - 1;
+        $blogger->save();
+
+        // -1 Статья о отеле блогеру
+        $hotel = Model::factory('SprHotel')->find_one($topic->hotel_id);
+        $hotel->count_topic = $hotel->count_topic - 1;
+        $hotel->save();
+
         $topic->delete();
     }
+
     
     $app->redirect('/admin/topic');
 });

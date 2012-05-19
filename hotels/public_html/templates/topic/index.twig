@@ -9,6 +9,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<th>#</th>
 					<th>Title</th>
 					<th>Author</th>
 					<th>Hotel</th>
@@ -20,6 +21,7 @@
 			
 				{% for topic in topics %}
 					<tr>
+						<td>{{ topic.id }}</td>
 						<td>{{ topic.title }}</td>
 						<td>{{ topic.author }}</td>
 						<td>{{ topic.hotel }}</td>

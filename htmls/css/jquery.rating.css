@@ -1,0 +1,48 @@
+div.vote-wrap {
+    overflow: hidden;
+    width: 850px;
+}
+
+div.vote-wrap.blogger{
+    overflow: hidden;
+    width: 350px;
+}
+
+div.vote-block {
+	position: relative;
+}
+
+div.vote-hover-text {
+    float: left;
+    cursor:  pointer;
+}
+
+div.vote-hover {
+    float: left;
+    cursor:  pointer;
+    margin-top: -2px;
+}
+
+
+div.vote-stars {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+div.vote-active {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+div.vote-success {
+    float: left;
+    margin-left: 15px;
+}
+
+div.vote-result {
+    float: left;
+    margin-left: 15px;
+    font-size: 14px;
+}

@@ -1,0 +1,133 @@
+button::-moz-focus-inner,
+input::-moz-focus-inner,
+input::-moz-focus-outer{
+	border: 0;
+	padding: 0;
+	outline: none;
+}
+
+input:-webkit-autofill {
+	background-color: #fff !important;
+}
+
+input:focus,
+input:hover,
+input:active,
+textarea,
+select,
+button,
+a {
+	outline: none;
+}
+
+
+/***********************/
+
+form {
+	overflow: auto;
+}
+
+	input,
+	/*select,*/
+	textarea {
+		margin-bottom: 0.5em;
+	}
+
+	input[readonly],
+	input[disabled]{
+		background-color: buttonface !important;
+	}
+
+	select {
+		width: 300px;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="file"],
+	input[type="password"]{
+		border: 1px solid #CCCCCC;
+		border-radius: 5px 5px 5px 5px;
+		box-shadow: 1px 1px 0 0 #CCCCCC inset;
+		height: 25px;
+		line-height: 25px;
+		width: 300px;
+	}
+
+	input[type="submit"],
+	input[type="button"]{
+		cursor: pointer;
+	}
+
+	input[type="image"]{
+		border: none;
+		margin: 0 auto;
+		display: block;
+	}
+
+	textarea {
+		width: 305px;
+		height: 100px;
+		display: block;
+		border: 1px solid #CCCCCC;
+		border-radius: 5px 5px 5px 5px;
+		box-shadow: 1px 1px 0 0 #CCCCCC inset;
+		resize: none;
+	}
+
+	input[type=checkbox]{
+		display: none;
+	}
+		input[type=checkbox] + label {
+			background: url("../img/checkbox.png") no-repeat scroll 0 0 transparent;
+			display: inline-block;
+			height: 20px;
+			line-height: 20px;
+			margin-bottom: 5px;
+			padding-left: 25px;
+		}
+		input[type=checkbox]:checked + label {
+			background: url("../img/checkbox-checked.png") no-repeat scroll 0 0 transparent;
+		}
+		input[type=checkbox][disabled] + label {
+			color: #000;
+			cursor: default;
+		}
+
+		input[type=radio] + label {
+			margin-top: 1px;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			color: #000;
+			font-weight: normal;
+			line-height: 20px;
+		}
+		input[type=radio]:checked + label {
+
+		}
+
+label {
+	cursor: pointer;
+	display: inline-block;
+	text-align: left;
+	width: 300px;
+	line-height: 25px;
+	margin-top: 5px;
+	font-size: 15px;
+	color: #000000;
+}
+
+.note {
+	color: #B6B6B6;
+	display: inline-block;
+	font-size: 11px;
+	padding-left: 5px;
+	position: relative;
+	text-align: left !important;
+	top: -5px;
+	width: 300px;
+}
+.overflow {
+	max-height: 200px;
+	margin-bottom: 10px;
+}

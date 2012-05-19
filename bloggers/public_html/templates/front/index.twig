@@ -1,0 +1,159 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %} PAGE TITLE {% endblock %}
+
+{% block page_head %} {% endblock %}
+
+{% block caption %} <a class="all" href="#">...</a> {% endblock %}
+
+{% block content %} 
+<script>
+
+    jQuery(document).ready(function($){
+
+        $(".arrow", ".faces").click(function(){
+            
+            var self = $(this),
+                direction = self.is(".left") ? -1 : 1,
+                collection = $("li", self.parents(".faces"))
+                first = collection.filter(".active:first").index(),
+                number = 5;
+                
+
+            first = Math.max(0, Math.min(first + direction, collection.length - number));
+                        
+            collection.removeClass("active").filter(function(){
+                var self = $(this);
+                
+                return self.index() >= first && self.index() < first + number;
+            }).addClass("active")
+        }).eq(1).trigger("click");
+
+    });
+
+    </script>
+
+                <div class="headline corners">
+                    <ul class="steps">
+                        <li><a href="/registration">Зарегистрируйся</a></li>
+                        <li><a href="#">Раскажи про себя</a></li>
+                        <li><a href="#">Выигрывай призы</a></li>
+                    </ul>
+                    
+                    <div class="explanation">
+                        <p><strong>Краткое описание механники акции</strong> Я про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и </p>
+                        <ul class="c images">
+                            <li class="ib">
+                                <img src="img/image_88.png" width="120" height="150">
+                                <div>Победитель <br/><strong>май</strong></div>
+                                <span>Болгария</span>
+                            </li>
+                            <li class="ib">
+                                <img src="img/image_88.png" width="120" height="150">
+                                <div>Победитель <br/><strong>май</strong></div>
+                                <span>Греция</span>
+                            </li>
+                            <li class="ib">
+                                <img src="img/image_88.png" width="120" height="150">
+                                <div>Победитель <br/><strong>май</strong></div>
+                                <span>Хорватия Чехия</span>
+                            </li>
+                            <li class="ib">
+                                <img src="img/image_88.png" width="120" height="150">
+                                <div>Победитель <br/><strong>май</strong></div>
+                                <span>Испания</span>
+                            </li>
+                            <li class="ib">
+                                <img src="img/image_88.png" width="120" height="150">
+                                <div>Победитель <br/><strong>май</strong></div>
+                                <span>Египет</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="description">
+                        <p><strong>Краткое описание кто и за что полетит в амстердам</strong>  
+                        про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, 
+                        поддержку яваскрипта и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и </p>
+                        <div class="image">
+                            <img src="img/image_99.png" width="150" height="190">
+                            <span>Супер приз</span>
+                            <div><strong>Супер <br/>победитель</strong></div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="button blue corners" style="float:right;">Участвовать</a><br/>
+                    
+                    <img src="img/headline2.png" class="corners" width="946" height="997" alt=""/>
+                </div>
+
+                <h1 style="margin: 25px 0 10px 50px;">Топ блоггеры мая</h1>
+                <div class="c faces">
+                    <div class="ib arrow left"></div>
+                    <ul class="c ib">
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                        <li class="ib corners">
+                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                            <div class="login">kuteev</div>
+                            <div class="name">Кутеев Вячеславович</div>
+                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                        </li>
+                    </ul>
+                    <div class="ib arrow right"></div>
+                </div>
+                
+                <a href="#" class="button grey corners" style="float:right;">Все участники</a><br/>
+{% endblock %}

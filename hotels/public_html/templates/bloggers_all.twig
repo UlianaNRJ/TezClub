@@ -4,14 +4,6 @@
 
 {% block content %} 
 <div class="caption">
-
-    <select class="dropdown">
-        <option value="0">Выбрать блогера</option>
-        {% for blogger in bloggers %}
-        <option value="{{ blogger.id }}">{{ blogger.name }}</option>
-        {% endfor %}
-    </select>
-    
 </div>
 <div class="text">
     <div class="c list wide blogger">
@@ -51,8 +43,8 @@
                             stars: 5,
                             image: '/img/stars.png',
                             loader: '/img/ajax-loader.gif',
-                            url: '/blogger/vote',
-                            //readOnly: true
+                            url: '/blogger/vote'
+                            {% if not userCurrent %},readOnly: true{% endif %}
                        });
                      });
                     </script>

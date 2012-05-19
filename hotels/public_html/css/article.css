@@ -90,6 +90,14 @@
 	.list.short {
 		width: 670px;
 	}
+
+	.list.short img {
+		max-width: 670px;
+	}
+
+	.list.about {
+		font-size: 16px;
+	}
 	.list.wide {
 
 	}
@@ -123,9 +131,27 @@
 		.list.hotel .info ul.grid {
 			margin-bottom: 1em;
 		}
+
+			.list.hotel .info ul.grid .deactive{
+				background-color: #DDD;
+			}
+
+				.list.hotel .info ul.grid .deactive a{
+					text-decoration: none;
+					color: #000;
+					cursor: url('/img/error.ico'), default;
+				}
+
+			.list.hotel .info ul.grid .name {
+				width: 350px;
+				overflow: none;
+			}
+
 			.list.hotel .info ul.grid .name {
 				width: 350px;
 			}
+			
+
 		.list.hotel .info h1 {
 			margin-bottom: 0;
 		}
@@ -244,9 +270,10 @@
 .popular {
 	margin-left: 45px;
 	width: 522px;
+	position: relative;
 }
 	.popular ul{
-		margin-bottom: 15px;
+		margin-bottom: 9px;
 	}
 		.popular li {
 			padding: 10px;
@@ -265,8 +292,11 @@
 		}
 
 		.popular li p{
-			height: 22px;
-			overflow: hidden;
+			/*height: 22px;*/
+			height: 3em;
+		    line-height: 1em;
+		    margin: 0.8em 0;
+		    overflow: hidden;
 		}
 		.popular li.active p:before,
 		.popular li.active p:after {
@@ -285,6 +315,12 @@
 		.popular li.active p:before {
 		    border-top-color: #0073A5;
 		    bottom: -15px;
+		}
+
+		.popular .allblogs {
+			right:0 ;
+			bottom: 0;
+			position: absolute;
 		}
 
 
@@ -329,9 +365,22 @@
 .description .date{
 
 }
-.description .longtext{
+.description .longtext {
 	font-size: 15px;
+    height: 5em;
+    margin: 1em 0;
+    overflow: hidden;
+    position: relative;
+    width: 522px;
 }
+.description .longtext .count {
+	background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 0;
+    padding: 0 0 0 15px;
+    position: absolute;
+    right: 0;
+}
+
 .description a{
 	font-size: 15px;
 }
@@ -370,7 +419,7 @@ ul.grid {
 	ul.grid .name {
 		font-size: 15px;
 		margin: 0 5px;
-		overflow: hidden;
+		/*overflow: hidden;*/
 		white-space: nowrap;
 		width: 165px;
 	}
@@ -446,4 +495,56 @@ ul.pagging {
     background: url("../img/arrow_34.png") transparent right bottom scroll no-repeat;
     color: #0073a5;
     font-size: 15px;
+}
+
+
+
+/* tooltip */
+.tooltip {
+	position: relative;
+}
+.tooltip span {
+	margin-left: -999em;
+	position: absolute;
+}
+.tooltip:hover span {
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+	font-family: Calibri, Tahoma, Geneva, sans-serif;
+	position: absolute; left: 1em; top: 2em; z-index: 99;
+	margin-left: 0;/* width: 250px;*/
+}
+
+.deactive .tooltip:hover span  {
+	padding: 0.2em 0.4em;
+	background: #FFCCAA;
+	border: 1px solid #FF3334;
+}
+
+.noactive .tooltip:hover span  {
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	border: 1px solid #0091D9;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+	background: #0091D9;
+	color: #000;
+	padding: 0.4em 0.8em;
+}
+
+.borderup {
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	background-color: #efefef;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+	padding: 0.2em 0.4em;
+	width: 450px;
+}
+
+.infomess {
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	border: 1px solid #0091D9;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+	padding: 0.4em 0.8em;
+	left: -250px;
+	margin-left: 50%;
+	min-width: 500px;
+	position: absolute;
 }

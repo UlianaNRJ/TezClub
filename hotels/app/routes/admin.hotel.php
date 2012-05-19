@@ -177,6 +177,14 @@ $app->post('/admin/hotel/edit/(:id)', $authCheck, function($id) use ($app) {
     
     $hotel->timestamp = date('Y-m-d H:i:s');
     $hotel->active = $app->request()->post('active');
+    if ($hotel->active == 0){
+        $topics = $hotel->topics()->order_by_desc('id')->find_many();
+        foreach ($topics as $key => $value) {
+            $value->set('active', 0);
+            $value->save();
+        }
+        $hotel->count_topic = 0;
+    }
     
     $hotel->save();
 

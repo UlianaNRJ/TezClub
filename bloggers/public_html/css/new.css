@@ -1,0 +1,137 @@
+body > header, body > article {
+	background: #a3e4ff;
+}
+
+ul.steps {
+    left: 640px;
+    position: absolute;
+    top: 25px;
+}
+	ul.steps li {
+
+	}
+	ul.steps li+li {
+	padding-left: 40px;
+	}
+	ul.steps li+li+li {
+	padding-left: 80px;
+	}
+		ul.steps li a{
+			color: #3F3F3F;
+			font-size: 23px;
+			line-height: 100px;
+		}
+
+.explanation {
+    left: 170px;
+    position: absolute;
+    top: 390px;
+    width: 730px;
+}
+	.explanation p{
+		text-align: center;
+		font-size: 15px;
+	}
+
+.headline .button{
+    border-radius: 25px 25px 25px 25px;
+    bottom: 25px;
+    font-size: 25px;
+    font-weight: normal;
+    padding: 5px 20px;
+    position: absolute;
+    right: 50px;
+}
+	
+.description{
+    display: table;
+    height: 190px;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 730px;
+    width: 630px;
+}
+	.description p{
+		display: table-cell;
+		font-size: 15px;
+		padding: 0 50px;
+		vertical-align: middle;
+		width: 420px;
+	}
+	.description .image{
+		display: table-cell;
+		height: 200px;
+		position: relative;
+		vertical-align: middle;
+		width: 180px;
+	}
+		.description .image img{
+			border: 5px solid #FFFFFF;
+			border-radius: 75px;
+			box-shadow: 0 0 10px 0 #DDDDDD;
+			position: absolute;
+			top: 0;
+			width: 150px;
+		}
+		.description .image span{
+			background: none repeat scroll 0 0 rgba(23, 95, 137, 0.5);
+			color: #FFFFFF;
+			display: block;
+			font-size: 20px;
+			line-height: 30px;
+			font-weight: bold;
+			margin: 6px;
+			position: relative;
+			text-align: center;
+		}
+		.description .image div{
+			font-size: 15px;
+			font-style: italic;
+			position: absolute;
+			text-align: center;
+			top: 205px;
+			width: 160px;
+		}
+
+
+ul.images {
+    display: table;
+    width: 730px;
+}
+	ul.images li {
+		display: table-cell;
+		height: 165px;
+		position: relative;
+		vertical-align: middle;
+		width: 130px;
+	}
+	ul.images li +li{
+		padding-left: 20px;
+	}
+		ul.images li img{
+			border: 5px solid #FFFFFF;
+			border-radius: 60px;
+			box-shadow: 0 0 10px 0 #DDDDDD;
+			position: absolute;
+			top: 100px;
+			width: 120px;
+		}
+		ul.images li span{
+			background: none repeat scroll 0 0 rgba(23, 95, 137, 0.5);
+			color: #FFFFFF;
+			display: block;
+			font-size: 17px;
+			font-weight: bold;
+			margin: 5px;
+			position: relative;
+			text-align: center;
+		}
+		ul.images li div{
+			font-size: 15px;
+			font-style: italic;
+			position: absolute;
+			text-align: center;
+			top: 270px;
+			width: 130px;
+		}
+

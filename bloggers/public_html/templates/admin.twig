@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>{% block page_title %} {% endblock %}</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+        {% block page_head %}{% endblock %}
+    </head>
+    <body>
+
+        {% block content %} {% endblock %}
+        <script type="text/javascript" src="/js/jquery.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js" charset="utf-8"></script>
+    </body>
+</html>
