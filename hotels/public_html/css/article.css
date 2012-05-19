@@ -213,6 +213,10 @@
 	 overflow-y: hidden;
 
 }
+.faces-item {
+	padding-top: 12px;
+	padding-bottom: 0;
+}
 .faces .arrow{
 	background: url("../img/arrows.png") transparent 0 0 scroll no-repeat;
 	height: 99px;
