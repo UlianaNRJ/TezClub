@@ -60,6 +60,13 @@ function show_hotel($id, $page = 1) {
                         ->limit($onpage)
                         ->offset($offset)
                         ->find_many();
+    } else if ($sortby == "POP") {
+        $topics = $hotel->topics()
+                        ->where('active', 1)
+                        ->order_by_desc('count_bals')
+                        ->limit($onpage)
+                        ->offset($offset)
+                        ->find_many();
     } else {
         $topics = $hotel->topics()
                         ->where('active', 1)

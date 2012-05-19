@@ -47,11 +47,20 @@ function show_blogger($id, $page = 1) {
 
     if ($sortby == "ASC") {
         $topics = $blogger->topics()
+                ->where('active', 1)
                 ->order_by_asc('timestamp')
                 ->limit($onpage)->offset($offset)
                 ->find_many();
+    } else if ($sortby == "POP") {
+        $topics = $blogger->topics()
+                        ->where('active', 1)
+                        ->order_by_desc('count_bals')
+                        ->limit($onpage)
+                        ->offset($offset)
+                        ->find_many();
     } else {
         $topics = $blogger->topics()
+                ->where('active', 1)
                 ->order_by_desc('timestamp')
                 ->limit($onpage)->offset($offset)
                 ->find_many();
