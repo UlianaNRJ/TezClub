@@ -24,8 +24,8 @@
                     .text('');
 
             for ( keyVar in allbox ) {
-                $(".grid li:not(." + allbox[keyVar] + ")" ).addClass('deactive');
-                $(".grid li:not(." + allbox[keyVar] + ") a.tooltip span" )
+                $(".grid li:not(." + allbox[keyVar] + ", .noactive)" ).addClass('deactive');
+                $(".grid li:not(." + allbox[keyVar] + ", .noactive) a.tooltip span" )
                     .addClass('custom')
                     .addClass('critical')
                     .html('<em>Данный отель не принадлежит к выбранному Вами виду отдыха</em>');
