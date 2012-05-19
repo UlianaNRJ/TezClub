@@ -25,11 +25,9 @@ $(document).ready(function(){
 <div class="headline corners">
     <h1>Bloggers in Hotels</h1>
     <div class="overlap">
-        <p>Самые свежие и правдивые обзоры лучших отелей Турции глазами туриста!</p>
-        <p>8 известных Блоггеров расскажут и покажут Вам все преимущества и недостатки Турецкий курортов.</p>
-
-        <p>Узнавайте больше об отелях, комментируйте и голосуйте за понравившихся авторов!</p>
-        <a href="http://hotels.tezclub.com.ua/about">Читать дальше →</a>
+        <p>- Самые свежие и правдивые обзоры лучших отелей Турции глазами туриста!</p>
+        <p>- 8 известных Блоггеров расскажут и покажут Вам все преимущества и недостатки Турецкий курортов.</p>
+        <p>- Узнавайте больше об отелях, комментируйте и голосуйте за понравившихся авторов!</p>
     </div>
     <img src="img/headline.png" class="corners" width="946" height="300" alt=""/>
 </div>
@@ -75,7 +73,7 @@ $(document).ready(function(){
             {% endfor %}
         </ul>
 
-        <a href="/hotels" class="button grey corners" style="float: right;">Все отели</a>
+        <a href="/hotels" class="button grey corners allhotels">Все отели</a>
     </div>
     <div class="ib popular">
         <h1 style="margin: 20px 0 10px;">Популярные обзоры</h1>
@@ -83,16 +81,18 @@ $(document).ready(function(){
             {% for topic in topics %}
             <li class="ib corners {% if loop.index == 1 %} active {% endif %}">
                 <img src="{{ topic.image }}" width="145" height="102" alt=""/>
-                <p><b>{{ topic.title }}</b></p>
+                <p><a href="/blog/view/{{ topic.id }}"><b>{{ topic.title }}</b></a></p>
             </li>
             {% endfor %}
         </ul>
             {% for topic in topics %}
 		    <div class="description {% if loop.index > 1 %}hide{% endif %}">
 			    <div class="date">{{ topic.timestamp }}</div>
-			    <div class="longtext">{{ topic.summary|raw }} <span class="ib count" >комментариев <span class="score">{{ topic.count_comments }}</span></span>
+			    <div class="longtext">{{ topic.summary|raw }}</div>
+			    <div class="textbutton">
+                    <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
+                    <span class="ib count" >комментариев <span class="score">{{ topic.count_comments }}</span></span>
                 </div>
-			    <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
 		    </div>
             {% endfor %}
         <a href="/blog" class="button grey corners allblogs">Все обзоры</a>

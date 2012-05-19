@@ -183,6 +183,7 @@
 		right: 0;
 		width: 320px;
 		border-radius: 0 10px 10px 0;
+		font-weight: bold;
 	}
 		.headline .overlap p,
 		.headline .overlap a{
@@ -262,15 +263,24 @@
 		
 .places {
 	width: 380px;
+	position: relative;
+	height: 415px;
 }
 	.places ul li .name{
 		width: 270px;
+	}
+
+	.places .allhotels {
+		position: absolute;
+		right:0;
+		bottom:0;
 	}
 
 .popular {
 	margin-left: 45px;
 	width: 522px;
 	position: relative;
+	height: 415px;
 }
 	.popular ul{
 		margin-bottom: 9px;
@@ -366,20 +376,17 @@
 
 }
 .description .longtext {
-	font-size: 15px;
-    height: 5em;
+	font-size: 1em;
+    height: 4em;
     margin: 1em 0;
     overflow: hidden;
     position: relative;
     width: 522px;
 }
-.description .longtext .count {
-	background: none repeat scroll 0 0 #FFFFFF;
-    bottom: 0;
-    padding: 0 0 0 15px;
-    position: absolute;
-    right: 0;
+.description .count {
+	float: right;
 }
+
 
 .description a{
 	font-size: 15px;
