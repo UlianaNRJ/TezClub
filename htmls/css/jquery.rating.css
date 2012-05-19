@@ -20,6 +20,7 @@ div.vote-hover-text {
 div.vote-hover {
     float: left;
     cursor:  pointer;
+    margin-top: -2px;
 }
 
 
@@ -43,4 +44,5 @@ div.vote-success {
 div.vote-result {
     float: left;
     margin-left: 15px;
+    font-size: 14px;
 }
