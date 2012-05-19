@@ -2,7 +2,8 @@
 <h3>Сортировать обзоры про отель</h3>
 <form method="post" action="/hotel/{{ hotel.id }}">
     <select name="sortby"> 
-        <option value="DESC">Последние</option> 
+        <option value="DESC">Последние</option>
+        <option value="POP" {% if sortby == "POP" %} selected {% endif %}>Популярные</option>
         <option value="ASC" {% if sortby == "ASC" %} selected {% endif %}>Первые</option> 
     </select>
 </form>
@@ -26,6 +27,7 @@
 <form method="post" action="/bloggers/{{ blogger.id }}">
     <select name="sortby"> 
         <option value="DESC">Последние</option> 
+        <option value="POP" {% if sortby == "POP" %} selected {% endif %}>Популярные</option>
         <option value="ASC" {% if sortby == "ASC" %} selected {% endif %}>Первые</option> 
     </select>
      <select name="sortbyhotels">
