@@ -54,7 +54,8 @@
 			margin: 0 30px;
 		}
 			.info .data h2 {
-				margin-bottom: 0;
+				margin-bottom: 10px;
+				font-weight: normal;
 			}
 			.info .data h3 {
 				margin-top: 1em;
@@ -65,9 +66,12 @@
 				color: #666666;
 				margin-bottom: 0.5em;
 			}
+			.info .data .about {
+				font-size: 15px;
+				padding: 0 0 8px 0;
+			}
 			.info .data dl {
 				font-size: 15px;
-
 			}
 				.info .data dl dt {
 					width: 150px;
@@ -101,7 +105,7 @@
 	}
 		/*.list.hotel*/ .entry .meta {
 			line-height: 25px;
-			margin-bottom: 1em;
+			margin-bottom: 1.6em;
 			margin-top: -2em;
 		}
 			/*.list.hotel*/ .entry .meta .date {
