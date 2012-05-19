@@ -54,9 +54,19 @@ function show_hotel($id, $page = 1) {
 
     // ------------------- end  pagination 
     if ($sortby == "ASC") {
-        $topics = $hotel->topics()->order_by_asc('id')->limit($onpage)->offset($offset)->find_many();
+        $topics = $hotel->topics()
+                        ->where('active', 1)
+                        ->order_by_asc('id')
+                        ->limit($onpage)
+                        ->offset($offset)
+                        ->find_many();
     } else {
-        $topics = $hotel->topics()->order_by_desc('id')->limit($onpage)->offset($offset)->find_many();
+        $topics = $hotel->topics()
+                        ->where('active', 1)
+                        ->order_by_desc('id')
+                        ->limit($onpage)
+                        ->offset($offset)
+                        ->find_many();
     }
 
 
