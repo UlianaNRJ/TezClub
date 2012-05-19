@@ -50,7 +50,6 @@
             {% for city in hotelcitys %}
             <div class="ib item">
                 <h1> {{ city.name }}</h1>
-                <h3>Отель</h3>
                 <ul class="grid">
                     {% for hotel in city.hotels %}
                     <li class="c {% for htype in hotel.htypes %} ht{{ htype.id }}{% endfor %}{% if hotel.active == 0 %} noactive {% endif %}">
@@ -72,7 +71,8 @@
                     {% endfor %}
                 </ul>
 
-                </div>
+            </div>
+                <!--
                 {% if loop.index == 1 %} 
                 <div class="ib item borderup">
                     <h1>Подобрать отель</h1>
@@ -82,6 +82,7 @@
                     {% endfor %}
                 </div>
                 {% endif %}
+                -->
             {% endfor %}
         </div>
     </div>

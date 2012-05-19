@@ -154,7 +154,7 @@
 			}
 
 			.list.hotel .info ul.grid .name {
-				width: 350px;
+				width: 315px;
 			}
 			
 
@@ -174,7 +174,8 @@
 		}
 
 .item {
-	width: 460px;
+	width: 420px;
+	margin-left: 15px;
 }
 
 
@@ -449,6 +450,9 @@ ul.grid {
 		height: 25px;
 		line-height: 25px;
 		padding: 10px 0;
+	}
+	ul.grid li:first-child {
+		border-top: 0;
 	}
 	ul.grid img {
 		width: 25px;
