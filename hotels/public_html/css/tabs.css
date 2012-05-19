@@ -46,7 +46,7 @@ ul.tabs {
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0d0d0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 
 		}
-		ul.tabs li.active a:hover{
+		/*ul.tabs li.active a:hover{
 			text-decoration: none;
 			cursor: default;
-		}
+		}*/

@@ -376,9 +376,9 @@
 
 }
 .description .longtext {
-	font-size: 1.2em;
+	font-size: 1em;
     height: 4em;
-    margin: 0.8em 0;
+    margin: 1em 0;
     overflow: hidden;
     position: relative;
     width: 522px;
