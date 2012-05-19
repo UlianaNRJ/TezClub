@@ -66,7 +66,7 @@
                 <dd>{{ blogger.bd_plase|default("-") }}</dd>
             </dl>
             <h3>О себе:</h3>
-            <div>{{ blogger.about|default("-")|raw }}</div>
+            <div class="about">{{ blogger.about|default("-")|raw }}</div>
             <h3>Связаться:</h3>
             <ul class="c social">
                 {% if blogger.soc_links.vk !='' %}
