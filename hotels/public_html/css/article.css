@@ -369,6 +369,28 @@
 		height: 22px;
 	}
 
+.share-line {
+	float: left;
+    height: 25px;
+    position: relative;
+    width: 100%;
+}
+	.share-line div {
+		float: left;
+	}
+	.share-line .share-line-tw {
+		width:120px;
+	}
+	.share-line .share-line-od {
+		width:120px;
+	}
+	.share-line .share-line-vk {
+		width:120px;
+	}
+	.share-line .share-line-fb {
+		width:120px;
+	}
+
 .description {
 	margin-bottom: 10px;
 }
