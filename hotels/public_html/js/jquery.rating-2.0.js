@@ -15,7 +15,8 @@
 			stars: 5,
             minimal: 0,
 			titles: ['голос','голоса','голосов'],
-			readOnly: false,
+            readOnly: false,
+			readOnlyUrl: 'http://tezclub.com.ua/login',
 			url: '',
             type: 'post',
             loader: '/images/ajax-loader.gif',
@@ -68,8 +69,7 @@
         };
 		
 	};
-	
-	
+
 	var $r = $.rating;
 
 	$r.fn = $r.prototype = {
@@ -79,14 +79,20 @@
 	$r.fn.extend = $r.extend = $.extend;
 
     $r.fn.extend({
-        
+
     	init: function(){
-    	
+
     		this.render();
 
-    		if(this.options.readOnly) return;
-
     		var self = this, left = 0, width = 0;
+
+            if(this.options.readOnly) {
+                this.vote_hover.bind('click.rating',function(){
+                    window.location = self.options.readOnlyUrl;
+                });
+                return;
+            }
+
 
     		this.vote_hover.bind('mousemove mouseover',function(e){
 
@@ -127,10 +133,10 @@
     			if(self.options.readOnly) return; 
     			self.reset();
                 self.vote_success.empty();
-    		 }).
-    		 bind('click.rating',function(){
+    		 })
+             .bind('click.rating',function(){
     		
-    			 if(self.options.readOnly) return;
+    			if(self.options.readOnly) return;
           
                  var score = Math.round( width/self.width * 10 ) / 10; 
 
