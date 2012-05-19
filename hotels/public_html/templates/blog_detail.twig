@@ -47,7 +47,7 @@
         {{ topic.content|raw }}
 
 		<br/>
-		<a class="ib button green corners" href="#">Заказать тур в отеле</a>
+		<a class="ib button green corners" href="{{ topic.hoteltzturpage }}">Заказать тур в отеле</a>
 
         <div class="poll" id="rating{{ topic.id }}">
             <div class="statistic">Рейтинг статьи: <span class="score">{{ topic.count_bals|number_format(2) }}</span></div> <div class="vote-result"></div>
