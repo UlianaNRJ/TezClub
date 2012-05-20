@@ -54,6 +54,29 @@
 		<a class="ib button green corners" href="{{ topic.hoteltzturpage }}">Заказать тур в отеле</a>
 
         <div class="poll" id="rating{{ topic.id }}">
+            <div class="share-line">
+                <div class="share-line-tw">
+                    <a href="https://twitter.com/share" class="twitter-share-button"
+                       data-url="{{ siteurl }}/blog/view/{{ topic.id }}"
+                       data-text="{{ topic.title }}" data-lang="ru">Твитнуть</a>
+                </div>
+
+                <div class="share-line-od">
+                    <a class="odkl-klass-oc" href="{{ siteurl }}/blog/view/{{ topic.id }}" onclick="ODKL.Share(this);return false;" ><span>0</span></a>
+                </div>
+
+                <div class="share-line-vk ">
+                    <script type="text/javascript"><!--
+                    document.write(VK.Share.button({url: "{{ siteurl }}/blog/view/{{ topic.id }}",
+                    title: "{{ topic.title }}"},{type: "round", text: "Мне нравиться"}));
+                    --></script>
+                </div>
+
+                <div class="share-line-fb">
+                    <div class="fb-like" data-href="{{ siteurl }}/blog/view/{{ topic.id }}" data-action="like" data-show-faces="true" data-width="125" data-layout="button_count" data-send="false"></div>
+                </div>
+            </div>
+
             <div class="statistic">Рейтинг статьи: <span class="score">{{ topic.count_bals|number_format(2) }}</span></div> <div class="vote-result"></div>
 
             <div  class="rating ib vote">
@@ -83,32 +106,8 @@
                });
              });
             </script>
-            <div class="share-line">
-                <div class="share-line-tw">
-                    <a href="https://twitter.com/share" class="twitter-share-button"
-                       data-url="{{ siteurl }}/blog/view/{{ topic.id }}"
-                       data-text="{{ topic.title }}" data-lang="ru">Твитнуть</a>
-                </div>
-
-                <div class="share-line-od">
-                    <a class="odkl-klass-oc" href="{{ siteurl }}/blog/view/{{ topic.id }}" onclick="ODKL.Share(this);return false;" ><span>0</span></a>
-                </div>
-
-                <div class="share-line-vk ">
-                <script type="text/javascript"><!--
-                document.write(VK.Share.button({url: "{{ siteurl }}/blog/view/{{ topic.id }}", 
-                title: "{{ topic.title }}"},{type: "round", text: "Мне нравиться"}));
-                --></script>
-                </div>
-
-                <div class="share-line-fb">
-                    <div class="fb-like" data-href="{{ siteurl }}/blog/view/{{ topic.id }}" data-action="like" data-show-faces="true" data-width="125" data-layout="button_count" data-send="false"></div>
-                </div>
-            </div>
         </div>
 
-
-        
         <ul class="c tags">
             {% for tag in topic.tags %}
             <li class="ib ui-corner-all"><a href="#">{{ tag }} &bull;</a></li>
