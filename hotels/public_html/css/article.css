@@ -1,4 +1,4 @@
-.content {
+ .content {
 	background-color: #ffffff;
 	margin-top: -11px;
 	padding-bottom: 10px;
@@ -385,7 +385,7 @@
 	left: 205px;
 	position: absolute;
 	width: 100%;
-	margin-top: 28px;
+	margin-top: -22px;
 }
 	.share-line .share-line-tw,
 	.share-line .share-line-od,
