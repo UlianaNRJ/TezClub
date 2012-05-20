@@ -115,7 +115,9 @@ function all_blogs($page = 1) {
         $value->set('author_ava', $bloger->image);
 
         $hotel = Model::factory('SprHotel')->where('active', 1)->find_one($value->hotel_id);
-        $value->set('hotel', $hotel->name);
+        if ($hotel) {
+            $value->set('hotel', $hotel->name);
+        }
 
         $value->tags = explode(',', $value->tags);
 
