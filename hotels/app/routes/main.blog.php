@@ -159,8 +159,10 @@ $app->get('/blog/view/(:id)', function($id) use ($app) {
     $topic->set('author_ava', '/'.$bloger->image);
 
     $hotel = Model::factory('SprHotel')->where('active', 1)->find_one($topic->hotel_id);
-    $topic->set('hotel', $hotel->name);
+    if ($hotel) {
+        $topic->set('hotel', $hotel->name);
         $hotel->soc_links = json_decode($hotel->soc_links);
+    }
     $topic->set('hoteltzturpage', $hotel->soc_links->tzturpage);
 
     $topic->timestamp = rdate('d M Y, H:i', strtotime($topic->timestamp));
