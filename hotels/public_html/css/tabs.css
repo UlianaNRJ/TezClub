@@ -26,11 +26,16 @@ ul.tabs {
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0d0d0', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
 
 		}
+		ul.tabs li a:hover {
+			text-decoration: underline;
+			font-weight: bold;
+		}
 	ul.tabs li.active{
 
 	}
 		ul.tabs li.active a{
 			color: #000000;
+			font-weight: bold;
 
 			box-shadow: none;
 			-moz-box-shadow: none;
