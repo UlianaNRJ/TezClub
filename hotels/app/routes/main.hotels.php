@@ -50,7 +50,7 @@ function show_hotel($id, $page = 1) {
         $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
     }
 
-    $offset = $onpage * ($page-1) + $page-1;
+    $offset = $onpage * ($page-1);
 
     // ------------------- end  pagination 
     if ($sortby == "ASC") {

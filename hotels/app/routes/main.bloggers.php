@@ -41,7 +41,7 @@ function show_blogger($id, $page = 1) {
         $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
     }
 
-    $offset = $onpage * ($page-1) + $page-1;
+    $offset = $onpage * ($page-1);
 
     // ------------------- end  pagination 
 
@@ -81,7 +81,7 @@ function show_blogger($id, $page = 1) {
             $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
         }
 
-        $offset = $onpage * ($page-1) + $page-1;
+        $offset = $onpage * ($page-1);
 
         // ------------------- end  pagination 
 
