@@ -59,9 +59,9 @@
                     {% endif %}
                 </dd>
                 <dt>Дата рождения:</dt>
-                <dd>{{ blogger.bd_date|default("-") }}</dd>
+                <dd>{{ blogger.date_bd|default("-") }}</dd>
                 <dt>Местоположение:</dt>
-                <dd>{{ blogger.bd_plase|default("-") }}</dd>
+                <dd>{{ blogger.place_bd|default("-") }}</dd>
             </dl>
             <h3>О себе:</h3>
             <div class="about">{{ blogger.about|default("-")|raw }}</div>
