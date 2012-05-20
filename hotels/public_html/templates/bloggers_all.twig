@@ -18,7 +18,7 @@
 
                 <div class="poll" id="rating{{ blogger.id }}">
                     <div class="statistic clear">Обзоров <span class="score-topics">{{ blogger.count_topic }}</span></div>
-                    <div class="statistic clear">Балы <span class="score">{{ blogger.count_bals|number_format(2) }}</span> </div><div class="vote-result"></div><br><br><br>
+                    <div class="statistic clear">Балы <span class="score">{{ blogger.count_bals|number_format(2) }}</span> </div><div class="vote-result"></div><br><br>
 
                     <div  class="rating ib vote">
                         <div class="vote-wrap blogger">
@@ -37,7 +37,7 @@
                     <script  type="text/javascript">
                     jQuery(document).ready(function($){
                        $('#rating{{ blogger.id }}').rating({
-                            fx: 'float',
+                            fx: 'full',
                             stars: 5,
                             image: '/img/stars.png',
                             loader: '/img/ajax-loader.gif',
