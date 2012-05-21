@@ -13,7 +13,7 @@
     <div class="actions">
         <div class="name">
             Отель: <strong>{{ hotel.name }}</strong>
-            <a class="button green corners" href="{{ hotel.soc_links.tzturpage }}">Заказать тур в отеле</a>
+            <a class="button green corners" href="{{ hotel.soc_links.tzturpage }}" onClick="_gaq.push(['_trackEvent', 'Hotel', 'Order_tour', '{{ hotel.name }}']);">Заказать тур в отеле</a>
         </div>
         <ul class="social">
             <li class="ib vk"><a href="{{ hotel.soc_links.vkgroup }}">Отель в Вконтакте</a></li>

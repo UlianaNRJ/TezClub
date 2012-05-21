@@ -51,7 +51,7 @@
         {{ topic.content|raw }}
 
 		<br/>
-		<a class="ib button green corners" href="{{ topic.hoteltzturpage }}">Заказать тур в отеле</a>
+		<a class="ib button green corners" href="{{ topic.hoteltzturpage }}" onClick="_gaq.push(['_trackEvent', 'Hotel', 'Order_tour', '{{ topic.hotel }}']);">Заказать тур в отеле</a>
 
         <div class="poll" id="rating{{ topic.id }}">
             <div class="share-line">
