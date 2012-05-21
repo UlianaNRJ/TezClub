@@ -167,10 +167,18 @@
 	}
 		.list.blogger .info .avatar {
 			width: 100px;
+			float: left;
+			margin-right: 20px;
+			width: 102px;
 		}
 		.list.blogger .info .data {
-			margin: 0 20px;
+			margin: 0;
 			width: 320px;
+		}
+		.list.blogger .info .data .rating strong {
+			font-size: 12px;
+			letter-spacing: 0.6px;
+			margin-right: 17px;
 		}
 
 .item {
@@ -369,7 +377,6 @@
 }
 	.poll .statistic {
 		font-size: 12px;
-		float: left;
 	}
 		.poll .statistic .score {
 			font-size: 15px !important;
