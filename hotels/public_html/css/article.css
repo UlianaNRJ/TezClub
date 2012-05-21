@@ -511,6 +511,7 @@ ul.tags {
 }
 	ul.tags li {
 		margin-right: 7px;
+		margin-bottom: 7px;
 	}
 	ul.tags li a {
 		color: #ffffff;
