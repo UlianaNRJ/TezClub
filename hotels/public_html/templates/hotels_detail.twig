@@ -16,9 +16,9 @@
             <a class="button green corners" href="{{ hotel.soc_links.tzturpage }}" onClick="_gaq.push(['_trackEvent', 'Hotel', 'Order_tour', '{{ hotel.name }}']);">Заказать тур в отеле</a>
         </div>
         <ul class="social">
-            <li class="ib vk"><a href="{{ hotel.soc_links.vkgroup }}">Отель в Вконтакте</a></li>
-            <li class="ib fb"><a href="{{ hotel.soc_links.fbgroup }}">Отель в Facebook</a></li>
-            <li class="ib"><a href="{{ hotel.soc_links.site }}">Сайт</a></li>
+            <li class="ib vk"><a href="{{ hotel.soc_links.vkgroup }}" onClick="_gaq.push(['_trackEvent', 'External_links', 'vk', '{{ hotel.name }}']); ">Отель в Вконтакте</a></li>
+            <li class="ib fb"><a href="{{ hotel.soc_links.fbgroup }}" onClick="_gaq.push(['_trackEvent', 'External_links', 'fb', '{{ hotel.name }}']); ">Отель в Facebook</a></li>
+            <li class="ib"><a href="{{ hotel.soc_links.site }}" onClick="_gaq.push(['_trackEvent', 'External_links', 'Exit', '{{ hotel.name }}']); ">Сайт</a></li>
             {#<li class="ib"><a href="{{ hotel.soc_links.tzturpage }}">Отель на Tez Tour</a></li>#}
         </ul>
     </div>
