@@ -60,3 +60,10 @@ $(document).ready(function(){
 		},'json');
 	});
 });
+
+
+function voteOdnoklassniki(obj){
+    var url = "http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl="+encodeURIComponent(obj.href);
+    window.open(url,'','toolbar=0,status=0,width=626,height=436');
+ 
+}
