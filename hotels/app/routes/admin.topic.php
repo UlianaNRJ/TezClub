@@ -64,32 +64,33 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
 
     $topic->save();
 
-    $hotelbl = Model::factory('SprHotelBlogger')
-        ->where('blogger_id', $app->request()->post('blogger'))
-        ->where('hotel_id', $app->request()->post('hotel'))
-        ->find_one();
+    if ($app->request()->post('active') == 1) {
+        $hotelbl = Model::factory('SprHotelBlogger')
+            ->where('blogger_id', $app->request()->post('blogger'))
+            ->where('hotel_id', $app->request()->post('hotel'))
+            ->find_one();
 
-    if ( !$hotelbl ) {
-    // сохраняем связанную таблицу
-        $hotelblnew = Model::factory('SprHotelBlogger')->create();
-        $hotelblnew->hotel_id = $app->request()->post('hotel');
-        $hotelblnew->blogger_id = $app->request()->post('blogger');
-        $hotelblnew->save();
-    } else {
-        $hotelbl->count = $hotelbl->count+1;
-        $hotelbl->save();
+        if ( !$hotelbl ) {
+        // сохраняем связанную таблицу
+            $hotelblnew = Model::factory('SprHotelBlogger')->create();
+            $hotelblnew->hotel_id = $app->request()->post('hotel');
+            $hotelblnew->blogger_id = $app->request()->post('blogger');
+            $hotelblnew->save();
+        } else {
+            $hotelbl->count = $hotelbl->count+1;
+            $hotelbl->save();
+        }
+
+        // +1 Статья о отеле
+        $hotel = Model::factory('SprHotel')->find_one($app->request()->post('hotel'));
+        $hotel->count_topic = $hotel->count_topic + 1;
+        $hotel->save();
+
+        // +1 Статья о отеле блогеру
+        $blogger = Model::factory('SprBlogger')->find_one($app->request()->post('blogger'));
+        $blogger->count_topic = $blogger->count_topic + 1;
+        $blogger->save();
     }
-
-    // +1 Статья о отеле
-    $hotel = Model::factory('SprHotel')->find_one($app->request()->post('hotel'));
-    $hotel->count_topic = $hotel->count_topic + 1;
-    $hotel->save();
-
-    // +1 Статья о отеле блогеру
-    $blogger = Model::factory('SprBlogger')->find_one($app->request()->post('blogger'));
-    $blogger->count_topic = $blogger->count_topic + 1;
-    $blogger->save();
-    
     $app->redirect('/admin/topic');
 });
 
@@ -119,6 +120,9 @@ $app->get('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
 
 // Admin Edit - POST.
 $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
+    
+    $activechange = false;
+
     $topic = Model::factory('SprTopic')->find_one($id);
     if (! $topic instanceof SprTopic) {
         $app->notFound();
@@ -147,7 +151,11 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
     $topic->timestamp = ($app->request()->post('timestamp')) ? $app->request()->post('timestamp') : date('Y-m-d H:i:s');
 
     $topic->tags      = $app->request()->post('tags');
-    $topic->active    = $app->request()->post('active');
+    // если статус поменялся
+    if ($topic->active != $app->request()->post('active')) {
+        $topic->active    = $app->request()->post('active');
+        $activechange = true;
+    }
 
     $topic->save();
     // если id отеля поменялся
@@ -194,9 +202,28 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
             $hotelblold->delete();
         }
 
-    }else{
+    } elseif ($activechange) {
+
+        $hotelbl = Model::factory('SprHotelBlogger')
+                        ->where('blogger_id', $app->request()->post('blogger'))
+                        ->where('hotel_id', $app->request()->post('hotel'))
+                        ->find_one();
+
+        if ( $hotelbl ) {
+            if ($app->request()->post('active') == 1) {
+                // +1 Статья о новом отеле
+                $hotelbl->count = $hotelbl->count+1;
+            } else {
+                // -1 Статья о старом отеле отеле
+                if ($hotelbl->count > 0 ){
+                    $hotelbl->count = $hotelbl->count-1;
+                }
+            }
+            $hotelbl->save();
+        }
+
         $hotel = Model::factory('SprHotel')->find_one($app->request()->post('hotel'));
-        if ($topic->active == 1) {
+        if ($app->request()->post('active') == 1) {
             // +1 Статья о новом отеле
             $hotel->count_topic = $hotel->count_topic + 1;
         } else {
@@ -226,7 +253,22 @@ $app->get('/admin/topic/delete/(:id)', $authCheck, function($id) use ($app) {
         $hotel->count_topic = $hotel->count_topic - 1;
         $hotel->save();
 
+        //  пересчитываем для старого
+        $hotelblold = Model::factory('SprHotelBlogger')
+                            ->where('blogger_id', $topic->bl_id)
+                            ->where('hotel_id', $topic->hotel_id)
+                            ->find_one();
+
+        if ( $hotelblold->count > 1 ) {
+        // сохраняем связанную таблицу
+            $hotelblold->count = $hotelblold->count-1;
+            $hotelblold->save();
+        } else {
+            $hotelblold->delete();
+        }
+
         $topic->delete();
+
     }
 
     
