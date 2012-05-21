@@ -12,8 +12,8 @@
     			<div class="headline corners">
 
 					<ul class="c steps horizontal">
-						<li class="ib"><a href="?step=1"><span class="ib">1</span>Зарегистрируйся</a></li>
-						<li class="ib"><a href="?step=2"><span class="ib">2</span>Раскажи про себя</a></li>
+						<li class="ib"><a {% if step1_enabled %} href="?step=1"{% endif %}><span class="ib">1</span>Зарегистрируйся</a></li>
+						<li class="ib"><a {% if step2_enabled %} href="?step=2"{% endif %}><span class="ib">2</span>Раскажи про себя</a></li>
 						<li class="ib active"><a><span class="ib">3</span>Выигрывай призы</a></li>
 					</ul>
 
@@ -42,7 +42,7 @@
 					<br/>
 
 					<form action="" method="post" name="RegistrationForm" enctype="multipart/form-data">
-						<input type="hidden" name="step" value="2">
+						<input type="hidden" name="step" value="3">
 						<input class="button blue corners" type="submit" value="Готово"/>
 					</form>
 

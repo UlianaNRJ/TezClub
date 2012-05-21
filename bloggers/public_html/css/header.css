@@ -96,6 +96,7 @@ header {
 		}
 		.search label {
 			color: #FFFFFF;
+			width: auto;
 		}
 		.search img {
 				display: inline;
@@ -158,4 +159,12 @@ header {
 	background: linear-gradient(top,  rgb(52,185,228) 0%,rgb(19,142,207) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34b9e4', endColorstr='#138ecf',GradientType=0 ); /* IE6-9 */
 
+}
+
+.button.blue{
+	border-radius: 25px 25px 25px 25px;
+	font-size: 25px;
+	font-weight: normal;
+	padding: 5px 20px;
+	border: 0;
 }
