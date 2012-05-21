@@ -149,12 +149,9 @@
 				}
 
 			.list.hotel .info ul.grid .name {
-				width: 350px;
+				/*width: 350px;*/
 				overflow: none;
-			}
-
-			.list.hotel .info ul.grid .name {
-				width: 315px;
+				width: 310px;
 			}
 			
 
