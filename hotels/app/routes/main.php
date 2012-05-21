@@ -1,6 +1,6 @@
 <?php
 // index page
-$app->get('/', $authCheck, function() use ($app) {
+$app->get('/', function() use ($app) {
 
     $bloggers = Model::factory('SprBlogger')
                     ->where('active', 1)
@@ -21,6 +21,9 @@ $app->get('/', $authCheck, function() use ($app) {
 
     foreach ($topics as $key => $value) {
         $value->summary = trim(strip_tags($value->summary));
+        $value->summary = str_replace('&amp;nbsp;', ' ', $value->summary);
+        $value->summary = (mb_strlen($value->summary,'UTF-8') > 250) ? mb_substr($value->summary,0,250, 'UTF-8').'...' : $value->summary;
+
         $value->timestamp = rdate('d M Y, H:i', strtotime($value->timestamp));
     }
 
