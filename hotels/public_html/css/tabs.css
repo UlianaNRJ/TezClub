@@ -28,7 +28,6 @@ ul.tabs {
 		}
 		ul.tabs li a:hover {
 			text-decoration: underline;
-			font-weight: bold;
 		}
 	ul.tabs li.active{
 
