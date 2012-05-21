@@ -120,6 +120,9 @@ $app->get('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
 
 // Admin Edit - POST.
 $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
+    
+    $activechange = false;
+
     $topic = Model::factory('SprTopic')->find_one($id);
     if (! $topic instanceof SprTopic) {
         $app->notFound();
