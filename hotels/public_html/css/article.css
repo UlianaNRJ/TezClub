@@ -180,6 +180,9 @@
 			letter-spacing: 0.6px;
 			margin-right: 17px;
 		}
+		.list.blogger .info .data .poll {
+			margin-bottom: 5px;
+		}
 
 .item {
 	width: 420px;

@@ -2,54 +2,200 @@ body > header, body > article {
 	background: #a3e4ff;
 }
 
-ul.steps {
-    left: 640px;
-    position: absolute;
-    top: 25px;
-}
-	ul.steps li {
-
-	}
-	ul.steps li+li {
-	padding-left: 40px;
-	}
-	ul.steps li+li+li {
-	padding-left: 80px;
-	}
-		ul.steps li a{
-			color: #3F3F3F;
-			font-size: 23px;
-			line-height: 100px;
-		}
 
 .explanation {
-    left: 170px;
-    position: absolute;
-    top: 390px;
-    width: 730px;
+	margin-left: 170px;
+	margin-top: 70px;
+	width: 730px;
 }
 	.explanation p{
 		text-align: center;
 		font-size: 15px;
 	}
 
-.headline .button{
-    border-radius: 25px 25px 25px 25px;
-    bottom: 25px;
-    font-size: 25px;
-    font-weight: normal;
-    padding: 5px 20px;
-    position: absolute;
-    right: 50px;
+
+
+.index .headline {
+	background: url("../img/headline3.png") transparent 0 0 scroll no-repeat;
+	position: relative;
 }
-	
+.index .headline .button{
+	position: absolute;
+	right: 25px;
+	bottom: 25px;
+}
+
+.step1 {
+
+}
+	.step1 form,
+	.step2 form{
+		width: 310px;
+		margin: 0 auto;
+	}
+	.step1 h1,
+	.step2 h1{
+		margin-bottom: 0;
+	}
+	.step1 h1+p,
+	.step2 h1+p{
+		font-size: 15px;
+		margin-bottom: 1em;
+		margin-top: 0;
+	}
+.step2 {
+
+}
+	.step2 .right{
+		float: none !important;
+	}
+	.step2 .blogs {
+	}
+	.step2 .blogs label {
+		width: 110px;
+	}
+	.step2 .blogs input {
+		width: 195px;
+	}
+	.step2 .blogs label span {
+		height: 16px;
+		width: 16px;
+		margin-right: 5px;
+		margin-top: 5px;
+	}
+	.step2 .blogs label[for=livejournal] span {
+		background: url("../img/social.png") transparent 0 -16px scroll no-repeat;
+	}
+	.step2 .blogs label[for=blogger] span {
+		background: url("../img/social.png") transparent 0 -64px scroll no-repeat;
+	}
+.step3 {
+
+}
+	.step1 .headline,
+	.step2 .headline,
+	.step3 .headline {
+		background: #ffffff; /* Old browsers */
+		background: -moz-radial-gradient(center, ellipse cover,  #ffffff 50%, #6bcced 100%); /* FF3.6+ */
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(50%,#ffffff), color-stop(100%,#6bcced)); /* Chrome,Safari4+ */
+		background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* Opera 12+ */
+		background: -ms-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* IE10+ */
+		background: radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#6bcced',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+		text-align: center;
+	}
+	.step3 .headline h2 {
+		margin-bottom: 1em;
+		margin-top: 0.5em;
+	}
+	.step3 .headline p {
+		font-size: 15px;
+	}
+
+.all_users{
+
+}
+	.all_users h1{
+	margin: -5px 0 10px 10px
+}
+
+.one_user {
+
+}
+.one_user .text{
+	padding-right: 280px;
+}
+
+.one_user .top10{
+	position: absolute;
+	right: 20px;
+}
+.one_user .top10 .number{
+	background-color: #1590D0;
+	color: #FFFFFF;
+	float: right;
+	font-size: 30px;
+	margin-left: 10px;
+	padding: 0 10px;
+	margin-top: 5px;
+}
+.one_user .top10 .label{
+	font-size: 17px;
+	font-weight: bold;
+	text-align: right;
+	width: 245px;
+
+}
+.one_user .top10 .statistic{
+	float: right;
+	margin-top: 10px;
+}
+
+
+	.line {
+		border-top: 1px solid #d6d6d6;
+		margin-top: 3em;
+		padding-left: 1em;
+	}
+		.line h3 {
+			background: none repeat scroll 0 0 #FFFFFF;
+			display: inline-block;
+			margin-bottom: 0;
+			font-size: 18px;
+			padding: 0 0.5em;
+			position: relative;
+			top: -0.7em;
+		}
+
+	.one_user .account{
+		min-height: 100px;
+	}
+		.one_user .account img{
+			float: left;
+			margin-right: 20px;
+		}
+		.one_user .account h2{
+			font-size: 25px;
+			margin-bottom: 0;
+		}
+		.one_user .account .name{
+			color: #666666;
+			font-size: 25px;
+			margin-bottom: 0.5em;
+		}
+
+.one_user .activity{
+
+}
+	.one_user .activity th{
+		color: #4d4d4d;
+		font-size: 15px;
+		padding: 5px 50px 5px 5px;
+		vertical-align: top;
+	}
+	.one_user .activity td{
+		font-size: 15px;
+		padding: 5px;
+	}
+		.one_user .activity td .friends{
+		}
+			.one_user .activity td .friends li{
+				margin-bottom: 10px;
+				margin-right: 20px;
+			}
+				.one_user .activity td .friends li a{
+	line-height: 25px;
+}
+
 .description{
-    display: table;
-    height: 190px;
-    margin-bottom: 10px;
-    position: absolute;
-    top: 730px;
-    width: 630px;
+	display: table;
+	height: 190px;
+	margin-top: 85px;
+	padding-bottom: 60px;
+	position: relative;
+	width: 630px;
 }
 	.description p{
 		display: table-cell;
@@ -92,46 +238,3 @@ ul.steps {
 			top: 205px;
 			width: 160px;
 		}
-
-
-ul.images {
-    display: table;
-    width: 730px;
-}
-	ul.images li {
-		display: table-cell;
-		height: 165px;
-		position: relative;
-		vertical-align: middle;
-		width: 130px;
-	}
-	ul.images li +li{
-		padding-left: 20px;
-	}
-		ul.images li img{
-			border: 5px solid #FFFFFF;
-			border-radius: 60px;
-			box-shadow: 0 0 10px 0 #DDDDDD;
-			position: absolute;
-			top: 100px;
-			width: 120px;
-		}
-		ul.images li span{
-			background: none repeat scroll 0 0 rgba(23, 95, 137, 0.5);
-			color: #FFFFFF;
-			display: block;
-			font-size: 17px;
-			font-weight: bold;
-			margin: 5px;
-			position: relative;
-			text-align: center;
-		}
-		ul.images li div{
-			font-size: 15px;
-			font-style: italic;
-			position: absolute;
-			text-align: center;
-			top: 270px;
-			width: 130px;
-		}
-

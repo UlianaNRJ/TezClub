@@ -4,6 +4,10 @@
 define('USERNAME', 'admin');
 define('PASSWORD', 'password');
 
+// путь к livestreet
+define('ROOT_DIR', '../../');
+define('ROOT_URL', str_replace('bloggers.', '', 'http://'.$_SERVER['HTTP_HOST'].'/') );
+
 // Slim PHP
 require 'Slim/Slim.php';
 require 'Views/TwigView.php';
@@ -20,7 +24,7 @@ require 'lib/simpleimage.php';
 // More Functions
 require 'lib/functions.php';
 // Registration Functions
-require 'lib/RegFuncs.class.php';
+require 'lib/Registration.class.php';
 
 
 // Configuration

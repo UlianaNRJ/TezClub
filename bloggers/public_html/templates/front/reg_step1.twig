@@ -13,8 +13,8 @@
 
 					<ul class="c steps horizontal">
 						<li class="ib active"><a><span class="ib">1</span>Зарегистрируйся</a></li>
-						<li class="ib"><a href="?step=2"><span class="ib">2</span>Раскажи про себя</a></li>
-						<li class="ib"><a href="?step=3"><span class="ib">3</span>Выигрывай призы</a></li>
+						<li class="ib"><a {% if step2_enabled %} href="?step=2"{% endif %}><span class="ib">2</span>Раскажи про себя</a></li>
+						<li class="ib"><a {% if step3_enabled %} href="?step=3"{% endif %}><span class="ib">3</span>Выигрывай призы</a></li>
 					</ul>
 
 					<div class="login_with">

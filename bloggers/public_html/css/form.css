@@ -39,18 +39,19 @@ form {
 	}
 
 	select {
-		width: 200px;
+		width: 300px;
 	}
 
 	input[type="text"],
 	input[type="email"],
 	input[type="file"],
 	input[type="password"]{
-		width: 200px;
-	}
-
-	input[type="submit"]{
-		float: right;
+		border: 1px solid #CCCCCC;
+		border-radius: 5px 5px 5px 5px;
+		box-shadow: 1px 1px 0 0 #CCCCCC inset;
+		height: 25px;
+		line-height: 25px;
+		width: 300px;
 	}
 
 	input[type="submit"],
@@ -65,9 +66,13 @@ form {
 	}
 
 	textarea {
-		width: 400px;
+		width: 305px;
 		height: 100px;
 		display: block;
+		border: 1px solid #CCCCCC;
+		border-radius: 5px 5px 5px 5px;
+		box-shadow: 1px 1px 0 0 #CCCCCC inset;
+		resize: none;
 	}
 
 	input[type=checkbox]{
@@ -103,9 +108,25 @@ form {
 
 label {
 	cursor: pointer;
+	display: inline-block;
+	text-align: left;
+	width: 300px;
+	line-height: 25px;
+	margin-top: 5px;
+	font-size: 15px;
+	color: #000000;
 }
 
-
+.note {
+	color: #B6B6B6;
+	display: inline-block;
+	font-size: 11px;
+	padding-left: 5px;
+	position: relative;
+	text-align: left !important;
+	top: -5px;
+	width: 300px;
+}
 .overflow {
 	max-height: 200px;
 	margin-bottom: 10px;

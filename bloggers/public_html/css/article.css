@@ -65,21 +65,6 @@
 				color: #666666;
 				margin-bottom: 0.5em;
 			}
-			.info .data dl {
-				font-size: 15px;
-
-			}
-				.info .data dl dt {
-					width: 150px;
-					position: absolute;
-					float: left;
-					margin-bottom: 10px;
-				}
-				.info .data dl dd {
-					margin-left: 150px;
-					width: 235px;
-					margin-bottom: 10px;
-				}
 		.info .hotels{
 			width: 275px;
 		}
@@ -111,7 +96,7 @@
 		    	font-size: 15px;
 				margin: 15px 0;
 			}
-			/*.list.hotel */.entry .meta .comments {
+			/*.list.hotel */ .entry .meta .comments {
 				margin: 0 0 0 10px;
 				padding-left: 20px;
 				background: url("../img/comments.png") transparent 0 0 scroll no-repeat;
@@ -145,26 +130,25 @@
 	width: 460px;
 }
 
-
-.headline {
+.main .headline {
+	background: url("../img/headline.png") no-repeat scroll 0 0 transparent;
 	position: relative;
 }
-	.headline .overlap {
+	.main .headline .overlap {
 		background-color: rgba(0, 0, 0, 0.5);
-		height: 260px;
-		padding: 20px;
-		position: absolute;
-		right: 0;
-		width: 320px;
 		border-radius: 0 10px 10px 0;
+		height: 260px;
+		margin-left: 585px;
+		padding: 20px;
+		width: 320px;
 	}
-		.headline .overlap p,
-		.headline .overlap a{
+	.main .headline .overlap p,
+	.main .headline .overlap a{
 			color: #FFFFFF;
 			font-size: 15px;
 			line-height: 1.5em;
 		}
-	.headline h1{
+	.main .headline h1{
 		color: #FFFFFF;
 		line-height: 0.8em;
 		padding: 20px;
@@ -175,16 +159,21 @@
 .faces {
 	padding: 0 14px;
 	margin-bottom: 30px;
-	height: 230px;
-	 overflow-y: hidden;
+	overflow-y: hidden;
 
 }
-.faces .arrow{
-	background: url("../img/arrows.png") transparent 0 0 scroll no-repeat;
-	height: 99px;
-	width: 22px;
-	margin: 44px 0;
+.faces.full {
 
+}
+	.faces .arrow{
+		background: url("../img/arrows.png") transparent 0 0 scroll no-repeat;
+		height: 99px;
+		width: 22px;
+		margin: 44px 0;
+
+	}
+	.faces.full .arrow{
+	display: none;
 }
 	.faces .arrow.left{
 		background-position: -22px 0;
@@ -195,49 +184,48 @@
 		background-position: 0 0;
 			float: right;
 	}
-
-
-
-.faces .scrollable {
-	position:relative;
-	overflow:hidden;
-	width: 870px;
-	height: 100%;
-}
-
-	.faces ul {
+	.faces .scrollable {
+		position:relative;
+		overflow:hidden;
 		width: 870px;
+		height: 100%;
 	}
-	.faces ul li{
-		display: none;
-	}
-	.faces ul li.active{
-		display: inline-block;
-		*display: inline;
-	}
-	.faces .corners {
-		border: 1px solid #CCCCCC;
-	    box-shadow: 0 0 5px 0 #CCCCCC;
-	    height: 180px;
-	    margin: 0 16px 10px;
-	    padding: 20px;
-	    text-align: center;
-	    width: 100px;
-	}
-	.faces .corners .login {
-		font-size: 15px;
-		color: #000;
-	}
-		.faces .corners .login a {
+		.faces ul {
+			width: 870px;
+		}
+		.faces.full ul {
+			width: 920px;
+		}
+		.faces ul li{
+			display: none;
+			border: 1px solid #CCCCCC;
+			box-shadow: 0 0 5px 0 #CCCCCC;
+			height: 180px;
+			margin: 0 16px 10px;
+			padding: 20px;
+			text-align: center;
+			width: 100px;
+		}
+		.faces.full ul li{
+			margin: 0 21px 25px;
+		}
+		.faces ul li.active{
+			display: inline-block;
+			*display: inline;
+		}
+		.faces ul li .login {
+			font-size: 15px;
 			color: #000;
 		}
-
-	.faces .corners .name{
-		font-size: 15px;
-		color: #666666;
-		margin-bottom: 5px;
-	}
-		.faces .corners .name a{
+			.faces ul li .login a {
+				color: #000;
+			}
+		.faces ul li .name{
+			font-size: 15px;
+			color: #666666;
+			margin-bottom: 5px;
+		}
+			.faces ul li .name a{
 			color: #666666;
 		}
 		
@@ -266,33 +254,30 @@
 		.popular li:first-child{
 			margin-left: 0;
 		}
-
 		.popular li.active {
 			border: 1px solid #0073A5;
 		}
-
-		.popular li p{
-			height: 22px;
-			overflow: hidden;
-		}
-		.popular li.active p:before,
-		.popular li.active p:after {
-		    content: "";
-		    position: absolute;
-		    z-index: 1000;
-		    bottom: -14px;
-		    left: 20%;
-		    margin-left: -15px;
-		    border-top: 15px solid #fff;
-		    border-left: 15px solid transparent;
-		    border-right: 15px solid transparent;
-		    border-bottom: 0;
-		}
-		 
-		.popular li.active p:before {
-		    border-top-color: #0073A5;
-		    bottom: -15px;
-		}
+			.popular li p {
+				height: 22px;
+				overflow: hidden;
+			}
+			.popular li.active p:before,
+			.popular li.active p:after {
+			    content: "";
+			    position: absolute;
+			    z-index: 1000;
+			    bottom: -14px;
+			    left: 20%;
+			    margin-left: -15px;
+			    border-top: 15px solid #fff;
+			    border-left: 15px solid transparent;
+			    border-right: 15px solid transparent;
+			    border-bottom: 0;
+			}
+			.popular li.active p:before {
+			    border-top-color: #0073A5;
+			    bottom: -15px;
+			}
 
 
 .actions {
@@ -325,7 +310,6 @@
 		.poll .statistic .score {
 			font-size: 15px !important;
 		}
-		
 	.poll .vote {
 		height: 22px;
 	}
@@ -333,13 +317,13 @@
 .description {
 	margin-bottom: 10px;
 }
-.description .date{
+	.description .date{
 
-}
-.description .longtext{
-	font-size: 15px;
-}
-.description a{
+	}
+	.description .longtext{
+		font-size: 15px;
+	}
+	.description a{
 	font-size: 15px;
 }
 
@@ -349,6 +333,22 @@
 
 .right {
 	float: right;
+	width: 200px;
+}
+.shaded {
+	border: 1px solid #CCCCCC;
+	box-shadow: 0 0 5px 0 #CCCCCC;
+	display: table-cell;
+	height: 60px;
+	margin: 0 16px 10px;
+	padding: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: middle;
+	width: 100px;
+	background: url("../img/arrow_34.png") transparent right bottom scroll no-repeat;
+	color: #0073a5;
+	font-size: 15px;
 }
 
 .ui-button.right {
@@ -361,6 +361,23 @@
 	font-size: 14px;
 	padding: 1px 5px;
 }
+
+.login_with {
+	position: absolute;
+	right: 100px;
+	text-align: left;
+	width: 130px;
+}
+.login_with div{
+	margin-bottom: 0.5em;
+	font-weight: bold;
+}
+.login_with li{
+	margin-bottom: 0.5em;
+}
+
+
+/* Lists */
 
 ul.grid {
 
@@ -394,6 +411,7 @@ ul.social {
 		line-height: 16px;
 		padding-left: 20px;
 		padding-right: 5px;
+		margin-bottom: 5px;
 	}
 	ul.social li.vk {
 		background-position: 0 0;
@@ -407,6 +425,22 @@ ul.social {
 	ul.social li.fb {
 		background-position: 0 -48px;
 	}
+	ul.social li.bg {
+		background-position: 0 -64px;
+	}
+	ul.social li.mailru {
+		background-position: 0 -80px;
+	}
+	ul.social li.jabber {
+		background-position: 0 -96px;
+	}
+	ul.social li.skype {
+		background-position: 0 -112px;
+	}
+	ul.social li.icq {
+		background-position: 0 -128px;
+	}
+
 
 ul.tags {
 
@@ -423,6 +457,14 @@ ul.tags {
 ul.pagging {
 	white-space: nowrap;
 }
+ul.pagging:before {
+	content: 'Страница: ';
+	letter-spacing: normal;
+	word-spacing: normal;
+	line-height: 22px;
+	font-size: 15px;
+	color: #818181;
+}
 	ul.pagging li {
 		height: 22px;
 		width: 24px;
@@ -438,19 +480,168 @@ ul.pagging {
 			text-decoration: none;
 		}
 
-
-.shaded {
-    border: 1px solid #CCCCCC;
-    box-shadow: 0 0 5px 0 #CCCCCC;
-    display: table-cell;
-    height: 60px;
-    margin: 0 16px 10px;
-    padding: 20px;
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: middle;
-    width: 100px;
-    background: url("../img/arrow_34.png") transparent right bottom scroll no-repeat;
-    color: #0073a5;
-    font-size: 15px;
+ul.steps.vertical {
+	padding-left: 565px;
+	padding-top: 25px;
 }
+	ul.steps.vertical li {
+		line-height: 100px;
+	}
+	ul.steps.vertical li+li {
+		padding-left: 40px;
+	}
+	ul.steps.vertical li+li+li {
+		padding-left: 80px;
+	}
+		ul.steps li a{
+			color: #3F3F3F;
+			font-size: 23px;
+		}
+		ul.steps li span{
+	background: url("../img/bullet-big.png") no-repeat scroll center center transparent;
+	color: #22A1D8;
+	font-size: 36px;
+	text-align: center;
+	width: 62px;
+	margin-right: 10px;
+}
+
+ul.steps.horizontal {
+	padding: 20px;
+	width: 906px;
+}
+	ul.steps.horizontal li {
+		line-height: 65px;
+		padding-right: 10px;
+		font-weight: bold;
+	}
+	ul.steps.horizontal li.active {
+		border: 1px solid #22a1d8;
+		border-radius: 10px;
+		box-shadow: 3px 3px 5px 0 #787878;
+	}
+		ul.steps.horizontal li.active a {
+			color: #ffffff;
+		}
+	ul.steps.horizontal li+li {
+		margin-left: 20px;
+	}
+
+ul.fancy {
+	text-align: center;
+}
+	ul.fancy li {
+		line-height: 40px;
+		padding-right: 10px;
+	}
+	ul.fancy li.active {
+		border: 1px solid #22a1d8;
+		border-radius: 10px;
+	}
+		ul.fancy li span{
+			background: url("../img/bullet-small.png") no-repeat scroll center center transparent;
+			color: #22A1D8;
+			font-size: 18px;
+			text-align: center;
+			width: 40px;
+			margin-right: 10px;
+		}
+
+ul.images {
+	display: table;
+	position: relative;
+	width: 730px;
+}
+	ul.images li {
+		display: table-cell;
+		height: 165px;
+		position: relative;
+		vertical-align: middle;
+		width: 130px;
+	}
+	ul.images li +li{
+		padding-left: 20px;
+	}
+		ul.images li img{
+			border: 5px solid #FFFFFF;
+			border-radius: 60px 60px 60px 60px;
+			box-shadow: 0 0 10px 0 #DDDDDD;
+			position: absolute;
+			top: 0;
+			width: 120px;
+		}
+		ul.images li span{
+			background: none repeat scroll 0 0 rgba(23, 95, 137, 0.5);
+			color: #FFFFFF;
+			display: block;
+			font-size: 17px;
+			font-weight: bold;
+			margin: 5px;
+			position: relative;
+			text-align: center;
+		}
+		ul.images li div{
+		font-size: 15px;
+		font-style: italic;
+		position: absolute;
+		text-align: center;
+		top: 165px;
+		width: 130px;
+	}
+
+dl.personal {
+	font-size: 15px;
+}
+	dl.personal dt {
+		width: 150px;
+		position: absolute;
+		float: left;
+		margin-bottom: 10px;
+	}
+	dl.personal dd {
+		margin-left: 150px;
+		width: 235px;
+		margin-bottom: 10px;
+	}
+
+
+
+dl.social {
+	font-size: 15px;
+}
+	dl.social dt {
+		background: url("../img/social.png") no-repeat scroll 1000px 1000px transparent;
+		height: 16px;
+		padding-left: 20px;
+		padding-right: 5px;
+		float: left;
+		margin-bottom: 10px;
+		position: absolute;
+		width: 150px;
+	}
+	dl.social dt.vk {
+		background-position: 0 0;
+	}
+	dl.social dt.lj {
+		background-position: 0 -16px;
+	}
+	dl.social dt.tw  {
+		background-position: 0 -32px;
+	}
+	dl.social dt.fb {
+		background-position: 0 -48px;
+	}
+	dl.social dt.bg {
+		background-position: 0 -64px;
+	}
+	dl.social dt.other {
+		padding-left: 0;
+	}
+	dl.social dd {
+		margin-bottom: 10px;
+		margin-left: 150px;
+		width: 235px;
+	}
+
+
+
