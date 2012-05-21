@@ -148,7 +148,11 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
     $topic->timestamp = ($app->request()->post('timestamp')) ? $app->request()->post('timestamp') : date('Y-m-d H:i:s');
 
     $topic->tags      = $app->request()->post('tags');
-    $topic->active    = $app->request()->post('active');
+    // если статус поменялся
+    if ($topic->active != $app->request()->post('active')) {
+        $topic->active    = $app->request()->post('active');
+        $activechange = true;
+    }
 
     $topic->save();
     // если id отеля поменялся
@@ -195,7 +199,8 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
             $hotelblold->delete();
         }
 
-    } else {
+    } elseif ($activechange) {
+
         $hotelbl = Model::factory('SprHotelBlogger')
                         ->where('blogger_id', $app->request()->post('blogger'))
                         ->where('hotel_id', $app->request()->post('hotel'))
