@@ -365,6 +365,19 @@ class ActionSettings extends Action {
                                                     }
                                                 }
                                                 $this->User_setUserFieldsValues($this->oUserCurrent->getId(), $aData);
+
+                                                // дополнительные данные
+                                                $newExtra = array(
+                                                	'blog_lj' => getRequest('blog_lj'),
+													'blog_blogger' => getRequest('blog_blogger'),
+													'blog_other' => getRequest('blog_other'),
+													'profile_twitter' => getRequest('profile_twitter'),
+													'profile_fb' => getRequest('profile_fb'),
+													'profile_vk'=> getRequest('profile_vk'),
+													'profile_skype' => getRequest('profile_skype')
+													);
+                                                $this->User_setExtraFieldsValues($this->oUserCurrent->getId(), $newExtra);
+
 					$this->Message_AddNoticeSingle($this->Lang_Get('settings_profile_submit_ok'));
                                             $this->Viewer_Assign('aUserFields', $this->User_getUserFieldsValues($this->oUserCurrent->getId(), false));
 
@@ -373,6 +386,10 @@ class ActionSettings extends Action {
 				}
 			}
 		}
+
+		// дополнительные данные
+		$extra = $this->User_getExtraFieldsValues($this->oUserCurrent->getId());
+        $this->Viewer_Assign('extra', $extra);
 	}
 
 	/**

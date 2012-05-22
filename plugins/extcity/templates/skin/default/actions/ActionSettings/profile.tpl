@@ -80,6 +80,37 @@ if (document.addEventListener) {
         </span>
     </p>
 
+    {if $extra.participate}
+    <p class="extra">
+    	Мои блоги:
+    	<br>
+    	<label for="blog_lj" class="lj">Livejournal</label>
+    	<input type="text" name="blog_lj" id="blog_lj" value="{$extra.blog_lj|escape:'html'}"/>
+    	<br>
+    	<label for="blog_blogger" class="bl">Blogger</label>
+    	<input type="text" name="blog_blogger" id="blog_blogger" value="{$extra.blog_blogger|escape:'html'}"/>
+    	<br>
+    	<label for="blog_other" class="other">Другой</label>
+    	<input type="text" name="blog_other" id="blog_other" value="{$extra.blog_other|escape:'html'}"/>
+    </p>
+
+    <p class="extra">
+    	Другие аккаунты:
+    	<br>
+    	<label for="profile_twitter" class="tw">Twitter</label>
+    	<input type="text" name="profile_twitter" id="profile_twitter" value="{$extra.profile_twitter|escape:'html'}"/>
+    	<br>
+    	<label for="profile_fb" class="fb">Facebook</label>
+    	<input type="text" name="profile_fb" id="profile_fb" value="{$extra.profile_fb|escape:'html'}"/>
+    	<br>
+    	<label for="profile_vk" class="vk">Вконтакте</label>
+    	<input type="text" name="profile_vk" id="profile_vk" value="{$extra.profile_vk|escape:'html'}"/>
+    	<br>
+    	<label for="profile_skype" class="sk">Skype</label>
+    	<input type="text" name="profile_skype" id="profile_skype" value="{$extra.profile_skype|escape:'html'}"/>
+    </p>
+    {/if}
+
 	<p><label for="profile_icq">{$aLang.settings_profile_icq}:</label><br /><input type="text" name="profile_icq" id="profile_icq" value="{$oUserCurrent->getProfileIcq()|escape:'html'}"/></p>
 
 	<p>

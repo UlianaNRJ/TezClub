@@ -933,5 +933,48 @@ class ModuleUser_MapperUser extends Mapper {
         $sql = 'SELECT id FROM  '.Config::Get('db.table.user_field').' WHERE id = ?d';
         return $this->oDb->select($sql, $iId);
     }
+
+    /* 
+     *	ОБРАБАТЫВАЕМ ДОПОЛНИТЕЛЬНЫЕ ПОЛЯ
+     */
+    public function getExtraFieldsValues($iUserId)
+    {
+        $sql = 'SHOW TABLES LIKE "users_ext"';
+        $tables = $this->oDb->select($sql);
+        if (!count($tables)) {
+        	// таблицы не существует
+        	return array('participate'=>0);
+        }
+
+        $sql = 'SELECT * FROM users_ext WHERE
+                id = ?d';
+        $data = array();
+        $data = $this->oDb->select($sql, $iUserId);
+
+        if (!count($data)) {
+        	// записей нет
+        	return array('participate'=>0);
+        }
+
+        return $data[0];
+    }
+
+    public function setExtraFieldsValues($iUserId, $aFields)
+    {
+        if (!count($aFields)) return;
+        $sql = 'SHOW TABLES LIKE "users_ext"';
+        $tables = $this->oDb->select($sql);
+        if (!count($tables)) {
+        	// таблицы не существует
+        	return array('participate'=>0);
+        }
+
+        foreach ($aFields as $sField =>$sValue) {
+        	if ($sValue === null)
+        		continue;
+            $sql = 'UPDATE users_ext SET ' . $sField . ' = "' . $sValue . '" WHERE id = ' . $iUserId;
+            $this->oDb->query($sql);
+        }
+    }
 }
 ?>

@@ -76,13 +76,6 @@
 			</tr>
 		{/if}
 
-		{if $oUserProfile->getProfileAbout()}
-			<tr>
-				<td class="var">{$aLang.profile_about}:</td>
-				<td>{$oUserProfile->getProfileAbout()|escape:'html'}</td>
-			</tr>
-		{/if}
-
 		{if $oUserProfile->getProfileSite()}
 			<tr>
 				<td class="var">{$aLang.profile_site}:</td>
@@ -110,6 +103,72 @@
 {/if}
 
 {hook run='profile_whois_item' oUserProfile=$oUserProfile}
+
+{if $extra.participate}
+	{if $extra.blog_lj OR $extra.blog_blogger OR $extra.blog_other}
+		<h2 class="user-profile-header"><span>Мои блоги</span></h2>
+		<table class="user-profile-table extra">
+
+			{if $extra.blog_lj}
+				<tr>
+					<td class="var"><span class="lj"></span>Livejournal:</td>
+					<td>{$extra.blog_lj}</td>
+				</tr>
+			{/if}
+
+			{if $extra.blog_blogger}
+				<tr>
+					<td class="var"><span class="bl"></span>Blogger:</td>
+					<td>{$extra.blog_blogger}</td>
+				</tr>
+			{/if}
+
+			{if $extra.blog_other}
+				<tr>
+					<td class="var"><span class="other"></span>Другой блог:</td>
+					<td>{$extra.blog_other}</td>
+				</tr>
+			{/if}
+			
+		</table>
+	{/if}
+
+	{if $oUserProfile->getProfileIcq() OR $extra.profile_twitter OR $extra.profile_fb OR $extra.profile_vk OR $extra.profile_skype}
+		<h2 class="user-profile-header"><span>Другие аккаунты</span></h2>
+		<ul class="extra">
+
+			{if $oUserProfile->getProfileIcq()}
+				<li><span class="icq"></span>{$oUserProfile->getProfileIcq()}</li>
+			{/if}
+
+			{if $extra.profile_twitter}
+				<li><span class="tw"></span><a href="{$extra.profile_twitter}">Twitter</a></li>
+			{/if}
+
+			{if $extra.profile_fb}
+				<li><span class="fb"></span><a href="{$extra.profile_fb}">Facebook</a></li>
+			{/if}
+
+			{if $extra.profile_vk}
+				<li><span class="vk"></span><a href="{$extra.profile_vk}">Вконтакте</a></li>
+			{/if}
+
+			{if $extra.profile_skype}
+				<li><span class="sk"></span><a href="skype:{$extra.profile_skype}">Skype</a></li>
+			{/if}
+
+		</ul>
+	{/if}
+{/if}
+
+{if $oUserProfile->getProfileAbout()}
+<h2 class="user-profile-header"><span>{$aLang.profile_about}</span></h2>
+<table class="user-profile-table">
+		<tr>
+		<td>{$oUserProfile->getProfileAbout()|escape:'html'}</td>
+	</tr>
+</table>
+{/if}
 
 
 <h2 class="user-profile-header"><span>{$aLang.profile_activity}</span></h2>

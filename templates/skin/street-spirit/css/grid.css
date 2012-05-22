@@ -302,13 +302,13 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 .user-profile .strength .text { font-size: 11px; color: #4d4d4d; text-align: center; }
 
 .user-profile-header { /*font-size: 18px; margin-bottom: 7px; border-bottom: 1px solid #ccc;*/ }
-.user-profile-header{width:100%; font-size:18px; margin:0 0 7px 0; font-weight:bold; padding:0 0 0 15px; float:right; background:url(../images/gray-dot.png) 0 50% repeat-x;}
-.user-profile-header span{color:#000; background:#fff; padding:0 4px; margin:0 0 0 -4px; color:#000;}
+.user-profile-header{width:100%; font-size:18px; margin:0 0 12px 0; font-weight:bold; padding:0 0 0 20px; float:right; background:url(../images/gray-dot.png) 0 50% repeat-x;}
+.user-profile-header span{color:#000; background:#fff; padding:0 9px; margin:0 0 0 -4px; color:#000;}
 
 .profile-actions{width:100%;clear:both; margin:20px 0 5px 0; float:left;}
 
-.user-profile-table { width: 100%; font-size:15px; margin:0 0 30px 0;}
-.user-profile-table td { vertical-align: top; padding: 0 0 18px; line-height:20px;}
+.user-profile-table { width: 100%; font-size:15px; margin:0 0 20px 0;}
+.user-profile-table td { vertical-align: top; padding: 0 0 6px; line-height:20px;}
 .user-profile-table td.var { width: 160px; color: #4d4d4d; padding-bottom:5px;}
 .user-profile-table td.no-pdng {padding-bottom:0px;}
 .user-profile-table td.friends-list-exp {padding-bottom:0px;}
@@ -376,3 +376,74 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 
 .userfield-add { text-decoration: none; border-bottom: 1px dashed #70AAE0; }
 .userfield-add:hover { color: #333; border-color: #333; }
+
+
+.extra {
+}
+ul.extra {
+	list-style:none;
+	margin-bottom: 20px;
+}
+ul.extra li {
+	padding: 0 0 3px 0;
+}
+ul.extra li a {
+	text-decoration: none;
+}
+ul.extra li a:hover {
+	text-decoration: underline;
+}
+.extra label {
+	background: url(../images/social.png) no-repeat 0 0;
+	display: inline-block;
+	width:80px;
+	padding-left: 22px;
+	height:16px;
+}
+.extra span.lj,
+.extra span.bl,
+.extra span.other,
+.extra span.tw,
+.extra span.fb,
+.extra span.vk,
+.extra span.sk,
+.extra span.icq,
+.extra span.jb,
+.extra span.mr {
+	background-image: url(../images/social.png);
+	background-repeat:no-repeat;
+	float:left;
+	width:16px;
+	height:16px;
+	margin: 1px 5px 0 0;
+}
+.extra .lj {
+	background-position:0 -16px;
+}
+.extra .bl {
+	background-position:0 -64px;
+}
+.extra .other {
+	background-position:-200px -200px;
+}
+.extra .tw {
+	background-position:0 -32px;
+}
+.extra .fb {
+	background-position:0 -48px;
+}
+.extra .vk {
+	background-position:0 0;
+}
+.extra .sk {
+	background-position:0 -112px;
+}
+.extra .icq {
+	background-position:0 -128px;
+}
+.extra .jb {
+	background-position:0 -96px;
+}
+.extra .mr {
+	background-position:0 -80px;
+}

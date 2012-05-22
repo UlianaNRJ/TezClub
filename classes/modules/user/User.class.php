@@ -1277,5 +1277,25 @@ class ModuleUser extends Module {
 	public function userFieldExistsById($iId) {
 		return $this->oMapper->userFieldExistsById($iId);
 	}
+
+	/**
+     * Получить значения дополнительных полей профиля пользователя
+     * @param type $iUserId
+     * @param type $bOnlyNoEmpty Загружать только непустые поля
+     * @return type 
+     */
+	public function getExtraFieldsValues($iUserId) {
+		return $this->oMapper->getExtraFieldsValues($iUserId);
+	}
+
+	/**
+     * Установить значения дополнительных полей профиля пользователя
+     * @param type $iUserId
+     * @param type $aFields Ассоциативный массив полей id => value
+     * @return type 
+     */
+	public function setExtraFieldsValues($iUserId, $aFields) {
+		return $this->oMapper->setExtraFieldsValues($iUserId, $aFields);
+	}
 }
 ?>

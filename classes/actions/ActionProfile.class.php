@@ -177,6 +177,10 @@ class ActionProfile extends Action {
          * Получаем список контактов
          */
         $aUserFields = $this->User_getUserFieldsValues($this->oUserProfile->getId());
+        /**
+         * дополнительные параметры
+         */
+        $extra = $this->User_getExtraFieldsValues($this->oUserProfile->getId());
 		/**
 		 * Вызов хуков
 		 */
@@ -190,6 +194,7 @@ class ActionProfile extends Action {
 		$this->Viewer_Assign('aBlogsOwner',$aBlogsOwner);
 		$this->Viewer_Assign('aUsersFriend',$aUsersFriend);
 		$this->Viewer_Assign('aUserFields',$aUserFields);
+		$this->Viewer_Assign('extra',$extra);
 		$this->Viewer_AddHtmlTitle($this->Lang_Get('user_menu_profile').' '.$this->oUserProfile->getLogin());
 		$this->Viewer_AddHtmlTitle($this->Lang_Get('user_menu_profile_whois'));
 		/**
