@@ -32,9 +32,9 @@ $app->post('/topic/comment', function() use ($app) {
                     <div class="comment" >
                         <ul class="info">
                             <li class="com_avatar">
-                                <a href="http://tezclub.local/profile/"'.$user->user_login.'"/"><img alt="avatar" src="'.$user->user_profile_avatar.'"></a>
+                                <a href="http://tezclub.com.ua/profile/"'.$user->user_login.'"/"><img alt="avatar" src="'.$user->user_profile_avatar.'"></a>
                             </li>
-                            <li class="username"><a href="http://tezclub.local/profile/'.$user->user_login.'/">'.$user->user_login.'</a></li>
+                            <li class="username"><a href="http://tezclub.com.ua/profile/'.$user->user_login.'/">'.$user->user_login.'</a></li>
                             <li class="date">'.rdate('d M Y, H:i', time()).'</li>
                         </ul>
                         <div class="content" >'.$comment->text.'</div>

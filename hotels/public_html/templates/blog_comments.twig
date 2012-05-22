@@ -7,9 +7,15 @@
             <div class="folding" style="display: none;"></div>
             <ul class="info">
                 <li class="com_avatar">
-                    <a href="http://tezclub.local/profile/{{ comment.user.user_login }}/"><img alt="avatar" src="{{ comment.user.user_profile_avatar }}"></a>
+                    <a href="http://tezclub.com.ua/profile/{{ comment.user.user_login }}/">
+                    {% if comment.user.user_profile_avatar %}
+                    <img alt="avatar" src="{{ comment.user.user_profile_avatar }}"></a>
+                    {% else %}
+                    <img alt="avatar" src="http://tezclub.com.ua/templates/skin/street-spirit/images/avatar_24x24.jpg"></a>
+
+                    {% endif %}
                 </li>
-                <li class="username"><a href="http://tezclub.local/profile/{{ comment.user.user_login }}/">{{ comment.user.user_login }}</a></li>
+                <li class="username"><a href="http://tezclub.com.ua/profile/{{ comment.user.user_login }}/">{{ comment.user.user_login }}</a></li>
                 <li class="date">{{ comment.timestamp }}</li>
             </ul>
             <div class="content" id="comment_content_id_{{ comment.id }}">{{ comment.text }}</div>
