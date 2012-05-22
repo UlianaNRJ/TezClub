@@ -138,7 +138,7 @@
         </div>
 
         <div class="fl mrt_small2 share-line-odnokl">
-            <a class="odkl-klass-oc" href="{$oTopic->getUrl()}" onclick="ODKL.Share(this);return false;" ><span>0</span></a>
+            <a class="odkl-klass" href="{$oTopic->getUrl()}" onclick="voteOdnoklassniki(this);return false;" ></a>
         </div>
 
         <div class="fl mrt_small2">

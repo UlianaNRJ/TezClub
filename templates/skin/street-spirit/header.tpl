@@ -10,8 +10,7 @@
 	<meta name="keywords" content="{$sHtmlKeywords}" />
 	
     <link href="http://stg.odnoklassniki.ru/share/odkl_share.css" rel="stylesheet">
-
-	
+	<meta property="og:site_name" content="{$sHtmlTitle}"/>
 	{if $oTopic && !$bTopicList}
 		<meta property="og:title" content="{$oTopic->getTitle()|escape:'html'}"/>
 		<meta property="og:url" content="{$oTopic->getUrl()}"/>
@@ -25,21 +24,16 @@
 		<meta property="og:url" content="{cfg name='path.root.web'}"/>
 		<meta property="og:type" content="blog"/>
 		<meta property="og:description" content="{$sHtmlDescription}"/>
+		{*<meta property="og:image" content=""/>*}
 	{/if}
-
-	{*<meta property="og:image" content=""/>*}
-
-	<meta property="og:site_name" content="{$sHtmlTitle}"/>
 	{*<meta property="fb:admins" content="USER_ID"/>*}
 
 
-
 	{$aHtmlHeadFiles.css}
-
 	<link href="{cfg name='path.static.skin'}/images/favicon.gif" rel="shortcut icon" />
 
 
-        <!--[if gte IE 7]>
+    <!--[if gte IE 7]>
         <link rel="stylesheet" type="text/css" href="{cfg name='path.static.skin'}/css/ie8-and-up.css" />
 	<![endif]-->
 
