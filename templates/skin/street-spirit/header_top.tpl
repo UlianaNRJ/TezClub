@@ -28,7 +28,7 @@
             </div>
         {else}
             <div class="user-menu">
-                <a class="button white corners" href="{router page='login'}">{$aLang.user_login_submit}</a>
+                <a class="button white corners login_form_show" href="{router page='login'}">{$aLang.user_login_submit}</a>
                 <span>{$aLang.or}</span>
                 <a class="button white corners" href="{router page='registration'}">{$aLang.registration_submit}</a>
             </div>

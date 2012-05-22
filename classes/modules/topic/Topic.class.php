@@ -89,6 +89,16 @@ class ModuleTopic extends Module {
 		 * Добавляем данные к результату - списку топиков
 		 */
 		foreach ($aTopics as $oTopic) {
+
+			// выюираем первую картинку для вывода
+		    preg_match("#<img.*?src=['\"]([^\"']+\.jpg)['\"].*?/?>#i", $oTopic->getTextShort(), $image);
+		    if ( isset($image) && isset($image[1]) )
+		    { 
+		        $oTopic->setImgForMeta($image[1]);
+		    }
+			
+
+
 			if (isset($aUsers[$oTopic->getUserId()])) {
 				$oTopic->setUser($aUsers[$oTopic->getUserId()]);
 			} else {

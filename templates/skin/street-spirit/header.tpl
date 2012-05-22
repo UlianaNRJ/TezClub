@@ -16,7 +16,10 @@
 		<meta property="og:title" content="{$oTopic->getTitle()|escape:'html'}"/>
 		<meta property="og:url" content="{$oTopic->getUrl()}"/>
 		<meta property="og:type" content="article"/>
-		<meta property="og:description" content="{$oTopic->getTitle()|escape:'html'}"/>
+		<meta property="og:description" content="{$oTopic->getTextShort()|strip_tags}"/>
+		{if $oTopic->getImgForMeta()}
+		<meta property="og:image" content="{$oTopic->getImgForMeta()}"/>
+		{/if}
 	{else}
 		<meta property="og:title" content="{$sHtmlTitle}"/>
 		<meta property="og:url" content="{cfg name='path.root.web'}"/>

@@ -130,6 +130,10 @@ class ModuleTopic_EntityTopic extends Entity
     public function getIsFavourite() {
         return $this->_aData['topic_is_favourite'];
     }
+
+    public function getImgForMeta() {
+        return $this->_aData['img_for_meta'];
+    }
     
     /***************************************************************************************************************************************************
      * методы расширения типов топика
@@ -393,6 +397,10 @@ class ModuleTopic_EntityTopic extends Entity
     }
     public function setIsFavourite($data) {
         $this->_aData['topic_is_favourite']=$data;
+    }
+
+    public function setImgForMeta($data) {
+        $this->_aData['img_for_meta']=$data;
     }
     
 }
