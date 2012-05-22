@@ -9,11 +9,13 @@
 <div id="footer" style="background-color:#E2EEFC; background-image:url('../../../../templates/skin/street-spirit/images/fon.jpg'); background-repeat:no-repeat; background-position:center center;background-size: 100%;background-origin: content; ">
 		<div id="footer-inner">
 			<div class="right">
-				&copy; <a href="http://teztour.ua/">Tez Tour</a>,  2011-2012<br>// Бюро Социальных Коммуникаций<br>
-				<br>
+				&copy; <a href="http://teztour.ua/">Tez Tour</a>,  2011-2012<br>
+				{*
+				// Бюро Социальных Коммуникаций<br><br>
 				Контактная информация<br>
 				Соглашение о конфиденциальности
 				<div class="studio"><!--- {$aLang.text_skin_made_in}<a href="http://stfalcon.com/"><img src="{cfg name='path.static.skin'}/images/studio-logo.png" alt="stfalcon.com"/></a> ----></div>
+				*}
 			</div>
 
 			<div class="left">
@@ -55,7 +57,7 @@
 	</div>
 </div><!-- /container -->{hook run='body_end'}
 <script type="text/javascript">
-
+{literal}
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-27624662-1']);
   _gaq.push(['_setDomainName', 'tezclub.com.ua']);
@@ -66,7 +68,7 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
+{/literal}
 </script>
 </body>
 </html>

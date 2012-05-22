@@ -130,58 +130,14 @@ background-image:url('../images/fon-menu.jpg'); background-repeat:no-repeat; bac
 
 /* Navigation
 -------------------- */
-#nav { margin: 0 auto; min-width: 940px; /*background: url(../images/nav.png) no-repeat;*/ position: relative; zoom: 1; border-bottom:1px solid #d6d6d6;}
-.nav-inner {position:relative;  height: 59px; padding: 13px 2% 5px 4%; /*margin-left: 20px; background: url(../images/nav.png) 100% 0 no-repeat; overflow: hidden;*/ zoom: 1; }
+#nav { margin: 0 auto; min-width: 940px; position: relative; zoom: 1; border-bottom:1px solid #d6d6d6;}
+.nav-inner {position:relative;  height: 59px; padding: 13px 2% 5px 4%; zoom: 1; }
 
-
-
-.nav-inner .auth { white-space: nowrap; /*float:right;*/ width:27%; margin:15px 2% 0 0; color:#9c9c9c; font-family: 'helvetica neue', arial, sans-serif;}
-.nav-inner .auth .login-link{font-size:15px; background:#18b210; padding:0px 9px 2px 9px; color:#fff; font-weight:bold; text-shadow:0px -1px 0px #0f9208; text-decoration:none;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2ec221', endColorstr='#0e9909');
-	background: -webkit-gradient(linear, left top, left bottom, from(#2ec221), to(#0e9909));
-	background: -moz-linear-gradient(top,  #2ec221,  #0e9909);
-
-	background: -o-linear-gradient(top, #2ec221, #0e9909); /* Opera11.10+ */
-	background: -ms-linear-gradient(top, #2ec221, #0e9909); /* IE10+ */
-	background: linear-gradient(top, #2ec221, #0e9909); /* W3C */
-
-	border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
-	line-height:21px;
-}
-
-.nav-inner .auth .login-link:hover{
-	background:#18b210;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#43d131', endColorstr='#048203');
-	background: -webkit-gradient(linear, left top, left bottom, from(#43d131), to(#048203));
-	background: -moz-linear-gradient(top,  #43d131,  #048203);
-
-	background: -o-linear-gradient(top, #43d131, #048203); /* Opera11.10+ */
-	background: -ms-linear-gradient(top, #43d131, #048203); /* IE10+ */
-	background: linear-gradient(top, #43d131, #048203); /* W3C */
-
-	}
-.nav-inner .auth .login-link:active{
-	background:#18b210;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0e9909', endColorstr='#2ec221');
-	background: -webkit-gradient(linear, left top, left bottom, from(#0e9909), to(#2ec221));
-	background: -moz-linear-gradient(top,  #0e9909,  #2ec221);
-
-	background: -o-linear-gradient(top, #0e9909, #2ec221); /* Opera11.10+ */
-	background: -ms-linear-gradient(top, #0e9909, #2ec221); /* IE10+ */
-	background: linear-gradient(top, #0e9909, #2ec221); /* W3C */
+.nav-inner .user-menu {
+		float: right;
+		line-height: 59px;
 	}
 
-.nav-inner .auth .registration-link{font-size:15px; background:#8c9aa2; padding:0px 9px 2px 9px; color:#fff; font-weight:bold; text-shadow:0px -1px 0px #839199; text-decoration:none;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a3aeb5', endColorstr='#6e7d86');
-	background: -webkit-gradient(linear, left top, left bottom, from(#a3aeb5), to(#6e7d86));
-	background: -moz-linear-gradient(top,  #a3aeb5,  #6e7d86);
-
-	background: -o-linear-gradient(top, #a3aeb5, #6e7d86); /* Opera11.10+ */
-	background: -ms-linear-gradient(top, #a3aeb5, #6e7d86); /* IE10+ */
-	background: linear-gradient(top, #a3aeb5, #6e7d86); /* W3C */
-
-	border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
-}
 
 /* Menu */
 #nav .menu {  float: left; font-size: 15px; margin: 0; }

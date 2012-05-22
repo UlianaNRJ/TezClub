@@ -1,6 +1,7 @@
 <div id="logo-line" style="overflow: auto; width: 100%;">
     <div class="logo-line-inside" style="float:left; width: 40%;">
         <a href="{cfg name='path.root.web'}" class="logo">Tez<span>Club</span><font color="lightgrey">International</font></a>
+        <a href="http://hotels.tezclub.com.ua/" class="logohref button blue corners ib">Bloggers in hotels</a>
     </div>
 	<div class="nav-inner">
         {if $oUserCurrent}
@@ -26,9 +27,10 @@
                 {hook run='userbar_item'}
             </div>
         {else}
-            <div class="auth">
-                <a href="{router page='login'}" class="login_form_show login-link">{$aLang.user_login_submit}</a> {$aLang.or}
-                <a href="{router page='registration'}" class="registration-link">{$aLang.registration_submit}</a>
+            <div class="user-menu">
+                <a class="button white corners" href="{router page='login'}">{$aLang.user_login_submit}</a>
+                <span>{$aLang.or}</span>
+                <a class="button white corners" href="{router page='registration'}">{$aLang.registration_submit}</a>
             </div>
         {/if}
     </div>
