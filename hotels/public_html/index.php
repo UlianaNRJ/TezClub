@@ -24,7 +24,7 @@ $authCheck = function() use ($app) {
 };
 
 // проверяем автологин пользователя
-if ( isset($_COOKIE['key']) && $_COOKIE['key'] != ''){
+if (!empty($_COOKIE['key'])){
 	// получаем пользователя
 	$result = Model::factory('TcSession')
 				->where('session_key', $_COOKIE['key'])
@@ -32,23 +32,27 @@ if ( isset($_COOKIE['key']) && $_COOKIE['key'] != ''){
 
 	if ( $result ) {
 		$user = Model::factory('TcUser')->where('user_id', $result->user_id)->find_one();
-		// подменяем аватарку
-		$user->user_profile_avatar = str_replace('100x100', '48x48', $user->user_profile_avatar);
+		if ($user) {
+			// подменяем аватарку
+			$user->user_profile_avatar = str_replace('100x100', '48x48', $user->user_profile_avatar);
+
+			$app->view()->setData('userCurrent', $user );
+			// session_security_key
+			if (!empty($_COOKIE['tezclub'])) {
+				$app->view()->setData('security_ls_key', md5($_COOKIE['tezclub'].'livestreet_security_key'));
+			}
+
+			// количество новых сообщений 
+			$iUserCurrentCountTalkNew = Model::factory('TcTalkUser')
+						->where('user_id', $user->user_id)
+						->where('date_last', NULL)
+						->where('talk_user_active', 1)
+						->count();
+			$app->view()->setData( 'iUserCurrentCountTalkNew', $iUserCurrentCountTalkNew);
+		}
 	}
 
-	$app->view()->setData('userCurrent', $user );
-	// session_security_key
-	if (isset($_COOKIE['tezclub'])) {
-		$app->view()->setData('security_ls_key', md5($_COOKIE['tezclub'].'livestreet_security_key'));
-	}
 
-	// количество новых сообщений 
-	$iUserCurrentCountTalkNew = Model::factory('TcTalkUser')
-				->where('user_id', $user->user_id)
-				->where('date_last', NULL)
-				->where('talk_user_active', 1)
-				->count();
-	$app->view()->setData( 'iUserCurrentCountTalkNew', $iUserCurrentCountTalkNew);
 }
 
 // frontend
