@@ -139,7 +139,7 @@ function all_blogs($page = 1) {
 
 // Blog View.
 $app->get('/blog/view/(:id)', function($id) use ($app) {
-    $topic = Model::factory('SprTopic')->where('active', 1)->find_one($id);
+    $topic = Model::factory('SprTopic')->find_one($id);
     if (! $topic instanceof SprTopic) {
         $app->notFound();
     }
