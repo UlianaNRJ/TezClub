@@ -4,6 +4,8 @@
 
 {% block page_head %} {% endblock %}
 
+{% block article_class %}index{% endblock %}
+
 {% block caption %} <a class="all" href="#">...</a> {% endblock %}
 
 {% block content %} 
@@ -34,12 +36,12 @@
     </script>
 
                 <div class="headline corners">
-                    <ul class="steps">
-                        <li><a href="/registration">Зарегистрируйся</a></li>
-                        <li><a href="#">Раскажи про себя</a></li>
-                        <li><a href="#">Выигрывай призы</a></li>
+                    <ul class="steps vertical">
+                        <li><a href="#"><span class="ib">1</span>Зарегистрируйся</a></li>
+                        <li><a href="#"><span class="ib">2</span>Раскажи про себя</a></li>
+                        <li><a href="#"><span class="ib">3</span>Выигрывай призы</a></li>
                     </ul>
-                    
+
                     <div class="explanation">
                         <p><strong>Краткое описание механники акции</strong> Я про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и </p>
                         <ul class="c images">
@@ -70,10 +72,10 @@
                             </li>
                         </ul>
                     </div>
-                    
+
                     <div class="description">
-                        <p><strong>Краткое описание кто и за что полетит в амстердам</strong>  
-                        про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, 
+                        <p><strong>Краткое описание кто и за что полетит в амстердам</strong>
+                        про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер,
                         поддержку яваскрипта и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и </p>
                         <div class="image">
                             <img src="img/image_99.png" width="150" height="190">
@@ -81,14 +83,12 @@
                             <div><strong>Супер <br/>победитель</strong></div>
                         </div>
                     </div>
-                    
-                    <a href="#" class="button blue corners" style="float:right;">Участвовать</a><br/>
-                    
-                    <img src="img/headline2.png" class="corners" width="946" height="997" alt=""/>
+
+                    <a href="#" class="button blue corners">Участвовать</a>
                 </div>
 
                 <h1 style="margin: 25px 0 10px 50px;">Топ блоггеры мая</h1>
-                <div class="c faces">
+                <div class="c faces full">
                     <div class="ib arrow left"></div>
                     <ul class="c ib">
                         <li class="ib corners">
@@ -154,6 +154,6 @@
                     </ul>
                     <div class="ib arrow right"></div>
                 </div>
-                
+
                 <a href="#" class="button grey corners" style="float:right;">Все участники</a><br/>
 {% endblock %}
