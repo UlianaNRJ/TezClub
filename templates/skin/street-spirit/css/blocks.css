@@ -3,7 +3,7 @@
 .rss{display:inline-block; width:12px; height:12px; background:url(../images/rss-ico.png) 0 0 no-repeat; margin:0 3px; border:none !important;}
 .block .block-header-conteiner h2{width:100%; padding:0 0 0 15px; float:right; background:url(../images/gray-dot.png) 0 50% repeat-x;}
 .block .block-header-conteiner h2 span{color:#000; background:#fff; padding:0 4px; margin:0 0 0 -4px;}
-.block h2 { font-size: 18px; font-family:'helvetica neue', arial, sans-serif; font-weight:bold; margin-bottom:6px;}
+.block h2 { font-size: 18px; font-family:'helvetica neue', arial, sans-serif; font-weight:bold; margin-bottom:6px;min-height: 1px;}
 .block.nostyle { background: none; margin: 0px 0 40px 0; border: none; box-shadow: none;}
 
 .block .bottom {/* padding-top: 5px; */font-size: 12px; text-align: center; background:url(../images/gray-dot.png) 0 50% repeat-x;}

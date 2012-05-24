@@ -31,7 +31,6 @@
 	<br>{$cbtext}<font size="-2" style='font-size:xx-small;color:"white";'><br>официальный сайт</font>
 	</a>
 	<br>
-	<br>
 	{if isset($aBlocks.right)}
 		{foreach from=$aBlocks.right item=aBlock}
 			{if $aBlock.type=='block'}

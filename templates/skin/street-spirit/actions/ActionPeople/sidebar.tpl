@@ -1,3 +1,7 @@
+<div class="block">
+    <div class="block-header-conteiner"><h2></h2></div>
+</div>
+
 {literal}
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
