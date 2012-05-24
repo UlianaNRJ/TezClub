@@ -11,12 +11,17 @@
 			<img src="{cfg name='path.static.skin'}/images/draft.png" title="{$aLang.topic_unpublish}" alt="{$aLang.topic_unpublish}" />
 		{/if}
 		<a href="{router page='link'}go/{$oTopic->getId()}/" class="title-topic">{$oTopic->getTitle()|escape:'html'}</a>
+        {if !$oTopic->getHotelstopicid()}
 		<img src="{cfg name='path.static.skin'}/images/topic_link_big.gif" title="{$aLang.topic_link}" alt="{$aLang.topic_link}" />
+        {/if}
 		<a href="#" onclick="return ls.favourite.toggle({$oTopic->getId()},this,'topic');" class="favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}">
             <span class="favourite-count" id="fav_count_topic_{$oTopic->getId()}">{if $oTopic->getCountFavourite()>0}{$oTopic->getCountFavourite()}{else}&nbsp;{/if}</span>
 		</a>
 	</h1>
-	<div class="topic-link-url"><span class="url"><a href="{router page='link'}go/{$oTopic->getId()}/" title="{$aLang.topic_link_count_jump}: {$oTopic->getLinkCountJump()}">{$oTopic->getLinkUrl(true)}</a></span></div>
+    {if !$oTopic->getHotelstopicid()}
+	<div class="topic-link-url">
+        <span class="url"><a href="{router page='link'}go/{$oTopic->getId()}/" title="{$aLang.topic_link_count_jump}: {$oTopic->getLinkCountJump()}">{$oTopic->getLinkUrl(true)}</a></span></div>
+    {/if}
     {if $oUserCurrent and ($oUserCurrent->isAdministrator() or $oBlog->getUserIsAdministrator() or $oBlog->getOwnerId()==$oUserCurrent->getId() or $oUserCurrent->getId()==$oTopic->getUserId() or $oBlog->getUserIsModerator())}
     <div class="info-top">
         <span class="actions">
@@ -45,6 +50,10 @@
 		{else}
 			 {$oTopic->getText()}
 		{/if}
+
+        {if $oTopic->getHotelstopicid()}
+            <a href="{router page='link'}go/{$oTopic->getId()}/" title="{$aLang.topic_link_count_jump}: {$aLang.topic_read_more}">{$aLang.topic_read_more}</a>
+        {/if}
 	</div>
 
 
@@ -67,29 +76,19 @@
 		<li class="date">{date_format date=$oTopic->getDateAdd()}</li>
 		{if $bTopicList}
 			<li class="comments-counter">
-				{if $oTopic->getCountComment()>0}
-					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_read}"><span class="comments-counter-ico">&nbsp;</span>{$oTopic->getCountComment()}{if $oTopic->getCountCommentNew()}<span>+{$oTopic->getCountCommentNew()}</span>{/if}</a>
-				{else}
-					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_add}"><span class="comments-counter-ico">&nbsp;</span>{$aLang.topic_comment_add}</a>
-				{/if}
+                {if !$oTopic->getHotelstopicid()}
+    				{if $oTopic->getCountComment()>0}
+    					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_read}"><span class="comments-counter-ico">&nbsp;</span>{$oTopic->getCountComment()}{if $oTopic->getCountCommentNew()}<span>+{$oTopic->getCountCommentNew()}</span>{/if}</a>
+    				{else}
+    					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_add}"><span class="comments-counter-ico">&nbsp;</span>{$aLang.topic_comment_add}</a>
+    				{/if}
+                {else}
+                    <a href="{router page='link'}go/{$oTopic->getId()}/" title="{$aLang.topic_comment_add}"><span class="comments-counter-ico">&nbsp;</span>{$aLang.topic_comment_add}</a>
+                {/if}
 			</li>
 		{/if}
 
-        {assign var="bVoteAllow" value=1}
-        {if ($oUserCurrent && $oTopic->getUserId()==$oUserCurrent->getId())
-        || strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}
-        {assign var="bVoteAllow" value=0}
-        {/if}
-        <li {if !$oVote && $bVoteAllow}style="display:none;" {/if}class="vote-counter" id="vote_area_res_topic_{$oTopic->getId()}">
-            {$aLang.topic_rating}:
-            <span class="vote-wrap {if $oVote || ($oUserCurrent && $oTopic->getUserId()==$oUserCurrent->getId()) || strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}{if $oTopic->getRating()>0}positive{elseif $oTopic->getRating()<0}negative{/if}{/if} {if !$oUserCurrent || $oTopic->getUserId()==$oUserCurrent->getId() || strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}guest{/if}{if $oVote} voted {if $oVote->getDirection()>0}plus{elseif $oVote->getDirection()<0}minus{/if}{/if}">
-                <span id="vote_total_topic_{$oTopic->getId()}" class="total" title="{$aLang.topic_vote_count}: {$oTopic->getCountVote()}">{if $oVote || ($oUserCurrent && $oTopic->getUserId()==$oUserCurrent->getId()) || strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}{if $oTopic->getRating()>0}+{$oTopic->getRating()}{else}{$oTopic->getRating()}{/if}{else}<a href="#" onclick="return ls.vote.vote({$oTopic->getId()},this,0,'topic');">?</a>{/if}</span>
-                <span class="total-ico">&nbsp;</span>
-            </span>
-        </li>
-        <li {if $oVote || !$bVoteAllow}style="display: none;" {/if}id="vote_area_btn_topic_{$oTopic->getId()}" class="voting-line {if $oVote || !$bVoteAllow}{if $oTopic->getRating()>0}positive{elseif $oTopic->getRating()<0}negative{/if}{/if} {if !$oUserCurrent || !$bVoteAllow}guest{/if}{if $oVote} voted {if $oVote->getDirection()>0}plus{elseif $oVote->getDirection()<0}minus{/if}{/if}">
-
-        </li>
+       
 
 		{hook run='topic_show_info' topic=$oTopic}
 	</ul>

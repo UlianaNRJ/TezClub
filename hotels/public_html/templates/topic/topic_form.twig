@@ -88,6 +88,13 @@
                 <input type="checkbox" name="active" value="1" {% if topic.active == 1 %} checked {% endif %}>
             </div>
         </div>
+
+        <div class="control-group">
+            <label class="control-label" for="toppage">Toppage Tezclub.com.ua</label>
+            <div class="controls">
+                <input type="checkbox" name="toppage" value="1" {% if topic.toppage == 1 %} checked {% endif %}>
+            </div>
+        </div>
         
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">{{ action_name }} hotel</button>

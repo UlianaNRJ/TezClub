@@ -96,6 +96,7 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
 
 // Admin Edit.
 $app->get('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
+
     $topic = Model::factory('SprTopic')->find_one($id);
     if (! $topic instanceof SprTopic) {
         $app->notFound();
@@ -153,8 +154,17 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
     $topic->tags      = $app->request()->post('tags');
     // если статус поменялся
     if ($topic->active != $app->request()->post('active')) {
-        $topic->active    = $app->request()->post('active');
+        $topic->active = $app->request()->post('active');
         $activechange = true;
+    }
+    
+    $topic->toppage = $app->request()->post('toppage');
+    if ($app->request()->post('toppage') == 1) {
+        // выводим топик на главную.
+        $topic->insertintomothersite();
+    } else {
+        // снимаем с публикации
+        $topic->updateintomothersite();
     }
 
     $topic->save();
@@ -235,9 +245,9 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
         $hotel->save();
     }
     
-    
     $app->redirect('/admin/topic');
 });
+
 
 // Admin Delete.
 $app->get('/admin/topic/delete/(:id)', $authCheck, function($id) use ($app) {

@@ -96,6 +96,9 @@ class ModuleTopic_EntityTopic extends Entity
     public function getTextHash() {
         return $this->_aData['topic_text_hash'];
     }
+    public function getHotelstopicid() {
+        return $this->_aData['hotelstopicid'];
+    }
     
     public function getTagsArray() {
     	return explode(',',$this->getTags());    	
