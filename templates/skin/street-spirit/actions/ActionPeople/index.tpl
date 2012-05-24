@@ -1,7 +1,7 @@
 {include file='header.tpl' menu='people'}
 
 
-<h1 class="page-title">{$aLang.user_list} <span class="sup">({$aStat.count_all})</span></h1>
+<h1 class="page-title">{$aLang.user_list}</h1>
 
 <ul class="switcher">
 	<li {if $sEvent=='good'}class="active"{/if}><a href="{router page='people'}good/">{$aLang.user_good}</a></li>

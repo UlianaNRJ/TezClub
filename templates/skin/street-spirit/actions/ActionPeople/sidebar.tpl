@@ -1,7 +1,7 @@
 <div class="block">
     <div class="block-header-conteiner"><h2><span>{$aLang.user_stats}</span></h2></div>
 
-    <!--<ul>
+    {*<ul>
         <li class="stats-all">{$aLang.user_stats_all}: <strong>{$aStat.count_all}</strong></li>
         <li class="stats-active">{$aLang.user_stats_active}: <strong>{$aStat.count_active}</strong></li>
         <li class="stats-noactive">{$aLang.user_stats_noactive}: <strong>{$aStat.count_inactive}</strong></li>
@@ -9,7 +9,7 @@
 
     <br />
     <div id="stats-activity" class="diagram">
-    </div>-->
+    </div>
 
     <ul>
         <li class="stats-all">{$aLang.user_stats_all}: <strong>{$aStat.count_all}</strong></li>
@@ -17,9 +17,12 @@
         <li class="stats-sex-woman">{$aLang.user_stats_sex_woman}: <strong>{$aStat.count_sex_woman}</strong></li>
         <li class="stats-sex-other">{$aLang.user_stats_sex_other}: <strong>{$aStat.count_sex_other}</strong></li>
     </ul>
+
     <br />
     <div id="stats-sex" class="diagram">
     </div>
+
+    *}
 </div>
 {literal}
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
