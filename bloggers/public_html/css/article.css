@@ -488,13 +488,14 @@ ul.steps.vertical {
 			font-size: 23px;
 		}
 		ul.steps li span{
-	background: url("../img/bullet-big.png") no-repeat scroll center center transparent;
-	color: #22A1D8;
-	font-size: 36px;
-	text-align: center;
-	width: 62px;
-	margin-right: 10px;
-}
+			background: url("../img/bullet-big.png") no-repeat scroll center center transparent;
+			color: #22A1D8;
+			font-size: 36px;
+			text-align: center;
+			width: 62px;
+			margin-right: 10px;
+			line-height: 62px;
+		}
 
 ul.steps.horizontal {
 	padding: 20px;

@@ -25,6 +25,7 @@ $authCheck = function() use ($app) {
 // frontend
 require '../app/routes/main.php';
 require '../app/routes/main.reg.php';
+require '../app/routes/prize.php';
 // backend
 require '../app/routes/admin.php';
 

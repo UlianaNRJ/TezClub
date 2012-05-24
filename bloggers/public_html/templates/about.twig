@@ -1,0 +1,76 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %} PAGE TITLE {% endblock %}
+
+{% block page_head %} {% endblock %}
+
+{% block article_class %}about{% endblock %}
+
+{% block content %}
+	<div class="content corners">
+		<div class="text">
+			<div class="headline corners">
+
+				<h1>Выигрывай призы</h1>
+				<h2>1-5 туры</h2>
+
+				<p><strong>Краткое описание механники акции</strong> Я про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и </p>
+
+
+				<ul class="fancy">
+					<li><span class="ib">1</span> Я про свой новый плагин aceCheckBrowser</li>
+					<li><span class="ib">2</span> Я про свой новый плагин aceCheckBrowser</li>
+					<li><span class="ib">3</span> Я про свой новый плагин aceCheckBrowser</li>
+				</ul>
+
+				<h2>Суперфинал</h2>
+
+				<p><strong>Краткое описание механники акции</strong> Я про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и </p>
+
+				<ul class="fancy">
+					<li><span class="ib">1</span> Я про свой новый плагин aceCheckBrowser</li>
+					<li><span class="ib">2</span> Я про свой новый плагин aceCheckBrowser</li>
+					<li><span class="ib">3</span> Я про свой новый плагин aceCheckBrowser</li>
+				</ul>
+
+				<br/>
+
+				<a href="#" class="button blue corners">Готово</a>
+
+				<br/><br/>
+
+				<a href="#" class="bottom">Посмотреть участников</a>
+				<a href="#" id="show_rulez" class="bottom">Официальные правила</a>
+
+			</div>
+		</div>
+	</div>
+
+<script>
+	jQuery(document).ready(function($){
+		$("#show_rulez").click(function(){
+			$("#dialog").dialog({
+				modal: true,
+				width: 800,
+				dialogClass: "rules"
+			});
+			return false;
+		});
+	});
+</script>
+
+<section id="dialog" style="display: none;">
+	<h1>ОФициальные правила</h1>
+
+	<p>Я про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта
+		и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и</p>
+	<p>Я про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта
+		и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и</p>
+	<p>Я про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта
+		и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и Я про свой новый плагин
+		aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта и даже подсовывать
+		посетителю специальный ше, гА если юзер с мобильника зашел — то и Я про свой новый плагин aceCheckBrowser.
+		Это плагин, который умеет проверять браузер, поддержку яваскрипта и даже подсовывать посетителю специальный
+		ше, гА если юзер с мобильника зашел — то и</p>
+</section>
+{% endblock %}

@@ -11,12 +11,24 @@ body > header, body > article {
 	.explanation p{
 		text-align: center;
 		font-size: 15px;
+		line-height: 1em;
 	}
 
 
 
+.headline {
+	background: #ffffff; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #ffffff 50%, #6bcced 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(50%,#ffffff), color-stop(100%,#6bcced)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* IE10+ */
+	background: radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#6bcced',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
 .index .headline {
-	background: url("../img/headline3.png") transparent 0 0 scroll no-repeat;
+	background: url("../img/headline4.png") transparent 0 0 scroll no-repeat;
 	position: relative;
 }
 .index .headline .button{
@@ -75,15 +87,6 @@ body > header, body > article {
 	.step1 .headline,
 	.step2 .headline,
 	.step3 .headline {
-		background: #ffffff; /* Old browsers */
-		background: -moz-radial-gradient(center, ellipse cover,  #ffffff 50%, #6bcced 100%); /* FF3.6+ */
-		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(50%,#ffffff), color-stop(100%,#6bcced)); /* Chrome,Safari4+ */
-		background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* Opera 12+ */
-		background: -ms-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* IE10+ */
-		background: radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#6bcced',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
 		text-align: center;
 	}
 	.step3 .headline h2 {
@@ -93,6 +96,79 @@ body > header, body > article {
 	.step3 .headline p {
 		font-size: 15px;
 	}
+
+.prize{
+
+}
+	.prize .headline{
+		padding: 30px 50px;
+	}
+	.prize h1 {
+	text-align: center;
+	font-size: 38px;
+}
+	.prize ul.steps {
+
+	}
+		.prize ul.steps li {
+			margin-bottom: 50px;
+		}
+		.prize ul.steps li > span {
+		}
+		.prize ul.steps li > div {
+			width: 720px;
+			padding-top: 15px;
+		}
+		.prize ul.steps li .car img {
+			margin-top: 20px;
+		}
+		.prize ul.steps li .image img {
+			box-shadow: 0 0 10px 0 #DDDDDD;
+			border: 5px solid #FFFFFF;
+			border-radius: 20px;
+		}
+		.prize ul.steps li div + div {
+			margin-left: 50px;
+		}
+		.prize ul.steps li .text {
+			padding: 0;
+		}
+		.prize ul.steps li .text h3 {
+			font-size: 18px;
+			font-style: italic;
+			font-weight: bold;
+		}
+		.prize ul.steps li .text p {
+		font-size: 15px;
+		line-height: 1.2em;
+		margin-bottom: 0.6em;
+		margin-top: 0;
+		text-align: justify;
+	}
+	.prize .actions {
+	bottom: 60px;
+	margin: 0;
+	position: absolute;
+	right: 145px;
+	text-align: center;
+	width: 240px;
+}
+
+
+.about {
+
+
+}
+.about .headline {
+	text-align: center;
+	padding: 30px 100px;
+}
+.about .bottom {
+	display: block;
+	margin-top: 10px;
+	font-size: 16px;
+	text-decoration: underline;
+}
 
 .all_users{
 
@@ -192,49 +268,28 @@ body > header, body > article {
 .description{
 	display: table;
 	height: 190px;
-	margin-top: 85px;
-	padding-bottom: 60px;
+	margin-top: 60px;
+	padding-bottom: 30px;
 	position: relative;
 	width: 630px;
 }
-	.description p{
+	.description .text{
 		display: table-cell;
 		font-size: 15px;
 		padding: 0 50px;
 		vertical-align: middle;
-		width: 420px;
 	}
 	.description .image{
-		display: table-cell;
-		height: 200px;
-		position: relative;
-		vertical-align: middle;
-		width: 180px;
+		padding-top: 25px;
 	}
 		.description .image img{
-			border: 5px solid #FFFFFF;
-			border-radius: 75px;
-			box-shadow: 0 0 10px 0 #DDDDDD;
-			position: absolute;
-			top: 0;
-			width: 150px;
-		}
-		.description .image span{
-			background: none repeat scroll 0 0 rgba(23, 95, 137, 0.5);
-			color: #FFFFFF;
-			display: block;
-			font-size: 20px;
-			line-height: 30px;
-			font-weight: bold;
-			margin: 6px;
-			position: relative;
-			text-align: center;
+
 		}
 		.description .image div{
-			font-size: 15px;
+			font-size: 22px;
 			font-style: italic;
-			position: absolute;
+			font-weight: bold;
 			text-align: center;
-			top: 205px;
-			width: 160px;
+			margin-top: 20px;
+			width: 270px;
 		}
