@@ -1,10 +1,21 @@
 
 <div id="comments" class="comments">
+    <div class="comments-top">
+        Только зарегистрированные и авторизованные пользователи могут оставлять комментарии.
+    </div>
+    <div class="comments-total">
+        <span class="icon"></span>
+        <span class="num">8 коментариев</span>
+        <span class="sep"></span>
+        <a href="#">свернуть все</a>
+        <span class="sep"></span>
+        <a href="#">развернуть все</a>
+    </div>
     {% for comment in topic.comments %}
     <div class="comment-wrapper" id="comment_wrapper_{{ comment.id }}">
         <div class="comment" id="comment_id_{{ comment.id }}">
             <a name="comment{{ comment.id }}"></a>
-            <div class="folding" style="display: none;"></div>
+            <div class="folding"></div>
             <ul class="info">
                 <li class="com_avatar">
                     <a href="http://tezclub.com.ua/profile/{{ comment.user.user_login }}/">
@@ -17,13 +28,85 @@
                 </li>
                 <li class="username"><a href="http://tezclub.com.ua/profile/{{ comment.user.user_login }}/">{{ comment.user.user_login }}</a></li>
                 <li class="date">{{ comment.timestamp }}</li>
+                <li class="rate positive">
+                    <span class="total">+12</span>
+                    <a href="#" class="plus"></a>
+                    <a href="#" class="minus"></a>
+                </li>
             </ul>
-            <div class="content" id="comment_content_id_{{ comment.id }}">{{ comment.text }}</div>
-            {# TODO: возможность ответов на комментарии
-            <div class="relpay-link-wrap"><a class="reply-link" onclick="ls.comments.toggleCommentForm(1271); return false;" href="#">Ответить</a></div>
-            #}
-            <div style="display: none;" id="comment_preview_{{ comment.id }}" class="comment-preview"></div>
-            <div style="display: none;" id="reply_{{ comment.id }}" class="reply"></div>
+            <div class="comment-body">
+                <div class="content" id="comment_content_id_{{ comment.id }}">{{ comment.text }}</div>
+                
+                <div class="relpay-link-wrap"><a class="reply-link" onclick="ls.comments.toggleCommentForm(1271); return false;" href="#">Ответить</a></div>
+                
+                <div style="display: none;" id="comment_preview_{{ comment.id }}" class="comment-preview"></div>
+                <div style="display: none;" id="reply_{{ comment.id }}" class="reply"></div>
+
+                {# inner comment #}
+                <div class="comment-wrapper" id="comment_wrapper_{{ comment.id }}">
+                    <div class="comment" id="comment_id_{{ comment.id }}">
+                        <a name="comment{{ comment.id }}"></a>
+                        <ul class="info">
+                            <li class="com_avatar">
+                                <a href="http://tezclub.com.ua/profile/{{ comment.user.user_login }}/">
+                                {% if comment.user.user_profile_avatar %}
+                                <img alt="avatar" src="{{ comment.user.user_profile_avatar }}"></a>
+                                {% else %}
+                                <img alt="avatar" src="http://tezclub.com.ua/templates/skin/street-spirit/images/avatar_24x24.jpg"></a>
+
+                                {% endif %}
+                            </li>
+                            <li class="username"><a href="http://tezclub.com.ua/profile/{{ comment.user.user_login }}/">{{ comment.user.user_login }}</a></li>
+                            <li class="date">{{ comment.timestamp }}</li>
+                            <li class="rate negative">
+                                <span class="total">-12</span>
+                                <a href="#" class="plus"></a>
+                                <a href="#" class="minus"></a>
+                            </li>
+                        </ul>
+                        <div class="comment-body">
+                            <div class="content" id="comment_content_id_{{ comment.id }}">{{ comment.text }}</div>
+                            
+                            <div class="relpay-link-wrap"><a class="reply-link" onclick="ls.comments.toggleCommentForm(1271); return false;" href="#">Ответить</a></div>
+                            
+                            <div style="display: none;" id="comment_preview_{{ comment.id }}" class="comment-preview"></div>
+                            <div style="display: none;" id="reply_{{ comment.id }}" class="reply"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-wrapper" id="comment_wrapper_{{ comment.id }}">
+                    <div class="comment" id="comment_id_{{ comment.id }}">
+                        <a name="comment{{ comment.id }}"></a>
+                        <ul class="info">
+                            <li class="com_avatar">
+                                <a href="http://tezclub.com.ua/profile/{{ comment.user.user_login }}/">
+                                {% if comment.user.user_profile_avatar %}
+                                <img alt="avatar" src="{{ comment.user.user_profile_avatar }}"></a>
+                                {% else %}
+                                <img alt="avatar" src="http://tezclub.com.ua/templates/skin/street-spirit/images/avatar_24x24.jpg"></a>
+
+                                {% endif %}
+                            </li>
+                            <li class="username"><a href="http://tezclub.com.ua/profile/{{ comment.user.user_login }}/">{{ comment.user.user_login }}</a></li>
+                            <li class="date">{{ comment.timestamp }}</li>
+                            <li class="rate negative voted_plus">
+                                <span class="total">-12</span>
+                                <a href="#" class="plus"></a>
+                                <a href="#" class="minus"></a>
+                            </li>
+                        </ul>
+                        <div class="comment-body">
+                            <div class="content" id="comment_content_id_{{ comment.id }}">{{ comment.text }}</div>
+                            
+                            <div class="relpay-link-wrap"><a class="reply-link" onclick="ls.comments.toggleCommentForm(1271); return false;" href="#">Ответить</a></div>
+                            
+                            <div style="display: none;" id="comment_preview_{{ comment.id }}" class="comment-preview"></div>
+                            <div style="display: none;" id="reply_{{ comment.id }}" class="reply"></div>
+                        </div>
+                    </div>
+                </div>
+                {# end of inner comment #}
+            </div>
         </div>
     </div>
     {% endfor %}
@@ -48,6 +131,4 @@
         </div>
     </form>
 </div>
-{% else %}
-    Только зарегистрированные и авторизованные пользователи могут оставлять комментарии.
 {% endif %}
