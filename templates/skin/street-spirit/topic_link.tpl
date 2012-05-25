@@ -4,7 +4,11 @@
 
 <div class="topic">
 	<div class="user-title">
-		<a href="{$oBlog->getUrlFull()}" class="title-blog">{$oBlog->getTitle()|escape:'html'}</a>
+        {if $oTopic->getHotelstopicid()}
+            <a href="http://hotels.tezclub.com.ua/blog" class="title-blog">{$oBlog->getTitle()|escape:'html'}</a>
+        {else}
+            <a href="{$oBlog->getUrlFull()}" class="title-blog">{$oBlog->getTitle()|escape:'html'}</a>
+        {/if}
 	</div>
 	<h1 class="title">
 		{if $oTopic->getPublish()==0}
