@@ -23,7 +23,9 @@
     <select name="sortbybloggers">
         <option value="">По блоггерам</option>
         {% for blogger in bloggers %}
-        <option value="{{ blogger.id }}" {% if sortbybloggers == blogger.id %} selected {% endif %}>{{ blogger.name }}</option>
+            {% if blogger.count_topic > 0 %}
+            <option value="{{ blogger.id }}" {% if sortbybloggers == blogger.id %} selected {% endif %}>{{ blogger.name }}</option>
+            {% endif %}
         {% endfor %}
     </select>
 </form>
