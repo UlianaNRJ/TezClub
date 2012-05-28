@@ -3,14 +3,33 @@
     <div class="comments-top">
         Только зарегистрированные и авторизованные пользователи могут оставлять комментарии.
     </div>
+    {% if topic.comments|length > 0 %}
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            // настройка Плагина Фоторамки
+            $('.comments-total .fold ').click(function() {
+                $('.comment-wrapper').addClass("folded");
+                return false;
+            });
+            $('.comments-total .unfold ').click(function() {
+                $('.comment-wrapper').removeClass("folded");
+                return false;
+            });
+            $('.folding ').click(function() {
+                $(this).closest('.comment-wrapper').toggleClass("folded");
+                return false;
+            });
+        });
+    </script>
     <div class="comments-total">
         <span class="icon"></span>
-        <span class="num">8 коментариев</span>
+        <span class="num">{{topic.comments|length}} коментариев</span>
         <span class="sep"></span>
-        <a href="#">свернуть все</a>
+        <a href="#" class="fold">свернуть все</a>
         <span class="sep"></span>
-        <a href="#">развернуть все</a>
+        <a href="#" class="unfold">развернуть все</a>
     </div>
+    {% endif %}
     {% for comment in topic.comments %}
     <div class="comment-wrapper" id="comment_wrapper_{{ comment.id }}">
         <div class="comment" id="comment_id_{{ comment.id }}">
@@ -42,7 +61,7 @@
                 <div style="display: none;" id="comment_preview_{{ comment.id }}" class="comment-preview"></div>
                 <div style="display: none;" id="reply_{{ comment.id }}" class="reply"></div>
 
-                {# inner comment #}
+                {# inner comment 
                 <div class="comment-wrapper" id="comment_wrapper_{{ comment.id }}">
                     <div class="comment" id="comment_id_{{ comment.id }}">
                         <a name="comment{{ comment.id }}"></a>
@@ -105,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-                {# end of inner comment #}
+                 end of inner comment #}
             </div>
         </div>
     </div>
