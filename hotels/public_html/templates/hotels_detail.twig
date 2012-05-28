@@ -3,13 +3,7 @@
 {% block page_title %} {{ hotel.name }} {% endblock %}
 
 {% block content %}
-<div class="caption">
-    <select class="dropdown">
-        <option>{{ hotel.name }}</option>
-    </select>
-	<a class="all" href="/hotels">все отели</a>
-</div>
-<div class="text">
+<div class="text corners">
     <div class="actions">
         <div class="name">
             Отель: <strong>{{ hotel.name }}</strong>
