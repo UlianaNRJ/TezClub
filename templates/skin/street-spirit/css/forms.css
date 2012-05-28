@@ -30,7 +30,7 @@
 }
 
 .button {
-	color: #000;
+	color: #fff;
 	font-weight: bold;
 	padding: 2px 8px;
 	line-height: 16px;
@@ -68,6 +68,7 @@
 }
 
 .button.grey {
+    color: #000;
 	background: rgb(159,170,177); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgb(159,170,177) 0%, rgb(114,129,138) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(159,170,177)), color-stop(100%,rgb(114,129,138))); /* Chrome,Safari4+ */
