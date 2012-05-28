@@ -138,8 +138,8 @@
 			margin-bottom: 1em;
 		}
 
-			.list.hotel .info ul.grid .deactive,
-			.list.hotel .info ul.grid .noactive {
+			/*.list.hotel */.info ul.grid .deactive,
+			/*.list.hotel */.info ul.grid .noactive {
 				color: #DDD;
 			}
 
