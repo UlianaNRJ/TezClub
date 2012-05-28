@@ -81,6 +81,7 @@
                 {% endif %}
             </ul>
         </div>
+        {% if hotels|length > 0 %}
         <div class="ib hotel">
             <h3>Отели {{ blogger.name }}</h3>
             <ul class="grid" style="width: 275px;">
@@ -97,6 +98,7 @@
                 {% endfor %}
             </ul>
         </div>
+        {% endif %}
     </div>
     <div class="options">
         {% if topics %}
