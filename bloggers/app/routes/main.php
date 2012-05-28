@@ -11,7 +11,7 @@ if ( !empty($_COOKIE['key']) ){
                                       WHERE tc_user.user_id = '" . $session->user_id . "'");
         if (!empty($user)) {
             $user->user_profile_avatar = str_replace('100x100', '48x48', $user->user_profile_avatar);
-            $app->view()->setData( 'userCurrent', $user );
+            $app->view()->setData('userCurrent', $user);
         }
     }
     // session_security_key
@@ -23,7 +23,15 @@ if ( !empty($_COOKIE['key']) ){
 // index page
 $app->get('/', function() use ($app, $db) {
 
-    $data = array();
+    $data = array('currentpage' => '/');
 
     return $app->render('front/index.twig', $data);
 });
+
+$app->get('/about', function() use ($app, $db) {
+
+    $data = array('currentpage' => 'about');
+
+    return $app->render('front/about.twig', $data);
+});
+

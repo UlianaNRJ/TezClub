@@ -72,10 +72,15 @@
         <article class="{% block article_class %}{% endblock %}">
             <div class="wrapper">
                 <ul class="c tabs">
-                    <li class="ib active"><a class="ui-corner-all" href="#">Главная</a></li>
-                    <li class="ib"><a class="ui-corner-all" href="#">Участники</a></li>
-                    <li class="ib"><a class="ui-corner-all" href="#">О проекте</a></li>
-					<li class="ib"><a class="ui-corner-all" href="#">Главные призы</a></li>
+                    <li class="ib {% if currentpage == '/'%}active{% endif %}">
+                        <a class="ui-corner-all" href="/">Главная</a>
+                    </li>
+                    <li class="ib {% if currentpage == 'members'%}active{% endif %}">
+                        <a class="ui-corner-all" href="/members">Участники</a>
+                    </li>
+					<li class="ib {% if currentpage == 'about'%}active{% endif %}">
+                        <a class="ui-corner-all" href="/about">Главные призы</a>
+                    </li>
                 </ul>
                 <div class="content corners">
                     <div class="text">

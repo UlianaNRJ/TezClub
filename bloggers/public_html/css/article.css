@@ -473,9 +473,10 @@ ul.pagging:before {
 ul.steps.vertical {
 	padding-left: 565px;
 	padding-top: 25px;
+	height: 310px;
 }
 	ul.steps.vertical li {
-		line-height: 100px;
+		line-height: 95px;
 	}
 	ul.steps.vertical li+li {
 		padding-left: 40px;
@@ -493,7 +494,7 @@ ul.steps.vertical {
 			font-size: 36px;
 			text-align: center;
 			width: 62px;
-			margin-right: 10px;
+			margin:20px 10px 0 0;
 			line-height: 62px;
 		}
 
@@ -516,6 +517,10 @@ ul.steps.horizontal {
 		}
 	ul.steps.horizontal li+li {
 		margin-left: 20px;
+	}
+
+	ul.steps.horizontal li span{
+		margin: 3px 10px 0 0;
 	}
 
 ul.fancy {
