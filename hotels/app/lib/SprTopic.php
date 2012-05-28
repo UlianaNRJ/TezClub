@@ -22,7 +22,7 @@ class SprTopic extends Model
         if (!$tctopic instanceof TcTopic) {
             $tctopic = Model::factory('TcTopic')->create();
             $tctopic->blog_id = 20358;
-            $tctopic->user_id  = 6; // Arcadyi
+            $tctopic->user_id  = 2; // TezTour
             $tctopic->topic_type = $link;
             $tctopic->topic_date_add = date('Y-m-d H:i:s');
             $tctopic->hotelstopicid = $this->id;
