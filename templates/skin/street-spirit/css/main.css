@@ -57,8 +57,13 @@ color:#FFF;
 
 .share-line { float: left; /*width: 400px; */}
 .share-line-odnokl, .facebook-cont {
- width: 140px; 
+    width: 140px; 
 }
+
+.share-line .share-line-odnokl {
+    margin-top: -2px;
+}
+
 .mrt_small2 {
     margin-right: 5px !important;
     min-width: 140px;
