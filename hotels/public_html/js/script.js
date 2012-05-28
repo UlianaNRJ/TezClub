@@ -20,7 +20,7 @@ $(document).ready(function(){
 	});
 
 	// open all external links in new window
-	$("a").filter(function() {
+	$("a:not(.self)").filter(function() {
 		return this.hostname && this.hostname !== location.hostname;
 	}).attr({target:"blank"});
 
