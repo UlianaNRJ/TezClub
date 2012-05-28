@@ -1,4 +1,4 @@
-{assign var="oBlog" value=$oTopic->getBlog()}
+Мне нравится{assign var="oBlog" value=$oTopic->getBlog()}
 {assign var="oUser" value=$oTopic->getUser()}
 {assign var="oVote" value=$oTopic->getVote()}
 
@@ -107,7 +107,7 @@
         <!-- Put this script tag to the place, where the Share button will be -->
         <script type="text/javascript"><!--
         document.write(VK.Share.button({url: "{/literal}{$oTopic->getUrl()}{literal}", 
-        title: "{/literal}{$oTopic->getTitle()|escape:'html'}{literal}"},{type: "round", text: "Мне нравиться"}));
+        title: "{/literal}{$oTopic->getTitle()|escape:'html'}{literal}"},{type: "round", text: "Мне нравится"}));
         --></script>
         {/literal}
         </div>
