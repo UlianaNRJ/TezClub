@@ -72,7 +72,7 @@ class Registration
 				return !self::isRegistered() ? true : false;
 				break;
 			case 2:
-				return ( !self::isParticipating() && !empty($_SESSION['step1_done']) ) ? true : false;
+				return ( !self::isParticipating() && (!empty($_SESSION['step1_done']) || self::isRegistered() ) ) ? true : false;
 				break;
 			case 3:
 				return ( self::isParticipating() || (!empty($_SESSION['step2_done']) && (self::isRegistered() || !empty($_SESSION['step1_done']))) ) ? true : false;
