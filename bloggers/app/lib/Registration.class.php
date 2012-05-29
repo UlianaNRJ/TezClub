@@ -107,7 +107,7 @@ class Registration
 			}
 			$_SESSION['login'] = $login;
 		}
-		return $_SESSION['login'];
+		return isset($_SESSION["login"]) ? $_SESSION["login"] : '';
 	}
 
 	public static function email($email = null) {
@@ -122,7 +122,7 @@ class Registration
 			}
 			$_SESSION['email'] = $email;
 		}
-		return $_SESSION['email'];
+		return isset($_SESSION["email"]) ? $_SESSION["email"] : '';
 	}
 
 	public static function password($password = null, $repeat = null) {
@@ -140,7 +140,7 @@ class Registration
 				$_SESSION['password'] = $password;
 			}
 		}
-		return $_SESSION['password'];
+		return isset($_SESSION["password"]) ? $_SESSION["password"] : '';
 	}
 
 	public static function captcha($captcha = null) {
@@ -154,7 +154,7 @@ class Registration
 	    		$_SESSION['captcha_success'] = true;
 	    	}
     	}
-		return $_SESSION['captcha_success'];
+		return isset($_SESSION["captcha_success"]) ? $_SESSION["captcha_success"] : '';
 	}
 
 	public static function firstName($first_name = null) {
@@ -165,7 +165,7 @@ class Registration
 	    	}
 	    	$_SESSION['first_name'] = $first_name;
 	    }
-		return $_SESSION['first_name'];
+		return isset($_SESSION["first_name"]) ? $_SESSION["first_name"] : '';
 	}
 
 	public static function lastName($last_name = null) {
@@ -173,7 +173,7 @@ class Registration
 		{
 			$_SESSION['last_name'] = $last_name;
 		}
-		return $_SESSION['last_name'];
+		return isset($_SESSION["last_name"]) ? $_SESSION["last_name"] : '';
 	}
 
 	public static function sex($sex = null) {
@@ -181,7 +181,7 @@ class Registration
 		{
 			$_SESSION['sex'] = $sex;
 		}
-		return $_SESSION['sex'];
+		return isset($_SESSION["sex"]) ? $_SESSION["sex"] : '';
 	}
 
 	public static function birthdate($d = null,$m = null,$y = null) {
@@ -235,7 +235,7 @@ class Registration
     	}
     	if (!isset($_SESSION["about"]))
 	    	$_SESSION["about"] = '';
-		return $_SESSION['about'];
+		return isset($_SESSION["about"]) ? $_SESSION["about"] : '';
 	}
 
 	// временно сохраняем картинку что бы потом сделать аватарку
@@ -268,7 +268,7 @@ class Registration
 	    }
 	    if (!isset($_SESSION["avatar_tmp"]))
 	    	$_SESSION["avatar_tmp"] = '';
-		return $_SESSION["avatar_tmp"];
+		return isset($_SESSION["avatar_tmp"]) ? $_SESSION["avatar_tmp"] : '';
 	}
 
 	// Создаёт каталог по полному пути
