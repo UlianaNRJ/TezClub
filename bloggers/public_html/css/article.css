@@ -546,14 +546,14 @@ ul.fancy {
 ul.images {
 	display: table;
 	position: relative;
-	width: 730px;
+	margin: 0 0 0 32px;
 }
 	ul.images li {
 		display: table-cell;
-		height: 165px;
+		height: 149px;
 		position: relative;
 		vertical-align: middle;
-		width: 130px;
+		width: 127px;
 	}
 	ul.images li +li{
 		padding-left: 20px;
@@ -564,7 +564,7 @@ ul.images {
 			box-shadow: 0 0 10px 0 #DDDDDD;
 			position: absolute;
 			top: 0;
-			width: 120px;
+			width: 117px;
 		}
 		ul.images li span{
 			background: none repeat scroll 0 0 rgba(23, 95, 137, 0.5);
@@ -581,8 +581,8 @@ ul.images {
 		font-style: italic;
 		position: absolute;
 		text-align: center;
-		top: 165px;
-		width: 130px;
+		top: 149px;
+		width: 127px;
 	}
 
 dl.personal {
