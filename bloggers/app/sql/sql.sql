@@ -16,5 +16,19 @@ CREATE TABLE IF NOT EXISTS `users_ext` (
   `profile_vk` varchar(255) NOT NULL,
   `profile_skype` varchar(255) NOT NULL,
   `participate` tinyint(1) DEFAULT '0',
+  `conkurs_rate` float(9,3) NOT NULL DEFAULT '0.000',
+  `date_add` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `active` tinyint(1) DEFAULT '1',
   UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `bb_fin_users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `mounth` int(2) NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `conkurs_rate` float(9,3) NOT NULL DEFAULT '0.000',
+  `date_add` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `active` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
