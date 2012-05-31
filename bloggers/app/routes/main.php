@@ -22,8 +22,18 @@ if ( !empty($_COOKIE['key']) ){
 
 // index page
 $app->get('/', function() use ($app, $db) {
+        
+    $bloggers = $db->dbFetchAll("SELECT * 
+                                    FROM tc_user
+                                    LEFT JOIN users_ext ON (users_ext.id = tc_user.user_id) 
+                                    WHERE users_ext.participate = '1'
+                                    ORDER BY tc_user.user_rating DESC 
+                                    LIMIT 5
+                                  ");
 
-    $data = array('currentpage' => '/');
+    $data = array('currentpage' => '/',
+                  'bloggers'    => $bloggers
+                  );
 
     return $app->render('front/index.twig', $data);
 });
