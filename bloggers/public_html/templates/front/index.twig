@@ -78,6 +78,7 @@
                             <span>Тайланд</span>
                         </li>
                     </ul>
+                    </div>
 
                     <div class="description">
 						<div class="text">
@@ -92,76 +93,30 @@
                         </div>
                     </div>
 
-                    <a href="#" class="button participate blue corners">Участвовать</a>
+                    <a href="/registration" class="button participate blue corners">Участвовать</a>
                 </div>
 
                 <h1 style="margin: 25px 0 10px 50px;">Топ блоггеры мая</h1>
                 <div class="c faces full">
                     <div class="ib arrow left"></div>
                     <ul class="c ib">
+                        {% for blogger in bloggers %}
                         <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
+                            <a href="/bloggers/{{ blogger.id }}">
+                                {% if blogger.user_profile_avatar != '' %}
+                                <img src="{{ blogger.user_profile_avatar }}" height="100" width="100" alt=""/>
+                                {% else %}
+                                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                                {% endif %}
+                            </a>
+                            <div class="login"><a href="/bloggers/{{ blogger.id }}">{{ blogger.user_login }}</a></div>
+                            <div class="name"><a href="/bloggers/{{ blogger.id }}">{{ blogger.user_profile_name }}</a></div>
+                            <div class="statistic">Рейтинг <span class="score">{{ blogger.user_rating }}</span></div>
                         </li>
-                        <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
-                        </li>
-                        <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
-                        </li>
-                        <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
-                        </li>
-                        <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
-                        </li>
-                        <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
-                        </li>
-                        <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
-                        </li>
-                        <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
-                        </li>
-                        <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
-                        </li>
-                        <li class="ib corners">
-                            <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                            <div class="login">kuteev</div>
-                            <div class="name">Кутеев Вячеславович</div>
-                            <div class="statistic">Рейтинг <span class="score">25</span></div>
-                        </li>
+                        {% endfor %}
                     </ul>
                     <div class="ib arrow right"></div>
                 </div>
 
-                <a href="#" class="button grey corners" style="float:right;">Все участники</a><br/>
+                <a href="/members" class="button grey corners" style="float:right;">Все участники</a><br/>
 {% endblock %}
