@@ -1,0 +1,67 @@
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() {
+            new nicEditor({fullPanel : true}).panelInstance('about');
+        });
+
+  //]]>
+  </script>
+
+<h1>{{ action_name }} finalist</h1>
+
+<form action="{{ action_url }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <fieldset>
+
+    <div class="control-group">
+        <label class="control-label" for="mounth">Select mounth</label>
+        <div class="controls">
+          <select id="mounth" name="mounth">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+        </div>
+    </div>
+   <div class="control-group">
+        <label class="control-label" for="user_id">user_id</label>
+        <div class="controls">
+            {# if finalist.user_id == users.bl_id %}selected{% endif #}
+            <select id="user_id" name="user_id">
+                <option value="0">...</option>
+            {% for user in users %}
+                <option value="{{user.user_id}}" {% if finalist.id == user.user_id %}selected{% endif %}>{{user.user_login}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="conkurs_rate">conkurs_rate</label>
+        <div class="controls">
+            <input type="text" name="conkurs_rate" value="{{ finalist.conkurs_rate|default('') }}" id="conkurs_rate"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="active">Active</label>
+        <div class="controls">
+            <input type="checkbox" name="active" value="1" {% if finalist.active == 1 %} checked {% endif %}>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ action_name }} finalist</button>
+        <button class="btn">Cancel</button>
+    </div>
+    </fieldset>
+</form>

@@ -1,0 +1,42 @@
+{% extends 'admin.twig' %}
+
+{% block page_title %}Finalists Administration{% endblock %}
+
+{% block content %} 
+    <h1>Finalists Administration <a href="/admin/finalist/add" class="btn btn-success">Add Finalist</a></h1>
+
+    {% if finalists %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Mounth</th>
+                    <th>Login</th>
+                    <th>Conkurs Rate</th>
+                    <th>Active</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                {% for finalist in finalists %}
+                    <tr>
+                        <td>{{ finalist.mounth }}</td>
+                        <td>{{ finalist.user_login }}</td>
+                        <td>{{ finalist.conkurs_rate }}</td>
+                        <td>
+                            {% if finalist.active == 1 %}
+                                <i class="icon-eye-open"></i>
+                            {% else %}
+                                <i class="icon-eye-close"></i>
+                            {% endif %}
+                        </td>
+                        <td><a href="/admin/finalist/edit/{{ finalist.id }}">Edit</a></td>
+                        <td><a href="/admin/finalist/delete/{{ finalist.id }}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>There are currently no finalists.</p>
+    {% endif %}
+{% endblock %}
