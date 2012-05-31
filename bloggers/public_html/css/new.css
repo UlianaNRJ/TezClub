@@ -349,3 +349,27 @@ body > header, body > article {
 			margin-top: 20px;
 			width: 270px;
 		}
+
+
+.members {
+
+}
+	.members .faces.full {
+	    padding: 0;
+	}
+	.members .faces.full ul li {
+	    margin: 0 23px 30px;
+	}
+	.members .faces.full ul {
+	    width: auto;
+	}
+	.members .pagination {
+		margin:-30px 0 0 23px;
+	}
+	.members .bloggers_filter {
+		padding-top: 10px;
+		float: right;
+	}
+	.members .bloggers_filter select {
+		width:200px;
+	}

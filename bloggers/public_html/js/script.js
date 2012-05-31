@@ -81,12 +81,7 @@ jQuery(document).ready(function($){
 	$("select").each(function(){
 		$(this).selectmenu({
 			//dropdown: false
-		})
-		.selectmenu("widget") // returns only first menuWidget thats why i use each
-		.addClass("right")
-		.end()
-		.selectmenu("menuWidget") // returns only first menuWidget thats why i use each
-		.addClass("overflow");
+		});
 	});
 
 	$("select#country").selectmenu({
