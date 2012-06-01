@@ -166,6 +166,12 @@ $app->get('/blog/view/(:id)', function($id) use ($app) {
     }
 
 
+    $arimage = @unserialize($topic->image);
+
+    if (is_array($arimage)) {
+        $topic->image = $arimage;
+    }
+
     $topic->timestamp = rdate('d M Y, H:i', strtotime($topic->timestamp));
 
     $topic->tags = explode(',', $topic->tags);

@@ -51,10 +51,10 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
     $topic->content   =  strip_tags($app->request()->post('content'), '<p><a><div><br><img><iframe>');
     
     // выюираем первую картинку для вывода
-    preg_match("#<img.*?src=['\"]([^\"']+\.jpg)['\"].*?/?>#i", $topic->content, $image);
+    preg_match("#<img.*?src=['\"]([^\"']+[\.jpg|\.png|\.gif])['\"].*?/?>#i", $topic->content, $image);
     if ( isset($image) && isset($image[1]) )
     { 
-        $topic->image = $image[1];
+        $topic->image = serialize($image[1]);
     }
 
     $topic->timestamp = ($app->request()->post('timestamp')) ? $app->request()->post('timestamp') : date('Y-m-d H:i:s');
@@ -143,10 +143,10 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
     $topic->content   =  strip_tags($app->request()->post('content'), '<p><a><div><br><img><iframe>');
     
     // выюираем первую картинку для вывода
-    preg_match("#<img.*?src=['\"]([^\"']+\.jpg)['\"].*?/?>#i", $topic->content, $image);
+    preg_match_all("#<img.*?src=['\"]([^\"']+[\.jpg|\.png|\.gif])['\"].*?/?>#i", $topic->content, $image);
     if ( isset($image) && isset($image[1]) )
     { 
-        $topic->image = $image[1];
+        $topic->image = serialize($image[1]);
     }
 
     $topic->timestamp = ($app->request()->post('timestamp')) ? $app->request()->post('timestamp') : date('Y-m-d H:i:s');

@@ -24,7 +24,9 @@
     <meta property="og:url" content="{{ siteurl }}/blog/view/{{ topic.id }}"/>
     <meta property="og:type" content="article"/>
     <meta property="og:description" content="{{ topic.summary|striptags }}"/>
-    <meta property="og:image" content="{{ topic.image }}"/>
+    {% for image in topic.image %}
+        <meta property="og:image" content="{{ image }}"/>
+    {% endfor %}
 {% endblock %}
 
 {% block content %}

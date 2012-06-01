@@ -82,12 +82,13 @@ CREATE TABLE IF NOT EXISTS `spr_topic` (
   `count_bals` float NOT NULL,
   `count_voises` int(10) DEFAULT '0',
   `tags` TEXT DEFAULT '',
-  `image` varchar(255) NOT NULL,  
+  `image` TEXT DEFAULT '',
   `active` tinyint(1) DEFAULT '0',
   `timestamp` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--ALTER TABLE `spr_topic` CHANGE `image` `image` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '' 
 
 CREATE TABLE IF NOT EXISTS `spr_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
