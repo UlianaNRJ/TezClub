@@ -39,6 +39,8 @@ $app->get('/admin/topic/add', $authCheck, function() use ($app) {
 
 // Admin Add - POST.
 $app->post('/admin/topic/add', $authCheck, function() use ($app) {
+    $avalible = '<p><a><b><i><u><ul><li><div><br><img><iframe>';
+    
     $topic            = Model::factory('SprTopic')->create();
     $topic->title     = $app->request()->post('title');
     $topic->bl_id     = $app->request()->post('blogger');
@@ -47,8 +49,8 @@ $app->post('/admin/topic/add', $authCheck, function() use ($app) {
     $topic->hotel_id    = $app->request()->post('hotel');
 
 
-    $topic->summary   =  strip_tags($app->request()->post('summary'), '<p><a><div><br><img><iframe>');
-    $topic->content   =  strip_tags($app->request()->post('content'), '<p><a><div><br><img><iframe>');
+    $topic->summary   =  strip_tags($app->request()->post('summary'), $avalible);
+    $topic->content   =  strip_tags($app->request()->post('content'), $avalible);
     
     // выюираем первую картинку для вывода
     preg_match("#<img.*?src=['\"]([^\"']+[\.jpg|\.png|\.gif])['\"].*?/?>#i", $topic->content, $image);
@@ -121,7 +123,7 @@ $app->get('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
 
 // Admin Edit - POST.
 $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
-    
+    $avalible = '<p><a><b><i><u><ul><li><div><br><img><iframe>';
     $activechange = false;
 
     $topic = Model::factory('SprTopic')->find_one($id);
@@ -139,8 +141,8 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
     $topic->hotel_id  = $app->request()->post('hotel');
 
 
-    $topic->summary   =  strip_tags($app->request()->post('summary'), '<p><a><div><br><img><iframe>');
-    $topic->content   =  strip_tags($app->request()->post('content'), '<p><a><div><br><img><iframe>');
+    $topic->summary   =  strip_tags($app->request()->post('summary'), $avalible);
+    $topic->content   =  strip_tags($app->request()->post('content'), $avalible);
     
     // выюираем первую картинку для вывода
     preg_match_all("#<img.*?src=['\"]([^\"']+[\.jpg|\.png|\.gif])['\"].*?/?>#i", $topic->content, $image);
