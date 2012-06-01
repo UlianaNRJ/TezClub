@@ -9,7 +9,7 @@
 
 
 	<ul class="info">
-		<li class="avatar"><a href="{$oUser->getUserWebPath()}"><img src="{$oUser->getProfileAvatarPath(24)}" alt="avatar" /></a></li>
+		<li class="com_avatar"><a href="{$oUser->getUserWebPath()}"><img src="{$oUser->getProfileAvatarPath(24)}" alt="avatar" /></a></li>
 		<li class="username"><a href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a></li>
 		<li class="date">{date_format date=$oComment->getDate()}</li>
 		<li><a href="{if $oConfig->GetValue('module.comment.nested_per_page')}{router page='comments'}{else}#comment{/if}{$oComment->getId()}" class="comment-link"></a></li>
@@ -28,16 +28,17 @@
 			<li><a href="#" onclick="return ls.favourite.toggle({$oComment->getId()},this,'comment');" class="comments-star{if $oComment->getIsFavourite()} active{/if}"></a></li>
 		{/if}
 		{hook run='comment_action' comment=$oComment}
+		
+		{if $oComment->getTargetType()!='talk'}
+        <li id="vote_area_comment_{$oComment->getId()}" class="voting {if $oComment->getRating()>0}positive{elseif $oComment->getRating()<0}negative{/if} {if !$oUserCurrent || $oComment->getUserId()==$oUserCurrent->getId() ||  strtotime($oComment->getDate())<$smarty.now-$oConfig->GetValue('acl.vote.comment.limit_time')}guest{/if}   {if $oVote} voted {if $oVote->getDirection()>0}plus{else}minus{/if}{/if}  ">
+            <span id="vote_total_comment_{$oComment->getId()}" class="total">{if $oComment->getRating()>0}+{/if}{$oComment->getRating()}</span>
+            <a href="#" class="plus" onclick="return ls.vote.vote({$oComment->getId()},this,1,'comment');"></a>
+            <a href="#" class="minus" onclick="return ls.vote.vote({$oComment->getId()},this,-1,'comment');"></a>
+        </li>
+		{/if}
 	</ul>
 
 
-	{if $oComment->getTargetType()!='talk'}
-		<div id="vote_area_comment_{$oComment->getId()}" class="voting {if $oComment->getRating()>0}positive{elseif $oComment->getRating()<0}negative{/if} {if !$oUserCurrent || $oComment->getUserId()==$oUserCurrent->getId() ||  strtotime($oComment->getDate())<$smarty.now-$oConfig->GetValue('acl.vote.comment.limit_time')}guest{/if}   {if $oVote} voted {if $oVote->getDirection()>0}plus{else}minus{/if}{/if}  ">
-			<a href="#" class="plus" onclick="return ls.vote.vote({$oComment->getId()},this,1,'comment');"></a>
-			<span id="vote_total_comment_{$oComment->getId()}" class="total">{if $oComment->getRating()>0}+{/if}{$oComment->getRating()}</span>
-			<a href="#" class="minus" onclick="return ls.vote.vote({$oComment->getId()},this,-1,'comment');"></a>
-		</div>
-	{/if}
 
 	<div id="comment_content_id_{$oComment->getId()}" class="content">
 		{if $oComment->isBad()}

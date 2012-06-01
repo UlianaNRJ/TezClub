@@ -41,13 +41,11 @@
 .comment .folding { width: 11px; height: 11px; position: absolute; top: 23px; left: -20px; background: url(../images/comments-sprite.png) -118px -31px no-repeat; cursor: pointer; }
 .comment .folding.folded { background-position: -118px -43px; }
 .comment .goto-comment-child { display: none; }
-.comment .voting { position: absolute; top: 18px; right: 0; height: 30px; }
-.comment:hover .plus{opacity:1 !important;}
-.comment:hover .minus{opacity:1 !important;}
-.comment .voting .plus {-webkit-transition:opacity .4s ease; -moz-transition:opacity .4s ease; -o-transition:opacity .4s ease;  opacity:0; position: static; top: 0; left: 0; margin-right:10px; background:url(../images/comments-sprite.png) -6px -70px no-repeat; width:11px; height:14px; }
+.comment .voting { position: absolute; top: 3px; right: 0; height: 21px; }
+.comment .voting .plus {-webkit-transition:opacity .4s ease; -moz-transition:opacity .4s ease; -o-transition:opacity .4s ease;  opacity:1; /*position: static;*/ top: 3px; left: 0; margin-left:10px; background:url(../images/comments-sprite.png) -6px -70px no-repeat; width:11px; height:14px; }
 .comment .voting .plus:hover{background-position:-64px -70px;}
 .comment .voting.voted.plus .plus{display: block; background-position:-117px -70px; opacity:1;}
-.comment .voting .minus {-webkit-transition:opacity .4s ease; -moz-transition:opacity .4s ease; -o-transition:opacity .4s ease; opacity:0; position: relative; top: 3px; left: 0; margin-left:10px; background:url(../images/comments-sprite.png) -34px -72px no-repeat; width:11px; height:14px;}
+.comment .voting .minus {-webkit-transition:opacity .4s ease; -moz-transition:opacity .4s ease; -o-transition:opacity .4s ease; opacity:1; position: relative; top: 3px; left: 0; margin-left:3px; background:url(../images/comments-sprite.png) -34px -72px no-repeat; width:11px; height:14px;}
 .comment .voting .minus:hover{background-position:-92px -72px;}
 .comment .voting.voted.minus .minus{display: block; background-position:-139px -72px; opacity:1;}
 .comment .voting.voted.minus .plus,
@@ -90,13 +88,26 @@
 .comment.current .content:before { background-color: #e2f5e1; padding: 5px 10px; }
 
 /* Info Block */
-.comment .info { overflow: hidden; zoom: 1; font-size: 10px; line-height: 14px; margin-bottom: 5px; position: relative; padding:15px 0 0 0; }
+.comment .info { overflow: hidden; zoom: 1; font-size: 10px; line-height: 14px; margin-bottom: 5px; position: relative; padding:3px 4px; border:1px solid #e1e1e1; border-radius:2px; }
 .comment .info li {display:inline-block; margin-right: 10px; vertical-align:top; line-height:24px; font-size:11px; color:#4d4d4d;}
 *+ html .comment .info li {display:inline; zoom:1; }
-.comment .info li.avatar{margin-right:3px; height:24px;}
-.comment .info li.avatar a:active{background:none;}
-.comment .info li.username{margin-right: 5px;}
+.comment .info li.com_avatar {margin-right:3px; height:24px;}
+.comment .info li.com_avatar a:active{background:none;}
+.comment .info li.username{margin-right: 5px; font-weight: bold;}
 .comment .info li.username a{text-decoration:none;}
+.comment .info li.date {color:#b8b8b8; font-size:10px;}
+.comment .info li.rate {top: 0; float:0; margin:0;}
+.comment .info li.rate .total {font-size:15px; color:#333; background:none; float:left; margin-right:6px;}
+.comment .info li.rate.positive .total {color: #48a82e;}
+.comment .info li.rate.negative .total {color: #f00;}
+.comment .info li.rate a {background:url(../img/comments-sprite.png) no-repeat 0 0; height:16px; width:11px; float:left; margin:4px 3px 0 3px;}
+.comment .info li.rate a.plus {background-position:-6px -70px;}
+.comment .info li.rate a.minus {background-position:-34px -70px;}
+.comment .info li.rate a.plus:hover {background-position:-64px -70px;}
+.comment .info li.rate a.minus:hover {background-position:-92px -70px;}
+.comment .info li.rate.voted_plus a.plus {background-position:-117px -70px; cursor: default;}
+ .comment .info li.rate.voted_minus a.minus{background-position:-139px -70px; cursor: default;}
+
 
 /*
 .comment .info li.avatar { }

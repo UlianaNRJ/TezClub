@@ -121,8 +121,8 @@
                                             <textarea name="comment_text" id="form_comment_text" class="input-wide" cols="20" rows="10"></textarea>
                                             <div class="button-line">
                                                     <span>
-                                                            <input type="submit" class="button" name="submit_comment" value="{$aLang.comment_add}" id="comment-button-submit" onclick="ls.comments.add('form_comment',{$iTargetId},'{$sTargetType}'); return false;" />
-                                                            <input type="button" class="button gray" value="{$aLang.comment_preview}" onclick="ls.comments.preview();" />
+                                                            <input type="submit" class="button grey" name="submit_comment" value="{$aLang.comment_add}" id="comment-button-submit" onclick="ls.comments.add('form_comment',{$iTargetId},'{$sTargetType}'); return false;" />
+                                                            <input type="button" class="button grey" value="{$aLang.comment_preview}" onclick="ls.comments.preview();" />
                                                     </span>
                                             </div>
                                             <input type="hidden" name="reply" value="0" id="form_comment_reply" />
