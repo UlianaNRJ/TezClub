@@ -1,0 +1,99 @@
+{% extends 'back/office.twig' %}
+
+{% block content %}
+	<h1>{{ action_name }} агенство</h1>
+	
+	<form action="{{ action_url }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+	    <fieldset>
+	    <div class="control-group">
+	        <label class="control-label" for="title">Название</label>
+	        <div class="controls">
+	            <input type="text" name="title" value="{{ office.title|default('') }}" id="title" style="width:500px;"/>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="city">Город</label>
+	        <div class="controls">
+	          	<select  id="city" name="city">
+		            {% for city in cities %}
+		                <option {% if city.id == office.city_id %}selected{% endif %} value="{{city.id}}">
+		                    {{city.city}}
+		                </option>
+		            {% endfor %}
+	          	</select>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="metro">Станция метро</label>
+	        <div class="controls">
+	          	<select  id="metro" name="metro">
+	          		<option value=""></option>
+		            {% for metro in metros %}
+		                <option {% if metro.id == office.metro_id %}selected{% endif %} value="{{metro.id}}">
+		                    {{metro.metro}}
+		                </option>
+		            {% endfor %}
+	          	</select>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="address">Адрес</label>
+	        <div class="controls">
+	            <textarea name="address" id="address" style="width:500px; height:50px;">{{ office.address|default('') }}</textarea>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="time">Время работы</label>
+	        <div class="controls">
+	            <textarea name="time" id="time" style="width:500px; height:50px;">{{ office.time|default('') }}</textarea>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="phones">Телефоны</label>
+	        <div class="controls">
+	            <textarea name="phones" id="phones" style="width:500px; height:50px;">{{ office.phones|default('') }}</textarea>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="infocenter">Инфоцентр</label>
+	        <div class="controls">
+	            <textarea name="infocenter" id="infocenter" style="width:500px; height:50px;">{{ office.infocenter|default('') }}</textarea>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="mail">E-mail</label>
+	        <div class="controls">
+	            <input type="text" name="mail" value="{{ office.mail|default('') }}" id="mail" style="width:500px;"/>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="skype">Скайп</label>
+	        <div class="controls">
+	            <textarea name="skype" id="skype" style="width:500px; height:50px;">{{ office.skype|default('') }}</textarea>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="latlng">Координаты</label>
+	        <div class="controls">
+	            <input type="text" name="latlng" value="{{ office.latlng|default('') }}" id="latlng" style="width:500px; cursor:text;" readonly="readonly" />
+	            <div id="map"></div>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="image">Изображение</label>
+	        <div class="controls">
+	        	{% if office.image !='' %}
+			        <img src="{{ server_name }}{{office.image}}" />
+			        <input type="hidden" name="old_image" value="{{ office.image|default('') }}" id="old_image"/>
+			    {% endif %}
+	            <input class="input-file" id="image" type="file" name="image">
+	        </div>
+	    </div>
+	    <div class="form-actions">
+	        <button type="submit" class="btn btn-primary">Сохранить</button>
+	        <button class="btn" name="cancel" value="1">Отмена</button>
+	    </div>
+	    </fieldset>
+	</form>
+
+{% endblock %}

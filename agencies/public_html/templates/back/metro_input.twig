@@ -1,0 +1,33 @@
+{% extends 'back/metro.twig' %}
+
+{% block content %}
+	<h1>{{ action_name }} станцию метро</h1>
+	
+	<form action="{{ action_url }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+	    <fieldset>
+	    <div class="control-group">
+	        <label class="control-label" for="metro">Название</label>
+	        <div class="controls">
+	            <input type="text" name="metro" value="{{ metro.metro|default('') }}" id="metro" style="width:500px;"/>
+	        </div>
+	    </div>
+	    <div class="control-group">
+	        <label class="control-label" for="city">Город</label>
+	        <div class="controls">
+	          	<select  id="city" name="city">
+		            {% for city in cities %}
+		                <option {% if city.id == metro.city_id %}selected{% endif %} value="{{city.id}}">
+		                    {{city.city}}
+		                </option>
+		            {% endfor %}
+	          	</select>
+	        </div>
+	    </div>
+	    <div class="form-actions">
+	        <button type="submit" class="btn btn-primary">Сохранить</button>
+	        <button class="btn" name="cancel" value="1">Отмена</button>
+	    </div>
+	    </fieldset>
+	</form>
+
+{% endblock %}

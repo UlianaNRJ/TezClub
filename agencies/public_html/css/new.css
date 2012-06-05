@@ -1,0 +1,290 @@
+.explanation {
+	margin-left: 170px;
+	margin-top: 70px;
+	width: 730px;
+}
+	.explanation p{
+		text-align: center;
+		font-size: 15px;
+		line-height: 1em;
+	}
+
+
+
+.headline {
+	background: #ffffff; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #ffffff 50%, #6bcced 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(50%,#ffffff), color-stop(100%,#6bcced)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* IE10+ */
+	background: radial-gradient(center, ellipse cover,  #ffffff 50%,#6bcced 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#6bcced',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.index .headline {
+	background: url("../img/headline4.png") transparent 0 0 scroll no-repeat;
+	position: relative;
+}
+.index .headline .button{
+	position: absolute;
+	right: 25px;
+	bottom: 25px;
+}
+
+.step1 {
+
+}
+	.step1 form,
+	.step2 form{
+		width: 310px;
+		margin: 0 auto;
+	}
+	.step1 h1,
+	.step2 h1{
+		margin-bottom: 0;
+	}
+	.step1 h1+p,
+	.step2 h1+p{
+		font-size: 15px;
+		margin-bottom: 1em;
+		margin-top: 0;
+	}
+.step2 {
+
+}
+	.step2 .right{
+		float: none !important;
+	}
+	.step2 .blogs {
+	}
+	.step2 .blogs label {
+		width: 110px;
+	}
+	.step2 .blogs input {
+		width: 195px;
+	}
+	.step2 .blogs label span {
+		height: 16px;
+		width: 16px;
+		margin-right: 5px;
+		margin-top: 5px;
+	}
+	.step2 .blogs label[for=livejournal] span {
+		background: url("../img/social.png") transparent 0 -16px scroll no-repeat;
+	}
+	.step2 .blogs label[for=blogger] span {
+		background: url("../img/social.png") transparent 0 -64px scroll no-repeat;
+	}
+.step3 {
+
+}
+	.step1 .headline,
+	.step2 .headline,
+	.step3 .headline {
+		text-align: center;
+	}
+	.step3 .headline h2 {
+		margin-bottom: 1em;
+		margin-top: 0.5em;
+	}
+	.step3 .headline p {
+		font-size: 15px;
+	}
+
+.prize{
+
+}
+	.prize .headline{
+		padding: 30px 50px;
+	}
+	.prize h1 {
+	text-align: center;
+	font-size: 38px;
+}
+	.prize ul.steps {
+
+	}
+		.prize ul.steps li {
+			margin-bottom: 50px;
+		}
+		.prize ul.steps li > span {
+		}
+		.prize ul.steps li > div {
+			width: 720px;
+			padding-top: 15px;
+		}
+		.prize ul.steps li .car img {
+			margin-top: 20px;
+		}
+		.prize ul.steps li .image img {
+			box-shadow: 0 0 10px 0 #DDDDDD;
+			border: 5px solid #FFFFFF;
+			border-radius: 20px;
+		}
+		.prize ul.steps li div + div {
+			margin-left: 50px;
+		}
+		.prize ul.steps li .text {
+			padding: 0;
+		}
+		.prize ul.steps li .text h3 {
+			font-size: 18px;
+			font-style: italic;
+			font-weight: bold;
+		}
+		.prize ul.steps li .text p {
+		font-size: 15px;
+		line-height: 1.2em;
+		margin-bottom: 0.6em;
+		margin-top: 0;
+		text-align: justify;
+	}
+	.prize .actions {
+	bottom: 60px;
+	margin: 0;
+	position: absolute;
+	right: 145px;
+	text-align: center;
+	width: 240px;
+}
+
+
+.about {
+
+
+}
+.about .headline {
+	text-align: center;
+	padding: 30px 100px;
+}
+.about .bottom {
+	display: block;
+	margin-top: 10px;
+	font-size: 16px;
+	text-decoration: underline;
+}
+
+.all_users{
+
+}
+	.all_users h1{
+	margin: -5px 0 10px 10px
+}
+
+.one_user {
+
+}
+.one_user .text{
+	padding-right: 280px;
+}
+
+.one_user .top10{
+	position: absolute;
+	right: 20px;
+}
+.one_user .top10 .number{
+	background-color: #1590D0;
+	color: #FFFFFF;
+	float: right;
+	font-size: 30px;
+	margin-left: 10px;
+	padding: 0 10px;
+	margin-top: 5px;
+}
+.one_user .top10 .label{
+	font-size: 17px;
+	font-weight: bold;
+	text-align: right;
+	width: 245px;
+
+}
+.one_user .top10 .statistic{
+	float: right;
+	margin-top: 10px;
+}
+
+
+	.line {
+		border-top: 1px solid #d6d6d6;
+		margin-top: 3em;
+		padding-left: 1em;
+	}
+		.line h3 {
+			background: none repeat scroll 0 0 #FFFFFF;
+			display: inline-block;
+			margin-bottom: 0;
+			font-size: 18px;
+			padding: 0 0.5em;
+			position: relative;
+			top: -0.7em;
+		}
+
+	.one_user .account{
+		min-height: 100px;
+	}
+		.one_user .account img{
+			float: left;
+			margin-right: 20px;
+		}
+		.one_user .account h2{
+			font-size: 25px;
+			margin-bottom: 0;
+		}
+		.one_user .account .name{
+			color: #666666;
+			font-size: 25px;
+			margin-bottom: 0.5em;
+		}
+
+.one_user .activity{
+
+}
+	.one_user .activity th{
+		color: #4d4d4d;
+		font-size: 15px;
+		padding: 5px 50px 5px 5px;
+		vertical-align: top;
+	}
+	.one_user .activity td{
+		font-size: 15px;
+		padding: 5px;
+	}
+		.one_user .activity td .friends{
+		}
+			.one_user .activity td .friends li{
+				margin-bottom: 10px;
+				margin-right: 20px;
+			}
+				.one_user .activity td .friends li a{
+	line-height: 25px;
+}
+
+.description{
+	display: table;
+	height: 190px;
+	margin-top: 60px;
+	padding-bottom: 30px;
+	position: relative;
+	width: 630px;
+}
+	.description .text{
+		display: table-cell;
+		font-size: 15px;
+		padding: 0 50px;
+		vertical-align: middle;
+	}
+	.description .image{
+		padding-top: 25px;
+	}
+		.description .image img{
+
+		}
+		.description .image div{
+			font-size: 22px;
+			font-style: italic;
+			font-weight: bold;
+			text-align: center;
+			margin-top: 20px;
+			width: 270px;
+		}
