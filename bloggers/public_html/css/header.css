@@ -71,7 +71,9 @@ header {
 
 
 	.main-menu {
-		background: url("../img/background-menu.png") transparent center top scroll repeat-x;
+		background: url("../img/background-menu.png") transparent center top no-repeat;
+		background-size:100%;
+		background-origin: content;
 	}
 		.main-menu ul{
 			padding: 0 4px;

@@ -1,6 +1,6 @@
 header {
-	padding-bottom: 120px;
-	margin-bottom: -80px;
+	padding-bottom: 50px;
+	/*margin-bottom: -80px;*/
 }
 	header figure img {
 		padding: 15px 0;
@@ -70,7 +70,9 @@ header {
 
 
 	.main-menu {
-		background: url("../img/background-menu.png") transparent center top scroll repeat-x;
+		background: url("../img/background-menu.png") transparent center top no-repeat;
+		background-size:100%;
+		background-origin: content;
 	}
 		.main-menu ul{
 			padding: 0 4px;
