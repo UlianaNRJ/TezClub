@@ -2,6 +2,11 @@ header {
 	padding-bottom: 50px;
 	/*margin-bottom: -80px;*/
 }
+	header .wrapper {
+		width: auto;
+		min-width:960px;
+		margin:0 2% 0 4%;
+	}
 	header figure img {
 		padding: 15px 0;
 		margin-left: -4px;
