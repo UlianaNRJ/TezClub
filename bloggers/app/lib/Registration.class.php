@@ -406,13 +406,6 @@ class Registration
 							user_profile_birthday = '". $birthdate ."',
 							user_profile_date = '". $date ."'
 							WHERE user_id = ". $user->user_id);
-			echo "REPLACE INTO users_ext SET
-							user_id = ". $user->user_id .",
-							last_name = '". $last_name ."',
-							blog_lj = '". $blog_lj ."',
-							blog_blogger = '". $blog_blogger ."',
-							blog_other = '". $blog_other ."', 
-							participate = 1";
 			$db->dbQuery("REPLACE INTO users_ext SET
 							id = ". $user->user_id .",
 							last_name = '". $last_name ."',
