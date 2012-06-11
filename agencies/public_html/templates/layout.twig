@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{% block page_title %} Layout Page Title{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/smoothness/jquery-ui.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="/css/jquery-ui.css"/>
+        <link href="/img/favicon.gif" rel="shortcut icon" />
+        <script type="text/javascript" src="/js/jquery.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/js/jquery-ui.js"></script>
+        {% block page_head %}{% endblock %}
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="/js/InfoBox.js"></script>
+        <script type="text/javascript" src="/js/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+
+                <figure>
+                    <a href="http://tezclub.com.ua/">
+                        <img class="ib" src="/img/logo.png" width="225" height="30" alt="logo"/>
+                    </a>
+                </figure>
+            </div>
+            <div class="main-menu">
+                <div class="wrapper">
+                    <ul class="c">
+                        <li class="ib"><a href="#">Главное</a></li>
+                        <li class="ib"><a href="#">Участники</a></li>
+                        <li class="ib"><a href="#">О проекте</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <article class="{% block article_class %}{% endblock %}">
+            <div class="wrapper">
+                <div class="leftsidebar">
+                    {% block leftsidebar %} {% endblock %}
+                </div>
+                <div class="content">
+                    {% block content %} {% endblock %}
+                </div>
+            </div>
+        </article>
+        <script type="text/javascript">
+        /*
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-27624662-1']);
+          _gaq.push(['_setDomainName', 'hotels.tezclub.com.ua']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        */
+        </script>
+    </body>
+</html>

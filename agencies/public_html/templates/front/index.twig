@@ -1,0 +1,156 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %} Где купить Отдых с TezTour {% endblock %}
+
+{% block page_head %} 
+<script type="text/javascript">
+    var currentCity = "{{currentCity}}";
+    var currentCityId = "{{currentCityId}}";
+    var offices = {
+        {% for office in offices %}
+            "{{office.id}}":
+                {
+                    "title":        "{{office.title}}",
+                    "address":      "{{office.address|raw}}",
+                    "time":         "{{office.time|raw}}",
+                    "phones":       "{{office.phones|raw}}",
+                    "infocenter":   "{{office.infocenter|raw}}",
+                    "mail":         "{{office.mail}}",
+                    "skype":        "{{office.skype|raw}}",
+                    "latlng":       "{{office.latlng}}",
+                    "image":        "{{office.image}}",
+                    "city_id":      "{{office.city_id}}",
+                    "metro_id":     "{{office.metro_id}}",
+                    "city":         "{{office.city}}",
+                    "metro":        "{{office.metro}}",
+                    "lat":          "{{office.lat}}",
+                    "lng":          "{{office.lng}}",
+                },
+        {% endfor %}
+    };
+</script>
+{% endblock %}
+
+{% block article_class %}index{% endblock %}
+
+{% block leftsidebar %} 
+    <ul class="cities">
+        {% for city in cities %}
+            <li>
+                {% if city.id == currentCityId %}
+                    <div>{{ city.city }} <span>{{ city.count }}</span></div>
+                {% else %}
+                    <a href="/city/{{ city.id }}">{{ city.city }} <span>{{ city.count }}</span></a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block content %} 
+
+    {% if metros %}
+    <div class="filter">
+        <form>
+            <label>Метро</label>
+            <select id="filter-metro">
+                <option value="">Любая станция</option>
+                {% for metro in metros %}
+                    <option value="{{ metro.id }}">{{ metro.metro }}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </div>
+    {% endif %}
+
+    <div class="offices_tabs">
+        <ul>
+            <li class="offices_tabs-list"><a href="#offices_list" class="active">Списком</a></li>
+            <li class="offices_tabs-map"><a href="#offices_map">На карте</a></li>
+        </ul>
+    </div>
+
+    <div id="offices_list" class="offices_list shown">
+
+        {% for office in offices %}
+            <div class="item clear-in metro-{{ office.metro_id }}">
+                <div class="item-img">
+                    {% if office.image %}
+                    <img src="/{{ office.image }}" />
+                    {% endif %}
+                </div>
+                <div class="item-info">
+                    <div class="item-title">
+                        {{ office.title }}
+                    </div>
+                    {% if office.address %}
+                        <div class="item-address">
+                            {{ office.address|raw }}
+                        </div>
+                    {% endif %}
+                    <div class="item-col1">
+                        {% if office.metro %}
+                            <p class="item-metro">
+                                {{ office.metro|raw }}
+                            </p>
+                        {% endif %}
+                        {% if office.latlng %}
+                            <p class="item-map">
+                                <a href="{{office.id}}" class="showmap">Посмотреть на карте</a>
+                            </p>
+                        {% endif %}
+                        {% if office.time %}
+                            <p class="item-time">
+                                {{ office.time|raw }}
+                            </p>
+                        {% endif %}
+                        {% if office.mail %}
+                            <p class="item-mail">
+                                <a href="mailto:{{ office.mail }}">{{ office.mail }}</a>
+                            </p>
+                        {% endif %}
+                    </div>
+                    <div class="item-col2">
+                        {% if office.phones %}
+                            <p class="item-phone">
+                                {{ office.phones|raw }}
+                            </p>
+                        {% endif %}
+                        {% if office.infocenter %}
+                            <p class="item-infocenter">
+                                {{ office.infocenter|raw }}
+                            </p>
+                        {% endif %}
+                        {% if office.skype %}
+                            <p class="item-skype">
+                                {{ office.skype|raw }}
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div id="offices_map">
+        <div id="map">&nbsp;</div>
+        <div id="map_popup" class="offices_list">
+            <div class="map_popup-inner">
+                <div class="item-info">
+                    <div class="item-title">ss</div>
+                    <div class="item-address">dd</div>
+                    <p class="item-metro">ff</p>
+                    <p class="item-time">ss</p>
+                    <p class="item-mail">d<a href=""></a></p>
+                    <p class="item-phone">dd</p>
+                    <p class="item-infocenter">dd</p>
+                    <p class="item-skype"></p>
+                </div>
+                <div class="tail"></div>
+                <div class="close" id="map_popup_close"></div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

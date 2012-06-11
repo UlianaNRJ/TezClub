@@ -1,0 +1,51 @@
+.ui-dialog.rules {
+	border-radius: 10px;
+}
+
+.ui-dialog.rules .ui-widget-header {
+	background: none;
+	border: none;
+}
+
+.ui-dialog.rules .ui-dialog-titlebar-close{
+	border: none;
+	background: none;
+	padding: 0;
+	height: 22px;
+	right: 8px;
+	width: 22px;
+}
+.ui-dialog.rules .ui-dialog-titlebar-close .ui-icon{
+	background: url("../img/dialog-close.png") transparent 0 0 scroll no-repeat;
+	width: 22px;
+	height: 22px;
+}
+.ui-dialog.rules .ui-dialog-content{
+	overflow-y: scroll;
+	margin-right: 10px;
+}
+.ui-dialog.rules .ui-dialog-content h1{
+	text-align: center;
+}
+
+.ui-selectmenu-menu ul.ui-menu {
+	border-radius: 15px;
+}
+.ui-selectmenu-menu .ui-menu .ui-menu-item a { padding: 6px 5px 0 10px !important; font: bold 12px Arial, sans-serif; height: 21px; border:0; border-radius: 15px; color: #1f4a84; margin:0; }
+.ui-selectmenu-menu .ui-menu li.ui-selectmenu-optgroup { display:none; }
+.ui-selectmenu-button a.ui-button { background: #e5f1f7; border:0; border-radius: 15px; color: #0078a2; font: bold 12px Arial, sans-serif; white-space: nowrap; padding-right: 40px; height: 27px; }
+.ui-selectmenu-button span.ui-icon { 
+	right: 0;  top: 8px; 
+	border-left:1px solid #bac4c9;
+	height:27px; width:27px;
+	background:url(../img/select.png) no-repeat;
+}
+.ui-selectmenu-button span.ui-selectmenu-text { padding: 6px 0 0px 10px; line-height: auto; }
+.ui-selectmenu-menu .ui-state-hover,
+.ui-selectmenu-menu .ui-widget-content .ui-state-hover, 
+.ui-selectmenu-menu .ui-widget-header .ui-state-hover, 
+.ui-selectmenu-menu .ui-state-focus, 
+.ui-selectmenu-menu .ui-widget-content .ui-state-focus, 
+.ui-selectmenu-menu .ui-widget-header .ui-state-focus { 
+	background: #e5f1f7;
+}

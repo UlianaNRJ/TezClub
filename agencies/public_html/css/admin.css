@@ -1,0 +1,9 @@
+#map {
+	display: none;
+	height:410px;
+	width:510px;
+	margin-top: 20px;
+}
+#map.shown {
+	display: block;
+}

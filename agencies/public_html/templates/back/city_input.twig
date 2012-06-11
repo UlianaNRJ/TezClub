@@ -1,0 +1,21 @@
+{% extends 'back/city.twig' %}
+
+{% block content %}
+	<h1>{{ action_name }} город</h1>
+	
+	<form action="{{ action_url }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+	    <fieldset>
+	    <div class="control-group">
+	        <label class="control-label" for="city">Название</label>
+	        <div class="controls">
+	            <input type="text" name="city" value="{{ city.city|default(' ') }}" id="city" style="width:500px;"/>
+	        </div>
+	    </div>
+	    <div class="form-actions">
+	        <button type="submit" class="btn btn-primary">Сохранить</button>
+	        <button class="btn" name="cancel" value="1">Отмена</button>
+	    </div>
+	    </fieldset>
+	</form>
+
+{% endblock %}

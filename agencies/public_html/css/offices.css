@@ -1,0 +1,213 @@
+.leftsidebar {
+	width: 165px;
+	float: left;
+}
+.content {
+	float: right;
+	width: 773px;
+}
+
+.cities {
+	list-style: none;
+}
+	.cities li {
+		background-color: #e5f1f7;
+		color: #1f4a84;
+		margin-bottom: 5px;
+		height:31px;
+		border-radius: 15px;
+		font: bold 12px Arial, sans-serif;
+		line-height:23px;
+	}
+	.cities li a,
+	.cities li a:hover,
+	.cities li div {
+		border-radius: 15px;
+		color: #0078a2;
+		display: block;
+		text-decoration: none;
+		padding: 4px 5px 5px 10px;
+		height:22px;
+	}
+	.cities li span {
+		background-color: #1364ac;
+		border-radius: 11px;
+		color: #fff;
+		float: right;
+		font: bold 13px Arial, sans-serif;
+		line-height: 22px;
+		text-align: center;
+		height: 22px;
+		width: 22px;
+	}
+	.cities li a span {
+		background: #fbce07; /* Old browsers */
+		background: -moz-linear-gradient(top,  #fbce07 0%, #f0b502 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbce07), color-stop(100%,#f0b502)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #fbce07 0%, #f0b502 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #fbce07 0%, #f0b502 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #fbce07 0%, #f0b502 100%); /* IE10+ */
+		background: linear-gradient(top, #fbce07 0%, #f0b502 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbce07', endColorstr='#f0b502',GradientType=0 ); /* IE6-9 */
+	}
+
+
+.filter {
+	color: #787878;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 24px;
+}
+	.filter label {
+		margin-right: 10px;
+	}
+
+
+.offices_tabs {
+	border-bottom: 1px solid #1c5190;
+	height:30px;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+	.offices_tabs li {
+		list-style:none;
+		float: left;
+		margin-right: 1px;
+		padding: 0 15px 0 15px;
+	}
+	.offices_tabs li a {
+		border-bottom:1px dashed #0076ac;
+		text-decoration: none;
+		height:32px;
+		color:#0076ac;
+	}
+	.offices_tabs-list {
+		background: url(../img/offices_tabs.png) no-repeat 0 3px;
+	}
+	.offices_tabs-map {
+		background: url(../img/offices_tabs.png) no-repeat 0 -31px;
+	}
+
+
+.offices_list {
+	display: none;
+}
+	.offices_list .item {
+		border-bottom: 1px solid #0076ac;
+		padding-bottom: 2px;
+		margin-bottom: 10px;
+	}
+	.offices_list .item-img {
+		float: left;
+		width: 276px;
+		margin-bottom: 20px;
+	}
+	.offices_list .item-img img {
+		border: 1px solid #0076ac;
+	}
+	.offices_list .item-info {
+		margin: 0 0 0 294px;
+		font-size: 13px;
+	}
+	.offices_list .item-info a {
+		color:#016fc2;
+		text-decoration: underline;
+	}
+	.offices_list .item-info p {
+		margin: 0 0 10px 0;
+	}
+	.offices_list .item-title {
+		font-size: 22px;
+		margin-bottom: 7px;
+	}
+	.offices_list .item-address {
+		font-weight: bold;
+		margin-bottom: 15px;
+		color: #606060;
+	}
+	.offices_list .item-col1,
+	.offices_list .item-col2 {
+		color: #606060;
+		float: left;
+		width: 230px;
+	}
+	.offices_list .item-metro {
+		background: url(../img/icon-metro.png) no-repeat 0 50%;
+		padding: 4px 0 4px 35px;
+	}
+	.offices_list .item-map {
+		background: url(../img/icon-map.png) no-repeat 5px 4px;
+		padding: 8px 0 4px 35px;
+	}
+	.offices_list .item-time {
+		background: url(../img/icon-time.png) no-repeat 0 50%;
+		padding: 4px 0 4px 35px;
+	}
+	.offices_list .item-phone {
+		background: url(../img/icon-phone.png) no-repeat 0 20%;
+		padding: 4px 0 4px 35px;
+	}
+	.offices_list .item-mail {
+		background: url(../img/icon-mail.png) no-repeat 0 50%;
+		padding: 4px 0 4px 35px;
+	}
+	.offices_list .item-infocenter {
+		background: url(../img/icon-info.png) no-repeat 0 50%;
+		padding: 4px 0 4px 35px;
+	}
+	.offices_list .item-skype {
+		background: url(../img/icon-skype.png) no-repeat 0 50%;
+		padding: 4px 0 4px 35px;
+	}
+
+
+#offices_map {
+	display: none;
+	height: 542px;
+	margin-bottom: 36px;
+}
+#map {
+	height: 542px;
+	width:100%;
+}
+.shown {
+	display: block!important;
+}
+.hidden {
+	display: none!important;
+}
+
+#map_popup {
+	display: none;
+	position: absolute;
+	background-color: #fff;
+	border-radius:6px;
+	box-shadow:0 0 6px #777;
+	width: 245px;
+}
+	.map_popup-inner {
+		position: relative;
+	}
+	#map_popup .close {
+		background: url(../img/popup-close.png) no-repeat 0 0;
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		right:-15px;
+		top:-15px;
+		cursor: pointer;
+	}
+	#map_popup .tail {
+		background: url(../img/popup-tail.png) no-repeat 0 0;
+		height: 25px;
+		width: 25px;
+		position: absolute;
+		left:-25px;
+		top:50%;
+		margin-top: -12px;
+	}
+	#map_popup .item-info {
+		padding: 15px 15px 0 15px;
+		margin: 0;
+		border: 0;
+	}
