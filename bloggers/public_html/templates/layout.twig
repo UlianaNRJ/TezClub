@@ -26,12 +26,12 @@
                                 src="{{ userCurrent.user_profile_avatar}}">
                         </a>
                         <a class="username" href="http://tezclub.com.ua/profile/{{ userCurrent.user_login }}/"> 
-                                    {% if userCurrent.user_profile_name != '' %}
-                                        {{ userCurrent.user_profile_name }}
-                                    {% else %}
-                                        {{ userCurrent.user_login }}
-                                    {% endif %}
-                                </a>
+                            {% if userCurrent.user_profile_name != '' %}
+                                {{ userCurrent.user_profile_name }}
+                            {% else %}
+                                {{ userCurrent.user_login }}
+                            {% endif %}
+                        </a>
                         <a class="message" id="new_messages" href="http://tezclub.com.ua/talk/"></a>
                         {% if iUserCurrentCountTalkNew %}
                             <a href="http://tezclub.com.ua/talk/" class="new-message" id="new_messages" title="новые сообщения"><span class="message"></span>Новых сообщений: {{ iUserCurrentCountTalkNew }}</a>
@@ -50,10 +50,11 @@
                 {% endif %}
 
                 <figure>
-                    <a href="http://tezclub.com.ua/">
+                    <a href="http://tezclub.com.ua/" class="self">
                         <img class="ib" src="/img/logo.png" width="225" height="30" alt="logo"/>
                     </a>
-                    <a class="logohref button blue corners ib" href="/">Bloggers in hotels</a>
+                    <a class="logohref button blue corners ib self" href="/">Bloggers in hotels</a>
+                    <a class="logohref button blue corners ib self" href="http://competition.tezclub.com.ua">Турецкая История</a>
                 </figure>
             </div>
             <div class="main-menu">
@@ -61,14 +62,15 @@
                     <div class="search">
                         <label for="search">поиск</label>
                         <input class="ui-corner-all" id="search" type="text" value=""/>
-                        <img src="img/search.png" class="" width="12" height="10" alt=""/>
+                        <img src="/img/search.png" class="" width="12" height="10" alt=""/>
                     </div>
                     <ul class="c">
-                        <li  class="ib"><a href="http://tezclub.com.ua" class="self">Главное</a></li>
-                        <li  class="ib"><a href="http://tezclub.com.ua/blogs/" class="self">Обсуждения</a></li>
-                        <li  class="ib"><a href="http://tezclub.com.ua/tag/Советы/" class="self">Советы</a></li>
-                        <li  class="ib"><a href="http://tezclub.com.ua/people/" class="self">Люди</a></li>
-                        <li  class="ib"><a href="http://tezclub.com.ua/page/competition/" class="self">Конкурс Блоггеров</a></li>
+                        <li class="ib"><a href="http://tezclub.com.ua" class="self">Главное</a></li>
+                        <li class="ib"><a href="http://tezclub.com.ua/blogs/" class="self">Обсуждения</a></li>
+                        <li class="ib"><a href="http://tezclub.com.ua/tag/Советы/" class="self">Советы</a></li>
+                        <li class="ib"><a href="http://tezclub.com.ua/people/" class="self">Люди</a></li>
+                        <li class="ib"><a href="http://agencies.tezclub.com.ua/" class="self">Где купить</a></li>
+                        <li class="ib"><a href="http://tour.tezclub.com.ua/" class="self">Мой Тур</a></li>
                         <li class="ib"><a href="http://tezclub.com.ua/page/about/" class="self">О Tez Club</a></li>
                     </ul>
                 </div>
@@ -130,7 +132,7 @@
 
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', 'UA-27624662-1']);
-          _gaq.push(['_setDomainName', 'hotels.tezclub.com.ua']);
+          _gaq.push(['_setDomainName', 'bloggers.tezclub.com.ua']);
           _gaq.push(['_trackPageview']);
 
           (function() {
