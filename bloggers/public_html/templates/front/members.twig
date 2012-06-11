@@ -2,172 +2,52 @@
 
 {% block page_title %} members PAGE TITLE {% endblock %}
 
-{% block page_head %} 
-	<script type="text/javascript" src="/js/jscroll.js"></script>
-	<script type="text/javascript">
-	jQuery(document).ready(function($){
-	    $(".anyClass").jCarouselLite({
-	        btnNext: ".faces .arrow.right",
-	        btnPrev: ".faces .arrow.left",
-	        visible: 5
-	    });
-	});
-	</script>
-{% endblock %}
+{% block page_head %} {% endblock %}
 
 {% block article_class %} members {% endblock %}
 
 {% block content %}
-
-	<h1 style="margin: 20px 0 10px 0;">Блоггеры проекта</h1>
-	<div class="c faces">
-	    <div class="ib arrow left"></div>
-	    <div class="ib anyClass">
-	    <ul class="c ib">
-	    	<li class="ib corners faces-item">
-	            <a href="/bloggers/{{ blogger.id }}">
-	                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-	            </a>
-	            <div class="login"><a href="/bloggers/{{ blogger.id }}">ASAS</a></div>
-	            <div class="name"><a href="/bloggers/{{ blogger.id }}">AA<br>SS</a></div>
-	            <div class="statistic">Рейтинг <span class="score">10</span></div>
-	        </li>
-	        <li class="ib corners faces-item">
-	            <a href="/bloggers/{{ blogger.id }}">
-	                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-	            </a>
-	            <div class="login"><a href="/bloggers/{{ blogger.id }}">ASAS</a></div>
-	            <div class="name"><a href="/bloggers/{{ blogger.id }}">AA<br>SS</a></div>
-	            <div class="statistic">Рейтинг <span class="score">10</span></div>
-	        </li>
-	        <li class="ib corners faces-item">
-	            <a href="/bloggers/{{ blogger.id }}">
-	                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-	            </a>
-	            <div class="login"><a href="/bloggers/{{ blogger.id }}">ASAS</a></div>
-	            <div class="name"><a href="/bloggers/{{ blogger.id }}">AA<br>SS</a></div>
-	            <div class="statistic">Рейтинг <span class="score">10</span></div>
-	        </li>
-	        <li class="ib corners faces-item">
-	            <a href="/bloggers/{{ blogger.id }}">
-	                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-	            </a>
-	            <div class="login"><a href="/bloggers/{{ blogger.id }}">ASAS</a></div>
-	            <div class="name"><a href="/bloggers/{{ blogger.id }}">AA<br>SS</a></div>
-	            <div class="statistic">Рейтинг <span class="score">10</span></div>
-	        </li>
-	        <li class="ib corners faces-item">
-	            <a href="/bloggers/{{ blogger.id }}">
-	                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-	            </a>
-	            <div class="login"><a href="/bloggers/{{ blogger.id }}">ASAS</a></div>
-	            <div class="name"><a href="/bloggers/{{ blogger.id }}">AA<br>SS</a></div>
-	            <div class="statistic">Рейтинг <span class="score">10</span></div>
-	        </li>
-	        <li class="ib corners faces-item">
-	            <a href="/bloggers/{{ blogger.id }}">
-	                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-	            </a>
-	            <div class="login"><a href="/bloggers/{{ blogger.id }}">ASAS</a></div>
-	            <div class="name"><a href="/bloggers/{{ blogger.id }}">AA<br>SS</a></div>
-	            <div class="statistic">Рейтинг <span class="score">10</span></div>
-	        </li>
-	        {% for blogger in bloggers %}
-	        <li class="ib corners faces-item">
-	            <a href="/bloggers/{{ blogger.id }}">
-	                {% if blogger.image != '' %}
-	                <img src="{{ blogger.image }}.100" height="100" width="100" alt=""/>
-	                {% else %}
-	                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-	                {% endif %}
-	            </a>
-	            <div class="login"><a href="/bloggers/{{ blogger.id }}">{{ blogger.login }}</a></div>
-	            <div class="name"><a href="/bloggers/{{ blogger.id }}">{{ blogger.name }}</a></div>
-	            <div class="statistic">Рейтинг <span class="score">{{ blogger.count_bals }}</span></div>
-	        </li>
-	        {% endfor %}
-	    </ul>
-	    </div>
-	    <div class="ib arrow right"></div>
-	</div>
-
-	<div class="bloggers_filter">
-		<select>
-			<option>Новые</option>
-			<option>Новые</option>
-			<option>Новые</option>
-		</select>
-	</div>
-	<h1 style="margin: 20px 0 20px 0;">Все участники</h1>
-	<div class="c faces full">
+<h1>Финалисты</h1>
+<div class="c faces full fin">
+    <div class="ib arrow left"></div>
         <ul class="c ib">
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
+            {% for finalist in finalists %}
+            <li class="ib corners active">
+                <a href="/bloggers/{{ finalist.id }}">
+                    {% if finalist.user_profile_avatar != '' %}
+                    <img src="{{ finalist.user_profile_avatar }}" height="100" width="100" alt=""/>
+                    {% else %}
+                    <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                    {% endif %}
+                </a>
+                <div class="login">{{ finalist.mounth }}</div>
+                <div class="name"><a href="/bloggers/{{ finalist.id }}">{{ finalist.user_profile_name }}</a></div>
+                <div class="statistic">Рейтинг <span class="score">{{ finalist.conkurs_rate }}</span></div>
             </li>
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
-            </li>
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
-            </li>
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
-            </li>
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
-            </li>
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
-            </li>
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
-            </li>
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
-            </li>
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
-            </li>
-            <li class="ib corners">
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
-                <div class="login">kuteev</div>
-                <div class="name">Кутеев Вячеславович</div>
-                <div class="statistic">Рейтинг <span class="score">25</span></div>
-            </li>
+            {% endfor %}
         </ul>
-    </div>
-    <div class="pagination">
-    	<ul class="ib pagging">
-            <li class="ib active">1</li>
-            <li class="ib"><a href="/blog/2">2</a></li>
-        </ul>
-	</div>
+    <div class="ib arrow right"></div>
+</div>
+<h1>Все участники проекта</h1>
+<div class="c faces full">
+    <div class="ib arrow left"></div>
+    <ul class="c ib">
+        {% for blogger in bloggers %}
+        <li class="ib corners active">
+            <a href="/bloggers/{{ blogger.id }}">
+                {% if blogger.user_profile_avatar != '' %}
+                <img src="{{ blogger.user_profile_avatar }}" height="100" width="100" alt=""/>
+                {% else %}
+                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                {% endif %}
+            </a>
+            <div class="login"><a href="/bloggers/{{ blogger.id }}">{{ blogger.user_login }}</a></div>
+            <div class="name"><a href="/bloggers/{{ blogger.id }}">{{ blogger.user_profile_name }}</a></div>
+            <div class="statistic">Рейтинг <span class="score">{{ blogger.user_rating }}</span></div>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="ib arrow right"></div>
+</div>
 
 {% endblock %}
