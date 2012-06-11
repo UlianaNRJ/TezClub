@@ -7,43 +7,39 @@
 {% block article_class %}step3{% endblock %}
 
 {% block content %} 
-    			<div class="headline corners">
+<div class="headline corners">
 
-					<ul class="c steps horizontal">
-						<li class="ib"><a {% if step1_enabled %} href="?step=1"{% endif %}><span class="ib">1</span>Зарегистрируйся</a></li>
-						<li class="ib"><a {% if step2_enabled %} href="?step=2"{% endif %}><span class="ib">2</span>Раскажи про себя</a></li>
-						<li class="ib active"><a><span class="ib">3</span>Выигрывай призы</a></li>
-					</ul>
+	<ul class="c steps horizontal">
+		<li class="ib"><a {% if step1_enabled %} href="?step=1"{% endif %}><span class="ib">1</span>Зарегистрируйся</a></li>
+		<li class="ib"><a {% if step2_enabled %} href="?step=2"{% endif %}><span class="ib">2</span>Раскажи про себя</a></li>
+		<li class="ib active"><a><span class="ib">3</span>Выигрывай призы</a></li>
+	</ul>
 
-					<h1>Выигрывай призы</h1>
-					<h2>1-5 туры</h2>
+	<h1>Выигрывай призы</h1>
+	<h2>Приз месяца</h2>
 
-					<p><strong>Краткое описание механники акции</strong> Я про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и </p>
+	<p><strong>Победитель каждого из шести месяцев определяется количеством набранных голосов.</strong> Приглашайте друзей поддержать вас! Побеждайте и отправляйтесь в одну из стран Tez Tour:</p>
 
+	<ul class="fancy">
+		<li><span class="ib">1</span> Победитель июля – Болгария</li>
+		<li><span class="ib">2</span> Победитель июля – Греция</li>
+		<li><span class="ib">3</span> Победитель августа – Австрия</li>
+		<li><span class="ib">4</span> Победитель сентября – Египет</li>
+		<li><span class="ib">5</span> Победитель октября –Таиланд</li>
+		<li><span class="ib">6</span> Победитель ноября - Таиланд</li>
+	</ul>
 
-					<ul class="fancy">
-						<li><span class="ib">1</span> Я про свой новый плагин aceCheckBrowser</li>
-						<li><span class="ib">2</span> Я про свой новый плагин aceCheckBrowser</li>
-						<li><span class="ib">3</span> Я про свой новый плагин aceCheckBrowser</li>
-					</ul>
+	<h2>Суперфинал</h2>
 
-					<h2>Суперфинал</h2>
+	<p>В декабре состоится большой финал в котором 5 победителей месяцев поборются за главный приз конкурса - <strong>Новый автомобиль Nissan Juke</strong></p>
 
-					<p><strong>Краткое описание механники акции</strong> Я про свой новый плагин aceCheckBrowser. Это плагин, который умеет проверять браузер, поддержку яваскрипта и даже подсовывать посетителю специальный ше, гА если юзер с мобильника зашел — то и </p>
+	<br/>
 
-					<ul class="fancy">
-						<li><span class="ib">1</span> Я про свой новый плагин aceCheckBrowser</li>
-						<li><span class="ib">2</span> Я про свой новый плагин aceCheckBrowser</li>
-						<li><span class="ib">3</span> Я про свой новый плагин aceCheckBrowser</li>
-					</ul>
+	<form action="" method="post" name="RegistrationForm" enctype="multipart/form-data">
+		<input type="hidden" name="step" value="3">
+		<input class="button blue corners" type="submit" value="Готово"/>
+	</form>
 
-					<br/>
-
-					<form action="" method="post" name="RegistrationForm" enctype="multipart/form-data">
-						<input type="hidden" name="step" value="3">
-						<input class="button blue corners" type="submit" value="Готово"/>
-					</form>
-
-					<br/><br/><br/><br/>
-				</div>
+	<br/><br/><br/><br/>
+</div>
 {% endblock %}
