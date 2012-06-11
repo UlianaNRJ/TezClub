@@ -187,7 +187,7 @@
 			width: 920px;
 		}
 		.faces ul li{
-			/*display: none;*/
+			display: none;
 			border: 1px solid #CCCCCC;
 			box-shadow: 0 0 5px 0 #CCCCCC;
 			height: 180px;
@@ -544,22 +544,24 @@ ul.fancy {
 		}
 
 ul.images {
+	display: table;
 	position: relative;
 	margin: 0 0 0 32px;
 }
 	ul.images li {
-		height: 139px;
+		display: table-cell;
+		height: 149px;
 		position: relative;
-		width: 117px;
-		border: 5px solid #FFFFFF;
-		border-radius: 60px;
-		box-shadow: 0 0 10px 0 #DDDDDD;
+		vertical-align: middle;
+		width: 127px;
 	}
 	ul.images li +li{
-		margin-left: 20px;
+		padding-left: 20px;
 	}
 		ul.images li img{
-			border-radius: 55px;
+			border: 5px solid #FFFFFF;
+			border-radius: 60px 60px 60px 60px;
+			box-shadow: 0 0 10px 0 #DDDDDD;
 			position: absolute;
 			top: 0;
 			width: 117px;
@@ -570,9 +572,9 @@ ul.images {
 			display: block;
 			font-size: 17px;
 			font-weight: bold;
+			margin: 5px;
 			position: relative;
 			text-align: center;
-			margin-top: 55px;
 		}
 		ul.images li div{
 		font-size: 15px;
