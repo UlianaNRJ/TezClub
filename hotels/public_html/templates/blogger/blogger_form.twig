@@ -107,6 +107,13 @@
     </div>
 
     <div class="control-group">
+        <label class="control-label" for="hotellist">Hotel List</label>
+        <div class="controls">
+          <input type="text" name="hotellist" value="{{ topic.hotellist|default('') }}" id="hotellist" style="width:700px;"/>
+        </div>
+    </div>
+
+    <div class="control-group">
         <label class="control-label" for="active">Active</label>
         <div class="controls">
             <input type="checkbox" name="active" value="1" {% if blogger.active == 1 %} checked {% endif %}>

@@ -47,16 +47,20 @@
                 </li>
                 <li class="username"><a href="http://tezclub.com.ua/profile/{{ comment.user.user_login }}/">{{ comment.user.user_login }}</a></li>
                 <li class="date">{{ comment.timestamp }}</li>
+                
                 <li class="rate positive">
                     <span class="total">+12</span>
                     <a href="#" class="plus"></a>
                     <a href="#" class="minus"></a>
                 </li>
+                
             </ul>
             <div class="comment-body">
                 <div class="content" id="comment_content_id_{{ comment.id }}">{{ comment.text }}</div>
                 
-                <!--div class="relpay-link-wrap"><a class="reply-link" onclick="ls.comments.toggleCommentForm(1271); return false;" href="#">Ответить</a></div-->
+                <div class="relpay-link-wrap">
+                    <a class="reply-link" onclick="ls.comments.toggleCommentForm({{ comment.id }}); return false;" href="#">Ответить</a>
+                </div>
                 
                 <div style="display: none;" id="comment_preview_{{ comment.id }}" class="comment-preview"></div>
                 <div style="display: none;" id="reply_{{ comment.id }}" class="reply"></div>
@@ -135,13 +139,13 @@
 {% if userCurrent %}
 <div id="addCommentContainer" class="reply-area">
     <h4 id="add_comment_root" class="reply-header"><a onclick="return false;" href="#">Прокомментировать</a></h4>
-    <form id="addCommentForm" method="post" action="">
+    <form id="addCommentForm" id="form_comment" method="post" action="">
         <div>
             <textarea name="comment_text" id="comment_text"></textarea>
             
             <input type="hidden" name="user-id" value="{{ userCurrent.user_id }}">
             <input type="hidden" name="topic-id" value="{{ topic.id }}">
-            <input type="hidden" value="105" name="cmt_target_id">
+            <input type="hidden" name="cmt_target_id" value="0" id="cmt_target_id">
             <div class="button-line">
                 <span>
                     <input type="submit" type="button" value="Отправить" class="button gray">
