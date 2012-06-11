@@ -7,12 +7,16 @@ body > header, body > article {
 	margin: 120px 0 55px 170px;
 	width: 730px;
 }
+
 	.explanation p{
 		text-align: center;
 		font-size: 15px;
 		line-height: 1em;
 	}
 
+.country {
+	margin-left: 140px;
+}
 
 
 .headline {
@@ -101,13 +105,13 @@ body > header, body > article {
 
 }
 	.prize .headline{
-		padding: 30px 30px 10px 50px;
+		padding: 30px 30px 180px 50px;
 		position: relative;
 	}
 	.prize h1 {
-	text-align: center;
-	font-size: 38px;
-}
+		text-align: center;
+		font-size: 38px;
+	}
 	.prize ul.steps {
 
 	}
@@ -120,7 +124,7 @@ body > header, body > article {
 			padding-top: 15px;
 		}
 		.prize ul.steps li .car img {
-			margin-top: 120px;
+			margin-top: -100px;
 			margin-left: 40px;
 		}
 		.prize ul.steps li a.carlink {
@@ -169,7 +173,7 @@ body > header, body > article {
 			margin-top: 0;
 		}
 	.prize .actions {
-		bottom: 120px;
+		bottom: 400px;
 		margin: 0;
 		position: absolute;
 		right: 145px;
@@ -192,6 +196,27 @@ body > header, body > article {
 		background: -moz-linear-gradient(center top , #e1e1e1 0%, #cbcbcb 100%) repeat scroll 0 0 transparent;
 	}
 
+	.goabout {
+		bottom: 80px;
+	    left: 50%;
+	    margin-left: -105px;
+	    position: absolute;
+	    width: 250px;
+	    text-align: center;
+	}
+
+	.prize .goabout .link {
+		text-decoration: underline;
+		text-shadow: #555 0 -1px 1px;
+	}
+
+	.prize .goabout .alink {
+		font-size: 18px;
+		color: #fff;
+		text-decoration: underline;
+	}
+
+
 	.prize-bottom {
 		background: #6bcced;
 		border-bottom-left-radius: 10px;
@@ -208,6 +233,15 @@ body > header, body > article {
 		font-size: 16px;
 		display: inline-block;
 		margin-top: 20px;
+	}
+
+
+	.prize .whline {
+		left: 0;
+	    position: absolute;
+	    width: 100%;
+	    color: #FFF;
+	    background-color: #FFF;
 	}
 
 
@@ -327,7 +361,7 @@ body > header, body > article {
 	margin-top: 70px;
 	padding-bottom: 30px;
 	position: relative;
-	width: 630px;
+	width: 670px;
 }
 	.description .text{
 		display: table-cell;
@@ -372,4 +406,9 @@ body > header, body > article {
 	}
 	.members .bloggers_filter select {
 		width:200px;
+	}
+
+	.members .faces.full.fin{
+	    overflow: hidden;
+	    height: 250px;
 	}
