@@ -2,6 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 
   <title>TEZ TOUR</title>
   <script>
@@ -256,6 +257,28 @@
         /*padding: 10px 1px;*/
         margin-top: 5px;
     }
+    
+    .button {
+        color: #fff;
+        font-weight: bold;
+        padding: 2px 10px !important;
+        
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -khtml-border-radius: 8px;
+        border-radius: 8px;
+    }
+    
+    .anons {
+        background:  #0571B4; /* Old browsers */
+        background: -moz-linear-gradient(top,  #0571B4 0%,  #0571B4 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0571B4), color-stop(100%,#0571B4)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #0571B4 0%,#0571B4 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #0571B4 0%,#0571B4 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #0571B4 0%,#0571B4 100%); /* IE10+ */
+        background: linear-gradient(top,  #0571B4 0%,#0571B4 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34b9e4', endColorstr='#138ecf',GradientType=0 ); /* IE6-9 */
+    }
 
 
   </style>
@@ -312,22 +335,22 @@ method="post"  id="contact-form" target="_blank">
 				<table width=900px height=95% border=0>
 					<tr>
 						<td class="predl sl1"></td><td class="pred2">
-							<b>Турция, Алания</b><br/>
-							Отель: <b>MONTE CARLO HOTEL&nbsp;3*</b><br/>
-							Вылет: 12.12.2011 (7 ночей)<br/>
-							Стоимость: 417 USD*
+							<b>Испания (Барселона)</b><br/>
+							Отель: <b>EUGENIA&nbsp;4*</b><br/>
+							Вылет: 30.06.2012 Донецк-Барселона-Донецк (7 ночей)<br/>
+							Стоимость: 499 евро
 						</td>
 						<td class="predl sl2"></td><td class="pred2">
-							<b>Греция, Крит-Ираклион</b><br/>
-							Отель: <b>EVA MARE HOTEL & APARTMENTS&nbsp;4*</b><br/>
-							Вылет: 10.10.2011 (7 ночей)<br/>
-							Стоимость: 408 EUR*
+							<b>Греция (Ираклион)</b><br/>
+							Отель: <b>LYDA HOTEL&nbsp;3*</b><br/>
+							Вылет: 25.06.2012 Киев-Ираклион-Киев(7 ночей) <br/>
+							Стоимость: 443 евро
 						</td>
 						<td class="predl sl3"></td><td class="pred2">
-							<b>Испания, Коста Брава</b><br/>
-							Отель: <b>EUGENIA&nbsp;4*</b><br/>
-							Вылет: 16.09.2011 (7 ночей)<br/>
-							Стоимость: 484 EUR*
+							<b>Болгария (Бургас)</b><br/>
+							Отель: <b>BOOMERANG&nbsp;3*</b><br/>
+							Вылет: 19.06.2012 Киев-Бургас-Киев (7 ночей)<br/>
+							Стоимость: 303 евро
 						</td>
 					</tr>
 				</table>
@@ -354,7 +377,7 @@ method="post"  id="contact-form" target="_blank">
 						<b>Предложения только для участников групп TEZ TOUR в социальных сетях!</b>
 						<ul>
 							<li>Вступайте в группы TEZ TOUR.</li>
-							<li style="padding-top:5px;">Каждый вторник на страницах официальных групп Вконтакте и Facebook обновляются эксклюзивные предложения.</li>
+							<li style="padding-top:5px;">Следите на эксклюзивным проектом "<a href="http://hotels.tezclub.com.ua/blog">Блоггеры в отелях</a>" . <a href="http://www.youtube.com/watch?v=uVtNxM7dGMY" target="_blank" class="button anons">Анонс проекта</a></li>
 						</ul>
 					</td>
 				</tr>
