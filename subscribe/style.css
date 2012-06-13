@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+hr {
+    color: #FFF; /*для IE */
+    background-color:#FFF; /*для Firefox, Opera, Safari*/
+    border:0px none;
+    height:20px; /* высота 1px IE, Firefox, Opera, Safari */
+    clear:both; /* для очистки, если тег идет после float елемента */
+    background: url(images/helix.jpg) repeat-x;
+    margin: 10px 20px;
+    
+}
+   #centerLayer {
+    position: absolute; /* Абсолютное позиционирование */
+    width: 1000px; /* Ширина слоя в пикселах */
+    left: 50%; /* Положение слоя от левого края */
+    top: 10px; /* Положение слоя от верхнего края */
+    margin-left: -500px;
+    padding: 10px; /* Поля вокруг текста */
+    overflow:  hidden ; /* Добавление полосы прокрутки */ 
+   }
+   #top a{
+		font-size: 15pt;
+   }
+   #content{
+		background: #FFF
+   } 
+   .predl{
+		padding-left: 15%;
+		padding-top: 5px;
+		text-align: left;
+		width: 33%;
+		font-size: 11pt;
+		margin-top: 5px;
+		font-size: 10px;
+		line-height: 1%
+	}
+   .sl1{
+		background: url(images/hotel_01.jpg) no-repeat;
+		background-position: 5% 50%;
+		
+	}
+   .sl2{
+	    border-left: 2px solid #CC0;
+		background: url(images/hotel_02.jpg) no-repeat;
+		background-position: 5% 50%;
+	}
+   .sl3{
+	    border-left: 2px solid #CC0;
+		background: url(images/hotel_03.jpg) no-repeat;
+		background-position: 5% 50%;
+	}
+   #top{
+		background: url(images/logo.png) no-repeat;
+		background-position: 20% 0;
+		height: 104px;
+		margin: 0px 50px;
+		padding-left: 50%;
+		padding-top: 35px;
+		text-align: left;
+		width: 45%;
+		font-size: 11pt;
+   }
+
+	.top-left {
+		margin-right: 12px; /* clip right corner */
+		background-image: url('images/angle_l_u.png');
+		height: 12px; /* vertical: show first half of the image with the top-corners in it */
+		font-size: 2px; /* correct height for IE */
+	}
+	.top-right {
+		margin-top: -12px; /* to level of top-left corner */
+		margin-left: 12px; /* clip left corner */
+		background-image: url('images/angle_r_u.png'); 
+		background-position: 100% 0; /* show bg-image starting at the right */
+		height: 12px; 
+		font-size: 1px;
+	}
+	.line {
+		margin-top: -12px; /* to level of top-left corner */
+		margin-left: 10px; /* clip left corner */
+		margin-right: 10px; /* clip left corner */
+		background-image: url('images/line.jpg'); 
+		background-position: 100% 0; /* show bg-image starting at the right */
+		height: 12px; 
+		font-size: 1px;
+	}
+	.bottom-left {
+		margin-right: 12px; /* clip right corner */
+		background-image: url('images/angle_l_d.png');
+		background-position: 0 -12px; /* show under half of the image */
+		height: 12px;
+		font-size: 2px;
+	}
+	.bottom-right {
+		margin-top: -12px; /* to level of bottom-left corner */
+		margin-left: 12px; /* clip left corner */
+		background-image: url('images/angle_r_d.png'); 
+		background-position: 100% -12px; /* under half, right side */
+		height: 12px; 
+		font-size: 2px; 
+	}
+	
+	.lenta-line {
+		margin-top: -129px; /* to level of top-left corner */
+		margin-left: 0px; /* clip left corner */
+		margin-right: 0px; /* clip left corner */
+		background-image: url('images/back_blue.jpg'); 
+		background-position: 100% 0; /* show bg-image starting at the right */
+		height: 112px; 
+		font-size: 1px;
+	}
+	.lenta-line table{
+		padding-top: 10px;
+	}
+	.lenta-left {
+		margin-left: -16px;
+		background: url('images/border_left.png') no-repeat;
+		background-position: 0 0; 
+		height: 129px;
+	}
+	.lenta-right {
+		margin-top: -129px; /* to level of bottom-left corner */
+		margin-right: -16px; /* clip left corner */
+		left:100%;
+		background: url('images/border_rifht.png')  no-repeat;
+		background-position: 100% 0; /* under half, right side */
+		height: 129px; 
+		font-size: 2px; 
+	}	
+	.inside {
+		margin: 0px 40px;
+		/*background: #FFF;*/
+		color: #000000;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.inside-c {
+		background: #FFF;
+		color: #000000;
+	}
+
+	.lin1-left {
+		margin-left: -35px;
+		background: url('images/postmark.png') no-repeat;
+		height: 178px;
+		width:100%;
+		padding-left: 250px;
+		padding-right: 250px;
+		padding-top: 15px;
+		font: 10px;
+		
+	}
+	h1{
+		font: bold 25px;
+		color:#22A;
+	}
+
+	.lin1-form {
+		margin-top: -12px; /* to level of top-left corner */
+		margin-left: 12px; /* clip left corner */
+		background-image: url('images/form.jpg'); 
+		background-position: 100% 0; /* show bg-image starting at the right */
+		height: 162px;
+		width:330px; 
+		font-size: 10px;
+		
+	}
+	body{
+		font-family: Arial;
+		background-image: url(/teztour/images/back_up.jpg);
+		background-attachment: initial;
+		background-origin: initial;
+		background-clip: initial;
+		background-color: #f4f7f8;
+		background-position: 50% 0px;
+		background-repeat: no-repeat no-repeat; 
+	}
+	.foot1{
+		background: url('/teztour/images/palm.jpg') no-repeat;
+		width:330px; 
+		padding-left: 15px;
+	}
+	.seti td{
+		padding: 15px;
+	}
