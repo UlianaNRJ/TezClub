@@ -232,6 +232,11 @@ $app->post('/admin/topic/edit/(:id)', $authCheck, function($id) use ($app) {
                 }
             }
             $hotelbl->save();
+        } else if(! $hotelbl && $app->request()->post('active') == 1) {
+            $hotelbl2 = Model::factory('SprHotelBlogger')->create();
+            $hotelbl2->blogger_id = $app->request()->post('blogger');
+            $hotelbl2->hotel_id = $app->request()->post('hotel');
+            $hotelbl2->save();
         }
 
         $hotel = Model::factory('SprHotel')->find_one($app->request()->post('hotel'));
