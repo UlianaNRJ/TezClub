@@ -24,6 +24,12 @@ $app->get('/', function() use ($app) {
         $value->summary = str_replace('&amp;nbsp;', ' ', $value->summary);
         $value->summary = (mb_strlen($value->summary,'UTF-8') > 250) ? mb_substr($value->summary,0,250, 'UTF-8').'...' : $value->summary;
 
+        $arimage = @unserialize($value->image);
+
+        if (is_array($arimage)) {
+            $value->image = $arimage[0];
+        }
+
         $value->timestamp = rdate('d M Y, H:i', strtotime($value->timestamp));
     }
 
