@@ -3,11 +3,6 @@ header {
  	margin-bottom: -186px;
  	height: 364px;
 }
-	header .wrapper {
-		width: auto;
-		min-width:960px;
-		margin:0 2% 0 4%;
-	}
 	header figure img {
 		padding: 15px 0;
 		margin-left: -4px;
@@ -75,9 +70,7 @@ header {
 		.nav-inner .profile .user-conf{ float: right; }
 
 	.main-menu {
-		background: url("../img/background-menu.jpg") transparent center top no-repeat;
-		background-size:100%;
-		background-origin: content;
+		background: url("../img/background-menu.jpg") transparent center top scroll repeat-x;
 	}
 		.main-menu ul{
 			padding: 0 4px;
