@@ -122,7 +122,7 @@ $app->post('/registration', function() use ($app, $db) {
     	case 3:
             // обработка шага 3
             Registration::addUser();
-            $app->redirect('http://tezclub.local/login/');
+            $app->redirect('http://tezclub.com.ua/login/');
     		break;
     }
 
