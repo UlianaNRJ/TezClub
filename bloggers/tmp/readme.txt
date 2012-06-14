@@ -15,3 +15,11 @@
 http://site.local/admin
 логин: admin
 пароль: password
+
+
+-----------
+Прокидываем ссылка на создание аватарок
+ы
+ln -s /var/www/tezclub.com.ua/uploads/images /var/www/bloggers.tezclub.com.ua/uploads/images
+
+ln -s /var/www/tezclub.com.ua/tmp /var/www/bloggers.tezclub.com.ua/tmp
