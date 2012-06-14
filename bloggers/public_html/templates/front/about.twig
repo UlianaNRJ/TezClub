@@ -2,7 +2,15 @@
 
 {% block page_title %} About PAGE TITLE {% endblock %}
 
-{% block page_head %} {% endblock %}
+{% block page_head %}
+<script type="text/javascript" src="/js/jquery.youtubepopup.min.js"></script>
+<script>
+jQuery(document).ready(function($){
+	$("a.carvideo").YouTubePopup({ idAttribute: 'youtube', hideTitleBar: true });
+});
+</script>
+
+{% endblock %}
 
 {% block article_class %}prize{% endblock %}
 
@@ -38,7 +46,7 @@
 					<p>4. под капотом – турбированные 1,6л</p>
 					<p>5. стильный и функциональный салон</p>
 					<p>6. Пять дверей, пять посадочных мест</p>
-					<p>Воплощение яркой дизайнерской мысли!</p>
+					<p><strong>Воплощение яркой дизайнерской мысли!</strong></p>
 				</div>
 				<div class="ib car">
 					<img src="img/prize/car.png" width="325" height="180" alt=""/>
@@ -49,7 +57,7 @@
 	</ul>
 	
 	<div class="actions">
-		<a href="#" class="carvideo">Смотреть видео</a><br/><br/>
+		<a class="carvideo" youtube="yvhDv1dR0Gs" href="#" title="...">Смотреть видео</a><br/><br/>
 		<a href="http://nissan.kiyauto.com.ua/files/Juke.pdf" class="button grey corners">Характеристики автомобиля</a>
 	</div>
 
@@ -58,7 +66,7 @@
 		<a class="button participate blue corners link" href="/registration">Участвовать</a>
 		<br>
 		<br>
-		<a class="alink" href="#">Посмотреть участников</a>
+		<a class="alink" href="/members">Посмотреть участников</a>
 	</div>
 </div>
 {% endblock %}
