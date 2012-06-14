@@ -1,6 +1,6 @@
 <?php 
 // 
-$app->get('/bloggers', function() use ($app) {
+$app->get('/hotels/bloggers', function() use ($app) {
     $bloggers = Model::factory('SprBlogger')
                     ->where('active', 1)
                     ->order_by_desc('timestamp')
@@ -11,8 +11,8 @@ $app->get('/bloggers', function() use ($app) {
 });
 
 // 
-$app->get('/bloggers/:id(/:page)', 'show_blogger');
-$app->post('/bloggers/:id(/:page)', 'show_blogger');
+$app->get('/hotels/bloggers/:id(/:page)', 'show_blogger');
+$app->post('/hotels/bloggers/:id(/:page)', 'show_blogger');
 
 function show_blogger($id, $page = 1) {
     $app = Slim::getInstance();

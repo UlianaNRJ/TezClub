@@ -8,12 +8,12 @@
         {% for blogger in bloggers %}
         <div class="ib info">
             <div class="avatar">
-	            <a href="/bloggers/{{ blogger.id }}">
-		            <img src="{% if blogger.image %}{{ blogger.image }}.100{% else %}/img/avatar-100.png{% endif %}" height="100" width="100" alt="avatar" />
+	            <a href="/hotels/bloggers/{{ blogger.id }}">
+		            <img src="{{ hotelssiteurl }}/{% if blogger.image %}{{ blogger.image }}.100{% else %}/img/avatar-100.png{% endif %}" height="100" width="100" alt="avatar" />
 	            </a>
             </div>
             <div class="data">
-                <h2><a href="/bloggers/{{ blogger.id }}">{{ blogger.login }}</a></h2>
+                <h2><a href="/hotels/bloggers/{{ blogger.id }}">{{ blogger.login }}</a></h2>
                 <div class="name">{{ blogger.name }}</div>
 
                 <div class="poll" id="rating{{ blogger.id }}">
@@ -50,7 +50,7 @@
                     </script>
                 </div>
 
-                <a href="/bloggers/{{ blogger.id }}" class="button grey corners">Подробнее</a>
+                <a href="/hotels/bloggers/{{ blogger.id }}" class="button grey corners">Подробнее</a>
             </div>
         </div>
         {% endfor %}

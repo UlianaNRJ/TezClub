@@ -1,6 +1,6 @@
 {% if currentpage == 'hotels'%}
 <h3>Сортировать обзоры про отель</h3>
-<form method="post" action="/hotel/{{ hotel.id }}">
+<form method="post" action="/hotels/hotel/{{ hotel.id }}">
     <select name="sortby"> 
         <option value="DESC">Последние</option>
         <option value="POP" {% if sortby == "POP" %} selected {% endif %}>Популярные</option>
@@ -9,7 +9,7 @@
 </form>
 {% elseif currentpage == 'blog' %}
 <h3>Выбрать другой отзыв</h3>
-<form method="post" action="/blog">
+<form method="post" action="/hotels/blog">
      <select name="sortbyhotels">
         <option value="">По отелям</option>
         {% for hotel in hotels %}
@@ -24,7 +24,7 @@
     </select>
 </form>
 {% elseif currentpage == 'bloggers' %}
-<form method="post" action="/bloggers/{{ blogger.id }}">
+<form method="post" action="/hotels/bloggers/{{ blogger.id }}">
     <select name="sortby"> 
         <option value="DESC">Последние</option> 
         <option value="POP" {% if sortby == "POP" %} selected {% endif %}>Популярные</option>

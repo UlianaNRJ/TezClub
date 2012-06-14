@@ -3,7 +3,7 @@
 {% block page_title %} Все отели - TezClub{% endblock %}
 
 {% block content %}
-<script type="text/javascript" src="/js/jquery.wookmark.min.js"></script>
+<script type="text/javascript" src="{{ hotelssiteurl }}/js/jquery.wookmark.min.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function(){
         $('.info .item').wookmark({
@@ -55,11 +55,11 @@
                     <li class="c {% for htype in hotel.htypes %} ht{{ htype.id }}{% endfor %}{% if hotel.active == 0 %} noactive {% endif %}">
 
                         {% if hotel.image %}
-                            <img src="/{{ hotel.image }}.25"  width="25" alt="avatar" class="ib"/>
+                            <img src="{{ hotelssiteurl }}/{{ hotel.image }}.25"  width="25" alt="avatar" class="ib"/>
                         {% else %}
-                            <img src="/img/hotel-25.png" width="25" alt="avatar" class="ib"/>
+                            <img src="{{ hotelssiteurl }}/img/hotel-25.png" width="25" alt="avatar" class="ib"/>
                         {% endif %}
-                        <a class="ib name tooltip" href="/hotel/{{ hotel.id }}">{{ hotel.name }}
+                        <a class="ib name tooltip" href="/hotels/hotel/{{ hotel.id }}">{{ hotel.name }}
                             <span >
                                 {% if hotel.active == 0 %}
                                 Обзоры по данному отелю ожидайте в ближайшее время
@@ -73,8 +73,8 @@
 
             </div>
                 
-                {% if loop.index == 1 %} 
-                <!--
+                {# if loop.index == 1 %} 
+
                 <div class="ib item borderup">
                     <h1>Подобрать отель</h1>
                     {% for htypes in hoteltypes %}
@@ -82,8 +82,8 @@
                     <label for="checkbox_{{ htypes.id }}">{{ htypes.name }}</label><br/>
                     {% endfor %}
                 </div>
-                -->
-                {% endif %}
+
+                {% endif #}
             {% endfor %}
         </div>
     </div>

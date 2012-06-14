@@ -3,7 +3,7 @@
 {% block page_title %} Bloggers In Hotels - TezClub{% endblock %}
 
 {% block page_head %}
-<script type="text/javascript" src="/js/jscroll.js"></script>
+<script type="text/javascript" src="{{ hotelssiteurl }}/js/jscroll.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $(".anyClass").jCarouselLite({
@@ -26,7 +26,7 @@ $(document).ready(function(){
         <p>7 известных Блоггеров расскажут и покажут Вам все преимущества и недостатки Турецких курортов.</p>
         <p>Узнавайте больше об отелях, комментируйте и голосуйте за понравившихся авторов.</p>
     </div>
-    <img src="img/headline.png" class="corners" width="946" height="300" alt=""/>
+    <img src="{{ hotelssiteurl }}/img/headline.png" class="corners" width="946" height="300" alt=""/>
 </div>
 
 <h1 style="margin: 25px 0 10px 50px;">Блоггеры проекта</h1>
@@ -36,15 +36,15 @@ $(document).ready(function(){
     <ul class="c ib">
         {% for blogger in bloggers %}
         <li class="ib corners faces-item">
-            <a href="/bloggers/{{ blogger.id }}">
+            <a href="/hotels/bloggers/{{ blogger.id }}">
                 {% if blogger.image != '' %}
-                <img src="{{ blogger.image }}.100" height="100" width="100" alt=""/>
+                <img src="{{ hotelssiteurl }}/{{ blogger.image }}.100" height="100" width="100" alt=""/>
                 {% else %}
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                <img src="{{ hotelssiteurl }}/img/avatar-100.png" height="100" width="100" alt=""/>
                 {% endif %}
             </a>
-            <div class="login"><a href="/bloggers/{{ blogger.id }}">{{ blogger.login }}</a></div>
-            <div class="name"><a href="/bloggers/{{ blogger.id }}">{{ blogger.name }}</a></div>
+            <div class="login"><a href="/hotels/bloggers/{{ blogger.id }}">{{ blogger.login }}</a></div>
+            <div class="name"><a href="/hotels/bloggers/{{ blogger.id }}">{{ blogger.name }}</a></div>
             <div class="statistic">Рейтинг <span class="score">{{ blogger.count_bals }}</span></div>
         </li>
         {% endfor %}
@@ -60,17 +60,17 @@ $(document).ready(function(){
             {% for hotel in hotels %}
             <li class="c">
                 {% if hotel.image != '' %}
-                    <img class="ib" src="{{ hotel.image }}.25" width="25" alt=""/>
+                    <img class="ib" src="{{ hotelssiteurl }}/{{ hotel.image }}.25" width="25" alt=""/>
                 {% else %}
-                    <img class="ib" src="/img/hotel-25.png" width="25" alt=""/>
+                    <img class="ib" src="{{ hotelssiteurl }}/img/hotel-25.png" width="25" alt=""/>
                 {% endif %}
-                <a class="ib name" href="/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
+                <a class="ib name" href="/hotels/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
                 <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
             </li>
             {% endfor %}
         </ul>
 
-        <a href="/hotels" class="button grey corners allhotels">Все отели</a>
+        <a href="/hotels/hotels" class="button grey corners allhotels">Все отели</a>
     </div>
     <div class="ib popular">
         <h1 style="margin: 20px 0 10px;">Популярные обзоры</h1>
@@ -78,7 +78,7 @@ $(document).ready(function(){
             {% for topic in topics %}
             <li class="ib corners {% if loop.index == 1 %} active {% endif %}">
                 <img src="{{ topic.image }}" width="145" height="102" alt=""/>
-                <p><a href="/blog/view/{{ topic.id }}"><b>{{ topic.title }}</b></a></p>
+                <p><a href="/hotels/blog/view/{{ topic.id }}"><b>{{ topic.title }}</b></a></p>
             </li>
             {% endfor %}
         </ul>
@@ -87,12 +87,12 @@ $(document).ready(function(){
 			    <div class="date">{{ topic.timestamp }}</div>
 			    <div class="longtext">{{ topic.summary|raw }}</div>
 			    <div class="textbutton">
-                    <a href="/blog/view/{{ topic.id }}">Читать дальше →</a>
+                    <a href="/hotels/blog/view/{{ topic.id }}">Читать дальше →</a>
                     <span class="ib count" >комментариев <span class="score">{{ topic.count_comments }}</span></span>
                 </div>
 		    </div>
             {% endfor %}
-        <a href="/blog" class="button grey corners allblogs">Все обзоры</a>
+        <a href="/hotels/blog" class="button grey corners allblogs">Все обзоры</a>
     </div>
 </div>
 

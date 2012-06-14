@@ -3,9 +3,9 @@
 {% block page_title %}{{ topic.title }}{% endblock %}
 
 {% block page_head %}
-    <script type="text/javascript" src="/js/fotorama.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/fotorama.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/comments.css" >
+    <script type="text/javascript" src="{{ hotelssiteurl }}/js/fotorama.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ hotelssiteurl }}/css/fotorama.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ hotelssiteurl }}/css/comments.css" >
     <script type="text/javascript">
         jQuery(document).ready(function(){
             // настройка Плагина Фоторамки
@@ -28,7 +28,7 @@
         <meta property="og:image" content="{{ image }}"/>
     {% endfor %}
 
-    <script type="text/javascript" src="/js/comments.js"></script>
+    <script type="text/javascript" src="{{ hotelssiteurl }}/js/comments.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -41,12 +41,12 @@
         <h1>{{ topic.title }}</h1>
         <div class="meta">
             {% if topic.author_ava %}
-                <img src="{{ topic.author_ava }}.25" class="ib" width="25" height="25" alt=""/>
+                <img src="{{ hotelssiteurl }}/{{ topic.author_ava }}.25" class="ib" width="25" height="25" alt=""/>
             {% else %}
-                <img src="/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
+                <img src="{{ hotelssiteurl }}/img/avatar-25.png" class="ib" width="25" height="25" alt=""/>
             {% endif %}
-            автор <a href="/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,
-            отель <a href="/hotel/{{ topic.hotel_id }}" >{{ topic.hotel }}</a>,
+            автор <a href="/hotels/bloggers/{{ topic.bl_id }}">{{ topic.author }}</a>,
+            отель <a href="/hotels/hotel/{{ topic.hotel_id }}" >{{ topic.hotel }}</a>,
             оператор <a href="{{ topic.operatorlink }}">{{ topic.operator }}</a>
             <span class="date">{{ topic.timestamp }}</span>
             <span class="comments">{{ topic.count_comments }}</span>
@@ -61,23 +61,23 @@
             <div class="share-line">
                 <div class="share-line-tw">
                     <a href="https://twitter.com/share" class="twitter-share-button"
-                       data-url="{{ siteurl }}/blog/view/{{ topic.id }}"
+                       data-url="{{ siteurl }}/hotels/blog/view/{{ topic.id }}"
                        data-text="{{ topic.title }}" data-lang="ru">Твитнуть</a>
                 </div>
 
                 <div class="share-line-od">
-                    <a class="odkl-klass" href="{{ siteurl }}/blog/view/{{ topic.id }}" onclick="voteOdnoklassniki(this);return false;" ></a>
+                    <a class="odkl-klass" href="{{ siteurl }}/hotels/blog/view/{{ topic.id }}" onclick="voteOdnoklassniki(this);return false;" ></a>
                 </div>
 
                 <div class="share-line-vk ">
                     <script type="text/javascript"><!--
-                    document.write(VK.Share.button({url: "{{ siteurl }}/blog/view/{{ topic.id }}",
+                    document.write(VK.Share.button({url: "{{ siteurl }}/hotels/blog/view/{{ topic.id }}",
                     title: "{{ topic.title }}"},{type: "round", text: "Мне нравится"}));
                     --></script>
                 </div>
 
                 <div class="share-line-fb">
-                    <div class="fb-like" data-href="{{ siteurl }}/blog/view/{{ topic.id }}" data-action="like" data-show-faces="true" data-width="125" data-layout="button_count" data-send="false"></div>
+                    <div class="fb-like" data-href="{{ siteurl }}/hotels/blog/view/{{ topic.id }}" data-action="like" data-show-faces="true" data-width="125" data-layout="button_count" data-send="false"></div>
                 </div>
             </div>
 

@@ -1,6 +1,6 @@
 <?php
 // 
-$app->get('/hotels', function() use ($app) {
+$app->get('/hotels/hotels', function() use ($app) {
     $hotelcitys = Model::factory('SprCitycountry')
                         ->where('active', 1)
                         ->order_by_desc('active')
@@ -27,8 +27,8 @@ $app->get('/hotels', function() use ($app) {
                                                   'currentpage' => 'hotels'));
 });
 
-$app->get('/hotel/:id(/:page)', 'show_hotel') ;
-$app->post('/hotel/:id(/:page)', 'show_hotel') ;
+$app->get('/hotels/hotel/:id(/:page)', 'show_hotel') ;
+$app->post('/hotels/hotel/:id(/:page)', 'show_hotel') ;
 
 function show_hotel($id, $page = 1) {
     $app = Slim::getInstance();

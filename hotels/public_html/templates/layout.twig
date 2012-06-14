@@ -3,20 +3,20 @@
 <head>
     <title>{% block page_title %}  Bloggers In Hotels  {% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/smoothness/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ hotelssiteurl }}/css/style.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ hotelssiteurl }}/css/smoothness/jquery-ui.css"/>
 
-    <link href="/img/favicon.gif" rel="shortcut icon" />
+    <link href="{{ hotelssiteurl }}/img/favicon.gif" rel="shortcut icon" />
 
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="{{ hotelssiteurl }}/js/jquery.js"></script>
+    <script type="text/javascript" src="{{ hotelssiteurl }}/js/jquery-ui.js"></script>
 
     {% block page_head %}{% endblock %}
 
-    <script type="text/javascript" src="/js/jquery.rating-2.0.js"></script>
-    <link href="/css/jquery.rating.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{{ hotelssiteurl }}/js/jquery.rating-2.0.js"></script>
+    <link href="{{ hotelssiteurl }}/css/jquery.rating.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="{{ hotelssiteurl }}/js/script.js"></script>
 
     <link href="http://stg.odnoklassniki.ru/share/odkl_share.css" rel="stylesheet">
 
@@ -68,9 +68,9 @@
 
         <figure>
             <a href="http://tezclub.com.ua/" class="self">
-                <img class="ib" src="/img/logo.png" width="225" height="30" alt="logo"/>
+                <img class="ib" src="{{ hotelssiteurl }}/img/logo.png" width="225" height="30" alt="logo"/>
             </a>
-            <a class="logohref button blue corners ib self" href="/">Bloggers in hotels</a>
+            <a class="logohref button blue corners ib self" href="http://tezclub.com.ua/hotels/">Bloggers in hotels</a>
             <a class="logohref button blue corners ib self" href="http://competition.tezclub.com.ua">Турецкая История</a>
         </figure>
     </div>
@@ -79,7 +79,7 @@
             <div class="search">
                 <label for="search">поиск</label>
                 <input class="ui-corner-all" id="search" type="text" value=""/>
-                <img src="/img/search.png" class="" width="12" height="10" alt=""/>
+                <img src="{{ hotelssiteurl }}/img/search.png" class="" width="12" height="10" alt=""/>
             </div>
             <ul class="c">
                 <li class="ib"><a href="http://tezclub.com.ua" class="self">Главное</a></li>
@@ -98,16 +98,16 @@
     <div class="wrapper">
         <ul class="c tabs">
             <li class="ib{% if currentpage == '/'%} active{% endif %}">
-                <a class="ui-corner-all" href="/">Общая информация</a>
+                <a class="ui-corner-all" href="/hotels/">Общая информация</a>
             </li>
             <li class="ib{% if currentpage == 'bloggers'%} active{% endif %}">
-                <a class="ui-corner-all" href="/bloggers">Блоггеры</a>
+                <a class="ui-corner-all" href="/hotels/bloggers">Блоггеры</a>
             </li>
             <li class="ib{% if currentpage == 'hotels'%} active{% endif %}">
-                <a class="ui-corner-all" href="/hotels">Отели</a>
+                <a class="ui-corner-all" href="/hotels/hotels">Отели</a>
             </li>
             <li class="ib{% if currentpage == 'blog'%} active{% endif %}">
-                <a class="ui-corner-all" href="/blog">Обзоры</a>
+                <a class="ui-corner-all" href="/hotels/blog">Обзоры</a>
             </li>
         </ul>
         <div class="content corners">
@@ -153,7 +153,7 @@
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-27624662-1']);
-  _gaq.push(['_setDomainName', 'hotels.tezclub.com.ua']);
+  _gaq.push(['_setDomainName', 'tezclub.com.ua']);
   _gaq.push(['_trackPageview']);
 
   (function() {

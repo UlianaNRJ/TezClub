@@ -1,6 +1,10 @@
 <?php
-// index page
 $app->get('/', function() use ($app) {
+    $app->redirect('//tezclub.com.ua/hotels');
+});
+
+// index page
+$app->get('/hotels', function() use ($app) {
 
     $bloggers = Model::factory('SprBlogger')
                     ->where('active', 1)
@@ -46,6 +50,6 @@ require 'main.hotels.php';
 require 'main.comment.php';
 require 'main.votes.php';
 // about
-$app->get('/about', function() use ($app) {
+$app->get('/hotels/about', function() use ($app) {
     return $app->render('about.twig', array('currentpage' => 'page'));
 });

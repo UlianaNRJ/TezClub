@@ -1,7 +1,7 @@
 <?php
 // Blog Homepage.
-$app->get('/blog(/:page)', 'all_blogs');
-$app->post('/blog(/:page)', 'all_blogs');
+$app->get('/hotels/blog(/:page)', 'all_blogs');
+$app->post('/hotels/blog(/:page)', 'all_blogs');
 
 function all_blogs($page = 1) {
     $app = Slim::getInstance();
@@ -138,7 +138,7 @@ function all_blogs($page = 1) {
 };
 
 // Blog View.
-$app->get('/blog/view/(:id)', function($id) use ($app) {
+$app->get('/hotels/blog/view/(:id)', function($id) use ($app) {
     $topic = Model::factory('SprTopic')->find_one($id);
     if (! $topic instanceof SprTopic) {
         $app->notFound();

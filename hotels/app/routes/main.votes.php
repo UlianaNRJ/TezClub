@@ -3,7 +3,7 @@
 
 // голосовалка
 // 
-$app->post('/topic/vote', function() use ($app) {
+$app->post('/hotels/topic/vote', function() use ($app) {
     // находим топик за который голосовали
     $id = $app->request()->post('topic-id');
     $topic = Model::factory('SprTopic')->where('active', 1)->find_one($id);
@@ -57,7 +57,7 @@ $app->post('/topic/vote', function() use ($app) {
 
 
 // 
-$app->post('/blogger/vote', function() use ($app) {
+$app->post('/hotels/blogger/vote', function() use ($app) {
     // находим топик за который голосовали
     $id = $app->request()->post('blogger-id');
     $blogger = Model::factory('SprBlogger')->where('active', 1)->find_one($id);

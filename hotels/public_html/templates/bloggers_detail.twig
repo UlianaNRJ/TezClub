@@ -7,9 +7,9 @@
     <div class="c info">
         <div class="ib avatar">
             {% if blogger.image %}
-                <img src="/{{ blogger.image }}.225" height="225" width="225" alt="avatar" class="ib"/>
+                <img src="{{ hotelssiteurl }}/{{ blogger.image }}.225" height="225" width="225" alt="avatar" class="ib"/>
             {% else %}
-                <img src="/img/avatar.png" height="225" width="225" alt="avatar" class="ib"/>
+                <img src="{{ hotelssiteurl }}/img/avatar.png" height="225" width="225" alt="avatar" class="ib"/>
             {% endif %}
 
         <div class="poll" id="rating{{ blogger.id }}">
@@ -88,11 +88,11 @@
                 {% for hotel in hotels %}
                 <li class="c {% if hotel.active == 0 %} noactive {% endif %}">
                     {% if hotel.image %}
-                        <img src="/{{ hotel.image }}.25" width="25" alt="avatar" class="ib"/>
+                        <img src="{{ hotelssiteurl }}/{{ hotel.image }}.25" width="25" alt="avatar" class="ib"/>
                     {% else %}
-                        <img src="/img/hotel-25.png" width="25" alt="avatar" class="ib"/>
+                        <img src="{{ hotelssiteurl }}/img/hotel-25.png" width="25" alt="avatar" class="ib"/>
                     {% endif %}
-                    <a class="ib name" {% if hotel.active != 0 %} href="/hotel/{{ hotel.id }}" {% endif %}>{{ hotel.name }}</a>
+                    <a class="ib name" {% if hotel.active != 0 %} href="/hotels/hotel/{{ hotel.id }}" {% endif %}>{{ hotel.name }}</a>
                     <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>
                 </li>
                 {% endfor %}
@@ -116,7 +116,7 @@
                 {% if page.current == current %}
                     <li class="ib active">{{page.id}}</li>
                 {% else %}
-                    <li class="ib"><a href="/hotel/{{ hotel.id }}/{{page.id}}">{{page.id}}</a></li>
+                    <li class="ib"><a href="/hotels/hotel/{{ hotel.id }}/{{page.id}}">{{page.id}}</a></li>
                 {% endif %}
             {% endfor %}
             </ul>

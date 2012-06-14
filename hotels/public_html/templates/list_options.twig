@@ -1,6 +1,6 @@
 {% if currentpage == 'hotels'%}
 <h3>Сортировать обзоры про отель</h3>
-<form method="post" action="/hotel/4">
+<form method="post" action="/hotels/hotel/4">
     <select name="sortby"> 
         <option value="DESC">Последние</option> 
         <option value="ASC"  {% if sortby == "ASC" %} selected {% endif %}>Первые</option> 
@@ -9,7 +9,7 @@
 
 {% elseif currentpage == 'blog' %}
 <h3>Сортировать обзоры </h3>
-<form method="post" action="/blog">
+<form method="post" action="/hotels/blog">
     <select name="sortby"> 
         <option value="DESC">Последние</option> 
         <option value="ASC" {% if sortby == "ASC" %} selected {% endif %}>Первые</option> 

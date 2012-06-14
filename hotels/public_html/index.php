@@ -7,6 +7,7 @@ $app = new Slim(array(
 ));
 
 $app->view()->setData('siteurl', 'http://'.$_SERVER["SERVER_NAME"] );
+$app->view()->setData('hotelssiteurl', HOTELS_WEB_DIR );
 
 // Auth Check.
 $authCheck = function() use ($app) {
