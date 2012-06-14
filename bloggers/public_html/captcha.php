@@ -1,3 +1,3 @@
 <?php
-	include('/../app/vendor/kcaptcha/index.php');
+	include('../app/vendor/kcaptcha/index.php');
 ?>
