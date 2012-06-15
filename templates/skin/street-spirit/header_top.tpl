@@ -1,7 +1,8 @@
 <div id="logo-line" style="overflow: auto; width: 100%;">
-    <div class="logo-line-inside" style="float:left; width: 40%;">
+    <div class="logo-line-inside" style="float:left; width: 50%;">
         <a href="{cfg name='path.root.web'}" class="logo">Tez<span>Club</span><font color="lightgrey">International</font></a>
         <a href="http://hotels.tezclub.com.ua/" class="logohref button blue corners ib">Bloggers in hotels</a>
+        <a href="http://competition.tezclub.com.ua" class="logohref button blue corners ib">Турецкая История</a>
     </div>
 	<div class="nav-inner">
         {if $oUserCurrent}
@@ -51,13 +52,15 @@
             <li {if $sMenuHeadItemSelect=='blog'}class="active"{/if}><a href="{cfg name='path.root.web'}">Главное</a></li>
             <li {if $sMenuHeadItemSelect=='blogs'}class="active"{/if}><a href="{router page='blogs'}">{$aLang.blogs}</a></li>
 			<li><a href="{router page='tag/Советы'}">Советы</a></li>
-			{*<li><a href="/your_tour.php">Мой тур</a></li>*}
             <li {if $sMenuHeadItemSelect=='people'}class="active"{/if}><a href="{router page='people'}">{$aLang.people}</a></li>
+            <li class="ib"><a class="self" href="http://agencies.tezclub.com.ua/">Где купить</a></li>
+            <li class="ib"><a class="self" href="http://tour.tezclub.com.ua/">Мой Тур</a></li>
             {if $oUserCurrent}
             <li {if $sMenuItemSelect=='stream'}class="active"{/if}>
                 <a href="{router page='stream'}">{$aLang.stream_personal_title}</a>
             </li>
             {/if}
+
             {hook run='main_menu'}
         </ul>
     </div>
