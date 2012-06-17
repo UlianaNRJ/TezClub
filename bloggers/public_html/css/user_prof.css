@@ -1,0 +1,135 @@
+/* User profile */
+.user-profile { margin-bottom: 20px; overflow: hidden; zoom: 1; position: relative; }
+.user-profile .avatar { float: left; margin-right: 15px; }
+.user-profile h3 { font-size: 24px; line-height: 1em; margin: 10px 0; font-family: 'helvetica neue', arial, sans-serif; font-weight:bold;}
+.user-profile p.realname { font-size: 30px; color: #666666; font-family: 'helvetica neue', arial, sans-serif; font-weight:bold;}
+
+.user-profile .voting { position: absolute; top: 0px; right: 75px; z-index: 100; }
+.user-profile .voting .total { font-weight: normal; padding: 4px 10px 5px; font-size: 19px; }
+.user-profile .voting .plus { margin: 4px 6px 0 0; }
+.user-profile .voting .minus { margin: 4px 0 0 6px; }
+.user-profile .voting .text { font-size: 11px; color: #4d4d4d; text-align: center; clear: both; }
+.user-profile .voting.positive .total { background: #359e07; color: #fff; }
+.user-profile .voting.negative .total { background: #FF3B3C; color: #fff; }
+
+.user-profile .strength { position: absolute; top: 0; right: 0;}
+.user-profile .sitevote { position: absolute; top: 60px; right: 0;}
+.user-profile .strength .total { float: left; background: #0073a5; font-size: 32px; padding: 4px 10px 5px; font-weight: normal; color: #fff; }
+.user-profile .strength .text { float: left; font-size: 19px; color: #4d4d4d; text-align: right; 
+        padding: 0 15px 0 0 ;}
+.user-profile .sitevote .total { float: left; font-size: 12px; padding: 4px 10px 5px; font-weight: normal; color: #fff; }
+.user-profile .sitevote .text { float: left; font-size: 11px; color: #4d4d4d; text-align: right; 
+        padding: 0 5px 0 0 ;}
+
+.user-profile-header{float: left; width:98%; font-size:18px; margin:0 0 12px 0; font-weight:bold; padding:0 0 0 20px; float:right; background:url(/img/gray-dot.png) 0 50% repeat-x;}
+.user-profile-header span{color:#000; background:#fff; padding:0 9px; margin:0 0 0 -4px; color:#000;}
+
+.profile-actions{width:100%;clear:both; margin:20px 0 5px 0; float:left;}
+
+.user-profile-table { width: 100%; font-size:15px; margin:0 0 20px 0;}
+.user-profile-table td { vertical-align: top; padding: 0 0 6px; line-height:20px;}
+.user-profile-table td.var { width: 160px; color: #4d4d4d; padding-bottom:5px;}
+.user-profile-table td.no-pdng {padding-bottom:0px;}
+.user-profile-table td.friends-list-exp {padding-bottom:0px;}
+.user-profile-table td .user { font-size:13px;}
+.user-profile-table .user-list li{display:inline-block; margin:0 25px 15px 0; vertical-align:top; line-height:24px;}
+.user-profile-table .user-list li .avatar{float:left; margin:0 6px 0 0;}
+*+ html .user-profile-table .user-list li{display:inline; zoom:1;}
+
+#profile_actions li{display:inline-block; margin-right:5px;}
+*+html #profile_actions li {display:inline; zoom:1}
+
+#profile_actions a .mail-ico{display:inline-block; width:16px; height:12px; background:url(/img/mail-ico.png) 0 0 no-repeat; position:relative; top:-1px; margin-right:6px; vertical-align:middle;}
+*+ html #profile_actions a .mail-ico{display:inline; zoom:1;}
+#profile_actions a .add-ico{display:inline-block; width:9px; height:9px; background:url(/img/add-ico.png) 0 0 no-repeat; margin-right:6px; position: relative; top: -1px; vertical-align:middle;}
+*+ html #profile_actions a .add-ico{display:inline; zoom:1;}
+
+/*#profile_actions li {
+        font-size:14px;
+        background:#d9d9d9;
+        padding:2px 9px 2px 9px;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e1e1e1', endColorstr='#cbcbcb');
+        background: -webkit-gradient(linear, left top, left bottom, from(#e1e1e1), to(#cbcbcb));
+        background: -moz-linear-gradient(top,  #e1e1e1,  #cbcbcb);
+        background: -o-linear-gradient(top, #e1e1e1, #cbcbcb); -- Opera11.10+ --
+        background: -ms-linear-gradient(top, #e1e1e1, #cbcbcb); -- IE10+ --
+        background: linear-gradient(top, #e1e1e1, #cbcbcb); -- W3C --
+        border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
+        text-shadow:0px 1px 0px #fff;
+}
+#profile_actions li a{
+    text-decoration:none;
+    color:#000;
+}*/
+
+
+
+.extra {
+}
+ul.extra {
+        list-style:none;
+        margin-bottom: 20px;
+}
+ul.extra li {
+        padding: 0 0 5px 0;
+}
+ul.extra li a {
+        text-decoration: none;
+}
+ul.extra li a:hover {
+        text-decoration: underline;
+}
+.extra label {
+        background: url(../images/social.png) no-repeat 0 0;
+        display: inline-block;
+        width:80px;
+        padding-left: 22px;
+        height:16px;
+}
+.extra span.lj,
+.extra span.bl,
+.extra span.other,
+.extra span.tw,
+.extra span.fb,
+.extra span.vk,
+.extra span.sk,
+.extra span.icq,
+.extra span.jb,
+.extra span.mr {
+        background-image: url(/img/social.png);
+        background-repeat:no-repeat;
+        float:left;
+        width:16px;
+        height:16px;
+        margin: 1px 5px 0 0;
+}
+.extra .lj {
+        background-position:0 -16px;
+}
+.extra .bl {
+        background-position:0 -64px;
+}
+.extra .other {
+        background-position:-200px -200px;
+}
+.extra .tw {
+        background-position:0 -32px;
+}
+.extra .fb {
+        background-position:0 -48px;
+}
+.extra .vk {
+        background-position:0 0;
+}
+.extra .sk {
+        background-position:0 -112px;
+}
+.extra .icq {
+        background-position:0 -128px;
+}
+.extra .jb {
+        background-position:0 -96px;
+}
+.extra .mr {
+        background-position:0 -80px;
+}

@@ -1,0 +1,289 @@
+{% extends 'layout.twig' %}
+
+{% block page_title %} {{ blogger.user_login }} PAGE TITLE {% endblock %}
+
+{% block page_head %}
+<link rel="stylesheet" type="text/css" media="screen" href="/css/user_prof.css"/>
+
+<script type="text/javascript" src="http://vkontakte.ru/js/api/share.js?11" charset="windows-1251"></script>
+<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript"></script>
+<script src="http://stg.odnoklassniki.ru/share/odkl_share.js" type="text/javascript" ></script>
+<script src="http://connect.facebook.net/ru_RU/all.js#xfbml=1"></script>
+<script language="JavaScript" type="text/javascript">
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    </script>
+<script language="JavaScript" type="text/javascript">
+    jQuery(document).ready(function($){
+        ODKL.init();
+    });
+</script>
+{% endblock %}
+
+{% block article_class %} blogger {% endblock %}
+
+{% block content %}
+<div id="fb-root"></div>
+
+<div id="content-inner">
+
+<div class="user-profile">
+    <div class="strength">
+        <div class="text">Рейтинг в конкурсе<br>Tez Drive</div>
+        <div class="total" id="user_skill_{blogger.Id()}">0.00</div>
+    </div>
+
+    <div class="sitevote voting {% if blogger.user_rating >=0 %}positive{% else %}negative{% endif %}">
+        <div class="text">Рейтинг на<br>сайте</div>
+        <div  class="total" title="Голосов: {{ blogger.user_count_vote }}">{{ blogger.user_rating }}</div>
+    </div>
+
+
+    <img src="{{ blogger.user_profile_avatar }}" alt="avatar" class="avatar" />
+    <h3>{{ blogger.user_login }}</h3>
+    {% if blogger.user_profile_name %}
+        <p class="realname">{{ blogger.user_profile_name }}</p>
+    {% endif %}
+    <div class="profile-actions">
+        <ul id="profile_actions">
+            <li><a href="https://twitter.com/share" class="twitter-share-button"
+                       data-url="{{ siteurl }}/blogger/{{ blogger.user_id }}"
+                       data-text="{{ blogger.user_login }}" data-lang="ru">Твитнуть</a></li>
+            <li><script type="text/javascript"><!--
+                    document.write(VK.Share.button({url: "{{ siteurl }}/blogger/{{ blogger.user_id }}",
+                    title: "{{ topic.title }}"},{type: "round", text: "Мне нравится"}));
+                    --></script></li>
+            <li><div class="fb-like" data-href="{{ siteurl }}/blogger/{{ blogger.user_id }}" data-action="like" data-show-faces="true" data-width="125" data-layout="button_count" data-send="false"></div></li>
+            <li><a class="odkl-klass" href="{{ siteurl }}/blogger/{{ blogger.user_id }}" onclick="voteOdnoklassniki(this);return false;" ></li>
+            <li>TezLike</li>
+        </ul>
+
+    </div>
+
+</div>
+
+<h2 class="user-profile-header"><span>Личное</span></h2>
+
+<table class="user-profile-table">
+    {% if blogger.user_profile_sex !='other'%}
+        <tr>
+            <td class="var">Пол:</td>
+            <td>
+                {% if blogger.user_profile_sex =='man' %}
+                    мужской
+                {% else %}
+                    женский
+                {% endif %}
+            </td>
+        </tr>
+    {% endif %}
+
+    {% if blogger.user_profile_birthday %}
+        <tr>
+            <td class="var">Дата рождения:</td>
+            <td>{{ blogger.user_profile_birthday }}</td>
+        </tr>
+    {% endif %}
+
+    {% if blogger.user_profile_country or blogger.user_profile_region or blogger.user_profile_city %}
+        <tr>
+            <td class="var">Местоположение:</td>
+            <td>
+            {% if blogger.user_profile_country %}
+                <a href="#country">{{ blogger.user_profile_country }}</a>
+                {% if blogger.user_profile_city %},{% endif %}
+            {% endif %}
+            {% if blogger.user_profile_city %}
+                <a href="#city">{{ blogger.user_profile_city }}</a>
+            {% endif %}
+            </td>
+        </tr>
+    {% endif %}
+
+    {% if blogger.user_profile_site %}
+        <tr>
+            <td class="var">Сайт:</td>
+            <td>
+                <a href="{{ blogger.user_profile_site }}" rel="nofollow">
+                    {% if blogger.user_profile_site_name %}
+                        {{ blogger.user_profile_site_name }}
+                    {% else %}
+                        {{ blogger.user_profile_site }}
+                    {% endif %}
+                </a>
+            </td>
+        </tr>
+    {% endif %}
+
+</table>
+
+
+{% if blogger.blog_lj or blogger.blog_blogger or blogger.blog_other %}
+    <h2 class="user-profile-header"><span>Мои блоги</span></h2>
+    <table class="user-profile-table extra">
+
+        {% if blogger.blog_lj %}
+            <tr>
+                <td class="var"><span class="lj"></span>Livejournal:</td>
+                <td>{{ blogger.blog_lj }}</td>
+            </tr>
+        {% endif %}
+
+        {% if blogger.blog_blogger %}
+            <tr>
+                <td class="var"><span class="bl"></span>Blogger:</td>
+                <td>{{ blogger.blog_blogger }}</td>
+            </tr>
+        {% endif %}
+
+        {% if blogger.blog_other %}
+            <tr>
+                <td class="var"><span class="other"></span>Другой блог:</td>
+                <td>{{ blogger.blog_other }}</td>
+            </tr>
+        {% endif %}
+        
+    </table>
+{% endif %}
+
+{% if blogger.user_profile_icq or blogger.profile_twitter or blogger.profile_fb or blogger.profile_vk or blogger.profile_skype %}
+    <h2 class="user-profile-header"><span>Другие аккаунты</span></h2>
+    <ul class="extra">
+
+        {% if blogger.user_profile_icq  %}
+            <li><span class="icq"></span>{{ blogger.user_profile_icq }}</li>
+        {% endif %}
+
+        {% if blogger.profile_twitter %}
+            <li><span class="tw"></span><a href="{{ blogger.profile_twitter }} ">Twitter</a></li>
+        {% endif %}
+
+        {% if blogger.profile_fb %}
+            <li><span class="fb"></span><a href="{{ blogger.profile_fb }}">Facebook</a></li>
+        {% endif %}
+
+        {% if blogger.profile_vk %}
+            <li><span class="vk"></span><a href="{{ blogger.profile_vk }}">Вконтакте</a></li>
+        {% endif %}
+
+        {% if blogger.profile_skype %}
+            <li><span class="sk"></span><a href="skype:{{ blogger.profile_skype }}">Skype</a></li>
+        {% endif %}
+
+    </ul>
+{% endif %}
+
+
+{% if blogger.user_profile_about  %}
+<h2 class="user-profile-header"><span>О себе</span></h2>
+<table class="user-profile-table">
+        <tr>
+        <td>{{ blogger.user_profile_about }}</td>
+    </tr>
+</table>
+{% endif %}
+
+
+<h2 class="user-profile-header"><span>Активность</span></h2>
+<table class="user-profile-table">
+    {% if blogger_friends %}
+        <tr>
+            <td class="var">Друзья:</td>
+            <td class="friends-list-exp">
+                <ul class="user-list">
+                {% for friend in blogger_friends  %}
+                    <li>
+                        <a href="#" class="avatar">
+                            {% if friend.user_profile_avatar%}
+                                <img src="{{ friend.user_profile_avatar }}">
+                            {% else %}
+                                <img src="http://tezclub.com.ua/templates/skin/street-spirit/images/avatar_24x24.jpg">
+                            {% endif %}
+
+                        </a>
+                        <a href="#" class="user">{{ friend.user_login }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    {% endif %}
+{#
+    {% if $oConfig->GetValue('general.reg.invite') and $oUserInviteFrom %}
+        <tr>
+            <td class="var">{$aLang.profile_invite_from}:</td>
+            <td>
+                <a href="{$oUserInviteFrom->getUserWebPath()}">{$oUserInviteFrom->getLogin()}</a>&nbsp;
+            </td>
+        </tr>
+    {% endif %}
+
+    {% if $oConfig->GetValue('general.reg.invite') and $aUsersInvite %}
+        <tr>
+            <td class="var">{$aLang.profile_invite_to}:</td>
+            <td>
+                {foreach from=$aUsersInvite item=oUserInvite}
+                    <a href="{$oUserInvite->getUserWebPath()}">{$oUserInvite->getLogin()}</a>&nbsp;
+                {/foreach}
+            </td>
+        </tr>
+    {% endif %}
+#}
+
+{#
+    {% if $aBlogsOwner %}
+        <tr>
+            <td class="var">{$aLang.profile_blogs_self}:</td>
+            <td>
+                {foreach from=$aBlogsOwner item=oBlog name=blog_owner}
+                    <a href="{router page='blog'}{$oBlog->getUrl()}/">{$oBlog->getTitle()|escape:'html'}</a>{% if!$smarty.foreach.blog_owner.last %}, {% endif %}
+                {/foreach}
+            </td>
+        </tr>
+    {% endif %}
+
+    {% if $aBlogAdministrators %} 
+        <tr>
+            <td class="var">{$aLang.profile_blogs_administration}:</td>
+            <td>
+                {foreach from=$aBlogAdministrators item=oBlogUser name=blog_user}
+                    {assign var="oBlog" value=$oBlogUser->getBlog()}
+                    <a href="{router page='blog'}{$oBlog->getUrl()}/">{$oBlog->getTitle()|escape:'html'}</a>{% if!$smarty.foreach.blog_user.last %}, {% endif %}
+                {/foreach}
+            </td>
+        </tr>
+    {% endif %}
+
+    {% if $aBlogModerators %} 
+        <tr>
+            <td class="var">{$aLang.profile_blogs_moderation}:</td>
+            <td>
+                {foreach from=$aBlogModerators item=oBlogUser name=blog_user}
+                    {assign var="oBlog" value=$oBlogUser->getBlog()}
+                    <a href="{router page='blog'}{$oBlog->getUrl()}/">{$oBlog->getTitle()|escape:'html'}</a>{% if!$smarty.foreach.blog_user.last %}, {% endif %}
+                {/foreach}
+            </td>
+        </tr>
+    {% endif %}
+
+    {% if$aBlogUsers %}
+        <tr>
+            <td class="var">{$aLang.profile_blogs_join}:</td>
+            <td>
+                {foreach from=$aBlogUsers item=oBlogUser name=blog_user}
+                    {assign var="oBlog" value=$oBlogUser->getBlog()}
+                    <a href="{router page='blog'}{$oBlog->getUrl()}/">{$oBlog->getTitle()|escape:'html'}</a>{% if !$smarty.foreach.blog_user.last %}, {% endif %}
+                {/foreach}
+            </td>
+        </tr>
+    {% endif %}
+#}
+    <tr>
+        <td class="var">Зарегистрирован:</td>
+        <td class="no-pdng">{{ blogger.user_date_register }}</td>
+    </tr>
+
+</table>
+
+
+
+{% endblock %}

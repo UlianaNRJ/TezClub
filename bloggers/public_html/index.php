@@ -6,6 +6,7 @@ $app = new Slim(array(
 	'view' => new TwigView
 ));
 
+$app->view()->setData('siteurl', 'http://'.$_SERVER["SERVER_NAME"] );
 
 // Auth Check.
 $authCheck = function() use ($app) {
