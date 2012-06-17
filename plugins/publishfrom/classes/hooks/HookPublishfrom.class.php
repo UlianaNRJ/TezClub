@@ -18,21 +18,22 @@ class PluginPublishfrom_HookPublishfrom extends Hook {
 		$oUser = $this->User_GetUserCurrent();
 		if($oUser->isAdministrator()){
 			$uid = getRequest(Config::Get('plugin.publishfrom.select_name'));
-			if(!$uid)
-				$uid = $oUser->getId();
-			$oTopic = $this->Topic_GetTopicById($oTopic->getId());
-			
-			if($oBlog->getType() == 'personal'){
-				if($oTopic->getPublish()){
-					$oBlogNew = $this->Blog_GetPersonalBlogByUserId($uid);
-					$oTopic->setBlog($oBlogNew);
-					$oTopic->setBlogId($oBlogNew->getId());
+			if($uid != 0) {
+				/* $uid = $oUser->getId(); */
+				$oTopic = $this->Topic_GetTopicById($oTopic->getId());
+				
+				if($oBlog->getType() == 'personal'){
+					if($oTopic->getPublish()){
+						$oBlogNew = $this->Blog_GetPersonalBlogByUserId($uid);
+						$oTopic->setBlog($oBlogNew);
+						$oTopic->setBlogId($oBlogNew->getId());
+					}
 				}
+				
+				$oTopic->setUser($this->User_GetUserById($uid));			
+				$oTopic->setUserId($uid);
+				$this->PluginPublishfrom_Publishfrom_UpdateTopic($oTopic);
 			}
-			
-			$oTopic->setUser($this->User_GetUserById($uid));			
-			$oTopic->setUserId($uid);
-			$this->PluginPublishfrom_Publishfrom_UpdateTopic($oTopic);			
 		}
 	}
 	
