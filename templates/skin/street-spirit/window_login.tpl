@@ -12,7 +12,7 @@
             <dt><label><a href="{router page='login'}reminder/">{$aLang.user_password_reminder}</a> {$aLang.user_password}:</label></dt>
             <dd><input tabindex="2" type="password" name="password" class="input-text" /></dd>
             <dt>&nbsp;</dt>
-            <dd><input tabindex="4" type="submit" name="submit_login" class="green-button" value="{$aLang.user_login_submit}" /><label class="label-remember"><input tabindex="3" type="checkbox" name="remember" class="checkbox" checked="checked" />{$aLang.user_login_remember}</label></dd>
+            <dd><input tabindex="4" type="submit" name="submit_login" class="button white corners hand" value="{$aLang.user_login_submit}" />&nbsp;&nbsp;<label class="label-remember"><input tabindex="3" type="checkbox" name="remember" class="checkbox" checked="checked" />{$aLang.user_login_remember}</label></dd>
         </dl>
     </form>
 </div>

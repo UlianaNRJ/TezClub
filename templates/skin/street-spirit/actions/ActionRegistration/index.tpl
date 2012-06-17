@@ -36,7 +36,7 @@
 		
 		<div class="button-line">
 			<div class="center">
-				<span><input tabindex="6" type="submit" name="submit_register" class="button big-button" value="{$aLang.registration_submit}" /></span>
+				<span><input tabindex="6" type="submit" name="submit_register" class="button white corners hand" value="{$aLang.registration_submit}" /></span>
 			</div>
 		</div>
 	</form>

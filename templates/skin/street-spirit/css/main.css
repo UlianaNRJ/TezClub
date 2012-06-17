@@ -11,6 +11,9 @@ h3 { font-size: 18px; }
 
 a { color: #0073a5; }
 a:hover{ color:#1cacea; border-color:#1cacea !important;}
+
+.hand { cursor: pointer; }
+
 #content .content a:visited{ color:#324a65; }
 #content .content a:active{background:#e6f8ff;}
 

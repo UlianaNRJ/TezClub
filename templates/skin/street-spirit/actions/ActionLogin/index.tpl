@@ -6,7 +6,7 @@
 		<p class="system-messages-error">{$aLang.user_login_bad}</p>
 	{/if}
 
-	<form action="{router page='login'}" method="post">
+	<form class="login_form" action="{router page='login'}" method="post">
 		<h2 class="form-header">{$aLang.user_authorization}</h2>
 
 		{hook run='form_login_begin'}
@@ -14,11 +14,9 @@
 		<p><label>{$aLang.user_login}<br /><input tabindex="1" type="text" name="login" class="input-text" /></label></p>
 		<p><label>{$aLang.user_password}<br /><input tabindex="2" type="password" name="password" class="input-text" /></label></p>
 		
-		<p><input type="submit" name="submit_login" class="button button-login" value="{$aLang.user_login_submit}" />
-		<label><input tabindex="3" type="checkbox" name="remember" checked="checked" class="checkbox" />{$aLang.user_login_remember}</label>
+		<p><label><input type="submit" name="submit_login" class="button white corners hand" value="{$aLang.user_login_submit}" />&nbsp;&nbsp;<input tabindex="3" type="checkbox" name="remember" checked="checked" class="checkbox" />{$aLang.user_login_remember}</label>
 		</p>
-		<p><a href="{router page='registration'}">{$aLang.user_registration}</a><br />
-		<a href="{router page='login'}reminder/">{$aLang.user_password_reminder}</a></p>
+		<p><a href="{router page='registration'}">{$aLang.user_registration}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{router page='login'}reminder/">{$aLang.user_password_reminder}</a></p>
 		<input type='hidden' name="sBackUrl" value="{$sBackUrl}">
 		{hook run='form_login_end'}
 	</form>
