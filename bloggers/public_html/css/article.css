@@ -559,9 +559,9 @@ ul.images {
 		padding-left: 20px;
 	}
 		ul.images li img{
-			border: 5px solid #FFFFFF;
-			border-radius: 60px 60px 60px 60px;
-			box-shadow: 0 0 10px 0 #DDDDDD;
+			margin: 5px;
+			border-radius: 60px;
+			box-shadow: 0 0 0 5px #FFFFFF, 0 0 10px 0 #DDDDDD;
 			position: absolute;
 			top: 0;
 			width: 117px;
