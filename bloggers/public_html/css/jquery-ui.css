@@ -27,3 +27,7 @@
 .ui-dialog.rules .ui-dialog-content h1{
 	text-align: center;
 }
+
+.ui-selectmenu-menu ul.ui-menu {
+	height: 230px;
+}
