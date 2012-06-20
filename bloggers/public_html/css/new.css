@@ -172,6 +172,20 @@ body > header, body > article {
 			line-height: 40px;
 			margin-top: 0;
 		}
+
+	.prize .car {
+		position: relative;
+	}
+	.prize .testdrive {
+		color: #FFFFFF;
+	    font-size: 25px;
+	    position: absolute;
+	    right: -70px;
+	    text-decoration: underline;
+	    text-shadow: 0 -1px 1px #555555;
+	    top: -60px;
+	}
+
 	.prize .actions {
 		bottom: 300px;
 		margin: 0;
