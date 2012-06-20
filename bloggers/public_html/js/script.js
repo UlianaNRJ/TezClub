@@ -108,9 +108,9 @@ jQuery(document).ready(function($){
 		return this.hostname && this.hostname !== location.hostname;
 	}).attr({target:"blank"});
 
-	$("a","li.active").click(function(){
-		return false;
-	});
+	// $("a","li.active").click(function(){
+	// 	return false;
+	// });
 
 	$("li", ".popular").click(function(){
 		$(this).addClass("active").siblings().removeClass("active");

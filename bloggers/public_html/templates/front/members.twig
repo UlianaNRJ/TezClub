@@ -17,7 +17,7 @@
                     {% if finalist.user_profile_avatar != '' %}
                     <img src="{{ finalist.user_profile_avatar }}" height="100" width="100" alt=""/>
                     {% else %}
-                    <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                    <img src="/img/avatar-100.png" height="100" width="100" alt=""/>
                     {% endif %}
                 </a>
                 <div class="login">{{ finalist.mounth }}</div>
@@ -30,7 +30,6 @@
 </div>
 <h1>Все участники проекта</h1>
 <div class="c faces full">
-    <div class="ib arrow left"></div>
     <ul class="c ib">
         {% for blogger in bloggers %}
         <li class="ib corners active">
@@ -38,16 +37,25 @@
                 {% if blogger.user_profile_avatar != '' %}
                 <img src="{{ blogger.user_profile_avatar }}" height="100" width="100" alt=""/>
                 {% else %}
-                <img src="img/avatar-100.png" height="100" width="100" alt=""/>
+                <img src="/img/avatar-100.png" height="100" width="100" alt=""/>
                 {% endif %}
             </a>
             <div class="login"><a href="/bloggers/{{ blogger.id }}">{{ blogger.user_login }}</a></div>
             <div class="name"><a href="/bloggers/{{ blogger.id }}">{{ blogger.user_profile_name }}</a></div>
-            <div class="statistic">Рейтинг <span class="score">{{ blogger.user_rating }}</span></div>
+            <div class="statistic">Рейтинг <span class="score">{{ blogger.conkurs_rate }}</span></div>
         </li>
         {% endfor %}
     </ul>
-    <div class="ib arrow right"></div>
 </div>
-
+    <div class="pagination">
+        <ul class="c ib pagging">
+        {% for page in pagination %}
+            {% if page.current == 1 %}
+                <li class="ib active">{{page.id}}</li>
+            {% else %}
+                <li class="ib"><a href="/members/{{page.id}}">{{page.id}}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

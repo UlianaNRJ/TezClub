@@ -31,7 +31,7 @@
 <div class="user-profile">
     <div class="strength">
         <div class="text">Рейтинг в конкурсе<br>Tez Drive</div>
-        <div class="total" id="user_skill_{blogger.Id()}">0.00</div>
+        <div class="total" id="user_skill_{{ blogger.id }}">{{ blogger.conkurs_rate }}</div>
     </div>
 
     <div class="sitevote voting {% if blogger.user_rating >=0 %}positive{% else %}negative{% endif %}">

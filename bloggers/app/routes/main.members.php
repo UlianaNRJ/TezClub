@@ -1,24 +1,45 @@
 <?php
 
-$app->get('/members', function() use ($app, $db) {
+$app->get('/members(/:page)', function($page = 1) use ($app, $db) {
 
-    $finalists = $db->dbFetchAll("SELECT bbfin.*, tc_user.user_login, tc_user.user_profile_name
+   $MonthNames=array("Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь");
+
+    $finalists = $db->dbFetchAll("SELECT bbfin.*, 
+                                    tc_user.user_login, tc_user.user_profile_name, tc_user.user_profile_avatar
                                     FROM bb_fin_users as bbfin
                                     LEFT JOIN tc_user ON (bbfin.user_id = tc_user.user_id) 
                                     ORDER BY bbfin.mounth ASC
                                   ");
 
+    foreach ($finalists as $key =>$value) {
+        $finalists[$key]['mounth'] = $MonthNames[$finalists[$key]['mounth']];
+    }
+    
+    $onpage = 15;
+    $page = (int) $page;
+    //собираем кол-во страниц, для пагинации
+    $pages = $db->dbRowCount("users_ext", "users_ext.participate = '1' ORDER BY conkurs_rate DESC");
+    $pages = ceil($pages / $onpage);
+    $arrpage =  array();
+    for ($i=0; $i < $pages; $i++) {
+        $arrpage[$i]['id'] = $i+1;
+        $arrpage[$i]['current'] = ($page == $i+1) ? 1 : 0;
+    }
+
+    $offset = $onpage * ($page-1);
+
     $bloggers = $db->dbFetchAll("SELECT * 
-                                    FROM tc_user
-                                    LEFT JOIN users_ext ON (users_ext.id = tc_user.user_id) 
-                                    WHERE users_ext.participate = '1'
-                                    ORDER BY tc_user.user_rating DESC 
-                                    LIMIT 20
-                                  ");
+                                  FROM tc_user
+                                  LEFT JOIN users_ext ON (users_ext.id = tc_user.user_id) 
+                                  WHERE users_ext.participate = '1'
+                                  ORDER BY conkurs_rate DESC 
+                                  LIMIT {$offset}, {$onpage}
+                                ");
 
     $data = array('currentpage' => 'members',
                   'bloggers'    => $bloggers,
-                  'finalists'    => $finalists
+                  'finalists'   => $finalists,
+                  'pagination'  => $arrpage 
                   );
 
     return $app->render('front/members.twig', $data);
@@ -27,11 +48,11 @@ $app->get('/members', function() use ($app, $db) {
 $app->get('/bloggers/:id', function($id) use ($app, $db) {
 
     $blogger = $db->dbFetchObject("SELECT * 
-                                FROM tc_user
-                                LEFT JOIN users_ext ON (users_ext.id = tc_user.user_id) 
-                                WHERE users_ext.participate = '1'
-                                  AND tc_user.user_id = {$id}
-                              ");
+                                    FROM tc_user
+                                    LEFT JOIN users_ext ON (users_ext.id = tc_user.user_id) 
+                                    WHERE users_ext.participate = '1'
+                                      AND tc_user.user_id = {$id}
+                                  ");
 
     $sql = "SELECT
           uf.user_from,
