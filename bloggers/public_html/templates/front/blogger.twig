@@ -233,17 +233,18 @@
     {% endif %}
 #}
 
-{#
-    {% if $aBlogsOwner %}
+    {% if blogs_created %}
         <tr>
-            <td class="var">{$aLang.profile_blogs_self}:</td>
+            <td class="var">Создал:</td>
             <td>
-                {foreach from=$aBlogsOwner item=oBlog name=blog_owner}
-                    <a href="{router page='blog'}{$oBlog->getUrl()}/">{$oBlog->getTitle()|escape:'html'}</a>{% if!$smarty.foreach.blog_owner.last %}, {% endif %}
-                {/foreach}
+                {% for blog in blogs_created %}
+                    <a href="{{ ROOT_URL }}blog/{{blog.url}}/">{{ blog.title }}</a>{% if loop.last != true %}, {% endif %}
+                {% endfor %}
             </td>
         </tr>
     {% endif %}
+
+{#
 
     {% if $aBlogAdministrators %} 
         <tr>
@@ -251,7 +252,7 @@
             <td>
                 {foreach from=$aBlogAdministrators item=oBlogUser name=blog_user}
                     {assign var="oBlog" value=$oBlogUser->getBlog()}
-                    <a href="{router page='blog'}{$oBlog->getUrl()}/">{$oBlog->getTitle()|escape:'html'}</a>{% if!$smarty.foreach.blog_user.last %}, {% endif %}
+                    <a href="{router page='blog'}{$oBlog->getUrl()}/" target="_blank">{$oBlog->getTitle()|escape:'html'}</a>{% if!$smarty.foreach.blog_user.last %}, {% endif %}
                 {/foreach}
             </td>
         </tr>
@@ -263,27 +264,32 @@
             <td>
                 {foreach from=$aBlogModerators item=oBlogUser name=blog_user}
                     {assign var="oBlog" value=$oBlogUser->getBlog()}
-                    <a href="{router page='blog'}{$oBlog->getUrl()}/">{$oBlog->getTitle()|escape:'html'}</a>{% if!$smarty.foreach.blog_user.last %}, {% endif %}
-                {/foreach}
-            </td>
-        </tr>
-    {% endif %}
-
-    {% if$aBlogUsers %}
-        <tr>
-            <td class="var">{$aLang.profile_blogs_join}:</td>
-            <td>
-                {foreach from=$aBlogUsers item=oBlogUser name=blog_user}
-                    {assign var="oBlog" value=$oBlogUser->getBlog()}
-                    <a href="{router page='blog'}{$oBlog->getUrl()}/">{$oBlog->getTitle()|escape:'html'}</a>{% if !$smarty.foreach.blog_user.last %}, {% endif %}
+                    <a href="{router page='blog'}{$oBlog->getUrl()}/" target="_blank">{$oBlog->getTitle()|escape:'html'}</a>{% if!$smarty.foreach.blog_user.last %}, {% endif %}
                 {/foreach}
             </td>
         </tr>
     {% endif %}
 #}
+
+    {% if blogs_joined %}
+        <tr>
+            <td class="var">Состоит в:</td>
+            <td>
+                {% for blog in blogs_joined %}
+                    <a href="{{ ROOT_URL }}blog/{{blog.url}}/">{{ blog.title }}</a>{% if loop.last != true %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+    {% endif %}
+
     <tr>
         <td class="var">Зарегистрирован:</td>
         <td class="no-pdng">{{ blogger.user_date_register }}</td>
+    </tr>
+
+    <tr>
+        <td class="var">Последний визит:</td>
+        <td class="no-pdng">{{ blogger.user_profile_date }}</td>
     </tr>
 
 </table>

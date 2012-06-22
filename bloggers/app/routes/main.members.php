@@ -87,9 +87,33 @@ $app->get('/bloggers/:id', function($id) use ($app, $db) {
       $blogger_friends[$key]['user_profile_avatar'] = str_replace('100x100', '24x24', $value['user_profile_avatar']);
     }
 
+    // создал
+    $sql_blogs_created = "SELECT blog_id as id, blog_title as title, blog_url as url
+                          FROM tc_blog
+                          WHERE 
+                            user_owner_id = {$id}
+                            AND
+                            blog_type<>'personal' ";
+    $blogs_created = $db->dbFetchALL($sql_blogs_created);
+
+    // вступил
+    $sql_blogs_joined = "SELECT tc_blog.blog_id as id, tc_blog.blog_title as title, tc_blog.blog_url as url
+                          FROM tc_blog
+                          JOIN tc_blog_user ON (tc_blog.blog_id = tc_blog_user.blog_id) 
+                          WHERE 
+                            tc_blog_user.user_id = {$id}
+                            AND
+                            tc_blog.blog_type<>'personal' ";
+    $blogs_joined = $db->dbFetchALL($sql_blogs_joined);
+
+    //echo json_encode($blogs_created);
+
     $data = array('currentpage' => 'members',
                   'blogger'    => $blogger,
-                  'blogger_friends' => $blogger_friends
+                  'blogger_friends' => $blogger_friends,
+                  'blogs_created' => $blogs_created,
+                  'blogs_joined' => $blogs_joined,
+                  'ROOT_URL' => ROOT_URL
                   );
 
     return $app->render('front/blogger.twig', $data);
