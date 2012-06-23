@@ -47,14 +47,14 @@
     {% endif %}
     <div class="profile-actions">
         <ul id="profile_actions">
-            <li><a href="https://twitter.com/share" class="twitter-share-button"
+            <li class="tw"><a href="https://twitter.com/share" class="twitter-share-button"
                        data-url="{{ siteurl }}/blogger/{{ blogger.user_id }}"
                        data-text="Лучший блоггер {{ blogger.user_login }}" data-lang="ru">Твитнуть</a></li>
-            <li><script type="text/javascript"><!--
+            <li class="vk"><script type="text/javascript"><!--
                     document.write(VK.Share.button({url: "{{ siteurl }}/blogger/{{ blogger.user_id }}",
                     title: "{{ topic.title }}"},{type: "round", text: "Мне нравится"}));
                     --></script></li>
-            <li><div class="fb-like" data-href="{{ siteurl }}/blogger/{{ blogger.user_id }}" data-action="like" data-show-faces="true" data-width="125" data-layout="button_count" data-send="false"></div></li>
+            <li class="fb"><div class="fb-like" data-href="{{ siteurl }}/blogger/{{ blogger.user_id }}" data-action="like" data-show-faces="true" data-width="125" data-layout="button_count" data-send="false"></div></li>
             <li>
                 {#<div class="share-line-od"><a class="odkl-klass" href="{{ siteurl }}/blogger/{{ blogger.user_id }}" onclick="voteOdnoklassniki(this);return false;" ></div>#}
             </li>

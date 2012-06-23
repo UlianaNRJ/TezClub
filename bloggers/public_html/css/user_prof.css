@@ -25,6 +25,9 @@
 .user-profile-header span{color:#000; background:#fff; padding:0 9px; margin:0 0 0 -4px; color:#000;}
 
 .profile-actions{width:100%;clear:both; margin:20px 0 5px 0; float:left;}
+.profile-actions .tw iframe {width:105px !important;}
+.profile-actions .vk { margin-right:10px !important;}
+.profile-actions .fb .fb_iframe_widget span {vertical-align:inherit;}
 
 .user-profile-table { width: 100%; font-size:15px; margin:0 0 20px 0;}
 .user-profile-table td { vertical-align: top; padding: 0 0 6px; line-height:20px;}
