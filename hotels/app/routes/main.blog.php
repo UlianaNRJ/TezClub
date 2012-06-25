@@ -162,7 +162,7 @@ $app->get('/hotels/blog/view/(:id)', function($id) use ($app) {
     if ($hotel) {
         $topic->set('hotel', $hotel->name);
         $hotel->soc_links = json_decode($hotel->soc_links);
-        $topic->set('hoteltzturpage', $hotel->soc_links->tzturpage);
+        $topic->set('soc_links', $hotel->soc_links);
     }
 
 

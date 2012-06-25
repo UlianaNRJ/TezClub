@@ -55,7 +55,11 @@
         {{ topic.content|raw }}
 
 		<br/>
-		<a class="ib button green corners" href="{{ topic.hoteltzturpage }}" onClick="_gaq.push(['_trackEvent', 'Hotel', 'Order_tour', '{{ topic.hotel }}']);">Заказать тур в отеле</a>
+		<a class="ib button green corners" href="{{ topic.soc_links.tzturpage }}" onClick="_gaq.push(['_trackEvent', 'Hotel', 'Order_tour', '{{ topic.hotel }}']);">Заказать тур в отеле</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="ib button green corners" href="{{ topic.soc_links.vkgroup }}" onClick="_gaq.push(['_trackEvent', 'External_links', 'vk', '{{ topic.hotel }}']); ">Отель в соцсети</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="ib button green corners" href="{{ topic.soc_links.site }}" onClick="_gaq.push(['_trackEvent', 'External_links', 'Exit', '{{ topic.hotel }}']); ">Сайт отеля</a>
 
         <div class="poll" id="rating{{ topic.id }}">
             <div class="share-line">
@@ -83,7 +87,7 @@
 
             <div class="ib statistic">Рейтинг статьи: <span class="score">{{ topic.count_bals|number_format(2) }}</span></div><div class="ib vote-result"></div>
 
-            <div  class="rating ib vote">
+            <div id="rating{{ topic.id }}" class="rating ib vote">
                 <div class="vote-wrap">
                     <div class="vote-hover-text">Проголосовать:</div>
                     <div class="vote-hover" >
@@ -103,9 +107,9 @@
                $('#rating{{ topic.id }}').rating({
                     fx: 'full',
                     stars: 5,
-                    image: '/img/stars.png',
-                    loader: '/img/ajax-loader.gif',
-                    url: '/topic/vote'
+                    image: '{{ hotelssiteurl }}/img/stars.png',
+                    loader: '{{ hotelssiteurl }}/img/ajax-loader.gif',
+                    url: '{{ hotelssiteurl }}/topic/vote'
                     {% if not userCurrent %},readOnly: true{% endif %}
                });
              });
