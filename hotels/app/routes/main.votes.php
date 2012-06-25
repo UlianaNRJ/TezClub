@@ -1,10 +1,11 @@
 <?php
-
-
 // голосовалка
 // 
-$app->post('/hotels/topic/vote', function() use ($app) {
+$app->post('/topic/vote', function() use ($app) {
     // находим топик за который голосовали
+    $data['status'] = 'ERR';
+    $data['msg'] = '111';
+
     $id = $app->request()->post('topic-id');
     $topic = Model::factory('SprTopic')->where('active', 1)->find_one($id);
     if (! $topic instanceof SprTopic) {
@@ -22,7 +23,7 @@ $app->post('/hotels/topic/vote', function() use ($app) {
         
         $data['status'] = 'ERR';
         $data['msg'] = 'Вы уже голосовали.';
-    } else{
+    } else {
         $topic->count_bals = ($topic->count_bals*$topic->count_voises + floatval($app->request()->post('score')))/($topic->count_voises + 1);
         $topic->count_voises = $topic->count_voises + 1;
         $topic->save();
@@ -31,7 +32,7 @@ $app->post('/hotels/topic/vote', function() use ($app) {
         $data['msg'] = 'Спасибо, Ваш голос учтен';
         if($use_cookie)
         {
-            setcookie($cookie_name,$id,time() + $expires);
+            setcookie($cookie_name,$id,time() + $expires, '/', '.tezclub.com.ua');
         }
         $user = $app->view()->getData('userCurrent');
         // Сохраняем что пользователь проголосовал
@@ -57,7 +58,7 @@ $app->post('/hotels/topic/vote', function() use ($app) {
 
 
 // 
-$app->post('/hotels/blogger/vote', function() use ($app) {
+$app->post('/blogger/vote', function() use ($app) {
     // находим топик за который голосовали
     $id = $app->request()->post('blogger-id');
     $blogger = Model::factory('SprBlogger')->where('active', 1)->find_one($id);
@@ -84,7 +85,7 @@ $app->post('/hotels/blogger/vote', function() use ($app) {
         $data['msg'] = 'Спасибо, Ваш голос учтен';
         if($use_cookie)
         {
-            setcookie($cookie_name,$id,time() + $expires);
+            setcookie($cookie_name,$id,time() + $expires, '/', '.tezclub.com.ua');
         }
         $user = $app->view()->getData('userCurrent');
         // Сохраняем что пользователь проголосовал
