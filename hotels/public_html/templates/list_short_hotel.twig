@@ -65,9 +65,9 @@
                    $('#rating{{ topic.id }}').rating({
                         fx: 'full',
                         stars: 5,
-                        image: '/img/stars.png',
-                        loader: '/img/ajax-loader.gif',
-                        url: '/topic/vote'
+                        image: '{{ hotelssiteurl }}/img/stars.png',
+                        loader: '{{ hotelssiteurl }}/img/ajax-loader.gif',
+                        url: '{{ hotelssiteurl }}/topic/vote'
                         {% if not userCurrent %},readOnly: true{% endif %}
                    });
                  });
