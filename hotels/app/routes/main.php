@@ -1,10 +1,10 @@
 <?php
-$app->get('/', function() use ($app) {
+/*$app->get('/', function() use ($app) {
     $app->redirect('//tezclub.com.ua/hotels');
-});
+});*/
 
 // index page
-$app->get('/hotels', function() use ($app) {
+$app->get('/hotels(/)', function() use ($app) {
 
     $bloggers = Model::factory('SprBlogger')
                     ->where('active', 1)
