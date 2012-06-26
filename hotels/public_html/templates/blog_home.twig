@@ -16,7 +16,7 @@
         Страница
         <ul class="c ib pagging">
         {% for page in pagination %}
-            {% if page.current == current %}
+            {% if page.current %}
                 <li class="ib active">{{page.id}}</li>
             {% else %}
                 <li class="ib"><a href="/hotels/blog/{{page.id}}">{{page.id}}</a></li>
