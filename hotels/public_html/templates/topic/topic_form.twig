@@ -7,9 +7,80 @@
             new nicEditor({fullPanel : true}).panelInstance('content');
         });
   //]]>
+
+function checkForm(form) {
+    // Заранее объявим необходимые переменные
+    var el, // Сам элемент
+    elName, // Имя элемента формы
+    value, // Значение
+    type; // Атрибут type для input-ов
+    // Массив списка ошибок, по дефолту пустой
+    var errorList = [];
+    // Хэш с текстом ошибок (ключ - ID ошибки)
+    var errorText = {
+    1 : "Не заполнено поле 'title'",
+    2 : "Не заполнено поле 'E-mail'",
+    3 : "Не прикреплен файл",
+    4 : "Нет текста",
+    5 : "Не выбран Блоггер или Отель",
+    6 : "Не заполнено поле 'tags'",
+    7 : "Не заполнено поле 'operator'",
+    8 : "Не заполнено поле 'operatorlink'"
+    }
+    // Получаем семейство всех элементов формы
+    // Проходимся по ним в цикле
+    for (var i = 0; i < form.elements.length; i++) {
+    el = form.elements[i];
+    elName = el.nodeName.toLowerCase();
+    value = el.value;
+    if (elName == "input") { // INPUT
+    // Определяем тип input-а
+    type = el.type.toLowerCase();
+    // Разбираем все инпуты по типам и обрабатываем содержимое
+    switch (type) {
+    case "text" :
+    if (el.name == "title" && value == "") errorList.push(1);
+    if (el.name == "tags" && value == "") errorList.push(6);
+    if (el.name == "operator" && value == "") errorList.push(7);
+    if (el.name == "operatorlink" && value == "") errorList.push(8);
+    break;
+    case "file" :
+    if (value == "") errorList.push(3);
+    break;
+    case "checkbox" :
+    // Ничего не делаем, хотя можем
+    break;
+    case "radio" :
+    // Ничего не делаем, хотя можем
+    break;
+    default :
+    // Сюда попадают input-ы, которые не требуют обработки
+    // type = hidden, submit, button, image
+    break;
+    }
+    } else if (elName == "textarea") { // TEXTAREA
+    if (value == "" || value == "<br>") errorList.push(4);
+    } else if (elName == "select") { // SELECT
+    if (value == 0) errorList.push(5);
+    } else {
+    // Обнаружен неизвестный элемент ;)
+    }
+    }
+    // Финальная стадия
+    // Если массив ошибок пуст - возвращаем true
+    if (!errorList.length) return true;
+    // Если есть ошибки - формируем сообщение, выовдим alert
+    // и возвращаем false
+    var errorMsg = "При заполнении формы допущены следующие ошибки:\n\n";
+    for (i = 0; i < errorList.length; i++) {
+    errorMsg += errorText[errorList[i]] + "\n";
+    }
+    alert(errorMsg);
+    return false;
+}
   </script>
 <h1>{{ action_name }} topic</h1>
-<form action="{{ action_url }}" method="post" class="form-horizontal">
+<form action="{{ action_url }}" method="post" class="form-horizontal" onsubmit="return checkForm(this);">
     <fieldset>
         <div class="control-group">
             <label class="control-label" for="title">Title</label>
@@ -22,6 +93,7 @@
             <label class="control-label" for="blogger">Blogger</label>
             <div class="controls">
               <select  id="blogger" name="blogger">
+                <option value="0">...</option>
                 {% for blogger in bloggers %}
                     <option {% if blogger.id == topic.bl_id %}selected{% endif %} value="{{blogger.id}}">{{blogger.name}}</option>
                 {% endfor %}
@@ -47,6 +119,7 @@
             <label class="control-label" for="hotel">Hotel</label>
             <div class="controls">
               <select  id="hotel" name="hotel">
+                <option value="0">...</option>
                 {% for hotel in hotels %}
                     <option {% if hotel.id == topic.hotel_id %}selected{% endif %} value="{{hotel.id}}">{{hotel.name}}</option>
                 {% endfor %}
