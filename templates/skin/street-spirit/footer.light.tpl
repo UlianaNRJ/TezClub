@@ -2,17 +2,7 @@
 {hook run='body_end'}
 <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-27624662-1']);
-  _gaq.push(['_setDomainName', 'tezclub.com.ua']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
+var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-27624662-1']); _gaq.push(['_setDomainName', 'tezclub.com.ua']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_addOrganic', 'meta.ua', 'q']); _gaq.push(['_addOrganic', 'mail.ru', 'q']); _gaq.push(['_addOrganic', 'rambler.ru', 'search']); _gaq.push(['_addOrganic', 'nigma.ru', 's']); _gaq.push(['_addOrganic', 'aport.ru', 'r']); _gaq.push(['_addOrganic', 'blogs.yandex.ua', 'text']); _gaq.push(['_addOrganic', 'webalta.ru', 'q']); _gaq.push(['_addOrganic', 'gogo.ru', 'q']); _gaq.push(['_addOrganic', 'bigmir.net', 'q']); _gaq.push(['_addOrganic', 'tut.by', 'query']); _gaq.push(['_addOrganic', 'i.ua', 'q']); _gaq.push(['_addOrganic', 'online.ua', 'q']); _gaq.push(['_addOrganic', 'search.com.ua', 'q']); _gaq.push(['_addOrganic', 'search.ua', 'query']); _gaq.push(['_addOrganic', 'ukr.net', 'search_query']); _gaq.push(['_addOrganic', 'qip.ru', 'query']); _gaq.push(['_addOrganic', 'livetool.ru', 'text']); _gaq.push(['_addOrganic', 'ngs.ru', 'q']); _gaq.push(['_addOrganic', 'icq.com', 'q']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
 </script>
 </body>
 </html>
