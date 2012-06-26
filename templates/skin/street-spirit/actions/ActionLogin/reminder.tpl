@@ -4,7 +4,7 @@
 
 
 	
-	<form action="{router page='login'}reminder/" method="post">
+	<form action="{router page='login'}reminder/" method="post" class="registration_form">
 		<div class="center">
 			<h2 class="form-header">{$aLang.password_reminder}</h2>
 
@@ -13,7 +13,7 @@
 			<div class="reg-exp">На ваш почтовый ящик будет выслана ссылка с инструкцией по смене пароля.</div>
 		</div>
 		<div class="button-line">
-			<div class="center"><span><input type="submit" name="submit_reminder" class="button" value="{$aLang.password_reminder_submit}" /></span></div>
+			<div class="center"><span><input type="submit" name="submit_reminder" class="button white corners hand" value="{$aLang.password_reminder_submit}" /></span></div>
 		</div>
 	</form>
 

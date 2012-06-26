@@ -29,7 +29,7 @@
 
 			<p><label>{$aLang.registration_invite_code}<br />
 			<input type="text" tabindex="4" name="invite_code" class="input-text"/></label></p>
-			<input type="submit" tabindex="5" name="submit_invite" value="{$aLang.registration_invite_check}" class="button button-login" />
+			<input type="submit" tabindex="5" name="submit_invite" value="{$aLang.registration_invite_check}" class="button white corners hand" />
 		</form>
 	{/if}
 </div>
