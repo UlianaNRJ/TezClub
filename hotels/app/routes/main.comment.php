@@ -2,7 +2,7 @@
 
 // добавление комментария в топик
 
-$app->post('/hotels/topic/comment', function() use ($app) {
+$app->post('/topic/comment', function() use ($app) {
     // находим топик за который голосовали
     $topic_id = $app->request()->post('topic-id');
     $topic = Model::factory('SprTopic')->where('active', 1)->find_one($topic_id);

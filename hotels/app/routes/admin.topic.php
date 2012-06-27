@@ -6,10 +6,10 @@ $app->get('/admin/topic', $authCheck, function() use ($app) {
                     ->find_many();
     foreach ($topics as $key => $value) {
         
-        $bloger = Model::factory('SprBlogger') ->find_one($value->bl_id);
+        $bloger = Model::factory('SprBlogger')->find_one($value->bl_id);
         $value->set('author', $bloger->name);
 
-        $hotel = Model::factory('SprHotel') ->find_one($value->hotel_id);
+        $hotel = Model::factory('SprHotel')->find_one($value->hotel_id);
         $value->set('hotel', $hotel->name);
 
     }
