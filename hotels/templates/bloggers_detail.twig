@@ -7,9 +7,9 @@
     <div class="c info">
         <div class="ib avatar">
             {% if blogger.image %}
-                <img src="{{ hotelssiteurl }}/{{ blogger.image }}.225" height="225" width="225" alt="avatar" class="ib"/>
+                <img src="/hotels/{{ blogger.image }}.225" height="225" width="225" alt="avatar" class="ib"/>
             {% else %}
-                <img src="{{ hotelssiteurl }}/img/avatar.png" height="225" width="225" alt="avatar" class="ib"/>
+                <img src="/hotels/img/avatar.png" height="225" width="225" alt="avatar" class="ib"/>
             {% endif %}
 
         <div class="poll" id="rating{{ blogger.id }}">
@@ -35,9 +35,9 @@
                 $('#rating{{ blogger.id }}').rating({
                     fx: 'full',
                     stars: 5,
-                    image: '{{ hotelssiteurl }}/img/stars.png',
-                    loader: '{{ hotelssiteurl }}/img/ajax-loader.gif',
-                    url: '{{ hotelssiteurl }}/blogger/vote'
+                    image: '/hotels/img/stars.png',
+                    loader: '/hotels/img/ajax-loader.gif',
+                    url: '/hotels/blogger/vote'
                     {% if not userCurrent %},readOnly: true{% endif %}
                 });
              });
@@ -88,9 +88,9 @@
                 {% for hotel in hotels %}
                 <li class="c {% if hotel.active == 0 %} noactive {% endif %}">
                     {% if hotel.image %}
-                        <img src="{{ hotelssiteurl }}/{{ hotel.image }}.25" width="25" alt="avatar" class="ib"/>
+                        <img src="/hotels/{{ hotel.image }}.25" width="25" alt="avatar" class="ib"/>
                     {% else %}
-                        <img src="{{ hotelssiteurl }}/img/hotel-25.png" width="25" alt="avatar" class="ib"/>
+                        <img src="/hotels/img/hotel-25.png" width="25" alt="avatar" class="ib"/>
                     {% endif %}
                     <a class="ib name" {% if hotel.active != 0 %} href="/hotels/hotel/{{ hotel.id }}" {% endif %}>{{ hotel.name }}</a>
                     <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>

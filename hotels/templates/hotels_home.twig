@@ -3,7 +3,7 @@
 {% block page_title %} Все отели - TezClub{% endblock %}
 
 {% block content %}
-<script type="text/javascript" src="{{ hotelssiteurl }}/js/jquery.wookmark.min.js"></script>
+<script type="text/javascript" src="/hotels/js/jquery.wookmark.min.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function(){
         $('.info .item').wookmark({
@@ -55,9 +55,9 @@
                     <li class="c {% for htype in hotel.htypes %} ht{{ htype.id }}{% endfor %}{% if hotel.active == 0 %} noactive {% endif %}">
 
                         {% if hotel.image %}
-                            <img src="{{ hotelssiteurl }}/{{ hotel.image }}.25"  width="25" alt="avatar" class="ib"/>
+                            <img src="/hotels/{{ hotel.image }}.25"  width="25" alt="avatar" class="ib"/>
                         {% else %}
-                            <img src="{{ hotelssiteurl }}/img/hotel-25.png" width="25" alt="avatar" class="ib"/>
+                            <img src="/hotels/img/hotel-25.png" width="25" alt="avatar" class="ib"/>
                         {% endif %}
                         <a class="ib name tooltip" href="/hotels/hotel/{{ hotel.id }}">{{ hotel.name }}
                             <span >

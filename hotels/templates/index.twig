@@ -3,7 +3,7 @@
 {% block page_title %} Bloggers In Hotels - TezClub{% endblock %}
 
 {% block page_head %}
-<script type="text/javascript" src="{{ hotelssiteurl }}/js/jscroll.js"></script>
+<script type="text/javascript" src="/hotels/js/jscroll.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $(".anyClass").jCarouselLite({
@@ -26,7 +26,7 @@ $(document).ready(function(){
         <p>7 известных Блоггеров расскажут и покажут Вам все преимущества и недостатки Турецких курортов.</p>
         <p>Узнавайте больше об отелях, комментируйте и голосуйте за понравившихся авторов.</p>
     </div>
-    <img src="{{ hotelssiteurl }}/img/headline.png" class="corners" width="946" height="300" alt=""/>
+    <img src="/hotels/img/headline.png" class="corners" width="946" height="300" alt=""/>
 </div>
 
 <h1 style="margin: 25px 0 10px 50px;">Блоггеры проекта</h1>
@@ -38,9 +38,9 @@ $(document).ready(function(){
         <li class="ib corners faces-item">
             <a href="/hotels/bloggers/{{ blogger.id }}">
                 {% if blogger.image != '' %}
-                <img src="{{ hotelssiteurl }}/{{ blogger.image }}.100" height="100" width="100" alt=""/>
+                <img src="/hotels/{{ blogger.image }}.100" height="100" width="100" alt=""/>
                 {% else %}
-                <img src="{{ hotelssiteurl }}/img/avatar-100.png" height="100" width="100" alt=""/>
+                <img src="/hotels/img/avatar-100.png" height="100" width="100" alt=""/>
                 {% endif %}
             </a>
             <div class="login"><a href="/hotels/bloggers/{{ blogger.id }}">{{ blogger.login }}</a></div>
@@ -60,9 +60,9 @@ $(document).ready(function(){
             {% for hotel in hotels %}
             <li class="c">
                 {% if hotel.image != '' %}
-                    <img class="ib" src="{{ hotelssiteurl }}/{{ hotel.image }}.25" width="25" alt=""/>
+                    <img class="ib" src="/hotels/{{ hotel.image }}.25" width="25" alt=""/>
                 {% else %}
-                    <img class="ib" src="{{ hotelssiteurl }}/img/hotel-25.png" width="25" alt=""/>
+                    <img class="ib" src="/hotels/img/hotel-25.png" width="25" alt=""/>
                 {% endif %}
                 <a class="ib name" href="/hotels/hotel/{{ hotel.id }}">{{ hotel.name }}</a>
                 <div class="ib count">статей <span class="score">{{ hotel.count_topic }}</span></div>

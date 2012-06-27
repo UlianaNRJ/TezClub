@@ -9,7 +9,7 @@
         <div class="ib info">
             <div class="avatar">
 	            <a href="/hotels/bloggers/{{ blogger.id }}">
-		            <img src="{{ hotelssiteurl }}/{% if blogger.image %}{{ blogger.image }}.100{% else %}/img/avatar-100.png{% endif %}" height="100" width="100" alt="avatar" />
+		            <img src="/hotels/{% if blogger.image %}{{ blogger.image }}.100{% else %}/img/avatar-100.png{% endif %}" height="100" width="100" alt="avatar" />
 	            </a>
             </div>
             <div class="data">
@@ -41,9 +41,9 @@
                        $('#rating{{ blogger.id }}').rating({
                             fx: 'full',
                             stars: 5,
-                            image: '{{ hotelssiteurl }}/img/stars.png',
-                            loader: '{{ hotelssiteurl }}/img/ajax-loader.gif',
-                            url: '{{ hotelssiteurl }}/blogger/vote'
+                            image: '/hotels/img/stars.png',
+                            loader: '/hotels/img/ajax-loader.gif',
+                            url: '/hotels/blogger/vote'
                             {% if not userCurrent %},readOnly: true{% endif %}
                        });
                      });

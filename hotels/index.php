@@ -1,13 +1,23 @@
 <?php
-require '../app/config.php';
+require 'app/config.php';
 
 // Start Slim.
 $app = new Slim(array(
 	'view' => new TwigView
 ));
+//Get the Request root URI
+$rootUri = $app->request()->getRootUri();
+
+//Get the Request resource URI
+$resourceUri = $app->request()->getResourceUri();
+
+/*print_r($app->request()->getRootUri());
+echo "<br>";
+print_r($app->request()->getResourceUri());
+*/
 
 $app->view()->setData('siteurl', 'http://'.$_SERVER["SERVER_NAME"] );
-$app->view()->setData('hotelssiteurl', HOTELS_WEB_DIR );
+//$app->view()->setData('hotelssiteurl', HOTELS_WEB_DIR );
 
 // Auth Check.
 $authCheck = function() use ($app) {
@@ -57,12 +67,12 @@ if (!empty($_COOKIE['key'])){
 }
 
 // frontend
-require '../app/routes/main.php';
+require 'app/routes/main.php';
 // backend
-require '../app/routes/admin.php';
-require '../app/routes/admin.topic.php';
-require '../app/routes/admin.hotel.php';
-require '../app/routes/admin.blogger.php';
+require 'app/routes/admin.php';
+require 'app/routes/admin.topic.php';
+require 'app/routes/admin.hotel.php';
+require 'app/routes/admin.blogger.php';
 
 
 // Slim Run.

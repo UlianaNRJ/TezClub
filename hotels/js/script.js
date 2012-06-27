@@ -44,7 +44,7 @@ $(document).ready(function(){
 		$('#submit').val('Working..');
 		$('span.error').remove();
 		
-		$.post('/topic/comment',$(this).serialize(),function(msg){
+		$.post('/hotels/topic/comment',$(this).serialize(),function(msg){
 			working = false;
 			$('#submit').val('Отправить');
 			
