@@ -98,9 +98,12 @@ CREATE TABLE IF NOT EXISTS `spr_comment` (
   `user_key` int(10) unsigned NOT NULL,
   `active` tinyint(1) DEFAULT '0',
   `timestamp` timestamp NULL DEFAULT NULL,
+  `cont_votes` int( 10 ) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- ALTER TABLE `spr_comment` ADD `cont_votes` INT( 10 ) NOT NULL DEFAULT '0' AFTER `timestamp` 
 -- --------------------------------------------------------
 
 --
